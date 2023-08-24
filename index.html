@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Website with Left Sidebar</title>
+    <style>
+        /* Reset some default styles for consistency */
+        body, h1, h2, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Basic styling for the whole page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+        }
+        
+        .sidebar h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        /* Content styles */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+            }
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <h1>Sidebar Title</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Welcome to My Website</h1>
+        <p>This is a simple website with a left sidebar.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nunc nec egestas laoreet, elit odio pharetra ligula, quis hendrerit sapien tortor eget justo.</p>
+    </div>
+</body>
+</html>
