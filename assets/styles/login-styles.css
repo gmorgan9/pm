@@ -1,0 +1,98 @@
+/* Reset some default styles for consistency */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling for the whole page */
+body {
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 100% of the viewport height */
+    margin: 0;
+}
+
+
+
+.container {
+    width: 550px !important;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center; /* Center the content horizontally within the container */
+}
+
+h2 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative; /* Add this to make child elements position relative to the form-group */
+}
+
+label {
+    display: block;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 75%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid gray;
+    background-color: #f9f9f9;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+}
+
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+}
+
+/* Style for the validation icon */
+.validation-icon {
+    position: absolute;
+    top: 65%;
+    right: 10px;
+    font-size: 45px;
+    transform: translateY(-50%);
+}
+
+::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+}
+
+
+/* Responsive styles */
+/* @media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+    }
+    .content {
+        margin-left: 0;
+    }
+} */
