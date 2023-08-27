@@ -4,9 +4,10 @@ document.getElementById('login-form').addEventListener('submit', handleLogin);
 async function handleLogin(event) {
   event.preventDefault();
 
-  const formData = new FormData(event.target); // Capture form data
-  const work_email = formData.get('work_email'); // Get the work_email from the form data
-  const password = formData.get('password'); // Get the password from the form data
+  // Capture form data
+  const formData = new FormData(event.target);
+  const work_email = formData.get('work_email');
+  const password = formData.get('password');
 
   try {
     // Send a POST request to the login endpoint
@@ -23,9 +24,8 @@ async function handleLogin(event) {
       // Parse the JSON response data
       const data = await response.json();
 
-      // Check if the login was successful based on the 'success' property in the response
       if (data.success) {
-        // Redirect to a new page or update the UI for a successful login
+        // Login was successful, you can redirect or update the UI here.
         console.log('Login successful');
       } else {
         // Display an error message to the user.
