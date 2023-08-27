@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('logout-link').addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default behavior of following the link
+document.getElementById('logout-link').addEventListener('click', function (event) {
+    console.log('Logout link clicked'); // Add this line
+    event.preventDefault();
 
         // Make a POST request to the logout endpoint
         fetch('https://api.morganserver.com/api/logout', {
@@ -22,4 +22,3 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('An error occurred during logout', error);
         });
     });
-});
