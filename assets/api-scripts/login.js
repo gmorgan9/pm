@@ -38,7 +38,8 @@ async function handleLogin(event) {
 
       if (data.success) {
         // Redirect to a new page or update the UI for a successful login
-        console.log('Login successful');
+        // console.log('Login successful');
+        window.location.href = 'https://app-aarc.morganserver.com/dashboard';
       } else {
         // Display an error message to the user.
         const errorMessage = document.getElementById('error-message');
