@@ -6,16 +6,14 @@ async function handleLogin(event) {
 
   // Capture form data
   const formData = new FormData(event.target);
-  console.log('FormData:', formData);
-  const work_email = formData.get('work_email');
-  console.log('work_email:', work_email);
-  const password = formData.get('password');
   
-
+  // Make sure the 'work_email' field name matches your HTML input's 'name' attribute
+  const work_email = formData.get('work_email');
+  const password = formData.get('password');
 
   try {
     // Send a POST request to the login endpoint
-    const response = await fetch('https://api.morganserver.com/api/login', { // Use a relative URL
+    const response = await fetch('https://api.morganserver.com/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
