@@ -1,38 +1,27 @@
-// Function to handle form submission
-document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
+// Function to handle the form submission
+document.getElementById('login-form').addEventListener('submit', function (e) {
+    e.preventDefault();
 
-    // Get form values
-    const workEmail = document.getElementById('work_email').value;
-    const password = document.getElementById('password').value;
-    const csrfToken = document.querySelector('[name=csrf_token]').value;
+    // Get form data
+    const formData = new FormData(this);
 
-    // Create a data object to send in the request
-    const data = {
-        work_email: workEmail,
-        password: password,
-        csrf_token: csrfToken
-    };
-
-    // Send a POST request to your Flask API
+    // Send a POST request to the login API endpoint
     fetch('https://app-aarc-api.morganserver.com/api/login', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        body: formData
     })
     .then(response => response.json())
     .then(data => {
         if (data.message === 'Login successful') {
-            // Redirect or perform other actions on successful login
-            window.location.href = '/dashboard'; // Replace with the URL of your dashboard
+            // Redirect the user or display a success message
+            window.location.href = '/dashboard'; // Change to your dashboard URL
         } else {
-            // Display error message
-            document.getElementById('error-message').textContent = data.message;
+            // Display an error message
+            alert('Login failed. Please check your credentials.');
         }
     })
     .catch(error => {
         console.error('Error:', error);
+        alert('An error occurred while logging in.');
     });
 });
