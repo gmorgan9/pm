@@ -1,4 +1,3 @@
-
 document.getElementById('login-form').addEventListener('submit', handleLogin);
 
 async function handleLogin(event) {
@@ -24,10 +23,9 @@ async function handleLogin(event) {
             const data = await response.json();
 
             if (data.success) {
-                console.log('Login successful-client'); // Add this line
+                console.log('Login successful-client');
                 // Redirect to the dashboard page upon successful login
-                // window.location.href = 'https://app-aarc.morganserver.com/dashboard/';
-                console.log('Redirecting...'); // Add this line
+                window.location.href = 'https://app-aarc.morganserver.com/dashboard/';
             } else {
                 // Display an error message to the user.
                 const errorMessage = document.getElementById('error-message');
