@@ -15,6 +15,18 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
         if (data.message === 'Login successful') {
             // Redirect the user or display a success message
             window.location.href = 'https://app-aarc.morganserver.com/dashboard'; // Change to your dashboard URL
+
+            // After the redirect, make a request to retrieve user data
+            fetch('https://app-aarc-api.morganserver.com/api/userdata', {
+                method: 'GET',
+            })
+            .then(response => response.json())
+            .then(userData => {
+                console.log('User ID:', userData.user_id);
+            })
+            .catch(error => {
+                console.error('Error fetching user data:', error);
+            });
         } else {
             // Display an error message
             alert('Login failed. Please check your credentials.');
