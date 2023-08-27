@@ -17,6 +17,8 @@ async function handleLogin(event) {
     const loginData = { work_email, password };
 
     // Send a POST request to the login endpoint
+    console.log('Sending POST request...');
+
     const response = await fetch('https://api.morganserver.com/api/login', {
       method: 'POST',
       headers: {
