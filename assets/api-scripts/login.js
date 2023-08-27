@@ -37,6 +37,7 @@ async function handleLogin(event) {
       const data = await response.json();
 
       if (data.success) {
+        console.log('Login successful, redirecting...');
         // Redirect to the dashboard upon successful login
         window.location.href = 'https://app-aarc.morganserver.com/dashboard/';
       } else {
