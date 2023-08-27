@@ -1,4 +1,5 @@
-document.getElementById('logout-link').addEventListener('click', function (event) {
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('logout-link').addEventListener('click', function (event) {
     event.preventDefault(); // Prevent the default behavior of following the link
 
     // Make a POST request to the logout endpoint
@@ -22,4 +23,5 @@ document.getElementById('logout-link').addEventListener('click', function (event
     .catch((error) => {
         console.error('An error occurred during logout', error);
     });
+});
 });
