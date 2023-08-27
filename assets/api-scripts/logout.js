@@ -17,7 +17,7 @@ document.getElementById('logout-link').addEventListener('click', function (e) {
     .then(data => {
         if (data.message === 'Logout successful') {
             // Redirect the user to the login page or perform any other desired action
-            window.location.href = '/login'; // Change to your login page URL
+            window.location.href = 'https://app-aarc.morganserver.com/'; // Change to your login page URL
         } else {
             // Handle logout failure
             alert('Logout failed. Please try again.');
