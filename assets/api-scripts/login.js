@@ -10,7 +10,7 @@ async function loginUser(event) {
   
     try {
       // Send a POST request to your backend
-      const response = await fetch('/api/login', {
+      const response = await fetch('https://api.morganserver.com/api/login', {
         method: 'POST',
         body: formData,
       });
