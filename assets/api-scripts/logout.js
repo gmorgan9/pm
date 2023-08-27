@@ -6,7 +6,7 @@ document.getElementById('logout-link').addEventListener('click', function (e) {
     const user_id = getUserId(); // You need to implement getUserId() to get the user's ID
 
     // Send a POST request to the logout endpoint
-    fetch('/api/logout', {
+    fetch('https://app-aarc-api.morganserver.com/api/logout', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded', // Set the content type
