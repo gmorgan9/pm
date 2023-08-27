@@ -8,7 +8,7 @@ document.getElementById('logout-link').addEventListener('click', function (event
             'Content-Type': 'application/json',
         },
         // Include any necessary data in the request body
-        body: JSON.stringify({ token: 'your-jwt-token' }),
+        // body: JSON.stringify({ token: 'your-jwt-token' }),
     })
     .then((response) => {
         if (response.ok) {
