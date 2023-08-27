@@ -109,16 +109,22 @@
             </ol>
           </nav>
 
-          <div id="user-info">
-            <!-- Display the user's email -->
-            <h3>Welcome, {{ work_email }}</h3>
-            <p>User ID: {{ user_id }}</p>
-            <!-- Add more user data as needed -->
-        </div>
+          <div id="user-id"></div>
+          <div id="user-email"></div>
     </div>
 
     <script src="../assets/scripts/dropdown.js"></script>
     <script src="../assets/api-scripts/logout.js"></script>
+
+    <script>
+        // Access the session variables set by Flask
+        var userEmail = "{{ session['work_email'] }}";
+        var userId = "{{ session['user_id'] }}";
+    
+        // Update the HTML elements with the user's data
+        document.getElementById('user-email').textContent = userEmail;
+        document.getElementById('user-id').textContent = userId;
+    </script>
 
     
 </body>
