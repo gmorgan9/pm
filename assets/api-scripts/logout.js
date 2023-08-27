@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.location.href = 'https://app-aarc.morganserver.com/';
             } else {
                 // Handle logout error, e.g., display an error message
-                console.error('Logout request failed');
+                console.error('Logout request failed - client');
             }
         })
         .catch((error) => {
