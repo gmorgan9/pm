@@ -113,6 +113,40 @@
 
     <script src="../assets/scripts/dropdown.js"></script>
     <script src="../assets/api-scripts/logout.js"></script>
+
+    <script>
+        // Function to fetch authenticated user data
+function fetchUserData() {
+    $.ajax({
+        url: "/api/authenticated_user",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            // Handle the received user data
+            var userInfoContainer = document.getElementById("user-info");
+
+            // Construct the HTML to display user information
+            var userHTML = `
+                <h3>Welcome, ${data.work_email}</h3>
+                <p>User ID: ${data.user_id}</p>
+                <!-- Add more user data as needed -->
+            `;
+
+            // Update the user-info container with the user's data
+            userInfoContainer.innerHTML = userHTML;
+        },
+        error: function (xhr, status, error) {
+            console.error("Error fetching user data: " + error);
+        },
+    });
+}
+
+// Call the function to fetch and display user data when the dashboard page loads
+$(document).ready(function () {
+    fetchUserData();
+});
+
+    </script>
     
 </body>
 </html>

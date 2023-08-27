@@ -65,7 +65,9 @@
                         if (response.message === 'You are logged in successfully') {
                             // Redirect to the dashboard upon successful login
                             window.location.href = 'https://app-aarc.morganserver.com/dashboard/';
+                            var userEmail = "{{ session['user_email'] }}";
                         }
+                        document.getElementById('user-email').textContent = userEmail;
                     },
                     error: function(xhr, status, error) {
                         // Handle login error
