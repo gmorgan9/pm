@@ -22,7 +22,12 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
             })
             .then(response => response.json())
             .then(userData => {
-                console.log('User ID:', userData.user_id);
+                // Display user details in the div
+                const userInfoDiv = document.getElementById('user-info');
+                userInfoDiv.innerHTML = `
+                    <p>User ID: ${userData.user_id}</p>
+                    <p>Email: ${userData.work_email}</p>
+                `;
             })
             .catch(error => {
                 console.error('Error fetching user data:', error);
