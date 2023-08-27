@@ -21,14 +21,13 @@ async function handleLogin(event) {
 
     // Inside the response handling section of your client-side code
     const response = await fetch('https://api.morganserver.com/api/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(loginData),
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(loginData),
+    credentials: 'include', // Include credentials in the request
     });
-  
-    console.log('Server Response:', response);
   
 
     // Check if the response status indicates success (status codes 200-299)
