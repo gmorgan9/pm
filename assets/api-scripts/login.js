@@ -1,37 +1,33 @@
-// login.js
-
-// Function to handle form submission
-async function loginUser(event) {
-    event.preventDefault();
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent default form submission
   
-    // Get form data
-    const form = document.getElementById('login-form');
-    const formData = new FormData(form);
+    const work_email = document.getElementById('work_email').value;
+    const password = document.getElementById('password').value;
   
     try {
-      // Send a POST request to your backend
       const response = await fetch('https://api.morganserver.com/api/login', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ work_email, password }),
       });
   
-      const data = await response.json();
-  
-      if (data.success) {
-        // Login was successful, redirect or perform other actions
-        window.location.href = '/dashboard'; // Redirect to a dashboard page
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          // Login was successful, you can redirect or update the UI here.
+          console.log('Login successful');
+        } else {
+          // Display an error message to the user.
+          const errorMessage = document.getElementById('error-message');
+          errorMessage.textContent = data.message;
+        }
       } else {
-        // Display an error message to the user
-        const errorMessage = document.getElementById('error-message');
-        errorMessage.textContent = data.message;
-        errorMessage.style.display = 'block';
+        console.error('Login request failed');
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('An error occurred during login', error);
     }
-  }
-  
-  // Attach the login function to the form's submit event
-  const loginForm = document.getElementById('login-form');
-  loginForm.addEventListener('submit', loginUser);
+  });
   
