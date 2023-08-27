@@ -1,3 +1,14 @@
+// Function to decode JWT token and get user email
+function getUserEmailFromToken(token) {
+    try {
+        const decodedToken = jwt_decode(token); // You'll need to include a JWT decoding library like jwt-decode
+        return decodedToken.work_email; // Assuming 'work_email' is the key for the email in your token
+    } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+    }
+}
+
 // Function to handle form submission
 async function handleSubmit(event) {
     event.preventDefault();
@@ -26,8 +37,14 @@ async function handleSubmit(event) {
             // Assuming the token is returned in the response
             const token = result.token;
 
-            // You can store the token in localStorage or a cookie for later use
+            // Store the token in localStorage for later use
             localStorage.setItem('token', token);
+
+            // Get the user's email from the token
+            const userEmail = getUserEmailFromToken(token);
+
+            // Display the user's email (replace 'user-email-element' with the actual HTML element ID)
+            document.getElementById('user-email-element').textContent = userEmail;
 
             // Redirect or perform other actions as needed
             window.location.href = '/dashboard'; // Redirect to the dashboard
