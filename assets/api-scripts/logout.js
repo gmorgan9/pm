@@ -12,6 +12,7 @@ document.getElementById('logout-link').addEventListener('click', function (e) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded', // Set the content type
+                'Origin': 'https://app-aarc.morganserver.com',
             },
             body: `user_id=${user_id}`, // Send the user_id in the request body
         })
