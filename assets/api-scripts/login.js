@@ -5,20 +5,24 @@ async function handleLogin(event) {
   event.preventDefault();
 
   // Capture form data
-  const formData = new FormData(event.target);
+  const form = event.target;
+  const formData = new FormData(form);
   
-  // Make sure the 'work_email' field name matches your HTML input's 'name' attribute
+  // Extract the values of 'work_email' and 'password' fields from the form data
   const work_email = formData.get('work_email');
   const password = formData.get('password');
 
   try {
+    // Create an object with the login data
+    const loginData = { work_email, password };
+
     // Send a POST request to the login endpoint
     const response = await fetch('https://api.morganserver.com/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ work_email, password }),
+      body: JSON.stringify(loginData),
     });
 
     // Check if the response status indicates success (status codes 200-299)
