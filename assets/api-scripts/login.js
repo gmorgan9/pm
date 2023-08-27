@@ -11,7 +11,7 @@ async function handleLogin(event) {
 
   try {
     // Send a POST request to the login endpoint
-    const response = await fetch('https://api.morganserver.com/api/login', {
+    const response = await fetch('https://api.morganserver.com/api/login', { // Use a relative URL
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ async function handleLogin(event) {
       const data = await response.json();
 
       if (data.success) {
-        // Login was successful, you can redirect or update the UI here.
+        // Redirect to a new page or update the UI for a successful login
         console.log('Login successful');
       } else {
         // Display an error message to the user.
