@@ -2,14 +2,11 @@
 document.getElementById('login-form').addEventListener('submit', handleLogin);
 
 async function handleLogin(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const formData = new FormData(event.target); // Capture form data
-    console.log(formData.get('work_email'));
-
-  // Retrieve the values of the 'work_email' and 'password' fields from the form
-//   const work_email = document.getElementById('work_email').value;
-//   const password = document.getElementById('password').value;
+  const formData = new FormData(event.target); // Capture form data
+  const work_email = formData.get('work_email'); // Get the work_email from the form data
+  const password = formData.get('password'); // Get the password from the form data
 
   try {
     // Send a POST request to the login endpoint
