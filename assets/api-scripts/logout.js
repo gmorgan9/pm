@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'Content-Type': 'application/json',
         },
         // Include any necessary data in the request body
-        // body: JSON.stringify({ token: 'your-jwt-token' }),
+        body: JSON.stringify({ token: 'jhduHDJhfF94J9mdjaadf89dfajLJ' }),
     })
     .then((response) => {
         if (response.ok) {
