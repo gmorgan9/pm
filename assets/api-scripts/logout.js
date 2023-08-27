@@ -1,16 +1,15 @@
-document.getElementById('logout-link').addEventListener('click', function (event) {
-    console.log('Logout link clicked'); // Add this line
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('logout-link').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default behavior of following the link
 
         // Make a POST request to the logout endpoint
         fetch('https://api.morganserver.com/api/logout', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ token: 'jhduHDJhfF94J9mdjaadf89dfajLJ' }),
-})
-
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            // You can include any necessary data in the request body here
+        })
         .then((response) => {
             if (response.ok) {
                 // Handle successful logout, e.g., redirect to a login page
@@ -24,3 +23,4 @@ document.getElementById('logout-link').addEventListener('click', function (event
             console.error('An error occurred during logout', error);
         });
     });
+});
