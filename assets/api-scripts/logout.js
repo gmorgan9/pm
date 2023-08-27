@@ -4,11 +4,13 @@ document.getElementById('logout-link').addEventListener('click', function (event
 
         // Make a POST request to the logout endpoint
         fetch('https://api.morganserver.com/api/logout', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ token: 'jhduHDJhfF94J9mdjaadf89dfajLJ' }),
+})
+
         .then((response) => {
             if (response.ok) {
                 // Handle successful logout, e.g., redirect to a login page
