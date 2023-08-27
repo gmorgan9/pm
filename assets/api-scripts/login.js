@@ -1,41 +1,38 @@
-document.getElementById('login-form').addEventListener('submit', handleLogin);
+// Function to handle form submission
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
 
-async function handleLogin(event) {
-    event.preventDefault();
+    // Get form values
+    const workEmail = document.getElementById('work_email').value;
+    const password = document.getElementById('password').value;
+    const csrfToken = document.querySelector('[name=csrf_token]').value;
 
-    const form = event.target;
-    const formData = new FormData(form);
-    const work_email = formData.get('work_email');
-    const password = formData.get('password');
+    // Create a data object to send in the request
+    const data = {
+        work_email: workEmail,
+        password: password,
+        csrf_token: csrfToken
+    };
 
-    try {
-        const loginData = { work_email, password };
-
-        const response = await fetch('https://api.morganserver.com/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(loginData),
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-
-            if (data.success) {
-                console.log('Login successful-client');
-                // Redirect to the dashboard page upon successful login
-                window.location.href = 'https://app-aarc.morganserver.com/dashboard/';
-            } else {
-                // Display an error message to the user.
-                const errorMessage = document.getElementById('error-message');
-                errorMessage.textContent = data.message;
-            }
-            
+    // Send a POST request to your Flask API
+    fetch('https://app-aarc-api.morganserver.com/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Login successful') {
+            // Redirect or perform other actions on successful login
+            window.location.href = '/dashboard'; // Replace with the URL of your dashboard
         } else {
-            console.error('Login request failed');
+            // Display error message
+            document.getElementById('error-message').textContent = data.message;
         }
-    } catch (error) {
-        console.error('An error occurred during login', error);
-    }
-}
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
