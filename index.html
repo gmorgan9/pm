@@ -21,7 +21,7 @@
             Log in to track and see the process of your audit process.
         </p>
         <div class="pb-3"></div>
-        <form id="login-form" onsubmit="return validateForm()" autocomplete="off" method="POST">
+        <form id="login-form" onsubmit="return validateForm()" action="https://api.morganserver.com/api/login" autocomplete="off" method="POST">
 
             <div class="form-group">
                 <input type="email" id="work_email" name="work_email" placeholder="name@company.com" required>
@@ -42,6 +42,6 @@
 
 
     <script src="/assets/scripts/email-validation.js"></script>
-    <script src="/assets/api-scripts/login.js"></script>
+    <!-- <script src="/assets/api-scripts/login.js"></script> -->
 </body>
 </html>
