@@ -25,7 +25,7 @@ async function handleLogin(event) {
 
       // Check if the login was successful based on the 'success' property in the response
       if (data.success) {
-        // Login was successful; you can redirect or update the UI here.
+        // Redirect to a new page or update the UI for a successful login
         console.log('Login successful');
       } else {
         // Display an error message to the user.
