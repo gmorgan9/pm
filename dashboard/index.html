@@ -113,7 +113,37 @@
 
     <script src="../assets/scripts/dropdown.js"></script>
     <script src="../assets/api-scripts/logout.js"></script>
-    <script src="../assets/api-scripts/login.js"></script>
+    <script>
+        function displayUserData() {
+    // Send a GET request to retrieve user data
+    fetch('https://app-aarc-api.morganserver.com/api/userdata', {
+        method: 'GET',
+    })
+    .then(response => response.json())
+    .then(userData => {
+        // Get the user-info div element
+        const userInfoDiv = document.getElementById('user-info');
+
+        // Check if user data exists
+        if (userData.user_id) {
+            // Create HTML content to display user details
+            const userInfoHTML = `
+                <p>User ID: ${userData.user_id}</p>
+                <p>Email: ${userData.work_email}</p>
+            `;
+
+            // Set the HTML content in the user-info div
+            userInfoDiv.innerHTML = userInfoHTML;
+        } else {
+            // If user data is not found, display an error message
+            userInfoDiv.innerHTML = '<p>User data not found.</p>';
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching user data:', error);
+    });
+}
+    </script>
     <!-- <script src="../assets/api-scripts/user-data.js"></script> -->
 </body>
 </html>
