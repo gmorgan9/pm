@@ -119,7 +119,7 @@
     <script>
         // Access the session variables set by Flask
         var userEmail = "{{ session['work_email'] }}";
-        var userId = "{{ session['user_id'] }}";
+        var userId = "{{ session.get('user_id') }}";
     
         // Update the HTML elements with the user's data
         document.getElementById('user-email').textContent = userEmail;
