@@ -15,11 +15,12 @@ loginForm.addEventListener('submit', async (event) => {
             headers: {
                 'Content-Type': 'application/json'
             },
+            credentials: 'include', // Include credentials (cookies)
+            mode: 'same-origin',    // Ensure same-origin requests
             body: JSON.stringify({ work_email: workEmail, password: password })
         });
 
         if (response.ok) {
-            const data = await response.json();
             loginForm.style.display = 'none';
             logoutButton.style.display = 'block';
             getUserDetails();
@@ -35,7 +36,8 @@ logoutButton.addEventListener('click', async () => {
     try {
         const response = await fetch('https://app-aarc-api.morganserver.com/logout', {
             method: 'POST',
-            credentials: 'include'  // Include credentials (cookies)
+            credentials: 'include', // Include credentials (cookies)
+            mode: 'same-origin'     // Ensure same-origin requests
         });
 
         if (response.ok) {
@@ -54,7 +56,8 @@ async function getUserDetails() {
     try {
         const response = await fetch('https://app-aarc-api.morganserver.com/user', {
             method: 'GET',
-            credentials: 'include'  // Include credentials (cookies)
+            credentials: 'include', // Include credentials (cookies)
+            mode: 'same-origin'     // Ensure same-origin requests
         });
 
         if (response.ok) {
@@ -68,5 +71,5 @@ async function getUserDetails() {
     }
 }
 
-// Check if a user is logged in and fetch user details on page load
+// Check if a JWT token exists and fetch user details on page load
 getUserDetails();
