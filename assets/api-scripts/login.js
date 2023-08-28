@@ -20,8 +20,6 @@ loginForm.addEventListener('submit', async (event) => {
 
         if (response.ok) {
             const data = await response.json();
-            // Set the access token as a cookie
-            document.cookie = `access_token=${data.access_token}; path=/`; // Adjust path as needed
             loginForm.style.display = 'none';
             logoutButton.style.display = 'block';
             getUserDetails();
@@ -37,14 +35,10 @@ logoutButton.addEventListener('click', async () => {
     try {
         const response = await fetch('https://app-aarc-api.morganserver.com/logout', {
             method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${getCookie('access_token')}`
-            }
+            credentials: 'include'  // Include credentials (cookies)
         });
 
         if (response.ok) {
-            // Remove the access token cookie
-            document.cookie = 'access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; // Adjust path as needed
             loginForm.style.display = 'block';
             logoutButton.style.display = 'none';
             userDetailsDiv.textContent = '';
@@ -60,9 +54,7 @@ async function getUserDetails() {
     try {
         const response = await fetch('https://app-aarc-api.morganserver.com/user', {
             method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${getCookie('access_token')}`
-            }
+            credentials: 'include'  // Include credentials (cookies)
         });
 
         if (response.ok) {
@@ -76,8 +68,5 @@ async function getUserDetails() {
     }
 }
 
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-}
+// Check if a user is logged in and fetch user details on page load
+getUserDetails();
