@@ -1,4 +1,3 @@
-// app.js
 const loginForm = document.getElementById('login-form');
 const logoutButton = document.getElementById('logout-btn');
 const userDetailsDiv = document.getElementById('user-details');
@@ -22,7 +21,7 @@ loginForm.addEventListener('submit', async (event) => {
             const data = await response.json();
             
             // Instead of storing the token in localStorage, set it as an HTTP-only cookie
-            document.cookie = `access_token=${data.access_token}; path=/; HttpOnly; SameSite=Strict`;
+            setCookie('access_token', data.access_token, 7); // Replace '7' with your desired cookie expiration in days
 
             loginForm.style.display = 'none';
             logoutButton.style.display = 'block';
@@ -40,14 +39,14 @@ logoutButton.addEventListener('click', async () => {
         const response = await fetch('https://app-aarc-api.morganserver.com/logout', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${getCookie('access_token')}` // Retrieve the token from cookies
+                'Authorization': `Bearer ${getCookie('access_token')}`
             }
         });
 
         if (response.ok) {
             // Remove the access token cookie
-            document.cookie = 'access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-            
+            deleteCookie('access_token');
+
             loginForm.style.display = 'block';
             logoutButton.style.display = 'none';
             userDetailsDiv.textContent = '';
@@ -61,7 +60,7 @@ logoutButton.addEventListener('click', async () => {
 
 async function getUserDetails() {
     try {
-        const accessToken = getCookie('access_token'); // Retrieve the token from cookies
+        const accessToken = getCookie('access_token');
         if (!accessToken) {
             console.error('Access token not found');
             return;
@@ -70,7 +69,7 @@ async function getUserDetails() {
         const response = await fetch('https://app-aarc-api.morganserver.com/user', {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${accessToken}` // Use the retrieved token
+                'Authorization': `Bearer ${accessToken}`
             }
         });
 
@@ -85,6 +84,18 @@ async function getUserDetails() {
     }
 }
 
+// Function to set a cookie
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = `expires=${date.toUTCString()}`;
+    document.cookie = `${name}=${value};${expires};path=/;HttpOnly;SameSite=Strict`;
+}
+
+// Function to delete a cookie
+function deleteCookie(name) {
+    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+}
 
 // Function to retrieve a specific cookie by name
 function getCookie(name) {
