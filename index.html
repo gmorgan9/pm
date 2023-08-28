@@ -42,16 +42,15 @@
     <script src="/assets/scripts/email-validation.js"></script>
 
     <script>
-        // Wait for the document to be ready
-$(document).ready(function () {
-    // Select the login button by its id
-    const loginButton = document.getElementById("login-button");
+       $(document).ready(function () {
+    // Select the login button by its id using jQuery
+    const loginButton = $("#login-button");
 
     // Add a click event listener to the login button
-    loginButton.addEventListener("click", function () {
+    loginButton.on("click", function () {
         // Get the values of the email and password fields
-        const email = document.getElementById("work_email").value;
-        const password = document.getElementById("password").value;
+        const email = $("#work_email").val();
+        const password = $("#password").val();
 
         // Create a JavaScript object with the email and password
         const userData = {
@@ -76,11 +75,12 @@ $(document).ready(function () {
             error: function (xhr, status, error) {
                 // Handle login error
                 const errorMessage = xhr.responseJSON.error;
-                document.getElementById("error-message").innerHTML = errorMessage;
+                $("#error-message").text(errorMessage);
             }
         });
     });
 });
+
 
     </script>
     
