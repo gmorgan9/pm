@@ -3,12 +3,9 @@ function createEmptyCookie(name) {
     document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
 }
 
-// Check if an access token cookie exists and fetch user details on page load
-const access_Token = getCookie('access_token');
-if (!access_Token) {
-    // Create an empty access token cookie if it doesn't exist
-    createEmptyCookie('access_token');
-}
+// Create an empty access token cookie on page load if it doesn't exist
+createEmptyCookie('access_token');
+
 
 const loginForm = document.getElementById('login-form');
 const logoutButton = document.getElementById('logout-btn');
