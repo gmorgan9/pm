@@ -13,7 +13,7 @@ function checkLoginStatus() {
             });
         } else {
           // User is not logged in, display a message or redirect to the login page
-          document.getElementById('profile').textContent = "You are not logged in.";
+        //   document.getElementById('profile').textContent = "You are not logged in.";
         }
       });
   }
