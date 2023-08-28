@@ -1,18 +1,34 @@
-// Function to fetch user information
-async function getUserInfo() {
+const userDetailsDiv = document.getElementById('user-details');
+
+async function getUserDetails() {
     try {
-        const response = await fetch('https://app-aarc-api.morganserver.com/api/user');
+        const accessToken = getCookie('access_token');
+        if (!accessToken) {
+            console.error('Access token not found');
+            return;
+        }
+
+        const response = await fetch('https://app-aarc-api.morganserver.com/user', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        });
+
         if (response.ok) {
-            const user = await response.json();
-            // Display user information on the page
-            document.getElementById('user-info').textContent = `Logged in as: ${user.work_email}`;
+            const data = await response.json();
+            userDetailsDiv.textContent = `Logged in as: ${data.work_email}`;
         } else {
-            console.error('Error fetching user information');
+            console.error('Fetching user details failed - login.js');
         }
     } catch (error) {
         console.error('An error occurred:', error);
     }
 }
 
-// Call the function when the page loads
-window.onload = getUserInfo;
+// Function to retrieve a specific cookie by name
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
