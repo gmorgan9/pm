@@ -117,27 +117,26 @@
 
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
         function fetchUserProfile() {
-    $.ajax({
-        url: 'https://app-aarc-api.morganserver.com/api/profile',
-        method: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            if (data.message) {
-                // User is logged in, update the DOM with user data
-                $('#profile').text(`Welcome, ${data.message}! This is your profile.`);
-            } else {
-                // User is not logged in, display a message
-                $('#profile').text('Not logged in');
-            }
-        },
-        error: function(error) {
-            console.error('Error:', error);
-            // Handle any network or other errors here
+    axios.get('https://app-aarc-api.morganserver.com/api/profile')
+    .then(response => {
+        const data = response.data;
+        console.log(data);
+        if (data.message) {
+            // User is logged in, update the DOM with user data
+            document.getElementById('profile').textContent = `Welcome, ${data.message}! This is your profile.`;
+        } else {
+            // User is not logged in, display a message
+            document.getElementById('profile').textContent = 'Not logged in';
         }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Handle any network or other errors here
     });
 }
-
+        });
 
     </script>
     
