@@ -2,6 +2,8 @@ function checkLoginStatus() {
     fetch('https://app-aarc-api.morganserver.com/api/check_login')
         .then(response => response.json())
         .then(data => {
+            console.log(data); // Log the response data for debugging
+
             if (data.loggedIn) {
                 // User is logged in, retrieve additional session data if needed
                 fetch('https://app-aarc-api.morganserver.com/api/profile')
@@ -16,7 +18,3 @@ function checkLoginStatus() {
             }
         });
 }
-
-// Call the checkLoginStatus function when your page loads or when needed
-checkLoginStatus();
-
