@@ -23,7 +23,7 @@ loginForm.addEventListener('submit', async (event) => {
             const data = await response.json();
         
             // Log the response for debugging
-            console.log('Response from server:', data);
+            // console.log('Response from server:', data);
         
             // Set the access token as a cookie
             setCookie('access_token', data.access_token, 7);
