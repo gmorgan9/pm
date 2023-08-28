@@ -33,4 +33,7 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-getUserDetails()
+const accessToken = getCookie('access_token');
+if (accessToken) {
+    getUserDetails();
+}
