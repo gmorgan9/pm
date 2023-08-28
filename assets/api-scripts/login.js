@@ -72,7 +72,7 @@ async function getUserDetails() {
             const data = await response.json();
             userDetailsDiv.textContent = `Logged in as: ${data.work_email}`;
         } else {
-            console.error('Fetching user details failed');
+            console.error('Fetching user details failed - login.js');
         }
     } catch (error) {
         console.error('An error occurred:', error);
