@@ -1,4 +1,3 @@
-// app.js
 const loginForm = document.getElementById('login-form');
 const logoutButton = document.getElementById('logout-btn');
 const userDetailsDiv = document.getElementById('user-details');
@@ -20,7 +19,10 @@ loginForm.addEventListener('submit', async (event) => {
 
         if (response.ok) {
             const data = await response.json();
-            localStorage.setItem('access_token', data.access_token);
+
+            // Set the access token as an HttpOnly cookie
+            document.cookie = `access_token=${data.access_token}; path=/; HttpOnly; SameSite=Strict`;
+
             loginForm.style.display = 'none';
             logoutButton.style.display = 'block';
             getUserDetails();
@@ -34,15 +36,17 @@ loginForm.addEventListener('submit', async (event) => {
 
 logoutButton.addEventListener('click', async () => {
     try {
+        // Send a request to the logout endpoint
         const response = await fetch('https://app-aarc-api.morganserver.com/logout', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                'Content-Type': 'application/json',
             }
         });
 
         if (response.ok) {
-            localStorage.removeItem('access_token');
+            // Delete the access token cookie
+            document.cookie = 'access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
             loginForm.style.display = 'block';
             logoutButton.style.display = 'none';
             userDetailsDiv.textContent = '';
@@ -56,10 +60,11 @@ logoutButton.addEventListener('click', async () => {
 
 async function getUserDetails() {
     try {
+        // Send a request to the user endpoint
         const response = await fetch('https://app-aarc-api.morganserver.com/user', {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                'Content-Type': 'application/json',
             }
         });
 
@@ -75,10 +80,16 @@ async function getUserDetails() {
 }
 
 // Check if a JWT token exists and fetch user details on page load
-const accessToken = localStorage.getItem('access_token');
+const accessToken = getCookie('access_token');
 if (accessToken) {
     loginForm.style.display = 'none';
     logoutButton.style.display = 'block';
     getUserDetails();
 }
 
+// Function to get a cookie value by name
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
