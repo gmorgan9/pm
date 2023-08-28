@@ -118,31 +118,50 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-        // Function to fetch and display user profile
-        function fetchUserProfile() {
-            // Send a GET request to the /api/profile endpoint to get user data
-            fetch('https://app-aarc-api.morganserver.com/api/profile')
-            .then(response => {
-                console.log(response); // Log the entire response
-                return response.json(); // Attempt to parse the response as JSON
-            })
-            .then(data => {
-                if (data.message) {
-                    // User is logged in, update the DOM with user data
-                    document.getElementById('profile').textContent = `Welcome, ${data.message}! This is your profile.`;
-                } else {
-                    // User is not logged in, display a message
-                    document.getElementById('profile').textContent = 'Not logged in';
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // Handle any network or other errors here
-            });
-        }
+            var jwt = localStorage.getItem("jwt");
+if (jwt != null) {
+  window.location.href = "./index.html";
+}
 
-        // Call the fetchUserProfile function when the page loads
-        window.addEventListener('load', fetchUserProfile);
+function login() {
+  const workemail = document.getElementById("work_email").value;
+  const password = document.getElementById("password").value;
+
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "https://app-aarc-api.morganserver.com/api/login");
+  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhttp.send(
+    JSON.stringify({
+      work_email: workemail,
+      password: password,
+    })
+  );
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4) {
+      const objects = JSON.parse(this.responseText);
+      console.log(objects);
+      if (objects["status"] == "ok") {
+        localStorage.setItem("jwt", objects["accessToken"]);
+        Swal.fire({
+          text: objects["message"],
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = "/dashboard/";
+          }
+        });
+      } else {
+        Swal.fire({
+          text: objects["message"],
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      }
+    }
+  };
+  return false;
+}
     });
     </script>
     
