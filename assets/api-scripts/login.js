@@ -19,8 +19,7 @@ loginForm.addEventListener('submit', async (event) => {
         });
 
         if (response.ok) {
-            const data = await response.json();
-            localStorage.setItem('access_token', data.access_token);
+            // The access token is now stored in an HTTP-only cookie
             loginForm.style.display = 'none';
             logoutButton.style.display = 'block';
             getUserDetails();
@@ -36,13 +35,11 @@ logoutButton.addEventListener('click', async () => {
     try {
         const response = await fetch('https://app-aarc-api.morganserver.com/logout', {
             method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-            }
+            // Include credentials: 'include' to send cookies
+            credentials: 'include'
         });
 
         if (response.ok) {
-            localStorage.removeItem('access_token');
             loginForm.style.display = 'block';
             logoutButton.style.display = 'none';
             userDetailsDiv.textContent = '';
@@ -58,9 +55,8 @@ async function getUserDetails() {
     try {
         const response = await fetch('https://app-aarc-api.morganserver.com/user', {
             method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-            }
+            // Include credentials: 'include' to send cookies
+            credentials: 'include'
         });
 
         if (response.ok) {
@@ -75,9 +71,4 @@ async function getUserDetails() {
 }
 
 // Check if a JWT token exists and fetch user details on page load
-const accessToken = localStorage.getItem('access_token');
-if (accessToken) {
-    loginForm.style.display = 'none';
-    logoutButton.style.display = 'block';
-    getUserDetails();
-}
+getUserDetails();
