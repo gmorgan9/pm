@@ -90,8 +90,10 @@ function setCookie(name, value, days) {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     const expires = `expires=${date.toUTCString()}`;
-    const secure = location.protocol === 'https:' ? 'Secure;' : ''; // Add Secure attribute for HTTPS
-    document.cookie = `${name}=${value};${expires};path=/;HttpOnly;SameSite=Strict`;
+    // const secure = location.protocol === 'https:' ? 'Secure;' : ''; // Add Secure attribute for HTTPS
+    document.cookie = `${name}=${value};${expires};SameSite=Strict; Secure`;
+    // document.cookie = "testCookie=testValue; SameSite=Strict; Secure";
+
 }
 
 
