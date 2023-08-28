@@ -1,39 +1,83 @@
-document.getElementById('login-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent the default form submission
+// app.js
+const loginForm = document.getElementById('login-form');
+const logoutButton = document.getElementById('logout-btn');
+const userDetailsDiv = document.getElementById('user-details');
 
-    // Get the form input values
+loginForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    
     const workEmail = document.getElementById('work_email').value;
     const password = document.getElementById('password').value;
 
-    // Create an object with the login data
-    const loginData = {
-        work_email: workEmail,
-        password: password
-    };
+    try {
+        const response = await fetch('https://app-aarc-api.morganserver.com/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ work_email: workEmail, password: password })
+        });
 
-    // Send a POST request to the /api/login endpoint
-    fetch('https://app-aarc-api.morganserver.com/api/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(loginData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.message === 'Login successful') {
-            // Store the JWT token in local storage
-            localStorage.setItem('jwt', data.accessToken);
-
-            // Redirect to the user's dashboard or perform other actions on successful login
-            window.location.href = '/dashboard/';
+        if (response.ok) {
+            const data = await response.json();
+            localStorage.setItem('access_token', data.access_token);
+            loginForm.style.display = 'none';
+            logoutButton.style.display = 'block';
+            getUserDetails();
         } else {
-            // Display an error message
-            document.getElementById('error-message').textContent = 'Invalid credentials';
+            console.error('Login failed');
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Handle any network or other errors here
-    });
+    } catch (error) {
+        console.error('An error occurred:', error);
+    }
 });
+
+logoutButton.addEventListener('click', async () => {
+    try {
+        const response = await fetch('https://app-aarc-api.morganserver.com/logout', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+            }
+        });
+
+        if (response.ok) {
+            localStorage.removeItem('access_token');
+            loginForm.style.display = 'block';
+            logoutButton.style.display = 'none';
+            userDetailsDiv.textContent = '';
+        } else {
+            console.error('Logout failed');
+        }
+    } catch (error) {
+        console.error('An error occurred:', error);
+    }
+});
+
+async function getUserDetails() {
+    try {
+        const response = await fetch('https://app-aarc-api.morganserver.com/user', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+            }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            userDetailsDiv.textContent = `Logged in as: ${data.work_email}`;
+        } else {
+            console.error('Fetching user details failed');
+        }
+    } catch (error) {
+        console.error('An error occurred:', error);
+    }
+}
+
+// Check if a JWT token exists and fetch user details on page load
+const accessToken = localStorage.getItem('access_token');
+if (accessToken) {
+    loginForm.style.display = 'none';
+    logoutButton.style.display = 'block';
+    getUserDetails();
+}
