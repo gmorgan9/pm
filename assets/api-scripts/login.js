@@ -6,6 +6,9 @@ function createEmptyCookie(name) {
 // Create an empty access token cookie on page load if it doesn't exist
 createEmptyCookie('access_token');
 
+// Check the value of the empty cookie and log it to the console
+console.log('Empty Cookie Value:', getCookie('access_token'));
+
 
 const loginForm = document.getElementById('login-form');
 const logoutButton = document.getElementById('logout-btn');
