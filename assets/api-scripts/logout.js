@@ -12,6 +12,7 @@ logoutButton.addEventListener('click', async () => {
         if (response.ok) {
             // Remove the access token cookie
             deleteCookie('access_token');
+            window.location.href = 'https://app-aarc.morganserver.com/dashboard/';
 
         } else {
             console.error('Logout failed');
