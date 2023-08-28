@@ -47,6 +47,8 @@ $(document).ready(function () {
             success: function (response) {
                 // Handle a successful login
                 alert(response.message);
+                // Call the checkLoginStatus function to update the profile information
+                checkLoginStatus();
                 // Optionally, redirect to another page
                 window.location.href = "https://app-aarc.morganserver.com/dashboard";
             },
