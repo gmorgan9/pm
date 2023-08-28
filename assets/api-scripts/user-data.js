@@ -11,7 +11,7 @@ async function getUserDetails() {
         const response = await fetch('https://app-aarc-api.morganserver.com/user', {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${getCookie('access_token')}`
             }
         });
 
