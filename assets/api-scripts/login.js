@@ -1,6 +1,4 @@
 const loginForm = document.getElementById('login-form');
-const logoutButton = document.getElementById('logout-btn');
-const userDetailsDiv = document.getElementById('user-details');
 
 loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -22,45 +20,14 @@ loginForm.addEventListener('submit', async (event) => {
         if (response.ok) {
             const data = await response.json();
         
-            // Log the response for debugging
-            // console.log('Response from server:', data);
-        
             // Set the access token as a cookie
             setCookie('access_token', data.access_token, 7);
-        
             // Redirect to the dashboard
-            window.location.href = 'https://app-aarc.morganserver.com/dashboard';
+            window.location.href = 'https://app-aarc.morganserver.com/dashboard/';
         } else {
             console.error('Login failed');
         }
         
-    } catch (error) {
-        console.error('An error occurred:', error);
-    }
-});
-
-
-
-
-logoutButton.addEventListener('click', async () => {
-    try {
-        const response = await fetch('https://app-aarc-api.morganserver.com/logout', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${getCookie('access_token')}`
-            }
-        });
-
-        if (response.ok) {
-            // Remove the access token cookie
-            deleteCookie('access_token');
-
-            loginForm.style.display = 'block';
-            logoutButton.style.display = 'none';
-            userDetailsDiv.textContent = '';
-        } else {
-            console.error('Logout failed');
-        }
     } catch (error) {
         console.error('An error occurred:', error);
     }
@@ -82,8 +49,7 @@ async function getUserDetails() {
         });
 
         if (response.ok) {
-            const data = await response.json();
-            userDetailsDiv.textContent = `Logged in as: ${data.work_email}`;
+            // You can handle user details as needed here, but no need to display them
         } else {
             console.error('Fetching user details failed - login.js');
         }
@@ -96,12 +62,8 @@ function setCookie(name, value, days) {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     const expires = `expires=${date.toUTCString()}`;
-    // const secure = location.protocol === 'https:' ? 'Secure;' : ''; // Add Secure attribute for HTTPS
     document.cookie = `${name}=${value};${expires};SameSite=Strict; Secure`;
-    // document.cookie = "testCookie=testValue; SameSite=Strict; Secure";
-
 }
-
 
 // Function to delete a cookie
 function deleteCookie(name) {
@@ -118,7 +80,5 @@ function getCookie(name) {
 // Check if an access token cookie exists and fetch user details on page load
 const accessToken = getCookie('access_token');
 if (accessToken) {
-    loginForm.style.display = 'none';
-    logoutButton.style.display = 'block';
-    getUserDetails();
+    // You can add code here to handle the user being logged in if needed
 }
