@@ -15,12 +15,12 @@ loginForm.addEventListener('submit', async (event) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials: 'include', // Include credentials (cookies)
-            mode: 'same-origin',    // Ensure same-origin requests
             body: JSON.stringify({ work_email: workEmail, password: password })
         });
 
         if (response.ok) {
+            const data = await response.json();
+            localStorage.setItem('access_token', data.access_token);
             loginForm.style.display = 'none';
             logoutButton.style.display = 'block';
             getUserDetails();
@@ -36,11 +36,13 @@ logoutButton.addEventListener('click', async () => {
     try {
         const response = await fetch('https://app-aarc-api.morganserver.com/logout', {
             method: 'POST',
-            credentials: 'include', // Include credentials (cookies)
-            mode: 'same-origin'     // Ensure same-origin requests
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+            }
         });
 
         if (response.ok) {
+            localStorage.removeItem('access_token');
             loginForm.style.display = 'block';
             logoutButton.style.display = 'none';
             userDetailsDiv.textContent = '';
@@ -56,8 +58,9 @@ async function getUserDetails() {
     try {
         const response = await fetch('https://app-aarc-api.morganserver.com/user', {
             method: 'GET',
-            credentials: 'include', // Include credentials (cookies)
-            mode: 'same-origin'     // Ensure same-origin requests
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+            }
         });
 
         if (response.ok) {
@@ -72,4 +75,9 @@ async function getUserDetails() {
 }
 
 // Check if a JWT token exists and fetch user details on page load
-getUserDetails();
+const accessToken = localStorage.getItem('access_token');
+if (accessToken) {
+    loginForm.style.display = 'none';
+    logoutButton.style.display = 'block';
+    getUserDetails();
+}
