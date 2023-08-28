@@ -30,7 +30,7 @@ loginForm.addEventListener('submit', async (event) => {
             getUserDetails();
         } else {
             console.error('Login failed');
-        }
+        }        
         
         
     } catch (error) {
