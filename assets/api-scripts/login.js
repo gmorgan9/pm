@@ -61,10 +61,16 @@ logoutButton.addEventListener('click', async () => {
 
 async function getUserDetails() {
     try {
+        const accessToken = getCookie('access_token'); // Retrieve the token from cookies
+        if (!accessToken) {
+            console.error('Access token not found');
+            return;
+        }
+
         const response = await fetch('https://app-aarc-api.morganserver.com/user', {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${getCookie('access_token')}` // Retrieve the token from cookies
+                'Authorization': `Bearer ${accessToken}` // Use the retrieved token
             }
         });
 
@@ -78,6 +84,7 @@ async function getUserDetails() {
         console.error('An error occurred:', error);
     }
 }
+
 
 // Function to retrieve a specific cookie by name
 function getCookie(name) {
