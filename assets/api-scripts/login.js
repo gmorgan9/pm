@@ -1,3 +1,10 @@
+function setEmptyCookie(name) {
+    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+}
+
+// Set an empty cookie on page load
+setEmptyCookie('access_token');
+
 const loginForm = document.getElementById('login-form');
 const logoutButton = document.getElementById('logout-btn');
 const userDetailsDiv = document.getElementById('user-details');
