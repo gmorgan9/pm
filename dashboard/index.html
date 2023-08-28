@@ -122,7 +122,10 @@
         function fetchUserProfile() {
             // Send a GET request to the /api/profile endpoint to get user data
             fetch('https://app-aarc-api.morganserver.com/api/profile')
-            .then(response => response.json())
+            .then(response => {
+                console.log(response); // Log the entire response
+                return response.json(); // Attempt to parse the response as JSON
+            })
             .then(data => {
                 if (data.message) {
                     // User is logged in, update the DOM with user data
