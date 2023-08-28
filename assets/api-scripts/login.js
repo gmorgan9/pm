@@ -31,7 +31,6 @@ loginForm.addEventListener('submit', async (event) => {
             console.error('Login failed');
         }
         
-        
     } catch (error) {
         console.error('An error occurred:', error);
     }
