@@ -37,7 +37,7 @@
 
 <script>
     // Add an event listener to the login form
-    document.getElementById('login-form').addEventListener('submit', function (e) {
+document.getElementById('login-form').addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent the default form submission
 
     // Get the form input values
@@ -66,12 +66,19 @@
             // Display an error message
             document.getElementById('error-message').textContent = 'Invalid credentials';
         }
+        // Handle cookies here
+        const cookies = response.headers.get('Set-Cookie');
+        // You can parse and store the cookies as needed
+        // For example, you can split the cookies string to get individual cookies
+        const cookieArray = cookies ? cookies.split(';') : [];
+        console.log(cookieArray); // Log the cookies for debugging
     })
     .catch(error => {
         console.error('Error:', error);
         // Handle any network or other errors here
     });
 });
+
 
 </script>
 
