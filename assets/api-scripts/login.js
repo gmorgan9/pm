@@ -1,16 +1,14 @@
-function setEmptyCookie(name) {
+// Function to create an empty cookie
+function createEmptyCookie(name) {
     document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
 }
 
-const emptyAccessToken = getCookie('access_token');
-if (emptyAccessToken === '') {
-    console.log('Empty cookie has been set.');
-} else {
-    console.log('Cookie value is not empty:', emptyAccessToken);
+// Check if an access token cookie exists and fetch user details on page load
+const access_Token = getCookie('access_token');
+if (!access_Token) {
+    // Create an empty access token cookie if it doesn't exist
+    createEmptyCookie('access_token');
 }
-
-// Set an empty cookie on page load
-setEmptyCookie('access_token');
 
 const loginForm = document.getElementById('login-form');
 const logoutButton = document.getElementById('logout-btn');
