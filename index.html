@@ -62,7 +62,7 @@
         .then(data => {
             if (data.message === 'Login successful') {
                 // Redirect to the user's dashboard or perform other actions on successful login
-                window.location.href = '/dashboard.html';
+                window.location.href = '/dashboard/';
             } else {
                 // Display an error message
                 document.getElementById('error-message').textContent = 'Invalid credentials';
