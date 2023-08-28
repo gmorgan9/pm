@@ -118,26 +118,29 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+        // Function to fetch and display user profile
         function fetchUserProfile() {
-    axios.get('https://app-aarc-api.morganserver.com/api/profile')
-    .then(response => {
-        const data = response.data;
-        console.log(data);
-        if (data.message) {
-            // User is logged in, update the DOM with user data
-            document.getElementById('profile').textContent = `Welcome, ${data.message}! This is your profile.`;
-        } else {
-            // User is not logged in, display a message
-            document.getElementById('profile').textContent = 'Not logged in';
+            // Send a GET request to the /api/profile endpoint to get user data
+            fetch('https://app-aarc-api.morganserver.com/api/profile')
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    // User is logged in, update the DOM with user data
+                    document.getElementById('profile').textContent = `Welcome, ${data.message}! This is your profile.`;
+                } else {
+                    // User is not logged in, display a message
+                    document.getElementById('profile').textContent = 'Not logged in';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Handle any network or other errors here
+            });
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Handle any network or other errors here
-    });
-}
-        });
 
+        // Call the fetchUserProfile function when the page loads
+        window.addEventListener('load', fetchUserProfile);
+    });
     </script>
     
 </body>
