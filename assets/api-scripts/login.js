@@ -81,5 +81,3 @@ if (accessToken) {
     logoutButton.style.display = 'block';
     getUserDetails();
 }
-
-
