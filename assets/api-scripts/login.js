@@ -6,6 +6,8 @@ loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     console.log('Form submitted');
 
+    let response; // Declare response variable in the outer scope
+
     try {
         const response = await fetch('https://app-aarc-api.morganserver.com/login', {
             method: 'POST',
