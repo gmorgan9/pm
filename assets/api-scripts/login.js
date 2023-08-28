@@ -1,15 +1,3 @@
-// Function to create an empty cookie
-function createEmptyCookie(name) {
-    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
-}
-
-// Create an empty access token cookie on page load if it doesn't exist
-createEmptyCookie('access_token');
-
-// Check the value of the empty cookie and log it to the console
-console.log('Empty Cookie Value:', getCookie('access_token'));
-
-
 const loginForm = document.getElementById('login-form');
 const logoutButton = document.getElementById('logout-btn');
 const userDetailsDiv = document.getElementById('user-details');
@@ -21,13 +9,15 @@ loginForm.addEventListener('submit', async (event) => {
     const password = document.getElementById('password').value;
 
     try {
-        const response = await fetch('https://app-aarc-api.morganserver.com/login', {
+        fetch('https://app-aarc-api.morganserver.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ work_email: workEmail, password: password })
+            body: JSON.stringify({ work_email: workEmail, password: password }),
+            credentials: 'include' // Include cookies with the request
         });
+
 
         if (response.ok) {
             const data = await response.json();
