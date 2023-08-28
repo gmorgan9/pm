@@ -55,7 +55,6 @@ async function getUserDetails() {
     try {
         const response = await fetch('https://app-aarc-api.morganserver.com/user', {
             method: 'GET',
-            // Include credentials: 'include' to send cookies
             credentials: 'include'
         });
 
@@ -63,12 +62,14 @@ async function getUserDetails() {
             const data = await response.json();
             userDetailsDiv.textContent = `Logged in as: ${data.work_email}`;
         } else {
-            console.error('Fetching user details failed');
+            const errorData = await response.json(); // Try to get the error message from the response
+            console.error('Fetching user details failed:', errorData);
         }
     } catch (error) {
         console.error('An error occurred:', error);
     }
 }
+
 
 // Check if a JWT token exists and fetch user details on page load
 getUserDetails();
