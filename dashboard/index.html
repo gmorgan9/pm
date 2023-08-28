@@ -142,9 +142,10 @@
                 console.log(objects);
                 if (objects["status"] == "ok") {
                     localStorage.setItem("jwt", objects["accessToken"]);
+                    var access_token = objects["accessToken"];
 
                     // Make a request to get user data
-                    fetchUserData(objects["accessToken"]);
+                    fetchUserData(access_token);
                 } else {
                     Swal.fire({
                         text: objects["message"],
@@ -157,17 +158,16 @@
         return false;
     }
 
-    function fetchUserData(accessToken) {
+    function fetchUserData(access_token) {
         // Make an authenticated request to an endpoint that provides user data
         fetch('https://app-aarc-api.morganserver.com/api/user-data', {
             headers: {
-                'Authorization': `Bearer ${jwt}`
+                'Authorization': `Bearer ${access_token}`
             }
         })
         .then(response => response.json())
         .then(data => {
             // Process and display user data here
-            console.log(jwt);
             console.log(data);
         })
         .catch(error => {
