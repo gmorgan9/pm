@@ -21,17 +21,19 @@ loginForm.addEventListener('submit', async (event) => {
 
         if (response.ok) {
             const data = await response.json();
-
+        
             // Log the response for debugging
             console.log('Response from server:', data);
-
+        
             // Set the access token as a cookie
             setCookie('access_token', data.access_token, 7);
-
-            // Rest of your code
+        
+            // Redirect to the dashboard
+            window.location.href = 'https://app-aarc.morganserver.com/dashboard';
         } else {
             console.error('Login failed');
         }
+        
     } catch (error) {
         console.error('An error occurred:', error);
     }
