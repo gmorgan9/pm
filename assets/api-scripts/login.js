@@ -18,18 +18,19 @@ loginForm.addEventListener('submit', async (event) => {
         });
 
         if (response.ok) {
-            const data = response.json();
+            const data = await response.json();
+            
         
             // Instead of storing the token in localStorage, set it as an HTTP-only cookie
             setCookie('access_token', data.access_token, 7); // Replace '7' with your desired cookie expiration in days
         
-            window.location.href = "http://app-aarc.morganserver.com/dashboard";
-            // loginForm.style.display = 'none';
-            // logoutButton.style.display = 'block';
+            loginForm.style.display = 'none';
+            logoutButton.style.display = 'block';
             getUserDetails();
         } else {
             console.error('Login failed');
         }
+        
         
     } catch (error) {
         console.error('An error occurred:', error);
