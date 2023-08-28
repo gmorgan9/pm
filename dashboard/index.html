@@ -118,12 +118,14 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-        // Function to fetch and display user profile
-        function fetchUserProfile() {
-            // Send a GET request to the /api/profile endpoint to get user data
-            fetch('https://app-aarc-api.morganserver.com/api/profile')
-            .then(response => response.json())
-            .then(data => {
+            function fetchUserProfile() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://app-aarc-api.morganserver.com/api/profile', true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
+                console.log(data);
                 if (data.message) {
                     // User is logged in, update the DOM with user data
                     document.getElementById('profile').textContent = `Welcome, ${data.message}! This is your profile.`;
@@ -131,15 +133,15 @@
                     // User is not logged in, display a message
                     document.getElementById('profile').textContent = 'Not logged in';
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
+            } else {
+                console.error('Error:', xhr.statusText);
                 // Handle any network or other errors here
-            });
+            }
         }
+    };
+    xhr.send();
+}
 
-        // Call the fetchUserProfile function when the page loads
-        window.addEventListener('load', fetchUserProfile);
     });
     </script>
     
