@@ -161,7 +161,7 @@
         // Make an authenticated request to an endpoint that provides user data
         fetch('https://app-aarc-api.morganserver.com/api/user-data', {
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${jwt}`
             }
         })
         .then(response => response.json())
