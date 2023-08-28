@@ -33,7 +33,6 @@
         </form>
         <!-- Error message div -->
         <div id="error-message" class="error-message"></div>
-        <div id="profile"></div>
     </div>
     
     
@@ -68,12 +67,7 @@ $(document).ready(function () {
             contentType: "application/json",
             data: JSON.stringify(userData),
             success: function (response) {
-                // Handle a successful login
-                // alert(response.message);
-                // Call the checkLoginStatus function to update the profile information
-                checkLoginStatus(); // Call it here after a successful login
-                // Optionally, redirect to another page
-                // window.location.href = "https://app-aarc.morganserver.com/dashboard";
+                window.location.href = "https://app-aarc.morganserver.com/dashboard";
             },
             error: function (xhr, status, error) {
                 // Handle login error
