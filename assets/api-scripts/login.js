@@ -10,7 +10,7 @@ loginForm.addEventListener('submit', async (event) => {
     const password = document.getElementById('password').value;
 
     try {
-        const response = await fetch('https://app-aarc-api.morganserver.com/login', {
+        response = await fetch('https://app-aarc-api.morganserver.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -32,8 +32,6 @@ loginForm.addEventListener('submit', async (event) => {
         } else {
             console.error('Login failed');
         }
-        
-        
     } catch (error) {
         console.error('An error occurred:', error);
     }
