@@ -119,7 +119,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
     var jwt = localStorage.getItem("jwt");
-    if (jwt != null) {
+    if (jwt == null) {
         window.location.href = "https://app-aarc.morganserver.com";
     }
 
