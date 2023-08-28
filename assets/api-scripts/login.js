@@ -2,6 +2,13 @@ function setEmptyCookie(name) {
     document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
 }
 
+const emptyAccessToken = getCookie('access_token');
+if (emptyAccessToken === '') {
+    console.log('Empty cookie has been set.');
+} else {
+    console.log('Cookie value is not empty:', emptyAccessToken);
+}
+
 // Set an empty cookie on page load
 setEmptyCookie('access_token');
 
