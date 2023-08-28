@@ -121,7 +121,7 @@
     axios.get('https://app-aarc-api.morganserver.com/api/profile')
     .then(response => {
         const data = response.data;
-        console.log(data.message);
+        console.log(data);
         if (data.message) {
             // User is logged in, update the DOM with user data
             document.getElementById('profile').textContent = `Welcome, ${data.message}! This is your profile.`;
