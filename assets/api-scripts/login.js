@@ -23,9 +23,8 @@ loginForm.addEventListener('submit', async (event) => {
             const data = await response.json();
             
             // Instead of storing the token in localStorage, set it as an HTTP-only cookie
-            // setCookie('access_token', data.access_token, 7); // Replace '7' with your desired cookie expiration in days
+            setCookie('access_token', data.access_token, 7); // Replace '7' with your desired cookie expiration in days
 
-            document.cookie = 'access_token';
             loginForm.style.display = 'none';
             logoutButton.style.display = 'block';
             getUserDetails();
@@ -91,8 +90,8 @@ function setCookie(name, value, days) {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     const expires = `expires=${date.toUTCString()}`;
-    const secure = location.protocol === 'https:' ? 'Secure;' : ''; // Add Secure attribute for HTTPS
-    document.cookie = `${name}=${value};${expires};path=/;${secure}HttpOnly;SameSite=Strict`;
+    // const secure = location.protocol === 'https:' ? 'Secure;' : ''; // Add Secure attribute for HTTPS
+    document.cookie = `${name}=${value};${expires};path=/;HttpOnly;SameSite=Strict`;
 }
 
 
