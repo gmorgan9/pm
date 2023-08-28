@@ -1,32 +1,28 @@
 // Function to check if a user is logged in and retrieve session data
 function checkLoginStatus() {
-    fetch('https://app-aarc-api.morganserver.com/api/check_login') // Replace with the actual endpoint URL
-      .then(response => response.json())
-      .then(data => {
-        if (data.loggedIn) {
-          // User is logged in, retrieve additional session data if needed
-          fetch('https://app-aarc-api.morganserver.com/api/profile') // Replace with the actual endpoint URL
-            .then(response => response.text())
-            .then(profileText => {
-              // Display the user's profile information on the frontend
-              document.getElementById('profile').textContent = profileText;
-              document.getElementById('profile').textContent = "Welcome, " + username + "! This is your profile.";
+    fetch('https://app-aarc-api.morganserver.com/api/check_login')
+        .then(response => response.json())
+        .then(data => {
+            if (data.loggedIn) {
+                // User is logged in, retrieve additional session data if needed
+                fetch('https://app-aarc-api.morganserver.com/api/profile')
+                    .then(response => response.text())
+                    .then(profileText => {
+                        // Display the user's profile information on the frontend
+                        document.getElementById('profile').textContent = profileText;
+                    });
+            } else {
+                // User is not logged in, display a message or redirect to the login page
+                document.getElementById('profile').textContent = "You are not logged in.";
+            }
+        });
+}
 
-            });
-        } else {
-          // User is not logged in, display a message or redirect to the login page
-            document.getElementById('profile').textContent = "You are not logged in.";
-        }
-      });
-  }
-  
-  // Call the checkLoginStatus function when your page loads or when needed
-  checkLoginStatus();
-  
+// Call the checkLoginStatus function when your page loads or when needed
+checkLoginStatus();
 
-
-  // Wait for the document to be ready
-  $(document).ready(function () {
+// Wait for the document to be ready
+$(document).ready(function () {
     // Select the login button by its id
     const loginButton = document.getElementById("login-button");
 
@@ -44,13 +40,13 @@ function checkLoginStatus() {
 
         // Send a POST request to your API to handle login
         $.ajax({
-            url: "https://app-aarc-api.morganserver.com/api/login", // Replace with the actual API endpoint
+            url: "https://app-aarc-api.morganserver.com/api/login",
             method: "POST",
             contentType: "application/json",
             data: JSON.stringify(userData),
             success: function (response) {
                 // Handle a successful login
-                alert(response.message); // You can customize how you handle success
+                alert(response.message);
                 // Optionally, redirect to another page
                 window.location.href = "https://app-aarc.morganserver.com/dashboard";
             },
