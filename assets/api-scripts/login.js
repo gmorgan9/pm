@@ -20,7 +20,10 @@ loginForm.addEventListener('submit', async (event) => {
 
         if (response.ok) {
             const data = await response.json();
-            localStorage.setItem('access_token', data.access_token);
+
+            // Store the access token in a session cookie
+            document.cookie = `access_token=${data.access_token}; path=/`;
+
             loginForm.style.display = 'none';
             logoutButton.style.display = 'block';
             getUserDetails();
@@ -37,12 +40,14 @@ logoutButton.addEventListener('click', async () => {
         const response = await fetch('https://app-aarc-api.morganserver.com/logout', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                'Authorization': `Bearer ${getAccessToken()}`
             }
         });
 
         if (response.ok) {
-            localStorage.removeItem('access_token');
+            // Remove the access token session cookie
+            document.cookie = "access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
             loginForm.style.display = 'block';
             logoutButton.style.display = 'none';
             userDetailsDiv.textContent = '';
@@ -59,7 +64,7 @@ async function getUserDetails() {
         const response = await fetch('https://app-aarc-api.morganserver.com/user', {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+                'Authorization': `Bearer ${getAccessToken()}`
             }
         });
 
@@ -75,8 +80,7 @@ async function getUserDetails() {
 }
 
 // Check if a JWT token exists and fetch user details on page load
-const accessToken = localStorage.getItem('access_token');
-if (accessToken) {
+if (getAccessToken()) {
     loginForm.style.display = 'none';
     logoutButton.style.display = 'block';
     getUserDetails();
