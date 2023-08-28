@@ -10,7 +10,7 @@ loginForm.addEventListener('submit', async (event) => {
     const password = document.getElementById('password').value;
 
     try {
-        const response = await fetch('https://app-aarc-api.morganserver.com/api/login', {
+        const response = await fetch('https://app-aarc-api.morganserver.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ loginForm.addEventListener('submit', async (event) => {
 
 logoutButton.addEventListener('click', async () => {
     try {
-        const response = await fetch('https://app-aarc-api.morganserver.com/api/logout', {
+        const response = await fetch('https://app-aarc-api.morganserver.com/logout', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('access_token')}`
@@ -56,7 +56,7 @@ logoutButton.addEventListener('click', async () => {
 
 async function getUserDetails() {
     try {
-        const response = await fetch('https://app-aarc-api.morganserver.com/api/user', {
+        const response = await fetch('https://app-aarc-api.morganserver.com/user', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('access_token')}`
@@ -81,3 +81,5 @@ if (accessToken) {
     logoutButton.style.display = 'block';
     getUserDetails();
 }
+
+
