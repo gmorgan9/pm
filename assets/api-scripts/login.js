@@ -84,13 +84,14 @@ async function getUserDetails() {
     }
 }
 
-// Function to set a cookie
 function setCookie(name, value, days) {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     const expires = `expires=${date.toUTCString()}`;
-    document.cookie = `${name}=${value};${expires};path=/;HttpOnly;SameSite=Strict`;
+    const secure = location.protocol === 'https:' ? 'Secure;' : ''; // Add Secure attribute for HTTPS
+    document.cookie = `${name}=${value};${expires};path=/;${secure}HttpOnly;SameSite=Strict`;
 }
+
 
 // Function to delete a cookie
 function deleteCookie(name) {
