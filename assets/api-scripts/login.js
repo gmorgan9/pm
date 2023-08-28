@@ -21,8 +21,8 @@ loginForm.addEventListener('submit', async (event) => {
         if (response.ok) {
             const data = await response.json();
             
-            // Instead of storing the token in localStorage, set it as a cookie
-            document.cookie = `access_token=${data.access_token}; path=/;`;
+            // Instead of storing the token in localStorage, set it as an HTTP-only cookie
+            document.cookie = `access_token=${data.access_token}; path=/; HttpOnly; SameSite=Strict`;
 
             loginForm.style.display = 'none';
             logoutButton.style.display = 'block';
