@@ -4,9 +4,6 @@ const userDetailsDiv = document.getElementById('user-details');
 
 loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    
-    const workEmail = document.getElementById('work_email').value;
-    const password = document.getElementById('password').value;
 
     try {
         const response = await fetch('https://app-aarc-api.morganserver.com/login', {
@@ -19,24 +16,23 @@ loginForm.addEventListener('submit', async (event) => {
 
         if (response.ok) {
             const data = await response.json();
-            
-            console.log('Data from server:', data); // Log the entire data object to the console
-        
+
+            console.log('Data from server:', data); // Log the entire data object
+
             // Instead of storing the token in localStorage, set it as an HTTP-only cookie
             setCookie('access_token', data.access_token, 7); // Replace '7' with your desired cookie expiration in days
-        
+
             loginForm.style.display = 'none';
             logoutButton.style.display = 'block';
             getUserDetails();
         } else {
             console.error('Login failed');
-        }        
-        
-        
+        }
     } catch (error) {
         console.error('An error occurred:', error);
     }
 });
+
 
 
 logoutButton.addEventListener('click', async () => {
