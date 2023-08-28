@@ -34,53 +34,7 @@
     <div id="error-message" class="error-message"></div>
 </div>
 
-
-<script>
-    // Add an event listener to the login form
-document.getElementById('login-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent the default form submission
-
-    // Get the form input values
-    const workEmail = document.getElementById('work_email').value;
-    const password = document.getElementById('password').value;
-
-    // Create an object with the login data
-    const loginData = {
-        work_email: workEmail,
-        password: password
-    };
-
-    // Send a POST request to the /api/login endpoint
-    fetch('https://app-aarc-api.morganserver.com/api/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(loginData)
-    })
-    .then(response => {
-        if (response.ok) {
-            // Redirect to the user's dashboard or perform other actions on successful login
-            window.location.href = '/dashboard/';
-        } else {
-            // Display an error message
-            document.getElementById('error-message').textContent = 'Invalid credentials';
-        }
-        // Handle cookies here
-        const cookies = response.headers.get('Set-Cookie');
-        // You can parse and store the cookies as needed
-        // For example, you can split the cookies string to get individual cookies
-        const cookieArray = cookies ? cookies.split(';') : [];
-        console.log(cookieArray); // Log the cookies for debugging
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Handle any network or other errors here
-    });
-});
-
-
-</script>
+<script src="/assets/api-scripts/login.js"></script>
 
 </body>
 </html>
