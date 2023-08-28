@@ -42,15 +42,16 @@
     <script src="/assets/scripts/email-validation.js"></script>
 
     <script>
-       $(document).ready(function () {
-    // Select the login button by its id using jQuery
-    const loginButton = $("#login-button");
+       // Wait for the document to be ready
+$(document).ready(function () {
+    // Select the login button by its id
+    const loginButton = document.getElementById("login-button");
 
     // Add a click event listener to the login button
-    loginButton.on("click", function () {
+    loginButton.addEventListener("click", function () {
         // Get the values of the email and password fields
-        const email = $("#work_email").val();
-        const password = $("#password").val();
+        const email = document.getElementById("work_email").value;
+        const password = document.getElementById("password").value;
 
         // Create a JavaScript object with the email and password
         const userData = {
@@ -66,20 +67,21 @@
             data: JSON.stringify(userData),
             success: function (response) {
                 // Handle a successful login
-                // alert(response.message);
+                alert(response.message);
                 // Call the checkLoginStatus function to update the profile information
-                // checkLoginStatus();
+                checkLoginStatus(); // Call it here after a successful login
                 // Optionally, redirect to another page
                 window.location.href = "https://app-aarc.morganserver.com/dashboard";
             },
             error: function (xhr, status, error) {
                 // Handle login error
                 const errorMessage = xhr.responseJSON.error;
-                $("#error-message").text(errorMessage);
+                document.getElementById("error-message").innerHTML = errorMessage;
             }
         });
     });
 });
+
 
 
     </script>
