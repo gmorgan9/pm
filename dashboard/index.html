@@ -167,6 +167,7 @@
         .then(response => response.json())
         .then(data => {
             // Process and display user data here
+            console.log(jwt);
             console.log(data);
         })
         .catch(error => {
