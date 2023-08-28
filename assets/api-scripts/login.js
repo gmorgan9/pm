@@ -55,9 +55,9 @@ logoutButton.addEventListener('click', async () => {
             // Remove the access token cookie
             deleteCookie('access_token');
 
-            // loginForm.style.display = 'block';
-            // logoutButton.style.display = 'none';
-            // userDetailsDiv.textContent = '';
+            loginForm.style.display = 'block';
+            logoutButton.style.display = 'none';
+            userDetailsDiv.textContent = '';
         } else {
             console.error('Logout failed');
         }
@@ -83,7 +83,7 @@ async function getUserDetails() {
 
         if (response.ok) {
             const data = await response.json();
-            // userDetailsDiv.textContent = `Logged in as: ${data.work_email}`;
+            userDetailsDiv.textContent = `Logged in as: ${data.work_email}`;
         } else {
             console.error('Fetching user details failed - login.js');
         }
@@ -118,7 +118,7 @@ function getCookie(name) {
 // Check if an access token cookie exists and fetch user details on page load
 const accessToken = getCookie('access_token');
 if (accessToken) {
-    // loginForm.style.display = 'none';
-    // logoutButton.style.display = 'block';
+    loginForm.style.display = 'none';
+    logoutButton.style.display = 'block';
     getUserDetails();
 }
