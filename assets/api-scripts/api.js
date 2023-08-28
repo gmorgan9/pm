@@ -6,13 +6,15 @@ function checkLoginStatus() {
             console.log("Received login status response:", data);
             if (data.loggedIn) {
                 // User is logged in, retrieve additional session data if needed
-                fetch('https://app-aarc-api.morganserver.com/api/profile')
-                    .then(response => response.text())
-                    .then(profileText => {
-                        console.log("Profile text:", profileText);
-                        // Display the user's profile information on the frontend
-                        document.getElementById('profile').textContent = profileText;
-                    });
+                fetch('https://app-aarc-api.morganserver.com/api/profile', {
+                    credentials: 'include'
+                })
+                .then(response => response.text())
+                .then(profileText => {
+                // Display the user's profile information on the frontend
+                    document.getElementById('profile').textContent = profileText;
+                });
+
             } else {
                 // User is not logged in, display a message or redirect to the login page
                 console.log("User is not logged in.");
