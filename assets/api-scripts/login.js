@@ -20,7 +20,7 @@ loginForm.addEventListener('submit', async (event) => {
         if (response.ok) {
             const data = await response.json();
             
-            console.log('Access Token:', data.access_token); // Log the access token to the console
+            console.log('Data from server:', data); // Log the entire data object to the console
         
             // Instead of storing the token in localStorage, set it as an HTTP-only cookie
             setCookie('access_token', data.access_token, 7); // Replace '7' with your desired cookie expiration in days
@@ -31,6 +31,7 @@ loginForm.addEventListener('submit', async (event) => {
         } else {
             console.error('Login failed');
         }
+        
         
     } catch (error) {
         console.error('An error occurred:', error);
