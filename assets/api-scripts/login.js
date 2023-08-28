@@ -4,12 +4,14 @@ const userDetailsDiv = document.getElementById('user-details');
 
 loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    console.log('Form submitted');
 
-    let response; // Declare response variable in the outer scope
+    const workEmail = document.getElementById('work_email').value;
+    const password = document.getElementById('password').value;
+
+    let response; // Declare the response variable in the outer scope
 
     try {
-        const response = await fetch('https://app-aarc-api.morganserver.com/login', {
+        response = await fetch('https://app-aarc-api.morganserver.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -20,14 +22,13 @@ loginForm.addEventListener('submit', async (event) => {
         if (response.ok) {
             const data = await response.json();
 
-            console.log('Data from server:', data); // Log the entire data object
+            // Log the response for debugging
+            console.log('Response from server:', data);
 
-            // Instead of storing the token in localStorage, set it as an HTTP-only cookie
-            setCookie('access_token', data.access_token, 7); // Replace '7' with your desired cookie expiration in days
+            // Set the access token as a cookie
+            setCookie('access_token', data.access_token, 7);
 
-            loginForm.style.display = 'none';
-            logoutButton.style.display = 'block';
-            getUserDetails();
+            // Rest of your code
         } else {
             console.error('Login failed');
         }
@@ -35,6 +36,7 @@ loginForm.addEventListener('submit', async (event) => {
         console.error('An error occurred:', error);
     }
 });
+
 
 
 
