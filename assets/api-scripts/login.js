@@ -19,7 +19,11 @@ loginForm.addEventListener('submit', async (event) => {
         });
 
         if (response.ok) {
-            // The access token is now stored in an HTTP-only cookie
+            const data = await response.json();
+            
+            // Instead of storing the token in localStorage, set it as a cookie
+            document.cookie = `access_token=${data.access_token}; path=/;`;
+
             loginForm.style.display = 'none';
             logoutButton.style.display = 'block';
             getUserDetails();
@@ -35,11 +39,15 @@ logoutButton.addEventListener('click', async () => {
     try {
         const response = await fetch('https://app-aarc-api.morganserver.com/logout', {
             method: 'POST',
-            // Include credentials: 'include' to send cookies
-            credentials: 'include'
+            headers: {
+                'Authorization': `Bearer ${getCookie('access_token')}` // Retrieve the token from cookies
+            }
         });
 
         if (response.ok) {
+            // Remove the access token cookie
+            document.cookie = 'access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            
             loginForm.style.display = 'block';
             logoutButton.style.display = 'none';
             userDetailsDiv.textContent = '';
@@ -55,21 +63,33 @@ async function getUserDetails() {
     try {
         const response = await fetch('https://app-aarc-api.morganserver.com/user', {
             method: 'GET',
-            credentials: 'include'
+            headers: {
+                'Authorization': `Bearer ${getCookie('access_token')}` // Retrieve the token from cookies
+            }
         });
 
         if (response.ok) {
             const data = await response.json();
             userDetailsDiv.textContent = `Logged in as: ${data.work_email}`;
         } else {
-            const errorData = await response.json(); // Try to get the error message from the response
-            console.error('Fetching user details failed:', errorData);
+            console.error('Fetching user details failed');
         }
     } catch (error) {
         console.error('An error occurred:', error);
     }
 }
 
+// Function to retrieve a specific cookie by name
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
 
-// Check if a JWT token exists and fetch user details on page load
-getUserDetails();
+// Check if an access token cookie exists and fetch user details on page load
+const accessToken = getCookie('access_token');
+if (accessToken) {
+    loginForm.style.display = 'none';
+    logoutButton.style.display = 'block';
+    getUserDetails();
+}
