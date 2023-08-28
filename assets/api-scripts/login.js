@@ -25,8 +25,9 @@ loginForm.addEventListener('submit', async (event) => {
             // Instead of storing the token in localStorage, set it as an HTTP-only cookie
             setCookie('access_token', data.access_token, 7); // Replace '7' with your desired cookie expiration in days
         
-            loginForm.style.display = 'none';
-            logoutButton.style.display = 'block';
+            window.location.href = "http://app-aarc.morganserver.com.com/dashboard";
+            // loginForm.style.display = 'none';
+            // logoutButton.style.display = 'block';
             getUserDetails();
         } else {
             console.error('Login failed');
