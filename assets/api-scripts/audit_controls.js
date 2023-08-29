@@ -90,8 +90,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         auditControlRow.innerHTML = `
                         
                         <td style="width: 8%;"><button class="btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#${control.control_section}" aria-controls="${control.control_section}">${control.control_section}</button></td>
-                        <td class="d-inline-block text-truncate" style="max-width: 150px;">${control.point_of_focus}</td>
-                        <td class="d-inline-block text-truncate" style="max-width: 150px;">${control.control_activity}</td>
+                        <td class="text-truncate" style="max-width: 150px;">${control.point_of_focus}</td>
+                        <td class="text-truncate" style="max-width: 150px;">${control.control_activity}</td>
 
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="${control.control_section}" aria-labelledby="${control.control_section}Label">
                             <div class="offcanvas-header">
