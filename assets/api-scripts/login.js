@@ -25,7 +25,7 @@ loginForm.addEventListener('submit', async (event) => {
         } else {
             // Display the error message
             // const errordata = await response.json();
-            errorMessageContainer.innerHTML = '<div class="alert alert-danger" role="alert">Authentication failed. Please check your email and password.</div>';
+            errorMessageContainer.innerHTML = '<div class="alert alert-danger">Authentication failed. Please check your email and password.</div>';
 
         }
     } catch (error) {
