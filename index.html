@@ -24,6 +24,7 @@
     <form id="login-form" autocomplete="off" action="#" method="POST">
         <div class="form-group">
             <input type="email" id="work_email" name="work_email" placeholder="name@company.com" required>
+            <div id="email-validation-icon"></div>
         </div>
         <div class="form-group">
             <input type="password" id="password" name="password" placeholder="Password" required>
@@ -34,6 +35,7 @@
     <!-- Error message div -->
     <div id="error-message" class="error-message"></div>
 </div>
+
 
 <script src="/assets/api-scripts/login.js?cache=<?= Math.random() ?>"></script>
 
