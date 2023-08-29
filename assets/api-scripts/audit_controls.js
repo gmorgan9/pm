@@ -16,18 +16,22 @@ document.addEventListener("DOMContentLoaded", function () {
                         const auditControlDiv = document.createElement('div');
                         auditControlDiv.innerHTML = `
                         <table class="table">
+                        <thead>
+                        <th scope="col">Control Key</th> 
+                        <th scope="col">Point of Focus</th>
+                        <th scope="col">Illuestrative Control</th>
+                        </thead>
+                        <tbody>
                         <tr>
-                            <td><strong>Control Section:</strong></td>
                             <td>${control.control_section}</td>
                         </tr>
                         <tr>
-                            <td><strong>Point of Focus:</strong></td>
                             <td>${control.point_of_focus}</td>
                         </tr>
                         <tr>
-                            <td><strong>Control Activity:</strong></td>
                             <td>${control.control_activity}</td>
                         </tr>
+                        </tbody>
                     </table>
                         `;
 
