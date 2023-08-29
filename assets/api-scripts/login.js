@@ -5,7 +5,7 @@ loginForm.addEventListener('submit', async (event) => {
 
     const workEmail = document.getElementById('work_email').value.toLowerCase();
     const password = document.getElementById('password').value;
-    const errorMessageContainer = document.getElementById('error-message'); // Get the error message container
+    var errorMessageContainer = document.getElementById('error-message'); // Get the error message container
 
     let response;
 
