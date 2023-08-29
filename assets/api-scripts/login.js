@@ -5,9 +5,9 @@ loginForm.addEventListener('submit', async (event) => {
 
     const workEmail = document.getElementById('work_email').value.toLowerCase();
     const password = document.getElementById('password').value;
+    const errorMessageContainer = document.getElementById('error-message'); // Get the error message container
 
-
-    let response; // Declare the response variable in the outer scope
+    let response;
 
     try {
         response = await fetch('https://app-aarc-api.morganserver.com/login', {
@@ -20,21 +20,17 @@ loginForm.addEventListener('submit', async (event) => {
 
         if (response.ok) {
             const data = await response.json();
-        
-            // Set the access token as a cookie
             setCookie('access_token', data.access_token, 7);
-            // Redirect to the dashboard
             window.location.href = 'https://app-aarc.morganserver.com/dashboard/';
         } else {
-            const errorMessage = await response.text();
-            document.getElementById('error-message').textContent = errorMessage;
-            console.error('Login failed - js:', errorMessage);
+            // Display the error message
+            errorMessageContainer.textContent = 'Login failed. Please check your credentials.';
         }
-        
     } catch (error) {
         console.error('An error occurred:', error);
     }
 });
+
 
 async function getUserDetails() {
     try {
