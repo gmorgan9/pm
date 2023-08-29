@@ -1,7 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch data from your Flask API
     fetch('https://app-aarc-api.morganserver.com/api/audit-controls')
-        .then((response) => response.json())
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then((data) => {
             // Iterate through the data and group controls by control section
             const groupedControls = {};
