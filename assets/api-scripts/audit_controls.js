@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                         // Append the control element to the section's controls list
-                        // controlsList.appendChild(auditControlDiv);
+                        controlsList.appendChild(auditControlDiv);
                     });
                 } else {
                     // Section controls not found
