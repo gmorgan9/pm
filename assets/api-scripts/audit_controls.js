@@ -88,25 +88,24 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Create a new row for each audit control
                         const auditControlRow = document.createElement('tr');
                         auditControlRow.innerHTML = `
-                        
-                        <td style="width: 8%;"><button class="btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#${control.control_section}" aria-controls="${control.control_section}">${control.control_section}</button></td>
-                        <td style="width: 15%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${control.point_of_focus}</td>
-                        <td style="width: 15%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${control.control_activity}</td>
-
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="${control.control_section}" aria-labelledby="${control.control_section}Label">
-                            <div class="offcanvas-header">
-                              <h5 class="offcanvas-title" id="${control.control_section}Label">${control.control_section}</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <td style="width: 8%;"><button class="btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#${control.control_section}" aria-controls="${control.control_section}">${control.control_section}</button></td>
+                            <td style="width: 25%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${control.point_of_focus}</td>
+                            <td style="width: 25%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${control.control_activity}</td>
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="${control.control_section}" aria-labelledby="${control.control_section}Label">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="${control.control_section}Label">${control.control_section}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <h3>Point of Focus</h3>
+                                    ${control.point_of_focus}
+                                    <hr>
+                                    <h3>Control Activity</h3>
+                                    ${control.control_activity}
+                                </div>
                             </div>
-                            <div class="offcanvas-body">
-                            <h3>Point of Focus</h3>
-                            ${control.point_of_focus}
-                            <hr>
-                            <h3>Control Activity</h3>
-                            ${control.control_activity}
-                            </div>
-                          </div>
                         `;
+
 
                         // Append the row to the section's controls list
                         controlsList.appendChild(auditControlRow);
