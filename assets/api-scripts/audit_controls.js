@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch('https://app-aarc-api.morganserver.com/api/audit-controls')
         .then((response) => response.json())
         .then((data) => {
-            // Filter the data to include only controls in section CC1
+            // Filter the data to include only controls with section_number CC1
             const cc1Controls = data.filter((control) => control.section_number === 'CC1');
             
             // Get the HTML element where you want to display the data
