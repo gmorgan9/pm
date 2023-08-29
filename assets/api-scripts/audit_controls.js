@@ -3,46 +3,49 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch('https://app-aarc-api.morganserver.com/api/audit-controls')
         .then((response) => response.json())
         .then((data) => {
-            // Get the HTML element where you want to display the data
-            const auditControlsList = document.getElementById('audit-controls-list');
+            // Create separate arrays for each section number
+            const sectionCC1 = [];
+            const sectionCC2 = [];
+            // Add more arrays for other section numbers as needed
 
-            // Create an object to group controls by section number
-            const groupedControls = {};
-
-            // Process the received data and update the HTML
+            // Process the received data and update the arrays
             data.forEach((control) => {
-                // Combine section and control numbers
+                // Determine the section number from the control
                 const sectionNumber = control.section_number;
-                const controlNumber = control.control_number;
-                const sectionControl = `${sectionNumber}.${controlNumber}`;
 
-                // Create a new element for each audit control
-                const auditControlDiv = document.createElement('div');
-                auditControlDiv.innerHTML = `
-                    <strong>Scope Category:</strong> ${control.scope_category}<br>
-                    <strong>Section Number:</strong> ${sectionNumber}<br>
-                    <strong>Control Number:</strong> ${controlNumber}<br>
-                    <strong>Control Section:</strong> ${sectionControl}<br>
-                    <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
-                    <strong>Control Activity:</strong> ${control.control_activity}<br><br>
-                `;
-
-                // Create a container for each section if it doesn't exist
-                if (!groupedControls[sectionNumber]) {
-                    groupedControls[sectionNumber] = document.createElement('div');
+                // Add the control to the corresponding section array
+                if (sectionNumber === 'CC1') {
+                    sectionCC1.push(control);
+                } else if (sectionNumber === 'CC2') {
+                    sectionCC2.push(control);
                 }
-
-                // Append the control element to the section container
-                groupedControls[sectionNumber].appendChild(auditControlDiv);
+                // Add more conditions for other section numbers as needed
             });
 
-            // Append section containers to the main list
-            Object.keys(groupedControls).forEach((sectionNumber) => {
-                const sectionContainer = groupedControls[sectionNumber];
-                auditControlsList.appendChild(sectionContainer);
-            });
+            // Display the data for each section in the HTML
+            displaySection(sectionCC1, 'audit-controls-cc1');
+            displaySection(sectionCC2, 'audit-controls-cc2');
+            // Display other sections as needed
         })
         .catch((error) => {
             console.error('Error:', error);
         });
+
+    // Function to display the data for a section in the HTML
+    function displaySection(sectionData, elementId) {
+        const auditControlsList = document.getElementById(elementId);
+
+        // Process and display the data for the section
+        sectionData.forEach((control) => {
+            const auditControlDiv = document.createElement('div');
+            auditControlDiv.innerHTML = `
+                <strong>Scope Category:</strong> ${control.scope_category}<br>
+                <strong>Control Section:</strong> ${control.control_section}<br>
+                <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
+                <strong>Control Activity:</strong> ${control.control_activity}<br><br>
+            `;
+
+            auditControlsList.appendChild(auditControlDiv);
+        });
+    }
 });
