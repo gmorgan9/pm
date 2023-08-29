@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                     <tbody>
                                         <tr>
                                             <td style="width: 8%;">${control.control_section}</td>
-                                            <td style="width: 30%;">${control.point_of_focus}</td>
-                                            <td style="width: 30%;">${control.control_activity}</td>
+                                            <td style="width: 45%;">${control.point_of_focus}</td>
+                                            <td style="width: 45%;">${control.control_activity}</td>
                                         </tr>
                                     </tbody>
                                 </table>
