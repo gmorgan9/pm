@@ -16,23 +16,19 @@ document.addEventListener("DOMContentLoaded", function () {
                         const auditControlDiv = document.createElement('div');
                         auditControlDiv.innerHTML = `
                         <table class="table-responsive">
-                        <thead>
-                        <th scope="col">Control Key</th> 
-                        <th scope="col">Point of Focus</th>
-                        <th scope="col">Illuestrative Control</th>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td class="text-wrap">${control.control_section}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-wrap">${control.point_of_focus}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-wrap">${control.control_activity}</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                            <thead>
+                                <th scope="col">Control Key</th> 
+                                <th scope="col">Point of Focus</th>
+                                <th scope="col">Illuestrative Control</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-wrap">${control.control_section}</td>
+                                    <td class="text-wrap">${control.point_of_focus}</td>
+                                    <td class="text-wrap">${control.control_activity}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                         `;
 
                         // Append the control element to the section's controls list
