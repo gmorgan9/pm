@@ -85,28 +85,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (sectionData) {
                     // Process and display controls for the section
                     sectionData.forEach((control) => {
-                        // Create a new row for each audit control
+                        // Create a new row for each audit control with an anchor link
                         const auditControlRow = document.createElement('tr');
                         auditControlRow.innerHTML = `
-                        <button class="btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#${control.control_section}" aria-controls="${control.control_section}">
                             <td style="width: 8%;">${control.control_section}</td>
                             <td style="width: 45%;">${control.point_of_focus}</td>
                             <td style="width: 45%;">${control.control_activity}</td>
-                        </button>
-
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="${control.control_section}" aria-labelledby="${control.control_section}Label">
-                            <div class="offcanvas-header">
-                              <h5 class="offcanvas-title" id="${control.control_section}Label">${control.control_section}</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body">
-                              ...
-                            </div>
-                          </div>
                         `;
-
-                        // Append the row to the section's controls list
-                        controlsList.appendChild(auditControlRow);
+            
+                        // Create an anchor link around the entire row
+                        const link = document.createElement('a');
+                        link.href = '#'; // Set the href attribute to your desired link destination
+                        link.classList.add('btn-link'); // Add any necessary classes
+            
+                        // Append the row to the anchor link
+                        link.appendChild(auditControlRow);
+            
+                        // Append the anchor link to the section's controls list
+                        controlsList.appendChild(link);
                     });
                 } else {
                     // Section controls not found
@@ -114,7 +110,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     noControlsRow.innerHTML = `
                         <td colspan="3">No controls found for Section ${sectionName}.</td>
                     `;
-                    controlsList.appendChild(noControlsRow);
+            
+                    // Create an anchor link around the "No controls" row
+                    const link = document.createElement('a');
+                    link.href = '#'; // Set the href attribute to your desired link destination
+                    link.classList.add('btn-link'); // Add any necessary classes
+            
+                    // Append the "No controls" row to the anchor link
+                    link.appendChild(noControlsRow);
+            
+                    // Append the anchor link to the section's controls list
+                    controlsList.appendChild(link);
                 }
             }
 
