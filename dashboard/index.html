@@ -27,10 +27,8 @@
           </div>
     </div>
     
-    
-    <div class="all-content" id="body" style="display:none">
     <!-- Left Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar" style="display: none;">
         <div class="d-flex justify-content-center">
             <a href="" class="text-decoration-none text-white"><img src="../assets/images/aarc-360-logo-1.png"  width="100"></a>
         </div>
@@ -120,7 +118,7 @@
     <!-- end left sidebar -->
 
     <!-- Main Content -->
-    <div class="content">
+    <div class="content" id="content" style="display: none;">
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
@@ -130,8 +128,6 @@
           
     </div>
 
-    <!-- end all content -->
-    </div>
 
     <script src="../assets/scripts/dropdown.js?cache=<?= Math.random() ?>"></script>
     <script src="../assets/api-scripts/logout.js?cache=<?= Math.random() ?>"></script>
@@ -154,7 +150,8 @@ setTimeout(function() {
     
     // Load the page content or perform other actions
     // For example, you can show a previously hidden content div
-    document.getElementById('body').style.display = 'block';
+    document.getElementById('sidebar').style.display = 'block';
+    document.getElementById('content').style.display = 'block';
 }, 1000); // 5000 milliseconds (5 seconds)
 
     </script>
