@@ -13,16 +13,16 @@
 <body style="background-color: #e3e3e3;" >
 
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-        <div class="spinner-grow" style="width: 3rem; height: 3rem; background-color: rgb(172, 202, 83);" role="status" id="spinner-group">
+        <div class="spinner-grow" style="width: 3rem; height: 3rem; background-color: rgb(172, 202, 83);" role="status" id="spinner-item-1">
             <span class="visually-hidden">Loading...</span>
           </div>
-          <div class="spinner-grow" style="width: 3rem; height: 3rem; margin-left: -15px; background-color: rgb(23, 62, 71);" role="status" id="spinner-group">
+          <div class="spinner-grow" style="width: 3rem; height: 3rem; margin-left: -15px; background-color: rgb(23, 62, 71);" role="status" id="spinner-item-2">
             <span class="visually-hidden">Loading...</span>
           </div>
-          <div class="spinner-grow" style="width: 3rem; height: 3rem; margin-left: -15px; background-color: rgb(172, 202, 83);" role="status" id="spinner-group">
+          <div class="spinner-grow" style="width: 3rem; height: 3rem; margin-left: -15px; background-color: rgb(172, 202, 83);" role="status" id="spinner-item-3">
             <span class="visually-hidden">Loading...</span>
           </div>
-          <div class="spinner-grow" style="width: 3rem; height: 3rem; margin-left: -15px; background-color: rgb(23, 62, 71);" role="status" id="spinner-group">
+          <div class="spinner-grow" style="width: 3rem; height: 3rem; margin-left: -15px; background-color: rgb(23, 62, 71);" role="status" id="spinner-item-4">
             <span class="visually-hidden">Loading...</span>
           </div>
     </div>
@@ -147,7 +147,10 @@
     // Hide the spinner and load the content after 5 seconds
 setTimeout(function() {
     // Hide the spinner by setting its display property to 'none'
-    document.getElementById('spinner-group').style.display = 'none';
+    document.getElementById('spinner-item-1').style.display = 'none';
+    document.getElementById('spinner-item-2').style.display = 'none';
+    document.getElementById('spinner-item-3').style.display = 'none';
+    document.getElementById('spinner-item-4').style.display = 'none';
     
     // Load the page content or perform other actions
     // For example, you can show a previously hidden content div
