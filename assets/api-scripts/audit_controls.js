@@ -88,11 +88,18 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Create a new row for each audit control
                         const auditControlRow = document.createElement('tr');
                         auditControlRow.innerHTML = `
-                        
-                        <td style="width: 8%;"><button class="btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#${control.control_section}" aria-controls="${control.control_section}">${control.control_section}</button></td>
-                        <td style="max-width: 5% !important; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${control.point_of_focus}</td>
-                        <td style="max-width: 20% !important; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${control.control_activity}</td>
-
+                        <td style="width: 8%;">
+                            <button class="btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#${control.control_section}" aria-controls="${control.control_section}">
+                                ${control.control_section}
+                            </button>
+                        </td>
+                        <td id="point_of_focus_${control.control_section}" style="max-width: 5% !important; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                            ${control.point_of_focus}
+                        </td>
+                        <td id="control_activity_${control.control_section}" style="max-width: 20% !important; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                            ${control.control_activity}
+                        </td>
+                                            
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="${control.control_section}" aria-labelledby="${control.control_section}Label">
                             <div class="offcanvas-header">
                               <h5 class="offcanvas-title" id="${control.control_section}Label">${control.control_section}</h5>
@@ -136,3 +143,19 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Error:', error);
         });
 });
+
+
+// Function to truncate text to a specific length
+function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+        return text.substring(0, maxLength) + '...';
+    }
+    return text;
+}
+
+// Truncate the point_of_focus and control_activity fields
+const pointOfFocusCell = document.getElementById(`point_of_focus_${control.control_section}`);
+const controlActivityCell = document.getElementById(`control_activity_${control.control_section}`);
+
+pointOfFocusCell.textContent = truncateText(control.point_of_focus, 150);
+controlActivityCell.textContent = truncateText(control.control_activity, 150);
