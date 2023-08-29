@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((data) => {
             // Get the HTML element where you want to display the data
             const auditControlsList = document.getElementById('audit-controls-list');
-            
+
             // Create an object to group controls by section number
             const groupedControls = {};
 
@@ -19,14 +19,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Create a new element for each audit control
                 const auditControlDiv = document.createElement('div');
                 auditControlDiv.innerHTML = `
-                    <strong>Scope Category:</strong> ${control.scope_category}<br>
-                    <strong>Section Number:</strong> ${sectionNumber}<br>
-                    <strong>Control Number:</strong> ${controlNumber}<br>
-                    <strong>Control Section:</strong> ${sectionControl}<br>
-                    <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
-                    <strong>Control Activity:</strong> ${control.control_activity}<br><br>
+                    <button class="accordion">Section ${sectionNumber}</button>
+                    <div class="panel">
+                        <strong>Scope Category:</strong> ${control.scope_category}<br>
+                        <strong>Control Number:</strong> ${controlNumber}<br>
+                        <strong>Control Section:</strong> ${sectionControl}<br>
+                        <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
+                        <strong>Control Activity:</strong> ${control.control_activity}<br><br>
+                    </div>
                 `;
-                
+
                 // Append the control element to the list
                 auditControlsList.appendChild(auditControlDiv);
 
@@ -37,8 +39,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 groupedControls[sectionNumber].push(control);
             });
 
-            // At this point, groupedControls contains controls grouped by section number
-            // You can further process or display the grouped data as needed.
+            // Add click event listeners to the accordions
+            const accordions = document.querySelectorAll('.accordion');
+            accordions.forEach((accordion) => {
+                accordion.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    const panel = this.nextElementSibling;
+                    if (panel.style.display === 'block') {
+                        panel.style.display = 'none';
+                    } else {
+                        panel.style.display = 'block';
+                    }
+                });
+            });
         })
         .catch((error) => {
             console.error('Error:', error);
