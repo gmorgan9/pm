@@ -93,10 +93,10 @@ document.addEventListener("DOMContentLoaded", function () {
                                 ${control.control_section}
                             </button>
                         </td>
-                        <td id="point_of_focus_${control.control_section}" style="max-width: 5% !important; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        <td id="point_of_focus_${control.control_section}" style="max-width: 5% !important;">
                             ${control.point_of_focus}
                         </td>
-                        <td id="control_activity_${control.control_section}" style="max-width: 20% !important; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        <td id="control_activity_${control.control_section}" style="max-width: 20% !important;">
                             ${control.control_activity}
                         </td>
                                             
