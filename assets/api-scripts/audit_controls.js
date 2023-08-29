@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Process and display controls for the section
                     sectionData.forEach((control) => {
                         // Create a new element for each audit control
-                        // const auditControlDiv = document.createElement('div');
+                        const auditControlDiv = document.createElement('div');
                         auditControlDiv.innerHTML = `
                             <div class="table-responsive">
                                 <table class="table">
