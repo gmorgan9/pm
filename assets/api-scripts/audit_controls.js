@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         </thead>
                         <tbody>
                         <tr>
-                            <td>${control.control_section}</td>
+                            <td class="text-wrap">${control.control_section}</td>
                         </tr>
                         <tr>
-                            <td>${control.point_of_focus}</td>
+                            <td class="text-wrap">${control.point_of_focus}</td>
                         </tr>
                         <tr>
-                            <td>${control.control_activity}</td>
+                            <td class="text-wrap">${control.control_activity}</td>
                         </tr>
                         </tbody>
                     </table>
