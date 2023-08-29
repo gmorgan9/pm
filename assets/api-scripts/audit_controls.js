@@ -3,41 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch('https://app-aarc-api.morganserver.com/api/audit-controls')
         .then((response) => response.json())
         .then((data) => {
-            // Get the HTML element where you want to display the data
-            const auditControlsList = document.getElementById('audit-controls-list');
+            // Get the HTML element where you want to display the data for 'CC1'
+            const cc1ControlsList = document.getElementById('cc1-controls-list');
 
-            // Create an object to store controls by section_number
-            const controlsBySection = {};
-
-            // Process the received data and group controls by section_number
-            data.forEach((control) => {
-                const sectionNumber = control.section_number;
-
-                // Initialize the array for the section if it doesn't exist
-                if (!controlsBySection[sectionNumber]) {
-                    controlsBySection[sectionNumber] = [];
-                }
-
-                // Add the control to the section's array
-                controlsBySection[sectionNumber].push(control);
-            });
-
-            // Grab controls with section_number 'CC1'
-            const cc1Controls = controlsBySection['CC1'];
-
-            // Check if there are 'CC1' controls
-            if (cc1Controls) {
-                // Create a new section container for 'CC1'
-                const cc1Container = document.createElement('div');
-                cc1Container.className = 'section-container'; // Add a class for styling
-
-                // Append the section header for 'CC1'
-                const cc1Header = document.createElement('h2');
-                cc1Header.textContent = 'Section CC1';
-                cc1Container.appendChild(cc1Header);
-
-                // Append each 'CC1' control within the section
-                cc1Controls.forEach((control) => {
+            // Check if 'CC1' controls exist
+            if (data['CC1']) {
+                // Process and display 'CC1' controls
+                data['CC1'].forEach((control) => {
+                    // Create a new element for each audit control
                     const auditControlDiv = document.createElement('div');
                     auditControlDiv.innerHTML = `
                         <strong>Scope Category:</strong> ${control.scope_category}<br>
@@ -45,11 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
                         <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
                         <strong>Control Activity:</strong> ${control.control_activity}<br><br>
                     `;
-                    cc1Container.appendChild(auditControlDiv);
-                });
 
-                // Append the 'CC1' section container to the main list
-                auditControlsList.appendChild(cc1Container);
+                    // Append the control element to the 'CC1' controls list
+                    cc1ControlsList.appendChild(auditControlDiv);
+                });
+            } else {
+                // 'CC1' controls not found
+                const noCC1ControlsDiv = document.createElement('div');
+                noCC1ControlsDiv.textContent = 'No controls found for Section CC1.';
+                cc1ControlsList.appendChild(noCC1ControlsDiv);
             }
         })
         .catch((error) => {
