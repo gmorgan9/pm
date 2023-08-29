@@ -88,11 +88,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Create a new row for each audit control
                         const auditControlRow = document.createElement('tr');
                         auditControlRow.innerHTML = `
+                        <tbody>
                         <button class="btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#${control.control_section}" aria-controls="${control.control_section}">
                             <td style="width: 8%;">${control.control_section}</td>
                             <td style="width: 45%;">${control.point_of_focus}</td>
                             <td style="width: 45%;">${control.control_activity}</td>
                         </button>
+                        </tbody>
 
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="${control.control_section}" aria-labelledby="${control.control_section}Label">
                             <div class="offcanvas-header">
