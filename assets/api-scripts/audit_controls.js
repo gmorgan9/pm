@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         auditControlRow.innerHTML = `
                         
                         <td style="width: 8%;"><button class="btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#${control.control_section}" aria-controls="${control.control_section}">${control.control_section}</button></td>
-                        <td style="max-width: 20% !important; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${control.point_of_focus}</td>
+                        <td style="max-width: 5% !important; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${control.point_of_focus}</td>
                         <td style="max-width: 20% !important; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${control.control_activity}</td>
 
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="${control.control_section}" aria-labelledby="${control.control_section}Label">
