@@ -15,21 +15,26 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Create a new element for each audit control
                         const auditControlDiv = document.createElement('div');
                         auditControlDiv.innerHTML = `
-                        <table class="table-responsive">
-                            <thead>
-                                <th scope="col" style="width: 15px;">Control Key</th> 
-                                <th scope="col w-25">Point of Focus</th>
-                                <th scope="col w-25">Illuestrative Control</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>${control.control_section}</td>
-                                    <td>${control.point_of_focus}</td>
-                                    <td>${control.control_activity}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" style="width: 15%;">Control Key</th> 
+                                            <th scope="col">Point of Focus</th>
+                                            <th scope="col">Illustrative Control</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 15%;">${control.control_section}</td>
+                                            <td>${control.point_of_focus}</td>
+                                            <td>${control.control_activity}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         `;
+
 
                         // Append the control element to the section's controls list
                         controlsList.appendChild(auditControlDiv);
