@@ -29,7 +29,7 @@ loginForm.addEventListener('submit', async (event) => {
             // console.error('Login failed');
             const errorMessage = await response.text();
             document.getElementById('error-message').textContent = errorMessage;
-            console.error('Login failed:', errorMessage);
+            console.error('Login failed - js:', errorMessage);
         }
         
     } catch (error) {
