@@ -15,24 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Create a new element for each audit control
                         const auditControlDiv = document.createElement('div');
                         auditControlDiv.innerHTML = `
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" style="width: 15%;">Control Key</th> 
-                                            <th scope="col">Point of Focus</th>
-                                            <th scope="col">Illustrative Control</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td style="width: 8%;">${control.control_section}</td>
-                                            <td style="width: 45%;">${control.point_of_focus}</td>
-                                            <td style="width: 45%;">${control.control_activity}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <td style="width: 8%;">${control.control_section}</td>
+                            <td style="width: 45%;">${control.point_of_focus}</td>
+                            <td style="width: 45%;">${control.control_activity}</td>
                         `;
 
 
