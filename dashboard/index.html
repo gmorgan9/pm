@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body style="background-color: #e3e3e3; display:none" id="body">
+<body style="background-color: #e3e3e3;" >
     
+    <div class="all-content" id="body" style="display:none">
     <!-- Left Sidebar -->
     <div class="sidebar">
         <div class="d-flex justify-content-center">
@@ -110,10 +111,15 @@
             </ol>
           </nav>
           <div id="user-details"></div>
-          <div class="spinner-border" role="status" id="spinner">
-            <span class="visually-hidden">Loading...</span>
-          </div>
+          
     </div>
+
+    <!-- end all content -->
+    </div>
+
+    <div class="spinner-border" role="status" id="spinner">
+        <span class="visually-hidden">Loading...</span>
+      </div>
 
     <script src="../assets/scripts/dropdown.js?cache=<?= Math.random() ?>"></script>
     <script src="../assets/api-scripts/logout.js?cache=<?= Math.random() ?>"></script>
