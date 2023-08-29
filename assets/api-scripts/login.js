@@ -3,8 +3,9 @@ const loginForm = document.getElementById('login-form');
 loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const workEmail = document.getElementById('work_email').value;
+    const workEmail = document.getElementById('work_email').value.toLowerCase();
     const password = document.getElementById('password').value;
+
 
     let response; // Declare the response variable in the outer scope
 
