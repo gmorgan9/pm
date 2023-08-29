@@ -6,7 +6,7 @@ function getCookie(name) {
 }
 
 // Check if an access token cookie exists and fetch user details on page load
-const accessToken = getCookie('access_token');
-if (!accessToken) {
+const current_token = getCookie('access_token');
+if (!current_token) {
     window.location.href = 'https://app-aarc.morganserver.com/';
 }
