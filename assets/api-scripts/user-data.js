@@ -15,6 +15,7 @@ async function getUserDetails() {
             }
         });
 
+        
         if (response.ok) {
             const data = await response.json();
             console.log(data);
