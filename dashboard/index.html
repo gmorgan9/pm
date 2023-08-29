@@ -12,7 +12,7 @@
 </head>
 <body style="background-color: #e3e3e3;" >
 
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;" id="spinner-group">
         <div class="spinner-grow" style="width: 3rem; height: 3rem; background-color: rgb(172, 202, 83);" role="status" id="spinner-item-1">
             <span class="visually-hidden">Loading...</span>
           </div>
@@ -147,11 +147,13 @@ setTimeout(function() {
     document.getElementById('spinner-item-2').style.display = 'none';
     document.getElementById('spinner-item-3').style.display = 'none';
     document.getElementById('spinner-item-4').style.display = 'none';
+    document.getElementById('spinner-group').style.display = 'none';
     
     // Load the page content or perform other actions
     // For example, you can show a previously hidden content div
     document.getElementById('sidebar').style.display = 'block';
     document.getElementById('content').style.display = 'block';
+    
 }, 1000); // 5000 milliseconds (5 seconds)
 
     </script>
