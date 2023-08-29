@@ -3,43 +3,28 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch('https://app-aarc-api.morganserver.com/api/audit-controls')
         .then((response) => response.json())
         .then((data) => {
-            // Iterate through the data and group controls by control section
-            const groupedControls = {};
-            data.forEach((control) => {
-                const controlSection = control.control_section;
-                if (!groupedControls[controlSection]) {
-                    groupedControls[controlSection] = [];
-                }
-                groupedControls[controlSection].push(control);
-            });
+            // Get the HTML element where you want to display the data
+            const auditControlsList = document.getElementById('audit-controls-list');
             
-            // Iterate through the grouped controls and populate HTML sections
-            for (const section in groupedControls) {
-                if (groupedControls.hasOwnProperty(section)) {
-                    // Get the HTML element for the control section
-                    const controlSectionDiv = document.getElementById(section);
-                    
-                    // Create a new element for each audit control in the section
-                    groupedControls[section].forEach((control) => {
-                        const auditControlDiv = document.createElement('div');
-                        auditControlDiv.innerHTML = `
-                            <strong>Scope Category:</strong> ${control.scope_category}<br>
-                            <strong>Control Section:</strong> ${control.control_section}<br>
-                            <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
-                            <strong>Control Activity:</strong> ${control.control_activity}<br><br>
-                        `;
-                        
-                        // Append the control element to the control section
-                        controlSectionDiv.appendChild(auditControlDiv);
-                    });
-                }
-            }
+            // Process the received data and update the HTML
+            data.forEach((control) => {
+                // Create a new element for each audit control
+                const auditControlDiv = document.createElement('div');
+                auditControlDiv.innerHTML = `
+                    <strong>Scope Category:</strong> ${control.scope_category}<br>
+                    <strong>Control Section:</strong> ${control.control_section}<br>
+                    <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
+                    <strong>Control Activity:</strong> ${control.control_activity}<br><br>
+                `;
+                
+                // Append the control element to the list
+                auditControlsList.appendChild(auditControlDiv);
+            });
         })
         .catch((error) => {
             console.error('Error:', error);
         });
 });
-
 
 // <strong>Section Number:</strong> ${control.section_number}<br>
 // <strong>Control Number:</strong> ${control.control_number}<br>
