@@ -3,72 +3,57 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch('https://app-aarc-api.morganserver.com/api/audit-controls')
         .then((response) => response.json())
         .then((data) => {
-            // Create separate arrays for each section number
-            const sectionCC1 = [];
-            const sectionCC2 = [];
-            // Add more arrays for other section numbers as needed
+            // Get the HTML element where you want to display the data
+            const auditControlsList = document.getElementById('audit-controls-list');
+            
+            // Create an object to store controls grouped by section_number
+            const sectionControls = {};
 
-            // Process the received data and update the arrays
+            // Process the received data and group controls by section_number
             data.forEach((control) => {
-                // Determine the section number from the control
                 const sectionNumber = control.section_number;
 
-                // Add the control to the corresponding section array
-                if (sectionNumber === 'CC1') {
-                    sectionCC1.push(control);
-                } else if (sectionNumber === 'CC2') {
-                    sectionCC2.push(control);
-                }else if (sectionNumber === 'CC3') {
-                    sectionCC2.push(control);
-                }else if (sectionNumber === 'CC4') {
-                    sectionCC2.push(control);
-                }else if (sectionNumber === 'CC5') {
-                    sectionCC2.push(control);
-                }else if (sectionNumber === 'CC6') {
-                    sectionCC2.push(control);
-                }else if (sectionNumber === 'CC7') {
-                    sectionCC2.push(control);
-                }else if (sectionNumber === 'CC8') {
-                    sectionCC2.push(control);
-                }else if (sectionNumber === 'CC9') {
-                    sectionCC2.push(control);
+                // Create a container for the section if it doesn't exist
+                if (!sectionControls[sectionNumber]) {
+                    sectionControls[sectionNumber] = [];
                 }
-                // Add more conditions for other section numbers as needed
+
+                // Add the control to the respective section container
+                sectionControls[sectionNumber].push(control);
             });
 
-            // Display the data for each section in the HTML
-            displaySection(sectionCC1, 'audit-controls-cc1');
-            displaySection(sectionCC2, 'audit-controls-cc2');
-            displaySection(sectionCC2, 'audit-controls-cc3');
-            displaySection(sectionCC2, 'audit-controls-cc4');
-            displaySection(sectionCC2, 'audit-controls-cc5');
-            displaySection(sectionCC2, 'audit-controls-cc6');
-            displaySection(sectionCC2, 'audit-controls-cc7');
-            displaySection(sectionCC2, 'audit-controls-cc8');
-            displaySection(sectionCC2, 'audit-controls-cc9');
-            // Display other sections as needed
-            
+            // Iterate through sectionControls and create containers for each section
+            for (const sectionNumber in sectionControls) {
+                if (sectionControls.hasOwnProperty(sectionNumber)) {
+                    const sectionContainer = document.createElement('div');
+                    sectionContainer.className = 'section-container'; // You can style this container as needed
+                    
+                    // Create a heading for the section
+                    const sectionHeading = document.createElement('h2');
+                    sectionHeading.textContent = `Section Number: ${sectionNumber}`;
+                    sectionContainer.appendChild(sectionHeading);
 
+                    // Iterate through controls in the section and display them
+                    sectionControls[sectionNumber].forEach((control) => {
+                        // Create a new element for each audit control
+                        const auditControlDiv = document.createElement('div');
+                        auditControlDiv.innerHTML = `
+                            <strong>Scope Category:</strong> ${control.scope_category}<br>
+                            <strong>Control Section:</strong> ${control.control_section}<br>
+                            <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
+                            <strong>Control Activity:</strong> ${control.control_activity}<br><br>
+                        `;
+                        
+                        // Append the control element to the section container
+                        sectionContainer.appendChild(auditControlDiv);
+                    });
+
+                    // Append the section container to the main auditControlsList
+                    auditControlsList.appendChild(sectionContainer);
+                }
+            }
         })
         .catch((error) => {
             console.error('Error:', error);
         });
-
-    // Function to display the data for a section in the HTML
-    function displaySection(sectionData, elementId) {
-        const auditControlsList = document.getElementById(elementId);
-
-        // Process and display the data for the section
-        sectionData.forEach((control) => {
-            const auditControlDiv = document.createElement('div');
-            auditControlDiv.innerHTML = `
-                <strong>Scope Category:</strong> ${control.scope_category}<br>
-                <strong>Control Section:</strong> ${control.control_section}<br>
-                <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
-                <strong>Control Activity:</strong> ${control.control_activity}<br><br>
-            `;
-
-            auditControlsList.appendChild(auditControlDiv);
-        });
-    }
 });
