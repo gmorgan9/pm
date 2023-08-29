@@ -88,9 +88,21 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Create a new row for each audit control
                         const auditControlRow = document.createElement('tr');
                         auditControlRow.innerHTML = `
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#${control.control_section}" aria-controls="${control.control_section}">
                             <td style="width: 8%;">${control.control_section}</td>
                             <td style="width: 45%;">${control.point_of_focus}</td>
                             <td style="width: 45%;">${control.control_activity}</td>
+                        </button>
+
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="${control.control_section}" aria-labelledby="${control.control_section}Label">
+                            <div class="offcanvas-header">
+                              <h5 class="offcanvas-title" id="${control.control_section}Label">${control.control_section}</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                              ...
+                            </div>
+                          </div>
                         `;
 
                         // Append the row to the section's controls list
