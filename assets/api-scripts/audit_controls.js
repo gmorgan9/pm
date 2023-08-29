@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((data) => {
             // Get the HTML element where you want to display the data
             const cc1ControlsList = document.querySelector('#cc1-controls-list tbody');
+            const cc2ControlsList = document.querySelector('#cc2-controls-list tbody');
 
             // Function to display controls for a given section
             function displayControls(sectionData, controlsList, sectionName) {
@@ -100,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Display controls for 'CC1' section
             displayControls(data['CC1'], cc1ControlsList, 'CC1');
+            displayControls(data['CC2'], cc2ControlsList, 'CC2');
         })
         .catch((error) => {
             console.error('Error:', error);
