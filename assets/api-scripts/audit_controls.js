@@ -25,15 +25,18 @@ document.addEventListener("DOMContentLoaded", function () {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td style="width: 8%;">${control.control_section}</td>
-                                            <td style="width: 45%;">${control.point_of_focus}</td>
-                                            <td style="width: 45%;">${control.control_activity}</td>
-                                        </tr>
+                                        ${controls.map(control => `
+                                            <tr>
+                                                <td style="width: 8%;">${control.control_section}</td>
+                                                <td style="width: 45%;">${control.point_of_focus}</td>
+                                                <td style="width: 45%;">${control.control_activity}</td>
+                                            </tr>
+                                        `).join('')}
                                     </tbody>
                                 </table>
                             </div>
                         `;
+
 
 
                         // Append the control element to the section's controls list
