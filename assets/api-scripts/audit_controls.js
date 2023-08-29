@@ -18,6 +18,20 @@ document.addEventListener("DOMContentLoaded", function () {
                     sectionCC1.push(control);
                 } else if (sectionNumber === 'CC2') {
                     sectionCC2.push(control);
+                }else if (sectionNumber === 'CC3') {
+                    sectionCC2.push(control);
+                }else if (sectionNumber === 'CC4') {
+                    sectionCC2.push(control);
+                }else if (sectionNumber === 'CC5') {
+                    sectionCC2.push(control);
+                }else if (sectionNumber === 'CC6') {
+                    sectionCC2.push(control);
+                }else if (sectionNumber === 'CC7') {
+                    sectionCC2.push(control);
+                }else if (sectionNumber === 'CC8') {
+                    sectionCC2.push(control);
+                }else if (sectionNumber === 'CC9') {
+                    sectionCC2.push(control);
                 }
                 // Add more conditions for other section numbers as needed
             });
@@ -25,6 +39,13 @@ document.addEventListener("DOMContentLoaded", function () {
             // Display the data for each section in the HTML
             displaySection(sectionCC1, 'audit-controls-cc1');
             displaySection(sectionCC2, 'audit-controls-cc2');
+            displaySection(sectionCC2, 'audit-controls-cc3');
+            displaySection(sectionCC2, 'audit-controls-cc4');
+            displaySection(sectionCC2, 'audit-controls-cc5');
+            displaySection(sectionCC2, 'audit-controls-cc6');
+            displaySection(sectionCC2, 'audit-controls-cc7');
+            displaySection(sectionCC2, 'audit-controls-cc8');
+            displaySection(sectionCC2, 'audit-controls-cc9');
             // Display other sections as needed
             
 
@@ -49,6 +70,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
             auditControlsList.appendChild(auditControlDiv);
         });
-        console.log('auditControlsList:', auditControlsList);
     }
 });
