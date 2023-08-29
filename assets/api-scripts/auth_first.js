@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+
     // Check if an access token exists
     const accessToken = getCookie('access_token');
 
@@ -13,4 +13,3 @@ document.addEventListener('DOMContentLoaded', function () {
         const parts = value.split(`; ${name}=`);
         if (parts.length === 2) return parts.pop().split(';').shift();
     }
-});
