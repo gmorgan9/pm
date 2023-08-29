@@ -17,15 +17,15 @@ document.addEventListener("DOMContentLoaded", function () {
                         auditControlDiv.innerHTML = `
                         <table class="table-responsive">
                             <thead>
-                                <th scope="col">Control Key</th> 
-                                <th scope="col">Point of Focus</th>
-                                <th scope="col">Illuestrative Control</th>
+                                <th scope="col" style="width: 15px;">Control Key</th> 
+                                <th scope="col w-25">Point of Focus</th>
+                                <th scope="col w-25">Illuestrative Control</th>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="text-wrap">${control.control_section}</td>
-                                    <td class="text-wrap">${control.point_of_focus}</td>
-                                    <td class="text-wrap">${control.control_activity}</td>
+                                    <td>${control.control_section}</td>
+                                    <td>${control.point_of_focus}</td>
+                                    <td>${control.control_activity}</td>
                                 </tr>
                             </tbody>
                         </table>
