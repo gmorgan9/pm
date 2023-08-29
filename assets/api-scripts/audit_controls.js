@@ -19,14 +19,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Create a new element for each audit control
                 const auditControlDiv = document.createElement('div');
                 auditControlDiv.innerHTML = `
-                    <button class="accordion">Section ${sectionNumber}</button>
-                    <div class="panel">
-                        <strong>Scope Category:</strong> ${control.scope_category}<br>
-                        <strong>Control Number:</strong> ${controlNumber}<br>
-                        <strong>Control Section:</strong> ${sectionControl}<br>
-                        <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
-                        <strong>Control Activity:</strong> ${control.control_activity}<br><br>
-                    </div>
+                    <strong>Scope Category:</strong> ${control.scope_category}<br>
+                    <strong>Section Number:</strong> ${sectionNumber}<br>
+                    <strong>Control Number:</strong> ${controlNumber}<br>
+                    <strong>Control Section:</strong> ${sectionControl}<br>
+                    <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
+                    <strong>Control Activity:</strong> ${control.control_activity}<br><br>
                 `;
 
                 // Append the control element to the list
@@ -39,21 +37,45 @@ document.addEventListener("DOMContentLoaded", function () {
                 groupedControls[sectionNumber].push(control);
             });
 
-            // Add click event listeners to the accordions
-            const accordions = document.querySelectorAll('.accordion');
-            accordions.forEach((accordion) => {
-                accordion.addEventListener('click', function () {
-                    this.classList.toggle('active');
-                    const panel = this.nextElementSibling;
-                    if (panel.style.display === 'block') {
-                        panel.style.display = 'none';
-                    } else {
-                        panel.style.display = 'block';
+            // Attach a click event listener to each section number
+            for (const sectionNumber in groupedControls) {
+                if (groupedControls.hasOwnProperty(sectionNumber)) {
+                    const sectionElement = document.getElementById(`section-${sectionNumber}`);
+                    if (sectionElement) {
+                        sectionElement.addEventListener('click', () => {
+                            // Handle the click event, e.g., display controls for this section.
+                            displaySectionControls(sectionNumber, groupedControls[sectionNumber]);
+                        });
                     }
-                });
-            });
+                }
+            }
         })
         .catch((error) => {
             console.error('Error:', error);
         });
 });
+
+function displaySectionControls(sectionNumber, controls) {
+    // Clear the existing content
+    const sectionControlsList = document.getElementById('section-controls-list');
+    sectionControlsList.innerHTML = '';
+
+    // Display controls for the selected section
+    controls.forEach((control) => {
+        // Create a new element for each audit control
+        const auditControlDiv = document.createElement('div');
+        auditControlDiv.innerHTML = `
+            <strong>Scope Category:</strong> ${control.scope_category}<br>
+            <strong>Section Number:</strong> ${control.section_number}<br>
+            <strong>Control Number:</strong> ${control.control_number}<br>
+            <strong>Control Section:</strong> ${control.section_number}.${control.control_number}<br>
+            <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
+            <strong>Control Activity:</strong> ${control.control_activity}<br><br>
+        `;
+
+        // Append the control element to the list
+        sectionControlsList.appendChild(auditControlDiv);
+    });
+
+    // You can also update the UI to highlight the selected section, if desired.
+}
