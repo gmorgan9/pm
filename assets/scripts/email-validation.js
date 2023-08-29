@@ -3,7 +3,7 @@ document.getElementById("work_email").addEventListener("input", validateEmail);
 
 function validateEmail() {
     var email = document.getElementById("work_email").value;
-    var emailIcon = document.getElementById("validation-icon");
+    var emailIcon = document.getElementById("email-validation-icon");
     var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
     if (!emailPattern.test(email)) {
