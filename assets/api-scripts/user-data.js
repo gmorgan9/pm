@@ -2,8 +2,8 @@ const userDetailsDiv = document.getElementById('user-details');
 
 async function getUserDetails() {
     try {
-        const accessToken = getCookie('access_token');
-        if (!accessToken) {
+        const get_user_data_token = getCookie('access_token');
+        if (!get_user_data_token) {
             console.error('Access token not found');
             return;
         }
@@ -35,7 +35,7 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-const accessToken = getCookie('access_token');
-if (accessToken) {
+const user_AT = getCookie('access_token');
+if (user_AT) {
     getUserDetails();
 }
