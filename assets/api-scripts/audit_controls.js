@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             } else if (data['CC2']) {
                 // Process and display 'CC1' controls
-                data['CC1'].forEach((control) => {
+                data['CC2'].forEach((control) => {
                     // Create a new element for each audit control
                     const auditControlDiv = document.createElement('div');
                     auditControlDiv.innerHTML = `
