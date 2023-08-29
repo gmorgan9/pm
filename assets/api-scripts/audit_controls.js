@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             displaySection(sectionCC1, 'audit-controls-cc1');
             displaySection(sectionCC2, 'audit-controls-cc2');
             // Display other sections as needed
-            console.log('auditControlsList:', auditControlsList);
+            
 
         })
         .catch((error) => {
@@ -49,5 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             auditControlsList.appendChild(auditControlDiv);
         });
+        console.log('auditControlsList:', auditControlsList);
     }
 });
