@@ -24,6 +24,8 @@ loginForm.addEventListener('submit', async (event) => {
             window.location.href = 'https://app-aarc.morganserver.com/dashboard/';
         } else {
             // Display the error message
+            const errordata = await response.json();
+            console.log(errordata);
             errorMessageContainer.textContent = 'Login failed. Please check your credentials.';
         }
     } catch (error) {
