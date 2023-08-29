@@ -99,7 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
                               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body">
-                              ...
+                            <h3>Point of Focus</h3>
+                            ${control.point_of_focus}
+                            <hr>
+                            <h3>Control Activity</h3>
+                            ${control.control_activity}
                             </div>
                           </div>
                         `;
