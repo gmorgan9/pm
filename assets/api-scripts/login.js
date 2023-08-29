@@ -26,7 +26,7 @@ loginForm.addEventListener('submit', async (event) => {
             // Display the error message
             const errordata = await response.json();
             console.log(errordata);
-            errorMessageContainer.innerHTML = '<span class="alert alert-danger" role=alert>Login failed. Please check your credentials.</span>';
+            errorMessageContainer.innerHTML = '<div class="alert alert-danger" role=alert>Login failed. Please check your credentials.</div>';
         }
     } catch (error) {
         console.error('An error occurred:', error);
