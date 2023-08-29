@@ -81,48 +81,45 @@ document.addEventListener("DOMContentLoaded", function () {
             const cc9ControlsList = document.querySelector('#cc9-controls-list tbody');
 
             // Function to display controls for a given section
-            function displayControls(sectionData, controlsList, sectionName) {
-                if (sectionData) {
-                    // Process and display controls for the section
-                    sectionData.forEach((control) => {
-                        // Create a new row for each audit control with an anchor link
-                        const auditControlRow = document.createElement('tr');
-                        auditControlRow.innerHTML = `
-                            <td style="width: 8%;">${control.control_section}</td>
-                            <td style="width: 45%;">${control.point_of_focus}</td>
-                            <td style="width: 45%;">${control.control_activity}</td>
-                        `;
-            
-                        // Create an anchor link around the entire row
-                        const link = document.createElement('a');
-                        link.href = '#'; // Set the href attribute to your desired link destination
-                        link.classList.add('btn-link'); // Add any necessary classes
-            
-                        // Append the row to the anchor link
-                        link.appendChild(auditControlRow);
-            
-                        // Append the anchor link to the section's controls list
-                        controlsList.appendChild(link);
-                    });
-                } else {
-                    // Section controls not found
-                    const noControlsRow = document.createElement('tr');
-                    noControlsRow.innerHTML = `
-                        <td colspan="3">No controls found for Section ${sectionName}.</td>
-                    `;
-            
-                    // Create an anchor link around the "No controls" row
-                    const link = document.createElement('a');
-                    link.href = '#'; // Set the href attribute to your desired link destination
-                    link.classList.add('btn-link'); // Add any necessary classes
-            
-                    // Append the "No controls" row to the anchor link
-                    link.appendChild(noControlsRow);
-            
-                    // Append the anchor link to the section's controls list
-                    controlsList.appendChild(link);
+            // Function to display controls for a given section
+function displayControls(sectionData, controlsList, sectionName) {
+    if (sectionData) {
+        // Process and display controls for the section
+        sectionData.forEach((control) => {
+            // Create a new row for each audit control
+            const auditControlRow = document.createElement('tr');
+            auditControlRow.innerHTML = `
+                <td style="width: 8%;">${control.control_section}</td>
+                <td style="width: 45%;">${control.point_of_focus}</td>
+                <td style="width: 45%;">${control.control_activity}</td>
+            `;
+
+            // Add a click event listener to the row
+            auditControlRow.addEventListener('click', () => {
+                // Handle the click event to open the right canvas
+                const canvasId = control.control_section; // Assuming your control_section is unique
+                const canvas = document.getElementById(canvasId);
+                if (canvas) {
+                    const offcanvas = new bootstrap.Offcanvas(canvas);
+                    offcanvas.show();
                 }
-            }
+            });
+
+            // Append the row to the section's controls list
+            controlsList.appendChild(auditControlRow);
+        });
+    } else {
+        // Section controls not found
+        const noControlsRow = document.createElement('tr');
+        noControlsRow.innerHTML = `
+            <td colspan="3">No controls found for Section ${sectionName}.</td>
+        `;
+
+        // Append the "No controls" row to the section's controls list
+        controlsList.appendChild(noControlsRow);
+    }
+}
+
 
             // Display controls for 'CC1' section
             displayControls(data['CC1'], cc1ControlsList, 'CC1');
