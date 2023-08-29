@@ -72,6 +72,13 @@ document.addEventListener("DOMContentLoaded", function () {
             // Get the HTML element where you want to display the data
             const cc1ControlsList = document.querySelector('#cc1-controls-list tbody');
             const cc2ControlsList = document.querySelector('#cc2-controls-list tbody');
+            const cc3ControlsList = document.querySelector('#cc3-controls-list tbody');
+            const cc4ControlsList = document.querySelector('#cc4-controls-list tbody');
+            const cc5ControlsList = document.querySelector('#cc5-controls-list tbody');
+            const cc6ControlsList = document.querySelector('#cc6-controls-list tbody');
+            const cc7ControlsList = document.querySelector('#cc7-controls-list tbody');
+            const cc8ControlsList = document.querySelector('#cc8-controls-list tbody');
+            const cc9ControlsList = document.querySelector('#cc9-controls-list tbody');
 
             // Function to display controls for a given section
             function displayControls(sectionData, controlsList, sectionName) {
@@ -102,6 +109,13 @@ document.addEventListener("DOMContentLoaded", function () {
             // Display controls for 'CC1' section
             displayControls(data['CC1'], cc1ControlsList, 'CC1');
             displayControls(data['CC2'], cc2ControlsList, 'CC2');
+            displayControls(data['CC3'], cc3ControlsList, 'CC3');
+            displayControls(data['CC4'], cc4ControlsList, 'CC4');
+            displayControls(data['CC5'], cc5ControlsList, 'CC5');
+            displayControls(data['CC6'], cc6ControlsList, 'CC6');
+            displayControls(data['CC7'], cc7ControlsList, 'CC7');
+            displayControls(data['CC8'], cc8ControlsList, 'CC8');
+            displayControls(data['CC9'], cc9ControlsList, 'CC9');
         })
         .catch((error) => {
             console.error('Error:', error);
