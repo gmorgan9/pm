@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((response) => response.json())
         .then((data) => {
             // Filter the data to include only controls in section CC1
-            const cc1Controls = data.filter((control) => control.control_section === 'CC1');
+            const cc1Controls = data.filter((control) => control.section_number === 'CC1');
             
             // Get the HTML element where you want to display the data
             const auditControlsList = document.getElementById('audit-controls-list');
