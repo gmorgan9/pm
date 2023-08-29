@@ -26,7 +26,6 @@ loginForm.addEventListener('submit', async (event) => {
             // Redirect to the dashboard
             window.location.href = 'https://app-aarc.morganserver.com/dashboard/';
         } else {
-            // console.error('Login failed');
             const errorMessage = await response.text();
             document.getElementById('error-message').textContent = errorMessage;
             console.error('Login failed - js:', errorMessage);
