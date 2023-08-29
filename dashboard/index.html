@@ -12,9 +12,12 @@
 </head>
 <body style="background-color: #e3e3e3;" >
 
-    <div class="spinner-border d-flex justify-content-center align-items-center" role="status" id="spinner">
-        <span class="visually-hidden">Loading...</span>
-      </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="spinner-border " role="status" id="spinner">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+    </div>
+    
     
     <div class="all-content" id="body" style="display:none">
     <!-- Left Sidebar -->
@@ -140,7 +143,7 @@ setTimeout(function() {
     // Load the page content or perform other actions
     // For example, you can show a previously hidden content div
     document.getElementById('body').style.display = 'block';
-}, 2000); // 5000 milliseconds (5 seconds)
+}, 1000); // 5000 milliseconds (5 seconds)
 
     </script>
  
