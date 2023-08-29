@@ -27,55 +27,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     <strong>Control Activity:</strong> ${control.control_activity}<br><br>
                 `;
 
-                // Append the control element to the list
-                auditControlsList.appendChild(auditControlDiv);
-
-                // Group controls by section number
+                // Create a container for each section if it doesn't exist
                 if (!groupedControls[sectionNumber]) {
-                    groupedControls[sectionNumber] = [];
+                    groupedControls[sectionNumber] = document.createElement('div');
                 }
-                groupedControls[sectionNumber].push(control);
+
+                // Append the control element to the section container
+                groupedControls[sectionNumber].appendChild(auditControlDiv);
             });
 
-            // Attach a click event listener to each section number
-            for (const sectionNumber in groupedControls) {
-                if (groupedControls.hasOwnProperty(sectionNumber)) {
-                    const sectionElement = document.getElementById(`section-${sectionNumber}`);
-                    if (sectionElement) {
-                        sectionElement.addEventListener('click', () => {
-                            // Handle the click event, e.g., display controls for this section.
-                            displaySectionControls(sectionNumber, groupedControls[sectionNumber]);
-                        });
-                    }
-                }
-            }
+            // Append section containers to the main list
+            Object.keys(groupedControls).forEach((sectionNumber) => {
+                const sectionContainer = groupedControls[sectionNumber];
+                auditControlsList.appendChild(sectionContainer);
+            });
         })
         .catch((error) => {
             console.error('Error:', error);
         });
 });
-
-function displaySectionControls(sectionNumber, controls) {
-    // Clear the existing content
-    const sectionControlsList = document.getElementById('section-controls-list');
-    sectionControlsList.innerHTML = '';
-
-    // Display controls for the selected section
-    controls.forEach((control) => {
-        // Create a new element for each audit control
-        const auditControlDiv = document.createElement('div');
-        auditControlDiv.innerHTML = `
-            <strong>Scope Category:</strong> ${control.scope_category}<br>
-            <strong>Section Number:</strong> ${control.section_number}<br>
-            <strong>Control Number:</strong> ${control.control_number}<br>
-            <strong>Control Section:</strong> ${control.section_number}.${control.control_number}<br>
-            <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
-            <strong>Control Activity:</strong> ${control.control_activity}<br><br>
-        `;
-
-        // Append the control element to the list
-        sectionControlsList.appendChild(auditControlDiv);
-    });
-
-    // You can also update the UI to highlight the selected section, if desired.
-}
