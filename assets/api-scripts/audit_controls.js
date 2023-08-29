@@ -1,31 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch data from your Flask API
     fetch('https://app-aarc-api.morganserver.com/api/audit-controls')
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
+        .then((response) => response.json())
         .then((data) => {
-            // Iterate through the data and group controls by control section
+            // Group data by Control Section
             const groupedControls = {};
+
             data.forEach((control) => {
                 const controlSection = control.control_section;
+
                 if (!groupedControls[controlSection]) {
                     groupedControls[controlSection] = [];
                 }
+
                 groupedControls[controlSection].push(control);
             });
-            
-            // Iterate through the grouped controls and populate HTML sections
-            for (const section in groupedControls) {
-                if (groupedControls.hasOwnProperty(section)) {
-                    // Get the HTML element for the control section
-                    const controlSectionDiv = document.getElementById(section);
-                    
-                    // Create a new element for each audit control in the section
-                    groupedControls[section].forEach((control) => {
+
+            // Get the HTML element where you want to display the data
+            const auditControlsList = document.getElementById('audit-controls-list');
+
+            // Iterate through grouped controls and display them
+            for (const controlSection in groupedControls) {
+                if (groupedControls.hasOwnProperty(controlSection)) {
+                    const controlsInSection = groupedControls[controlSection];
+
+                    // Create a container for controls in this section
+                    const sectionContainer = document.createElement('div');
+                    sectionContainer.classList.add('control-section');
+
+                    // Create a header for the section
+                    const sectionHeader = document.createElement('h2');
+                    sectionHeader.textContent = `Control Section ${controlSection}`;
+                    sectionContainer.appendChild(sectionHeader);
+
+                    // Create a div for each control in the section
+                    controlsInSection.forEach((control) => {
                         const auditControlDiv = document.createElement('div');
                         auditControlDiv.innerHTML = `
                             <strong>Scope Category:</strong> ${control.scope_category}<br>
@@ -33,10 +42,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
                             <strong>Control Activity:</strong> ${control.control_activity}<br><br>
                         `;
-                        
-                        // Append the control element to the control section
-                        controlSectionDiv.appendChild(auditControlDiv);
+                        sectionContainer.appendChild(auditControlDiv);
                     });
+
+                    // Append the section container to the list
+                    auditControlsList.appendChild(sectionContainer);
                 }
             }
         })
@@ -44,7 +54,3 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Error:', error);
         });
 });
-
-
-// <strong>Section Number:</strong> ${control.section_number}<br>
-// <strong>Control Number:</strong> ${control.control_number}<br>
