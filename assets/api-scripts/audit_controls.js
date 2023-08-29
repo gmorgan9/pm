@@ -3,11 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch('https://app-aarc-api.morganserver.com/api/audit-controls')
         .then((response) => response.json())
         .then((data) => {
+            // Filter the data to include only controls in section CC1
+            const cc1Controls = data.filter((control) => control.control_section === 'CC1');
+            
             // Get the HTML element where you want to display the data
             const auditControlsList = document.getElementById('audit-controls-list');
             
             // Process the received data and update the HTML
-            data.forEach((control) => {
+            cc1Controls.forEach((control) => {
                 // Create a new element for each audit control
                 const auditControlDiv = document.createElement('div');
                 auditControlDiv.innerHTML = `
@@ -25,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Error:', error);
         });
 });
+
 
 // <strong>Section Number:</strong> ${control.section_number}<br>
 // <strong>Control Number:</strong> ${control.control_number}<br>
