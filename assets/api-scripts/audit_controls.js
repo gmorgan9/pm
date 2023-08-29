@@ -14,12 +14,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     sectionData.forEach((control) => {
                         // Create a new element for each audit control
                         const auditControlDiv = document.createElement('div');
-                        auditControlDiv.innerHTML = `
-                            <strong>Scope Category:</strong> ${control.scope_category}<br>
-                            <strong>Control Section:</strong> ${control.control_section}<br>
-                            <strong>Point of Focus:</strong> ${control.point_of_focus}<br>
-                            <strong>Control Activity:</strong> ${control.control_activity}<br><br>
-                        `;
+                        // Use CSS classes for styling
+auditControlDiv.innerHTML = `
+<div class="control-info">
+    <div><strong>Control Section:</strong> ${control.control_section}</div>
+    <div><strong>Point of Focus:</strong> ${control.point_of_focus}</div>
+    <div><strong>Control Activity:</strong> ${control.control_activity}</div>
+</div>
+<hr class="control-divider"> <!-- Add a divider between controls -->
+`;
+
 
                         // Append the control element to the section's controls list
                         controlsList.appendChild(auditControlDiv);
