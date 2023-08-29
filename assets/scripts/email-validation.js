@@ -1,3 +1,6 @@
+// Add an event listener for input events on the email input field
+document.getElementById("work_email").addEventListener("input", validateEmail);
+
 function validateEmail() {
     var email = document.getElementById("work_email").value;
     var emailIcon = document.getElementById("email-validation-icon");
