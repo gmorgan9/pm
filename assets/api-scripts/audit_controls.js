@@ -81,45 +81,42 @@ document.addEventListener("DOMContentLoaded", function () {
             const cc9ControlsList = document.querySelector('#cc9-controls-list tbody');
 
             // Function to display controls for a given section
-            // Function to display controls for a given section
-function displayControls(sectionData, controlsList, sectionName) {
-    if (sectionData) {
-        // Process and display controls for the section
-        sectionData.forEach((control) => {
-            // Create a new row for each audit control
-            const auditControlRow = document.createElement('tr');
-            auditControlRow.innerHTML = `
-                <td style="width: 8%;">${control.control_section}</td>
-                <td style="width: 45%;">${control.point_of_focus}</td>
-                <td style="width: 45%;">${control.control_activity}</td>
-            `;
+            function displayControls(sectionData, controlsList, sectionName) {
+                if (sectionData) {
+                    // Process and display controls for the section
+                    sectionData.forEach((control) => {
+                        // Create a new row for each audit control
+                        const auditControlRow = document.createElement('tr');
+                        auditControlRow.innerHTML = `
+                        <button class="btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#${control.control_section}" aria-controls="${control.control_section}">
+                            <td style="width: 8%;">${control.control_section}</td>
+                            <td style="width: 45%;">${control.point_of_focus}</td>
+                            <td style="width: 45%;">${control.control_activity}</td>
+                        </button>
 
-            // Add a click event listener to the row
-            auditControlRow.addEventListener('click', () => {
-                // Handle the click event to open the right canvas
-                const canvasId = control.control_section; // Assuming your control_section is unique
-                const canvas = document.getElementById(canvasId);
-                if (canvas) {
-                    const offcanvas = new bootstrap.Offcanvas(canvas);
-                    offcanvas.show();
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="${control.control_section}" aria-labelledby="${control.control_section}Label">
+                            <div class="offcanvas-header">
+                              <h5 class="offcanvas-title" id="${control.control_section}Label">${control.control_section}</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                              ...
+                            </div>
+                          </div>
+                        `;
+
+                        // Append the row to the section's controls list
+                        controlsList.appendChild(auditControlRow);
+                    });
+                } else {
+                    // Section controls not found
+                    const noControlsRow = document.createElement('tr');
+                    noControlsRow.innerHTML = `
+                        <td colspan="3">No controls found for Section ${sectionName}.</td>
+                    `;
+                    controlsList.appendChild(noControlsRow);
                 }
-            });
-
-            // Append the row to the section's controls list
-            controlsList.appendChild(auditControlRow);
-        });
-    } else {
-        // Section controls not found
-        const noControlsRow = document.createElement('tr');
-        noControlsRow.innerHTML = `
-            <td colspan="3">No controls found for Section ${sectionName}.</td>
-        `;
-
-        // Append the "No controls" row to the section's controls list
-        controlsList.appendChild(noControlsRow);
-    }
-}
-
+            }
 
             // Display controls for 'CC1' section
             displayControls(data['CC1'], cc1ControlsList, 'CC1');
