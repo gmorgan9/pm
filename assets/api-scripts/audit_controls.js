@@ -85,13 +85,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (sectionData) {
                     // Process and display controls for the section
                     sectionData.forEach((control) => {
+
+                        function truncateText(text, maxLength) {
+                            if (text.length > maxLength) {
+                              return text.substring(0, maxLength) + '...';
+                            }
+                            return text;
+                          }
+                          
+                          // Assuming you're using this in a loop for each control
+                          let truncatedPointOfFocus = truncateText(control.point_of_focus, 150);
+                          let truncatedControlActivity = truncateText(control.control_activity, 150);
+
+
                         // Create a new row for each audit control
                         const auditControlRow = document.createElement('tr');
                         auditControlRow.innerHTML = `
                         
                         <td style="width: 8%;"><button class="btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#${control.control_section}" aria-controls="${control.control_section}">${control.control_section}</button></td>
-                        <td style="max-width: 45%;">${control.point_of_focus}</td>
-                        <td style="max-width: 45%;">${control.control_activity}</td>
+                        <td style="max-width: 5% !important; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${truncatedPointOfFocus}</td>
+                        <td style="max-width: 20% !important; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${truncatedControlActivity}</td>
 
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="${control.control_section}" aria-labelledby="${control.control_section}Label">
                             <div class="offcanvas-header">
