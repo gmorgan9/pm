@@ -134,9 +134,9 @@ if(isset($_POST['add-engagement'])){
         <!-- Start row -->
           <div class="row d-flex">
 
-            <div>
+            <div class="col w-50">
               <label>Manager</label>
-              <select style="width: 25%;" name="category" class="form-control">
+              <select name="category" class="form-control">
                   <option value="">Select one...</option>
                   <option value="none">None</option>
                   <?php
@@ -154,7 +154,7 @@ if(isset($_POST['add-engagement'])){
               </select>
             </div>
 
-            <div>
+            <div class="col w-50">
               <label>Manager</label>
               <select style="width: 25%;" name="category" class="form-control">
                   <option value="">Select one...</option>
