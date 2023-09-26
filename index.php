@@ -34,7 +34,7 @@ if(mysqli_num_rows($result) > 0){
         <strong class="me-auto">Error</strong>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
-    <div class="toast-body">
+    <div class="toast-body text-start">
         The username or password entered is not registered on this site. Please try again.
     </div>
 </div>';
