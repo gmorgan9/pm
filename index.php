@@ -37,7 +37,8 @@ if(mysqli_num_rows($result) > 0){
     $_SESSION['email']            = $row['email'];
     $_SESSION['pass']             = $row['password'];
     $_SESSION['cpass']            = $row['cpassword'];
-    header('location:' . BASE_URL . '/rp-admin/');
+    // header('location:' . BASE_URL . '/rp-admin/');
+    header('location: dashboard/');
   
 }else{
    $error = '
