@@ -19,20 +19,13 @@ $select = " SELECT * FROM users WHERE user_name = '$user_name' && password = '$p
 $result = mysqli_query($conn, $select);
 
 if(mysqli_num_rows($result) > 0){
-
-   $row = mysqli_fetch_array($result);
-   $sql = "UPDATE users SET logged_in='1' WHERE user_name='$user_name'";
-   if (mysqli_query($conn, $sql)) {
-      echo "Record updated successfully";
-    } else {
-      echo "Error updating record: " . mysqli_error($conn);
-    }
+    $row = mysqli_fetch_array($result);
+    $sql = "UPDATE users SET logged_in='1' WHERE user_name='$user_name'";
     $_SESSION['user_id']          = $row['user_id'];
     $_SESSION['loggedin']         = $row['loggedin'];
     $_SESSION['username']         = $row['username'];
     $_SESSION['pass']             = $row['password'];
     header('location:' . BASE_URL . '/dashboard/');
-  
 }else{
    $error = '
    <div class="pt-3"></div>
@@ -57,6 +50,17 @@ if(mysqli_num_rows($result) > 0){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .login_error {
+                border-left: 4px solid #72aee6;
+                padding: 12px;
+                margin-left: 0;
+                margin-bottom: 20px;
+                background-color: #fff;
+                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+                word-wrap:break-word
+            }
+    </style>
 </head>
 <body style="background-color: #e3e3e3;">
 
@@ -69,7 +73,7 @@ if(mysqli_num_rows($result) > 0){
         Log in to track and see the process of your audit process.
     </p>
     <div class="pb-3"></div>
-    <div id="error-message"></div>
+    <?php echo $error; ?>
     <form id="login-form" autocomplete="off" action="#" method="POST">
         <div class="form-group">
             <input type="text" id="username" name="user_name" placeholder="Username" required>
