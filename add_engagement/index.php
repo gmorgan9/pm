@@ -213,7 +213,6 @@ if(isset($_POST['add-engagement'])){
                   <?php } ?>
               </select>
             </div>
-          </div> 
 
           <div class="col w-25">
               <label>Staff 3</label>
