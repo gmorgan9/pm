@@ -132,7 +132,7 @@ if(isset($_POST['add-engagement'])){
         <div class="pt-3"></div>
 
         <!-- Start row -->
-          <div class="row">
+          <div class="row d-flex">
 
             <div>
               <label>Manager</label>
