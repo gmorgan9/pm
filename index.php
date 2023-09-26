@@ -28,11 +28,20 @@ if(mysqli_num_rows($result) > 0){
     header('location:' . BASE_URL . '/dashboard/');
 }else{
    $error = '
-   <div class="pt-3"></div>
-   <div class="login_error">
-   <strong>Error:</strong> 
-   The username or password entered is not registered on this site. Please try again.
-   </div>
+   
+
+    <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="true" data-bs-delay="5000">
+    <div class="toast-header">
+    <img src="..." class="rounded me-2" alt="...">
+    <strong class="me-auto">Error</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+    The username or password entered is not registered on this site. Please try again.
+    </div>
+    </div>
+
+
    ';
 }
 
