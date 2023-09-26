@@ -19,7 +19,7 @@
             <li class="nav-item has-submenu soc-1">
                 <a class="sidebar-link d-flex justify-content-between" href="#">
                     <div>
-                        <i class="bi bi-list-ul"></i>&nbsp;&nbsp;&nbsp;Details
+                        <i class="bi bi-list-ul"></i>&nbsp;&nbsp;&nbsp;Engagements
                     </div>
                     <div class="right">
                         <i class="bi bi-plus icon-plus"></i>
@@ -27,8 +27,23 @@
                     </div>
                 </a>
                 <ul class="submenu collapse">
-                    <li><a class="nav-link" href="../engagements/">Engagements</a></li>
-                    <li><a class="nav-link" href="../meetings/">Meetings</a></li>
+                    <li><a class="nav-link" href="../engagements/">Full Listing</a></li>
+                    <li><a class="nav-link" href="../meetings/">Add an Engagement</a></li>
+                </ul>
+            </li>
+            <li class="nav-item has-submenu soc-1">
+                <a class="sidebar-link d-flex justify-content-between" href="#">
+                    <div>
+                        <i class="bi bi-list-ul"></i>&nbsp;&nbsp;&nbsp;Meetings
+                    </div>
+                    <div class="right">
+                        <i class="bi bi-plus icon-plus"></i>
+                        <i class="bi bi-dash icon-dash d-none"></i>
+                    </div>
+                </a>
+                <ul class="submenu collapse">
+                    <li><a class="nav-link" href="../engagements/">Full Listing</a></li>
+                    <li><a class="nav-link" href="../meetings/">Add a Meeting</a></li>
                 </ul>
             </li>
             <li class="nav-item">
