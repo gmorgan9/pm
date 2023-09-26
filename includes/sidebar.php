@@ -19,7 +19,7 @@
             <li class="nav-item has-submenu soc-1">
                 <a class="sidebar-link d-flex justify-content-between" href="#">
                     <div>
-                        <i class="bi bi-list-ul"></i>&nbsp;&nbsp;&nbsp;Engagements
+                        <i class="bi bi-briefcase"></i>&nbsp;&nbsp;&nbsp;Engagements
                     </div>
                     <div class="right">
                         <i class="bi bi-plus icon-plus"></i>
@@ -34,7 +34,7 @@
             <li class="nav-item has-submenu soc-1">
                 <a class="sidebar-link d-flex justify-content-between" href="#">
                     <div>
-                        <i class="bi bi-list-ul"></i>&nbsp;&nbsp;&nbsp;Meetings
+                        <i class="bi bi-calendar-week"></i>&nbsp;&nbsp;&nbsp;Meetings
                     </div>
                     <div class="right">
                         <i class="bi bi-plus icon-plus"></i>
