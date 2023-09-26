@@ -138,7 +138,6 @@ if(isset($_POST['add-engagement'])){
               <label>Manager</label>
               <select name="category" class="form-control">
                   <option value="">Select one...</option>
-                  <option value="none">None</option>
                   <?php
                   $query ="SELECT * FROM team_members where title = 'Manager'";
                   $result = $conn->query($query);
@@ -155,12 +154,11 @@ if(isset($_POST['add-engagement'])){
             </div>
 
             <div class="col w-50">
-              <label>Manager</label>
+              <label>Senior</label>
               <select style="" name="category" class="form-control">
                   <option value="">Select one...</option>
-                  <option value="none">None</option>
                   <?php
-                  $query ="SELECT * FROM team_members where title = 'Manager'";
+                  $query ="SELECT * FROM team_members where title = 'Senior'";
                   $result = $conn->query($query);
                   if($result->num_rows> 0){
                     $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -175,6 +173,69 @@ if(isset($_POST['add-engagement'])){
             </div>
           </div> 
         <!-- end row -->
+        <!-- Start row -->
+          <div class="row d-flex">
+
+            <div class="col w-25">
+              <label>Staff 1</label>
+              <select name="category" class="form-control">
+                  <option value="none">Select one...</option>
+                  <?php
+                  $query ="SELECT * FROM team_members where title = 'Staff'";
+                  $result = $conn->query($query);
+                  if($result->num_rows> 0){
+                    $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
+                  }
+                  ?>
+                  <?php 
+                      foreach ($options as $option) {
+                  ?>
+                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
+                  <?php } ?>
+              </select>
+            </div>
+                      
+            <div class="col w-25">
+              <label>Staff 2</label>
+              <select style="" name="category" class="form-control">
+                  <option value="none">Select one...</option>
+                  <?php
+                  $query ="SELECT * FROM team_members where title = 'Staff'";
+                  $result = $conn->query($query);
+                  if($result->num_rows> 0){
+                    $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
+                  }
+                  ?>
+                  <?php 
+                      foreach ($options as $option) {
+                  ?>
+                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
+                  <?php } ?>
+              </select>
+            </div>
+          </div> 
+
+          <div class="col w-25">
+              <label>Staff 3</label>
+              <select name="category" class="form-control">
+                  <option value="none">Select one...</option>
+                  <?php
+                  $query ="SELECT * FROM team_members where title = 'Staff'";
+                  $result = $conn->query($query);
+                  if($result->num_rows> 0){
+                    $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
+                  }
+                  ?>
+                  <?php 
+                      foreach ($options as $option) {
+                  ?>
+                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
+                  <?php } ?>
+              </select>
+            </div>
+          </div> 
+        <!-- end row -->
+
 
         <div class="pt-3"></div>
         <div>
