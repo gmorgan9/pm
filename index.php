@@ -31,7 +31,7 @@ if(mysqli_num_rows($result) > 0){
     $_SESSION['loggedin']         = $row['loggedin'];
     $_SESSION['username']         = $row['username'];
     $_SESSION['pass']             = $row['password'];
-    header('location:' . BASE_URL . '/path/');
+    header('location:' . BASE_URL . '/dashboard/');
   
 }else{
    $error = '
