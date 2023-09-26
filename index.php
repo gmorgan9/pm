@@ -28,16 +28,17 @@ if(mysqli_num_rows($result) > 0){
     header('location:' . BASE_URL . '/dashboard/');
 }else{
     $error = '
-    <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="false">
-        <div class="toast-header">
-            <img src="..." class="rounded me-2" alt="...">
-            <strong class="me-auto">Error</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-            The username or password entered is not registered on this site. Please try again.
-        </div>
-    </div>';
+<div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="true" data-bs-delay="5000" style="position: fixed; bottom: 20px; right: 20px;">
+    <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="...">
+        <strong class="me-auto">Error</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        The username or password entered is not registered on this site. Please try again.
+    </div>
+</div>';
+
 }
 
 };
@@ -68,15 +69,21 @@ if(mysqli_num_rows($result) > 0){
     </style>
 
 <script>
-        $(document).ready(function () {
-            // Check if the $error variable is not empty
-            <?php if (!empty($error)) { ?>
-            // Show the error toast
-            var toast = new bootstrap.Toast(document.querySelector('.toast'));
-            toast.show();
-            <?php } ?>
-        });
-    </script>
+    $(document).ready(function () {
+        // Check if the $error variable is not empty
+        <?php if (!empty($error)) { ?>
+        // Show the error toast
+        var toast = new bootstrap.Toast(document.querySelector('.toast'));
+        toast.show();
+        
+        // Automatically hide the toast after 5 seconds
+        setTimeout(function () {
+            toast.hide();
+        }, 5000);
+        <?php } ?>
+    });
+</script>
+
 </head>
 <body style="background-color: #e3e3e3;">
 
@@ -101,7 +108,7 @@ if(mysqli_num_rows($result) > 0){
     </form>
     
 </div>
-<?php echo $error; ?>
+
 
 
     <!-- <script src="/assets/scripts/email-validation.js?v=5.1.1"></script> -->
