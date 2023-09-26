@@ -156,7 +156,7 @@ if(isset($_POST['add-engagement'])){
 
             <div class="col w-50">
               <label>Manager</label>
-              <select style="width: 25%;" name="category" class="form-control">
+              <select style="" name="category" class="form-control">
                   <option value="">Select one...</option>
                   <option value="none">None</option>
                   <?php
