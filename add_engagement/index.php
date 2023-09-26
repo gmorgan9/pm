@@ -2,6 +2,11 @@
 
 
 <?php
+
+require_once "../app/connection.php";
+require_once "../path.php";
+session_start();
+
 if(isset($_POST['add-engagement'])){
   $idno  = rand(10000, 99999); // figure how to not allow duplicates
   $short_title = mysqli_real_escape_string($conn, $_POST['short_title']);
