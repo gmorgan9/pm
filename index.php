@@ -30,7 +30,7 @@ if(mysqli_num_rows($result) > 0){
    $error = '
    
 
-    <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="true" data-bs-delay="5000">
+    <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="false">
     <div class="toast-header">
     <img src="..." class="rounded me-2" alt="...">
     <strong class="me-auto">Error</strong>
