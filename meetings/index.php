@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Website with Left Sidebar</title>
+    <title>Meetings - ProjectManager</title>
     <link rel="stylesheet" href="../assets/styles/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- <script src="../assets/api-scripts/auth_first.js?v=3.0"></script>  -->
     <script src="../assets/scripts/timeout.js?v=3.0"></script>
 </head>
 <body style="background-color: #e3e3e3;" >
@@ -46,9 +45,6 @@
 
 
     <script src="../assets/scripts/dropdown.js?v=5.1.1"></script>
-    <!-- <script src="../assets/api-scripts/logout.js?cache=<?= Math.random() ?>"></script> -->
-    <!-- <script src="../assets/api-scripts/user-data.js?cache=<?= Math.random() ?>"></script> -->
-    <!-- used for redirecting to login if no access_token -->
     
 
 
