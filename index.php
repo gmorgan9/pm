@@ -4,18 +4,14 @@
 <?php
 
 require_once "app/connection.php";
+require_once "path.php";
 session_start();
 
 if(isset($_POST['login'])){
 // $idno  = rand(1000000, 9999999); // figure how to not allow duplicates
 $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
-$firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
-$lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
 $user_name = mysqli_real_escape_string($conn, $_POST['user_name']);
-$email = mysqli_real_escape_string($conn, $_POST['email']);
 $password = md5($_POST['password']);
-$cpassword = md5($_POST['cpassword']);
-$isadmin = $_POST['isadmin'];
 $loggedin = $_POST['loggedin'];
 
 $select = " SELECT * FROM users WHERE user_name = '$user_name' && password = '$password' ";
@@ -31,17 +27,11 @@ if(mysqli_num_rows($result) > 0){
     } else {
       echo "Error updating record: " . mysqli_error($conn);
     }
-    $_SESSION['firstname']         = $row['firstname'];
     $_SESSION['user_id']          = $row['user_id'];
     $_SESSION['loggedin']         = $row['loggedin'];
-    $_SESSION['user_idno']        = $row['idno'];
-    $_SESSION['lastname']         = $row['lastname'];
     $_SESSION['username']         = $row['username'];
-    $_SESSION['email']            = $row['email'];
     $_SESSION['pass']             = $row['password'];
-    $_SESSION['cpass']            = $row['cpassword'];
-    // header('location:' . BASE_URL . '/rp-admin/');
-    header('location: dashboard/');
+    header('location:' . BASE_URL . '/path/');
   
 }else{
    $error = '
