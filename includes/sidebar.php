@@ -27,7 +27,7 @@
                     </div>
                 </a>
                 <ul class="submenu collapse">
-                    <li><a class="nav-link" href="../engagements/">Full Listing</a></li>
+                    <li><a class="nav-link" href="../engagements/">All Engagements</a></li>
                     <li><a class="nav-link" href="../meetings/">Add Engagement</a></li>
                 </ul>
             </li>
@@ -42,7 +42,7 @@
                     </div>
                 </a>
                 <ul class="submenu collapse">
-                    <li><a class="nav-link" href="../engagements/">Full Listing</a></li>
+                    <li><a class="nav-link" href="../engagements/">All Meetings</a></li>
                     <li><a class="nav-link" href="../meetings/">Add Meeting</a></li>
                 </ul>
             </li>
