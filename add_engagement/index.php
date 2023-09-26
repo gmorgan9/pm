@@ -1,4 +1,42 @@
 <!DOCTYPE html>
+
+
+<?php
+if(isset($_POST['add-engagement'])){
+  $idno  = rand(10000, 99999); // figure how to not allow duplicates
+  $short_title = mysqli_real_escape_string($conn, $_POST['short_title']);
+  $title = mysqli_real_escape_string($conn, $_POST['title']);
+  $content = mysqli_real_escape_string($conn, $_POST['content']);
+  $author = mysqli_real_escape_string($conn, $_POST['author']);
+  $category = mysqli_real_escape_string($conn, $_POST['category']);
+  $tags = mysqli_real_escape_string($conn, $_POST['tags']);
+  $status = mysqli_real_escape_string($conn, $_POST['status']);
+  $author_idno = mysqli_real_escape_string($conn, $_POST['author_idno']);
+  $created_date = date("F j, Y");
+  $created_time = date("g:i a");
+
+
+
+  $select = " SELECT * FROM recipes WHERE title = '$title'";
+
+  $result = mysqli_query($conn, $select);
+
+  if(mysqli_num_rows($result) > 0){
+
+     $error[] = 'title already exist!';
+
+  }else {
+        $insert = "INSERT INTO recipes (idno, short_title, title, content, author, author_idno, category, tags, created_date, created_time) VALUES ('$idno', '$short_title', '$title','$content','$author','$author_idno','$category', '$tags', '$created_date', '$created_time')";
+        mysqli_query($conn, $insert);
+        header('location: all_recipes.php');
+     }
+
+};
+
+?>
+
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,6 +78,89 @@
               <li class="breadcrumb-item active" aria-current="page">Add an Engagement</li>
             </ol>
           </nav>
+
+          <form action="" method="POST">
+      <input class="form-control" type="hidden" name="author_idno" value="<?php echo $idno;?>">
+        <div class="modal_help float-end" style="margin-right: 25px; margin-top: -55px !important;">
+          <!-- Button trigger modal -->
+            <button type="button" style="background: none; color: inherit; border: none; cursor: pointer; outline: inherit;" class="badge text-bg-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Instructions
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5 text-black" id="exampleModalLabel">Instructions</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-black">
+                    Things you will want to pay attention to while creating a new recipe for our blog. If you have any questions, please reach out via email, I will try and get back to you all as soon as possible.
+                    <ul>
+                      <li>For all images wanting to be insertted, please have a link for your image ready. a useful site to help you get a link for images would be: <a href="https://postimages.org" target="_blank">https://postimages.org</a>.</li>
+                        <li>Sizes for images to fit inside of blog block.</li>
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary text-black">Save changes</button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+        </div>
+        <div class="row">
+        <div class="col w-50">
+            <label>Recipe Title <span class="text-muted" style="font-size: 10px;">e.g "Meatball Subs"</span></label>
+            <input class="form-control" type="text" name="title">
+        </div>
+        <div class="col w-50">
+            <label>Short Title <span class="text-muted" style="font-size: 10px;">e.g "meatball-subs"</span></label>
+            <input class="form-control" type="text" name="short_title">
+        </div>
+        </div>
+        <div class="pt-3"></div>
+       
+        <div>
+            <label>Category</label>
+            <select style="width: 99%;" name="category" class="form-control">
+                <option value="">Select one...</option>
+                <option value="none">None</option>
+                <?php
+                $query ="SELECT * FROM team_members where title = 'Senior'";
+                $result = $conn->query($query);
+                if($result->num_rows> 0){
+                  $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
+                }
+                ?>
+                <?php 
+                    foreach ($options as $option) {
+                ?>
+                <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
+                <?php } ?>
+            </select>
+        </div>
+        <div class="pt-3"></div>
+        <div>
+            <label>Tags</label>
+            <input class="form-control" style="width: 99%;" type="text" name="tags">
+        </div>
+        <br>
+        <textarea name="content" id="content" style="width: 99%;"></textarea>
+        <input type="hidden" name="author" value="<?php echo $firstname; ?>&nbsp;<?php echo $lastname; ?>">
+        <br>
+        <input type="submit" name="add" value="Submit" class="btn btn-light btn-block"> &nbsp;
+        <button class="btn btn-dark btn-block" onclick="window.history.go(-1); return false;">Go Back</button>
+    </form>
+
+
+
+
 
     </div>
 
