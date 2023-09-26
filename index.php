@@ -27,26 +27,22 @@ if(mysqli_num_rows($result) > 0){
     $_SESSION['pass']             = $row['password'];
     header('location:' . BASE_URL . '/dashboard/');
 }else{
-   $error = '
-   
-
+    $error = '
     <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="false">
-    <div class="toast-header">
-    <img src="..." class="rounded me-2" alt="...">
-    <strong class="me-auto">Error</strong>
-    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-    The username or password entered is not registered on this site. Please try again.
-    </div>
-    </div>
-
-
-   ';
+        <div class="toast-header">
+            <img src="..." class="rounded me-2" alt="...">
+            <strong class="me-auto">Error</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            The username or password entered is not registered on this site. Please try again.
+        </div>
+    </div>';
 }
 
 };
 ?>
+
 
 
 <html lang="en">
@@ -70,6 +66,17 @@ if(mysqli_num_rows($result) > 0){
                 word-wrap:break-word
             }
     </style>
+
+<script>
+        $(document).ready(function () {
+            // Check if the $error variable is not empty
+            <?php if (!empty($error)) { ?>
+            // Show the error toast
+            var toast = new bootstrap.Toast(document.querySelector('.toast'));
+            toast.show();
+            <?php } ?>
+        });
+    </script>
 </head>
 <body style="background-color: #e3e3e3;">
 
