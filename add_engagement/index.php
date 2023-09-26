@@ -130,26 +130,52 @@ if(isset($_POST['add-engagement'])){
         </div>
         </div>
         <div class="pt-3"></div>
-       
-        <div>
-            <label>Category</label>
-            <select style="width: 99%;" name="category" class="form-control">
-                <option value="">Select one...</option>
-                <option value="none">None</option>
-                <?php
-                $query ="SELECT * FROM team_members where title = 'Senior'";
-                $result = $conn->query($query);
-                if($result->num_rows> 0){
-                  $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
-                }
-                ?>
-                <?php 
-                    foreach ($options as $option) {
-                ?>
-                <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
-                <?php } ?>
-            </select>
-        </div>
+
+        <!-- Start row -->
+          <div class="row">
+
+            <div>
+              <label>Manager</label>
+              <select style="width: 25%;" name="category" class="form-control">
+                  <option value="">Select one...</option>
+                  <option value="none">None</option>
+                  <?php
+                  $query ="SELECT * FROM team_members where title = 'Manager'";
+                  $result = $conn->query($query);
+                  if($result->num_rows> 0){
+                    $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
+                  }
+                  ?>
+                  <?php 
+                      foreach ($options as $option) {
+                  ?>
+                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
+                  <?php } ?>
+              </select>
+            </div>
+
+            <div>
+              <label>Manager</label>
+              <select style="width: 25%;" name="category" class="form-control">
+                  <option value="">Select one...</option>
+                  <option value="none">None</option>
+                  <?php
+                  $query ="SELECT * FROM team_members where title = 'Manager'";
+                  $result = $conn->query($query);
+                  if($result->num_rows> 0){
+                    $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
+                  }
+                  ?>
+                  <?php 
+                      foreach ($options as $option) {
+                  ?>
+                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
+                  <?php } ?>
+              </select>
+            </div>
+          </div> 
+        <!-- end row -->
+
         <div class="pt-3"></div>
         <div>
             <label>Tags</label>
