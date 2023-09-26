@@ -46,7 +46,7 @@
     </div>
 
 
-    <script src="../assets/scripts/dropdown.js?cache=<?= Math.random() ?>"></script>
+    <script src="../assets/scripts/dropdown.js?v=5.1.1"></script>
     <!-- <script src="../assets/api-scripts/logout.js?cache=<?= Math.random() ?>"></script> -->
     <!-- <script src="../assets/api-scripts/user-data.js?cache=<?= Math.random() ?>"></script> -->
     <!-- used for redirecting to login if no access_token -->
