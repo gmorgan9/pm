@@ -28,7 +28,7 @@
                 </a>
                 <ul class="submenu collapse">
                     <li><a class="nav-link" href="../engagements/">Full Listing</a></li>
-                    <li><a class="nav-link" href="../meetings/">Add an Engagement</a></li>
+                    <li><a class="nav-link" href="../meetings/">Add Engagement</a></li>
                 </ul>
             </li>
             <li class="nav-item has-submenu soc-1">
@@ -43,7 +43,7 @@
                 </a>
                 <ul class="submenu collapse">
                     <li><a class="nav-link" href="../engagements/">Full Listing</a></li>
-                    <li><a class="nav-link" href="../meetings/">Add a Meeting</a></li>
+                    <li><a class="nav-link" href="../meetings/">Add Meeting</a></li>
                 </ul>
             </li>
             <li class="nav-item">
