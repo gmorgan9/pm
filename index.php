@@ -3,7 +3,7 @@
 
 <?php
 
-require_once "app/database/connection.php";
+require_once "app/connection.php";
 session_start();
 
 if(isset($_POST['login'])){
