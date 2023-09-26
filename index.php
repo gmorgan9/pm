@@ -36,8 +36,8 @@
 </div>
 
 
-    <script src="/assets/scripts/email-validation.js?cache=<?= Math.random() ?>"></script>
-    <script src="/assets/api-scripts/login.js?cache=<?= Math.random() ?>"></script>
+    <script src="/assets/scripts/email-validation.js?v=5.1.1"></script>
+    <script src="/assets/api-scripts/login.js?v=5.1.1"></script>
 
 </body>
 </html>
