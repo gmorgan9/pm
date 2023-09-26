@@ -30,79 +30,22 @@
           </div>
     </div>
     
-    <!-- Left Sidebar -->
-    <div class="sidebar" id="sidebar" style="display: none;">
-        <div class="d-flex justify-content-center">
-            <a href="" class="text-decoration-none text-white"><img src="../assets/images/think-wise-white.png"  width="150"></a>
-        </div>
-        <div class="pt-3"></div>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background-color: rgba(65, 65, 70, 0.548); border-color: rgb(111, 111, 111)">
-        </form>
-        <hr>
+    <?php include("../includes/sidebar.php"); ?>
 
-        <!-- sidebar nav -->
-        <ul class="nav flex-column" id="nav_accordion">
-            <li class="nav-item" >
-                <a class="sidebar-link" href="../dashboard/">
-                    <i class="bi bi-speedometer2"></i>&nbsp;&nbsp;&nbsp;Dashboard
-                </a>
-            </li>
-            <!-- <li class="nav-item">
-                <a class="sidebar-link" href="../engagements/">
-                    <i class="bi bi-shield-check"></i>&nbsp;&nbsp;&nbsp;List
-                </a>
-            </li> -->
-            <li class="nav-item has-submenu soc-1">
-                <a class="sidebar-link d-flex justify-content-between" href="#">
-                    <div>
-                        <i class="bi bi-list-ul"></i>&nbsp;&nbsp;&nbsp;Details
-                    </div>
-                    <div class="right">
-                        <i class="bi bi-plus icon-plus"></i>
-                        <i class="bi bi-dash icon-dash d-none"></i>
-                    </div>
-                </a>
-                <ul class="submenu collapse">
-                    <li><a class="nav-link" href="../engagements/">Engagements</a></li>
-                    <li><a class="nav-link" href="../meetings/">Meetings</a></li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a class="sidebar-link" href="../personnel/">
-                    <i class="bi bi-people-fill"></i>&nbsp;&nbsp;&nbsp;Personnel
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="sidebar-link" href="../admin-tools/">
-                    <i class="bi bi-gear-fill"></i>&nbsp;&nbsp;&nbsp;Settings
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="sidebar-link" href="#" id="logout-link">
-                    <i class="bi bi-door"></i>&nbsp;&nbsp;&nbsp;Logout
-                </a>
-            </li>            
-        </ul>
-        <!-- end sidebar nav -->
-
-    </div>
-    <!-- end left sidebar -->
-
-    <!-- Main Content -->
     <!-- Main Content -->
     <div class="content" id="content" style="display: none;">
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="../dashboard/">Dashboard</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Engagements</li>
+                <li class="breadcrumb-item"><a href="../dashboard/">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Meetings</li>
             </ol>
           </nav>
-
+          <div id="user-details"></div>
+          
     </div>
 
 
-    <script src="../assets/scripts/dropdown.js?cache=<?= Math.random() ?>"></script>
+    <script src="../assets/scripts/dropdown.js?v=5.1.1"></script>
     <!-- <script src="../assets/api-scripts/logout.js?cache=<?= Math.random() ?>"></script> -->
     <!-- <script src="../assets/api-scripts/user-data.js?cache=<?= Math.random() ?>"></script> -->
     <!-- used for redirecting to login if no access_token -->
