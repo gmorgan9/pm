@@ -31,7 +31,7 @@ if(mysqli_num_rows($result) > 0){
    <div class="pt-3"></div>
    <div class="login_error">
    <strong>Error:</strong> 
-   The username <strong>'. $_POST['username'] .'</strong> or password entered is not registered on this site. Please try again.
+   The username or password entered is not registered on this site. Please try again.
    </div>
    ';
 }
@@ -52,7 +52,7 @@ if(mysqli_num_rows($result) > 0){
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         .login_error {
-                border-left: 4px solid #72aee6;
+                border-left: 4px solid #ff8080;
                 padding: 12px;
                 margin-left: 0;
                 margin-bottom: 20px;
