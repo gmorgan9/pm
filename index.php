@@ -15,14 +15,14 @@ $cpassword = md5($_POST['cpassword']);
 $isadmin = $_POST['isadmin'];
 $loggedin = $_POST['loggedin'];
 
-$select = " SELECT * FROM users WHERE username = '$username' && password = '$password' ";
+$select = " SELECT * FROM users WHERE user_name = '$username' && password = '$password' ";
 
 $result = mysqli_query($conn, $select);
 
 if(mysqli_num_rows($result) > 0){
 
    $row = mysqli_fetch_array($result);
-   $sql = "UPDATE users SET loggedin='1' WHERE username='$username'";
+   $sql = "UPDATE users SET logged_in='1' WHERE user_name='$username'";
    if (mysqli_query($conn, $sql)) {
       echo "Record updated successfully";
     } else {
