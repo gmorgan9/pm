@@ -83,55 +83,23 @@ if(isset($_POST['add-engagement'])){
               <li class="breadcrumb-item active" aria-current="page">Add an Engagement</li>
             </ol>
           </nav>
-
+<br><br>
           <form action="" method="POST">
-      <input class="form-control" type="hidden" name="author_idno" value="<?php echo $idno;?>">
-        <div class="modal_help float-end" style="margin-right: 25px; margin-top: -55px !important;">
-          <!-- Button trigger modal -->
-            <button type="button" style="background: none; color: inherit; border: none; cursor: pointer; outline: inherit;" class="badge text-bg-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Instructions
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-black" id="exampleModalLabel">Instructions</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-black">
-                    Things you will want to pay attention to while creating a new recipe for our blog. If you have any questions, please reach out via email, I will try and get back to you all as soon as possible.
-                    <ul>
-                      <li>For all images wanting to be insertted, please have a link for your image ready. a useful site to help you get a link for images would be: <a href="https://postimages.org" target="_blank">https://postimages.org</a>.</li>
-                        <li>Sizes for images to fit inside of blog block.</li>
-                    </ul>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-primary text-black">Save changes</button> -->
-                  </div>
-                </div>
-              </div>
-            </div>
 
 
-
-
+        <div class="">
+            <label>Client Name <span class="text-muted" style="font-size: 10px;">e.g "AARC-360"</span></label>
+            <input class="form-control" type="text" name="client_name">
         </div>
-        <div class="row">
-        <div class="col w-50">
-            <label>Recipe Title <span class="text-muted" style="font-size: 10px;">e.g "Meatball Subs"</span></label>
-            <input class="form-control" type="text" name="title">
-        </div>
-        <div class="col w-50">
+        <!-- <div class="col w-50">
             <label>Short Title <span class="text-muted" style="font-size: 10px;">e.g "meatball-subs"</span></label>
             <input class="form-control" type="text" name="short_title">
-        </div>
-        </div>
+        </div> -->
+
+
         <div class="pt-3"></div>
 
-        <!-- Start row -->
+        <!-- Start manager,senior row -->
           <div class="row d-flex">
 
             <div class="col w-50">
@@ -172,8 +140,11 @@ if(isset($_POST['add-engagement'])){
               </select>
             </div>
           </div> 
-        <!-- end row -->
-        <!-- Start row -->
+        <!-- end manager,senior row -->
+
+        <div class="pt-3"></div>
+
+        <!-- Start staff row -->
           <div class="row d-flex">
 
             <div class="col w-25">
@@ -214,7 +185,7 @@ if(isset($_POST['add-engagement'])){
               </select>
             </div>
 
-          <div class="col w-25">
+            <div class="col w-25">
               <label>Staff 3</label>
               <select name="category" class="form-control">
                   <option value="none">Select one...</option>
@@ -233,7 +204,7 @@ if(isset($_POST['add-engagement'])){
               </select>
             </div>
           </div> 
-        <!-- end row -->
+        <!-- end staff row -->
 
 
         <div class="pt-3"></div>
