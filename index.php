@@ -3,26 +3,29 @@
 
 <?php
 
+require_once "app/database/connection.php";
+session_start();
+
 if(isset($_POST['login'])){
 // $idno  = rand(1000000, 9999999); // figure how to not allow duplicates
 $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
 $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
 $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
-$username = mysqli_real_escape_string($conn, $_POST['username']);
+$user_name = mysqli_real_escape_string($conn, $_POST['user_name']);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
 $password = md5($_POST['password']);
 $cpassword = md5($_POST['cpassword']);
 $isadmin = $_POST['isadmin'];
 $loggedin = $_POST['loggedin'];
 
-$select = " SELECT * FROM users WHERE user_name = '$username' && password = '$password' ";
+$select = " SELECT * FROM users WHERE user_name = '$user_name' && password = '$password' ";
 
 $result = mysqli_query($conn, $select);
 
 if(mysqli_num_rows($result) > 0){
 
    $row = mysqli_fetch_array($result);
-   $sql = "UPDATE users SET logged_in='1' WHERE user_name='$username'";
+   $sql = "UPDATE users SET logged_in='1' WHERE user_name='$user_name'";
    if (mysqli_query($conn, $sql)) {
       echo "Record updated successfully";
     } else {
@@ -79,7 +82,7 @@ if(mysqli_num_rows($result) > 0){
     <div id="error-message"></div>
     <form id="login-form" autocomplete="off" action="#" method="POST">
         <div class="form-group">
-            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="text" id="username" name="user_name" placeholder="Username" required>
         </div>
         <div class="form-group">
             <input type="password" id="password" name="password" placeholder="Password" required>
@@ -90,7 +93,7 @@ if(mysqli_num_rows($result) > 0){
 </div>
 
 
-    <script src="/assets/scripts/email-validation.js?v=5.1.1"></script>
+    <!-- <script src="/assets/scripts/email-validation.js?v=5.1.1"></script> -->
 
 </body>
 </html>
