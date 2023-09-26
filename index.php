@@ -101,6 +101,7 @@ if(mysqli_num_rows($result) > 0){
     </form>
     
 </div>
+<?php echo $error; ?>
 
 
     <!-- <script src="/assets/scripts/email-validation.js?v=5.1.1"></script> -->
