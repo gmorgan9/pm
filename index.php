@@ -96,7 +96,7 @@ if(mysqli_num_rows($result) > 0){
         Log in to track and see the process of your audit process.
     </p>
     <div class="pb-3"></div>
-    
+    <?php echo $error; ?>
     <form id="login-form" autocomplete="off" action="#" method="POST">
         <div class="form-group">
             <input type="text" id="username" name="user_name" placeholder="Username" required>
