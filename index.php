@@ -78,7 +78,7 @@ if(mysqli_num_rows($result) > 0){
     <div id="error-message"></div>
     <form id="login-form" autocomplete="off" action="#" method="POST">
         <div class="form-group">
-            <input type="username" id="username" name="username" placeholder="Username" required>
+            <input type="text" id="username" name="username" placeholder="Username" required>
         </div>
         <div class="form-group">
             <input type="password" id="password" name="password" placeholder="Password" required>
