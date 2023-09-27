@@ -99,6 +99,40 @@ if(isset($_POST['add-engagement'])){
 
         <div class="pt-3"></div>
 
+        <!-- Start type row -->
+          <div class="row d-flex">
+
+            <div class="col w-25">
+              <label>SOC 1</label>
+              <select name="SOC1" class="form-control">
+                  <option value="0">Select one...</option>
+                  <option value="1">Type 1</option>
+                  <option value="2">Type 2</option>
+              </select>
+            </div>
+                      
+            <div class="col w-25">
+              <label>SOC 2</label>
+              <select name="SOC2" class="form-control">
+                  <option value="0">Select one...</option>
+                  <option value="1">Type 1</option>
+                  <option value="2">Type 2</option>
+              </select>
+            </div>
+                      
+            <div class="col w-25">
+              <label>SOC 3</label>
+              <select name="SOC3" class="form-control">
+                  <option value="0">Select one...</option>
+                  <option value="1">Type 1</option>
+                  <option value="2">Type 2</option>
+              </select>
+            </div>
+          </div> 
+        <!-- end type row -->
+
+        <div class="pt-3"></div>
+
         <!-- Start manager,senior row -->
           <div class="row d-flex">
 
