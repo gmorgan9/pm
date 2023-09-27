@@ -102,32 +102,34 @@ if(isset($_POST['add-engagement'])){
         <!-- Start type row -->
           <div class="row d-flex">
 
-            <div class="col w-25">
-              <label>SOC 1</label>
-              <select name="SOC1" class="form-control">
+            <div class="col w-50">
+              <label>Engagement Type</label>
+              <select name="engagement_type" class="form-control">
                   <option value="0">Select one...</option>
-                  <option value="1">Type 1</option>
-                  <option value="2">Type 2</option>
+                  <option value="1">SOC 1 Type 1</option>
+                  <option value="2">SOC 1 Type 2</option>
+                  <option value="3">SOC 2 Type 1</option>
+                  <option value="4">SOC 2 Type 2</option>
+                  <option value="5">SOC 3 Type 1</option>
+                  <option value="6">SOC 3 Type 2</option>
+              </select>
+            </div>
+
+            <div class="col w-50">
+              <label>Status</label>
+              <select name="status" class="form-control">
+                  <option value="0">Select one...</option>
+                  <option value="1">Internal Planning Call</option>
+                  <option value="2">Client Planning Call</option>
+                  <option value="3">Fieldwork Calls</option>
+                  <option value="4">Fieldwork Documentation</option>
+                  <option value="5">Manager QA Review</option>
+                  <option value="6">Executive QA Review</option>
+                  <option value="7">Completed</option>
               </select>
             </div>
                       
-            <div class="col w-25">
-              <label>SOC 2</label>
-              <select name="SOC2" class="form-control">
-                  <option value="0">Select one...</option>
-                  <option value="1">Type 1</option>
-                  <option value="2">Type 2</option>
-              </select>
-            </div>
-                      
-            <div class="col w-25">
-              <label>SOC 3</label>
-              <select name="SOC3" class="form-control">
-                  <option value="0">Select one...</option>
-                  <option value="1">Type 1</option>
-                  <option value="2">Type 2</option>
-              </select>
-            </div>
+            
           </div> 
         <!-- end type row -->
 
