@@ -164,7 +164,7 @@ session_start();
                                             <?php } elseif($cap['status'] == 4) { ?>
                                               <span class="badge text-bg-warning">Fieldwork Documentation</span>
                                             <?php } elseif($cap['status'] == 5) { ?>
-                                              <span class="badge text-bg-danger">Manager QA Review</span>
+                                              <span class="badge text-bg-dark">Manager QA Review</span>
                                             <?php } elseif($cap['status'] == 6) { ?>
                                               <span class="badge text-bg-info">Executive QA Review</span>
                                             <?php } elseif($cap['status'] == 7) { ?>
