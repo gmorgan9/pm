@@ -405,9 +405,10 @@ if(isset($_POST['add-engagement'])){
         <div class="pt-3"></div>
 
 
-          <div class="alert alert-primary" role="alert">
-            For SOC 2 engagements: Please select the categories in scope.
-          </div>
+        <div class="alert alert-primary" role="alert">
+          For SOC 2 engagements: Please select the categories in scope.
+        </div>
+        <div>
           <label>Categories in Scope</label>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
@@ -421,6 +422,7 @@ if(isset($_POST['add-engagement'])){
             <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
             <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
           </div>
+        </div>
 
         <div class="pt-3"></div>
 
