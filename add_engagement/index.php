@@ -315,7 +315,14 @@ if(isset($_POST['add-engagement'])){
           <div class="col w-100">
             <label>Engagement Notes</label>
             <textarea name="content" id="content"></textarea>
-            <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+            
+
+	<p><a href="https://www.npmjs.com/package/ckeditor5"><img alt="NPM version" src="https://badge.fury.io/js/ckeditor5.svg"></a>&nbsp;<a href="https://coveralls.io/github/ckeditor/ckeditor5?branch=master"><img alt="Coverage Status" src="https://coveralls.io/repos/github/ckeditor/ckeditor5/badge.svg?branch=master"></a>&nbsp;<a href="https://app.travis-ci.com/github/ckeditor/ckeditor5"><img alt="Build Status" src="https://travis-ci.org/ckeditor/ckeditor5.svg?branch=master"></a>&nbsp;<img alt="Dependency Status" src="https://img.shields.io/librariesio/release/npm/ckeditor5.svg"></p>
+
+<p><a href="http://eepurl.com/c3zRPr"><img alt="Join newsletter" src="https://img.shields.io/badge/join-newsletter-00cc99.svg"></a>&nbsp;<a href="https://twitter.com/ckeditor"><img alt="Follow twitter" src="https://img.shields.io/badge/follow-twitter-00cc99.svg"></a></p>
+
+
+            
           </div>
         </div>
         <br>
