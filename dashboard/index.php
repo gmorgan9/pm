@@ -523,7 +523,6 @@ session_start();
 
 
                         ?>
-                          02
                         </h5>
                         <p class="text-muted">
                           Upcoming
