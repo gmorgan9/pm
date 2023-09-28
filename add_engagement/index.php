@@ -96,11 +96,11 @@ if(isset($_POST['add-engagement'])){
       $evidence_due_date = "";
   }
 
-  // if(isset($_POST['scope_categories'])) {
-  //     $scope_categories = mysqli_real_escape_string($conn, $_POST['scope_categories']);
-  // } else {
-  //     $scope_categories = "";
-  // }
+  if(isset($_POST['scope_categories'])) {
+      $scope_categories = mysqli_real_escape_string($conn, $_POST['scope_categories']);
+  } else {
+      $scope_categories = "";
+  }
 
   if(isset($_POST['IRL_delivery_date'])) {
       $IRL_delivery_date = mysqli_real_escape_string($conn, $_POST['IRL_delivery_date']);
@@ -181,7 +181,7 @@ if(isset($_POST['add-engagement'])){
     // $final_report_date = mysqli_real_escape_string($conn, $_POST['final_report_date']);
 
 
-    $insert = "INSERT INTO engagement (idno, client_name, engagement_type, status, manager, senior, staff_1, staff_2, staff_3, review_start, review_end, as_of_date, evidence_due_date, IRL_delivery_date, IPC_date, CPC_date, fieldwork_call_start, fieldwork_doc_start, closing_meeting_date, draft_date, CC_draft_date, final_report_date) VALUES ('$idno', NULLIF('$client_name',''), NULLIF('$engagement_type',''), NULLIF('$status',''), NULLIF('$manager',''), NULLIF('$senior',''), NULLIF('$staff_1',''), NULLIF('$staff_2',''), NULLIF('$staff_3',''), NULLIF('$review_start',''), NULLIF('$review_end',''), NULLIF('$as_of_date',''), NULLIF('$evidence_due_date',''), NULLIF('$IRL_delivery_date',''), NULLIF('$IPC_date',''), NULLIF('$CPC_date',''), NULLIF('$fieldwork_call_start',''), NULLIF('$fieldwork_doc_start',''), NULLIF('$closing_meeting_date',''), NULLIF('$draft_date',''), NULLIF('$CC_draft_date',''), NULLIF('$final_report_date',''))";
+    $insert = "INSERT INTO engagement (idno, client_name, engagement_type, status, manager, senior, staff_1, staff_2, staff_3, review_start, review_end, as_of_date, evidence_due_date, scope_categories, IRL_delivery_date, IPC_date, CPC_date, fieldwork_call_start, fieldwork_doc_start, closing_meeting_date, draft_date, CC_draft_date, final_report_date) VALUES ('$idno', NULLIF('$client_name',''), NULLIF('$engagement_type',''), NULLIF('$status',''), NULLIF('$manager',''), NULLIF('$senior',''), NULLIF('$staff_1',''), NULLIF('$staff_2',''), NULLIF('$staff_3',''), NULLIF('$review_start',''), NULLIF('$review_end',''), NULLIF('$as_of_date',''), NULLIF('$evidence_due_date',''), NULLIF('$scope_categories',''), NULLIF('$IRL_delivery_date',''), NULLIF('$IPC_date',''), NULLIF('$CPC_date',''), NULLIF('$fieldwork_call_start',''), NULLIF('$fieldwork_doc_start',''), NULLIF('$closing_meeting_date',''), NULLIF('$draft_date',''), NULLIF('$CC_draft_date',''), NULLIF('$final_report_date',''))";
 
 
     if (mysqli_query($conn, $insert)) {
