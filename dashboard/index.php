@@ -280,7 +280,7 @@ session_start();
           <!-- end project card -->
 
           <!-- start Meetings Card -->
-            <div class="card" style="width: 65%; background-color: white !important; border: none; border-radius: 20px !important;">
+            <div class="card" style="width: 35%; background-color: white !important; border: none; border-radius: 20px !important;">
               <div class="card-body">
                 <p class="card-text" style="font-size: 20px;">Projects</p>
                 <h5 class="card-title" style="font-size: 65px;">
