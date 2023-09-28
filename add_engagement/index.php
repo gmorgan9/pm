@@ -266,10 +266,10 @@ if(isset($_POST['add-engagement'])){
 
         <div class="pt-3"></div>
 
-        <!-- Start review date row -->
-        <h5>
-          Engagement Dates
-        </h5>
+        <!-- Start enagement dates row -->
+          <h5>
+            Engagement Dates
+          </h5>
           <div class="row d-flex">
             <div class="col w-25">
               <label>IRL Delivery Date</label>
@@ -317,7 +317,7 @@ if(isset($_POST['add-engagement'])){
               <input class="form-control" type="date" name="review_end">
             </div>
           </div>
-        <!-- end review date row -->
+        <!-- end engagement dates row -->
 
 
             
@@ -326,7 +326,10 @@ if(isset($_POST['add-engagement'])){
 
         <div class="pt-3"></div>
 
-        <textarea class="w-100" name="content" id="content"></textarea>
+        <div class="col w-100">
+          <label>Engagement Notes</label>
+          <textarea class="w-100" name="content" id="content"></textarea>
+        </div>
         <br>
         <input type="submit" name="add" value="Submit" class="btn btn-light btn-block"> &nbsp;
         <!-- <button class="btn btn-dark btn-block" onclick="window.history.go(-1); return false;">Go Back</button> -->
