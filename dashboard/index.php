@@ -537,7 +537,7 @@ session_start();
 
 
                   <!-- timeline -->
-                    <div class="container">
+                    <div class="container" style="overflow: hidden;">
                       <ul class="timeline">
                         <?php
                           $current_date = date('Y-m-d');
