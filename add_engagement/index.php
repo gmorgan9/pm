@@ -250,7 +250,7 @@ if(isset($_POST['add-engagement'])){
     // }
 
 
-    $insert = "INSERT INTO engagement (idno, client_name, engagement_type) VALUES ('$idno', NULLIF('$client_name',''), NULLIF('$engagement_type',''))";
+    $insert = "INSERT INTO engagement (idno, client_name, engagement_type, status, manager) VALUES ('$idno', NULLIF('$client_name',''), NULLIF('$engagement_type',''), NULLIF('$status',''), NULLIF('$manager',''))";
 
 
     if (mysqli_query($conn, $insert)) {
