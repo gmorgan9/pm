@@ -408,7 +408,7 @@ if(isset($_POST['add-engagement'])){
           <div class="alert alert-primary" role="alert">
             For SOC 2 engagements: Please select the categories in scope.
           </div>
-          
+          <label>Categories in Scope</label>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
             <label class="form-check-label" for="inlineCheckbox1">1</label>
