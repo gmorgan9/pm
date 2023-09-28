@@ -267,17 +267,20 @@ if(isset($_POST['add-engagement'])){
         <div class="pt-3"></div>
 
         <!-- Start review date row -->
+        <h3>
+          Engagement Dates
+        </h3>
           <div class="row d-flex">
             <div class="col w-50">
-              <label>Review "as of" Date</label>
+              <label>IRL Delivery Date</label>
               <input class="form-control" type="date" name="review_start">
             </div>
             <div class="col w-50">
-              <label>Review Start Date</label>
+              <label>Evidence Due Date</label>
               <input class="form-control" type="date" name="review_start">
             </div>
             <div class="col w-50">
-              <label>Review End Date</label>
+              <label>Internal Planning Call</label>
               <input class="form-control" type="date" name="review_end">
             </div>
           </div>
