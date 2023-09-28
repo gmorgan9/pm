@@ -588,7 +588,7 @@ session_start();
                                 <?php 
                                 if ($date == $current_date && $start_time <= $current_time && $end_time >= $current_time) {
                                 ?>
-                                <span class="title"><a href="javascript:;"><?php echo $title; ?></a></span> <i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-primary"></i>
+                                <span class="title"><a href="#" data-bs-toggle="modal" data-bs-target="#viewModal<?php echo $id; ?>" class="view"><?php echo $title; ?></a></span> <i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-primary"></i>
                                 <?php } else { ?>
                                 <span class="title"><a href="javascript:;"><?php echo $title; ?></a></span>
                                 <?php } ?>
