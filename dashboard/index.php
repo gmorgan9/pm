@@ -500,7 +500,7 @@ session_start();
           <!-- end project card -->
 
           <!-- start Meetings Card -->
-            <div class="card" style="overflow: hidden; width: 35%; max-height: 800px; background-color: white !important; border: none; border-radius: 20px !important;">
+            <div class="card" style="overflow: auto; width: 35%; max-height: 800px; background-color: white !important; border: none; border-radius: 20px !important;">
               <div class="card-body">
                 <p class="card-text" style="font-size: 28px;">Meetings</p>
 
