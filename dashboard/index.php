@@ -515,7 +515,11 @@ session_start();
                           $sql = "SELECT COUNT(*) as total FROM meetings";
                           $result = mysqli_query($conn, $sql);
                           $row = mysqli_fetch_assoc($result);
-                          echo $row["total"];
+                          if ($row['total'] < 10) {
+                            echo '0' . $row["total"];
+                          } else {
+                            echo $row["total"];
+                          }
 
 
                         ?>
