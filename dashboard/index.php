@@ -98,8 +98,8 @@ session_start();
                   <!-- end stats -->
 
                   <!-- table -->
-                      <table class="table table-hover custom-table">
-                        <thead style="background-color: transparent;">
+                      <table class="table table-hover" style="background-color: transparent;">
+                        <thead>
                             <tr>
                             <th scope="col">ID Number</th>
                             <th scope="col">Client Name</th>
