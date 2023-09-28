@@ -286,7 +286,7 @@ session_start();
               <div class="card-body">
                 <p class="card-text" style="font-size: 28px;">Meetings</p>
 
-                  <div class="mt-5"></div>
+                  <div class="mt-3"></div>
 
                   <!-- stats -->
                     <div class="d-flex">
