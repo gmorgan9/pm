@@ -141,26 +141,35 @@ session_start();
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="viewModalLabel">View Application</h5>
+                                    <h5 class="modal-title" id="viewModalLabel">View Engagement</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
 
                                 <?php
-                                            // $new = "SELECT * FROM applications WHERE appid=$id";
-                                            // $new1 = mysqli_query($conn, $new);
-                                            // if($new1) {
-                                            //     while ($cap = mysqli_fetch_assoc($new1)) {       
+                                            $new = "SELECT * FROM engagement WHERE idno=$id";
+                                            $new1 = mysqli_query($conn, $new);
+                                            if($new1) {
+                                                while ($cap = mysqli_fetch_assoc($new1)) {       
                                         ?> 
                                     <div>
-                                        <h5 class="float-start">Job Details</h5>
+                                        <h5 class="float-start">Engagement Details</h5>
                                         <div class="float-end">
-                                            <?php //if($cap['watchlist'] == 1){ ?>
-                                                <i class="bi bi-eye text-muted"></i>
-                                            <?php //} else {} ?>
-                                            <?php// if($cap['interview_set'] == 1){ ?>
-                                                <i class="bi bi-people"></i>
-                                            <?php //} else {} ?>
+                                            <?php if($cap['status'] == 1){ ?>
+                                              <span class="badge text-bg-primary">Internal Planning Call</span>
+                                            <?php } elseif($cap['status'] == 2) { ?>
+                                              <span class="badge text-bg-secondary">Client Planning Call</span>
+                                            <?php } elseif($cap['status'] == 3) { ?>
+                                              <span class="badge text-bg-danger">Fieldwork Calls</span>
+                                            <?php } elseif($cap['status'] == 4) { ?>
+                                              <span class="badge text-bg-warning">Fieldwork Documentation</span>
+                                            <?php } elseif($cap['status'] == 5) { ?>
+                                              <span class="badge text-bg-danger">Manager QA Review</span>
+                                            <?php } elseif($cap['status'] == 6) { ?>
+                                              <span class="badge text-bg-info">Executive QA Review</span>
+                                            <?php } elseif($cap['status'] == 7) { ?>
+                                              <span class="badge text-bg-success">Completed</span>
+                                            <?php } else {} ?>
                                         </div>
                                     </div>
 
