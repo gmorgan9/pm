@@ -266,7 +266,7 @@ session_start();
                           $result = mysqli_query($conn, $sql);
                           $row = mysqli_fetch_assoc($result);
                           $total_pages = ceil($row["total"] / $limit);
-                            echo '<ul class="pagination justify-content-center align-items-bottom">';
+                            echo '<ul class="pagination justify-content-center align-bottom">';
                             for ($i = 1; $i <= $total_pages; $i++) {
                                 $active = ($page == $i) ? "active" : "";
                                 echo "<li class='page-item {$active}'><a class='page-link' href='?page={$i}'>{$i}</a></li>";
