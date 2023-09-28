@@ -238,8 +238,8 @@ if(isset($_POST['title'])) {
                                   <div class="pt-3"></div>
                                   <div class="">
                                     <label>Title</label>
-                                    <select name="title" class="form-control" value="<?php echo $cap['title']; ?>">
-                                        <option value="">Select one...</option>
+                                    <select name="title" class="form-control">
+                                        <option value="<?php echo $cap['title']; ?>"><?php echo $cap['title']; ?></option>
                                         <option value="Staff">Staff</option>
                                         <option value="Senior">Senior</option>
                                         <option value="Manager">Manager</option>
