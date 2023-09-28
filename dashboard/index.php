@@ -61,8 +61,8 @@ session_start();
                   <div class="mt-5"></div>
 
                   <div class="d-flex" style="margin-top: 80px !important;">
-                    <span class="1 me-2">
-                      <h5>
+                    <span class="1 me-3">
+                      <h5 style="margin-bottom: 0;">
                         45
                       </h5>
                       <p>
