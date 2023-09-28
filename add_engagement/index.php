@@ -97,7 +97,8 @@ if(isset($_POST['add-engagement'])){
   }
 
   if(isset($_POST['scope_categories'])) {
-      $scope_categories = mysqli_real_escape_string($conn, $_POST['scope_categories']);
+    $selectedCategories = $_POST['scope_categories'];
+    $scope_categories = implode(", ", $selectedCategories);
   } else {
       $scope_categories = "";
   }
@@ -412,24 +413,24 @@ if(isset($_POST['add-engagement'])){
         <div>
           
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="scope_categories[]" value="Security">
             <label class="form-check-label" for="inlineCheckbox1">Security</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="scope_categories[]" value="Availability">
             <label class="form-check-label" for="inlineCheckbox2">Availability</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="scope_categories[]" value="Confidentiality">
             <label class="form-check-label" for="inlineCheckbox3">Confidentiality</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option4">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="scope_categories[]" value="Privacy">
             <label class="form-check-label" for="inlineCheckbox3">Privacy</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option5">
-            <label class="form-check-label" for="inlineCheckbox3">Process Integrity</label>
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="scope_categories[]" value="Processing Integrity">
+            <label class="form-check-label" for="inlineCheckbox3">Processing Integrity</label>
           </div>
         </div>
 
