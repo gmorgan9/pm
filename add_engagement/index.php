@@ -333,7 +333,7 @@ if(isset($_POST['add-engagement'])){
 
 
     <script src="../assets/scripts/dropdown.js?v=5.1.1"></script>
-  
+    <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
     <script>
     window.onload = function() {
         CKEDITOR.replace('myeditor');
