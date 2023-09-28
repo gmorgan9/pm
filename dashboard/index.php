@@ -138,13 +138,13 @@ session_start();
     margin: -2px 10px -2px 0
 }
 
-.timeline-header .username {
+.timeline-header .title {
     font-size: 16px;
     font-weight: 600
 }
 
-.timeline-header .username,
-.timeline-header .username a {
+.timeline-header .title,
+.timeline-header .title a {
     color: #2d353c
 }
 
@@ -552,26 +552,24 @@ session_start();
 
 
                   <?php
-
-                  $sql = "SELECT * FROM meetings";
-                              $result = mysqli_query($conn, $sql);
-                              if($result) {
-                                  $num_rows = mysqli_num_rows($result);
-                                  if($num_rows > 0) {
-                                      while ($row = mysqli_fetch_assoc($result)) {
-                                          $meeting_id    = $row['meeting_id'];
-                                          $id              = $row['idno'];
-                                          $title      = $row['title'];
-                                          $status      = $row['status'];
-                                          $date           = $row['date'];
-                                          $f_date = date("M d, Y", strtotime($date));
-                                          $start_time           = $row['start_time'];
-                                          $f_start_time = date("h:i A", strtotime($start_time));
-                                          $as_of_date           = $row['as_of_date'];
-                                          $f_as_of_date = date("M d, Y", strtotime($as_of_date));
-
-
-                                          ?>
+                    $sql = "SELECT * FROM meetings";
+                    $result = mysqli_query($conn, $sql);
+                      if($result) {
+                        $num_rows = mysqli_num_rows($result);
+                          if($num_rows > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                              $meeting_id    = $row['meeting_id'];
+                              $id              = $row['idno'];
+                              $title      = $row['title'];
+                              $status      = $row['status'];
+                              $date           = $row['date'];
+                              $f_date = date("M d, Y", strtotime($date));
+                              $start_time           = $row['start_time'];
+                              $f_start_time = date("h:i A", strtotime($start_time));
+                              $as_of_date           = $row['as_of_date'];
+                              $f_as_of_date = date("M d, Y", strtotime($as_of_date));
+                              $eid = $row['engagement_id'];
+                    ?>
                   <div class="container">
                     <ul class="timeline">
                        <li>
@@ -589,36 +587,36 @@ session_start();
                           <!-- begin timeline-body -->
                           <div class="timeline-body">
                              <div class="timeline-header">
-                                <span class="username"><a href="javascript:;"><?php echo $title; ?></a> <small></small></span>
+                                <span class="title"><a href="javascript:;"><?php echo $title; ?></a></span>
                                 <span class="pull-right text-muted">18 Views</span>
                              </div>
                              <div class="timeline-content">
+
+                             <?php
+
+                              $sql = "SELECT * FROM engagement WHERE engagement_id= $eid";
+                              $result = mysqli_query($conn, $sql);
+                                if($result) {
+                                  $num_rows = mysqli_num_rows($result);
+                                    if($num_rows > 0) {
+                                      while ($row = mysqli_fetch_assoc($result)) {
+                                        $client_name    = $row['client_name'];
+                                      }}}
+
+                             ?>
+
+
                                 <p>
-                                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus turpis quis tincidunt luctus.
-                                   Nam sagittis dui in nunc consequat, in imperdiet nunc sagittis.
+                                   Client: <?php echo $client_name; ?>
                                 </p>
-                             </div>
-                             <div class="timeline-likes">
-                                <div class="stats-right">
-                                   <span class="stats-text">259 Shares</span>
-                                   <span class="stats-text">21 Comments</span>
-                                </div>
-                                <div class="stats">
-                                   <span class="fa-stack fa-fw stats-icon">
-                                   <i class="fa fa-circle fa-stack-2x text-danger"></i>
-                                   <i class="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
-                                   </span>
-                                   <span class="fa-stack fa-fw stats-icon">
-                                   <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                   <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
-                                   </span>
-                                   <span class="stats-total">4.3k</span>
-                                </div>
                              </div>
 
                           </div>
                           <!-- end timeline-body -->
                        </li>
+
+
+
                        <li>
                           <!-- begin timeline-time -->
                           <div class="timeline-time">
@@ -634,7 +632,7 @@ session_start();
                           <!-- begin timeline-body -->
                           <div class="timeline-body">
                              <div class="timeline-header">
-                                <span class="username">Richard Leong</span>
+                                <span class="title">Richard Leong</span>
                                 <span class="pull-right text-muted">1,282 Views</span>
                              </div>
                              <div class="timeline-content">
@@ -663,7 +661,7 @@ session_start();
                           <div class="timeline-body">
                              <div class="timeline-header">
 
-                                <span class="username">Lelouch Wong</span>
+                                <span class="title">Lelouch Wong</span>
                                 <span class="pull-right text-muted">1,021,282 Views</span>
                              </div>
                              <div class="timeline-content">
