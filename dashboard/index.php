@@ -137,8 +137,9 @@ session_start();
                                     echo $f_as_of_date;
                                 } elseif (!empty($review_start)) {
                                     echo $f_review_start . ' - ' . $f_review_end;
-                                } else {
-                                  echo '-';
+                                } else { ?>
+                                  <span class="badge text-bg-warning">Not Set</span>
+                                <?php
                                 }
                                 ?>
                               </td>
