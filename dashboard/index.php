@@ -59,9 +59,8 @@ session_start();
                   <p class="card-text float-end" style="font-size: 20px;">September 28, 2023</p>
                 
                   <div class="mt-5"></div>
-                  <div class="mt-5"></div>
 
-                  <div class="d-inline">
+                  <div class="d-inline mt-5">
                     <div class="1">
                       <h5>
                         45
