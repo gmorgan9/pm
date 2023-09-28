@@ -88,7 +88,7 @@ if(isset($_GET['engagement_id'])) {
                         $num_rows = mysqli_num_rows($result);
                         if($num_rows > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
-                                $engagement_id    = $row['id'];
+                                $engagement_id    = $row['engagement_id'];
                                 $id               = $row['idno'];
                                 $status           = $row['status'];
                                 $client_name      = $row['client_name'];
