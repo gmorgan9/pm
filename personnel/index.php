@@ -21,55 +21,55 @@ session_start();
 <!-- end delete personnel -->
 
 <!-- add personnel -->
-  <?php
-  if(isset($_POST['add-personnel'])){
+<?php
+if(isset($_POST['add-personnel'])){
 
-    $idno = rand(10000, 99999);
+  $idno = rand(10000, 99999);
 
-    while (true) {
-        $select = "SELECT * FROM personnel WHERE idno = '$idno'";
-        $result = mysqli_query($conn, $select);
+  while (true) {
+      $select = "SELECT * FROM personnel WHERE idno = '$idno'";
+      $result = mysqli_query($conn, $select);
 
-        if (mysqli_num_rows($result) == 0) {
-            // ID doesn't exist, break out of the loop
-            break;
-        } else {
-            // ID exists, generate a new one
-            $idno = rand(10000, 99999);
-        }
-    }
+      if (mysqli_num_rows($result) == 0) {
+          // ID doesn't exist, break out of the loop
+          break;
+      } else {
+          // ID exists, generate a new one
+          $idno = rand(10000, 99999);
+      }
+  }
 
-    if(isset($_POST['first_name'])) {
-      $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
+  if(isset($_POST['first_name'])) {
+    $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
+} else {
+    $first_name = "";
+}
+
+if(isset($_POST['last_name'])) {
+    $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
+} else {
+    $last_name = "";
+}
+
+if(isset($_POST['title'])) {
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
+} else {
+    $title = "";
+}
+
+
+  $insert = "INSERT INTO personnel (idno, first_name, last_name, title) VALUES ('$idno', NULLIF('$first_name',''), NULLIF('$last_name',''), NULLIF('$title',''))";
+
+
+  if (mysqli_query($conn, $insert)) {
+      header('location: ../personnel/');
   } else {
-      $first_name = "";
+      echo "Error: " . mysqli_error($conn);
   }
 
-  if(isset($_POST['last_name'])) {
-      $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
-  } else {
-      $last_name = "";
-  }
-
-  if(isset($_POST['title'])) {
-      $title = mysqli_real_escape_string($conn, $_POST['title']);
-  } else {
-      $title = "";
-  }
-
-
-    $insert = "INSERT INTO personnel (idno, first_name, last_name, title) VALUES ('$idno', NULLIF('$first_name',''), NULLIF('$last_name',''), NULLIF('$title',''))";
-
-
-    if (mysqli_query($conn, $insert)) {
-        header('location: ../personnel/');
-    } else {
-        echo "Error: " . mysqli_error($conn);
-    }
-
-    mysqli_close($conn);
-  }
-  ?>
+  mysqli_close($conn);
+}
+?>
 <!-- end add personnel -->
 
 <html lang="en">
@@ -213,44 +213,57 @@ session_start();
                         <div class="modal-dialog modal-xl">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="updateModalLabel">Update Personnel</h5>
+                                    <h5 class="modal-title" id="updateModalLabel">Update Engagement</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
 
                                 <?php
-                                            $upersonnel = "SELECT * FROM personnel WHERE idno=$id";
-                                            $upersonnel1 = mysqli_query($conn, $upersonnel);
-                                            if($upersonnel1) {
-                                                while ($uper = mysqli_fetch_assoc($upersonnel1)) {       
+                                            $new = "SELECT * FROM personnel WHERE idno=$id";
+                                            $new1 = mysqli_query($conn, $new);
+                                            if($new1) {
+                                                while ($cap = mysqli_fetch_assoc($new1)) {       
                                         ?> 
-
-                                    <form action="" method="POST">
-                                      <div class="">
-                                          <label>First Name</label>
-                                          <input class="form-control" type="text" name="first_name" >
-                                      </div>
-                                      <div class="pt-3"></div>
-                                      <div class="">
-                                          <label>Last Name</label>
-                                          <input class="form-control" type="text" name="last_name">
-                                      </div>
-                                      <div class="pt-3"></div>
-                                      <div class="">
-                                        <label>Title</label>
-                                        <select name="title" class="form-control">
-                                            <option value="">Select one...</option>
-                                            <option value="Staff">Staff</option>
-                                            <option value="Senior">Senior</option>
-                                            <option value="Manager">Manager</option>
-                                            <option value="Executive Director">Executive Director</option>
-                                            <option value="Chief Executive Officer">Chief Executive Officer</option>
-                                        </select>
-                                      </div>
-                                      <div class="pt-3"></div>
-                                      <input type="submit" name="add-personnel" value="Submit" class="btn btn-secondary btn-block">
-                                    </form>
                                 
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Job Title</p> 
+                                       <p><span class="float-end"><?php //echo $cap['job_title']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Company</p> 
+                                       <p><span class="float-end"><?php //echo $cap['company']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Location</p>
+                                       <p><span class="float-end"><?php //echo $cap['location']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Application Link</p> 
+                                       <p><a target="_blank" href="<?php //echo $cap['app_link']; ?>" class="float-end">Link Here</a></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Job Type</p> 
+                                       <p><span class="float-end"><?php //echo $cap['job_type']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Base Pay</p> 
+                                       <p><span class="float-end"><?php //echo $cap['pay']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Bonus Pay</p> 
+                                       <p><span class="float-end"><?php //echo $cap['bonus_pay']; ?></span></p>
+                                    </div>
+                                    <br><br>
+                                    <div class="ms-3 me-3">
+                                       <p class="fw-bold">Notes</p> 
+                                       <p><span><?php //echo $cap['notes']; ?></span></p>
+                                    </div>
                                     
 
                                     <?php } } ?>
