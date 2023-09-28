@@ -79,7 +79,7 @@ if(isset($_POST['add-engagement'])){
       $review_end = 0;
     }
     if (empty($as_of_date)) {
-      $as_of_date = NULL;
+      $as_of_date = 0;
     }
     if (empty($evidence_due_date)) {
       $evidence_due_date = 0;
