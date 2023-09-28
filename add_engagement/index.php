@@ -230,26 +230,26 @@ if(isset($_POST['add-engagement'])){
               <div class="col w-25">
                 <label>Engagement Type</label>
                 <select name="engagement_type" class="form-control">
-                    <option value="0">Select one...</option>
-                    <option value="1">SOC 1 Type 1</option>
-                    <option value="2">SOC 1 Type 2</option>
-                    <option value="3">SOC 2 Type 1</option>
-                    <option value="4">SOC 2 Type 2</option>
-                    <option value="5">SOC 3 Type 1</option>
-                    <option value="6">SOC 3 Type 2</option>
+                    <option value="">Select one...</option>
+                    <option value="SOC 1 Type 1">SOC 1 Type 1</option>
+                    <option value="SOC 1 Type 2">SOC 1 Type 2</option>
+                    <option value="SOC 2 Type 1">SOC 2 Type 1</option>
+                    <option value="SOC 2 Type 2">SOC 2 Type 2</option>
+                    <option value="SOC 3 Type 1">SOC 3 Type 1</option>
+                    <option value="SOC 3 Type 2">SOC 3 Type 2</option>
                 </select>
               </div>
               <div class="col w-25">
                 <label>Status</label>
                 <select name="status" class="form-control">
-                    <option value="0">Select one...</option>
-                    <option value="1">Internal Planning Call</option>
-                    <option value="2">Client Planning Call</option>
-                    <option value="3">Fieldwork Calls</option>
-                    <option value="4">Fieldwork Documentation</option>
-                    <option value="5">Manager QA Review</option>
-                    <option value="6">Executive QA Review</option>
-                    <option value="7">Completed</option>
+                    <option value="">Select one...</option>
+                    <option value="Internal Planning Call">Internal Planning Call</option>
+                    <option value="Client Planning Call">Client Planning Call</option>
+                    <option value="Fieldwork Calls">Fieldwork Calls</option>
+                    <option value="Fieldwork Documentation">Fieldwork Documentation</option>
+                    <option value="Manager QA Review">Manager QA Review</option>
+                    <option value="Executive QA Review">Executive QA Review</option>
+                    <option value="Completed">Completed</option>
                 </select>
               </div>
             </div>
@@ -381,34 +381,35 @@ if(isset($_POST['add-engagement'])){
 
         <div class="pt-3"></div>
 
-
-        <div class="alert alert-primary" role="alert">
-          <i class="bi bi-exclamation-diamond-fill"></i>&nbsp;&nbsp;<strong>For SOC 2 engagements:</strong> Please select the categories in scope.
-        </div>
-        <label>Categories in Scope</label>
-        <div>
-          
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="scope_categories[]" value="Security">
-            <label class="form-check-label" for="inlineCheckbox1">Security</label>
+        <!-- start scope row -->
+          <div class="alert alert-primary" role="alert">
+            <i class="bi bi-exclamation-diamond-fill"></i>&nbsp;&nbsp;<strong>For SOC 2 engagements:</strong> Please select the categories in scope.
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="scope_categories[]" value="Availability">
-            <label class="form-check-label" for="inlineCheckbox2">Availability</label>
+          <label>Categories in Scope</label>
+          <div>
+                        
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="scope_categories[]" value="Security">
+              <label class="form-check-label" for="inlineCheckbox1">Security</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="scope_categories[]" value="Availability">
+              <label class="form-check-label" for="inlineCheckbox2">Availability</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="scope_categories[]" value="Confidentiality">
+              <label class="form-check-label" for="inlineCheckbox3">Confidentiality</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="scope_categories[]" value="Privacy">
+              <label class="form-check-label" for="inlineCheckbox3">Privacy</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="scope_categories[]" value="Processing Integrity">
+              <label class="form-check-label" for="inlineCheckbox3">Processing Integrity</label>
+            </div>
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="scope_categories[]" value="Confidentiality">
-            <label class="form-check-label" for="inlineCheckbox3">Confidentiality</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="scope_categories[]" value="Privacy">
-            <label class="form-check-label" for="inlineCheckbox3">Privacy</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="scope_categories[]" value="Processing Integrity">
-            <label class="form-check-label" for="inlineCheckbox3">Processing Integrity</label>
-          </div>
-        </div>
+        <!-- end scope row -->
 
         <div class="pt-3"></div>
 
