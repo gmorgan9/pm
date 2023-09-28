@@ -135,14 +135,22 @@ if(isset($_POST['title'])) {
                                       <label>First Name</label>
                                       <input class="form-control" type="text" name="first_name">
                                   </div>
+                                  
+                                  <div class="pt-3"></div>
+
                                   <div class="">
                                       <label>Last Name</label>
                                       <input class="form-control" type="text" name="last_name">
                                   </div>
+
+                                  <div class="pt-3"></div>
+
                                   <div class="">
                                       <label>Title <span class="text-muted" style="font-size: 10px;">e.g "Manager"</span></label>
                                       <input class="form-control" type="text" name="title">
                                   </div>
+
+                                  <div class="pt-3"></div>
 
                                   <input type="submit" name="add-personnel" value="Submit" class="btn btn-light btn-block">
                                 </form>
