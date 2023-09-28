@@ -399,6 +399,12 @@ if(isset($_POST['add-engagement'])){
               <label>Review End Date</label>
               <input class="form-control" type="date" name="review_end" value="">
             </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Default checkbox
+              </label>
+            </div>
           </div>
         <!-- end review date row -->
 
