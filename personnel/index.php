@@ -117,7 +117,7 @@ if(isset($_POST['title'])) {
           </nav>
 
           <div class="d-inline">
-            <h2 class="float-start">
+            <h2 class="float-start ms-2">
               Personnel
             </h2>
             <div class="float-end mb-3 me-2">
