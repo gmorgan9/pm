@@ -65,7 +65,7 @@ session_start();
             <div class="card" style="width: 65%; background-color: white !important; border: none; border-radius: 20px !important;">
               <div class="card-body">
                   <p class="card-text float-start" style="font-size: 28px;">Projects</p>
-                  <p class="card-text float-end" style="font-size: 20px;">September 28, 2023</p>
+                  <p class="card-text float-end" style="font-size: 20px;"><?php $currentDate = date('F d, Y'); echo $currentDate; ?></p>
                 
                   <div class="mt-5"></div>
 
