@@ -62,7 +62,7 @@ session_start();
           <div class="d-flex">
 
           <!-- Projects Card -->
-            <div class="card" style="width: 65%; height: 200px; background-color: white !important; border: none; border-radius: 20px !important;">
+            <div class="card" style="width: 65%; height: 600px; background-color: white !important; border: none; border-radius: 20px !important;">
               <div class="card-body">
                   <p class="card-text float-start" style="font-size: 28px;">Projects</p>
                   <p class="card-text float-end" style="font-size: 20px;"><?php $currentDate = date('F d, Y'); echo $currentDate; ?></p>
