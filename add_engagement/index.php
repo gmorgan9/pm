@@ -135,19 +135,10 @@ if(isset($_POST['add-engagement'])){
 
         <div class="pt-3"></div>
 
-        <!-- Start manager,senior row -->
-          <div class="row d-flex">
-
-            
-          </div> 
-        <!-- end manager,senior row -->
-
-        <div class="pt-3"></div>
-
         <!-- Start staff row -->
           <div class="row d-flex">
 
-          <div class="col w-50">
+            <div class="col w-50">
               <label>Manager</label>
               <select name="manager" class="form-control">
                   <option value="none">Select one...</option>
