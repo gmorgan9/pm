@@ -53,7 +53,7 @@ session_start();
 
           <div class="d-flex">
 
-            <div class="card" style="width: 70%;">
+            <div class="card" style="width: 65%;">
               <div class="card-body">
                 <p class="card-text" style="font-size: 20px;">Projects</p>
                 <h5 class="card-title" style="font-size: 65px;">
@@ -63,7 +63,7 @@ session_start();
               </div>
             </div>
 
-            <div class="card" style="width: 30%">
+            <div class="card" style="width: 35%">
               <div class="card-body">
                 <p class="card-text" style="font-size: 20px;">Projects</p>
                 <h5 class="card-title" style="font-size: 65px;">
