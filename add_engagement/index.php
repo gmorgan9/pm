@@ -260,7 +260,7 @@ if(isset($_POST['add-engagement'])){
                   <label>Review End Date</label>
                   <input class="form-control" type="date" name="review_end">
                 </div>
-                <div class="col w-50 d-flex align-items-center">
+                <div class="col w-50 align-middle">
                   <div class="alert alert-primary" role="alert">
                     Only given an "as of date" because of a type 1 engagement.
                   </div>
