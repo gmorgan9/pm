@@ -52,7 +52,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="sidebar-link" href="../admin-tools/">
+                <a class="sidebar-link" href="../settings/">
                     <i class="bi bi-gear-fill"></i>&nbsp;&nbsp;&nbsp;Settings
                 </a>
             </li>
