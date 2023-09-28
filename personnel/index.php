@@ -135,7 +135,7 @@ if(isset($_POST['title'])) {
                                       <label>First Name</label>
                                       <input class="form-control" type="text" name="first_name">
                                   </div>
-                                  
+
                                   <div class="pt-3"></div>
 
                                   <div class="">
@@ -152,7 +152,7 @@ if(isset($_POST['title'])) {
 
                                   <div class="pt-3"></div>
 
-                                  <input type="submit" name="add-personnel" value="Submit" class="btn btn-light btn-block">
+                                  <input type="submit" name="add-personnel" value="Submit" class="btn btn-secondary btn-block">
                                 </form>
                                 
                                     
