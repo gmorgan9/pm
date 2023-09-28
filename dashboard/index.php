@@ -55,7 +55,7 @@ session_start();
 
             <div class="card" style="width: 65%;">
               <div class="card-body">
-                  <p class="card-text float-start" style="font-size: 20px;">Projects</p>
+                  <p class="card-text float-start" style="font-size: 28px;">Projects</p>
                   <p class="card-text float-end" style="font-size: 20px;">September 28, 2023</p>
                 
                   <div class="mt-5"></div>
