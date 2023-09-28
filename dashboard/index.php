@@ -537,7 +537,8 @@ session_start();
 
 
                   <!-- timeline -->
-                    <div class="container" style="">
+                  <div style="max-height: 400px; overflow: auto;">
+                    <div class="container">
                       <ul class="timeline">
                         <?php
                           $current_date = date('Y-m-d');
@@ -591,6 +592,8 @@ session_start();
                         <?php } } ?>
                       </ul>
                     </div>
+                  </div>
+                    
                   <!-- end timeline -->
 
 
