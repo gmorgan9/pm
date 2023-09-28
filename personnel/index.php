@@ -69,7 +69,7 @@ session_start();
           </div>
           
 
-          <div class="pb-3"></div>
+          <div class="mb-3"></div>
 
 
           <div class="container-fluid main">
