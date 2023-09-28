@@ -75,36 +75,28 @@ if(isset($_POST['title'])) {
 <!-- update personnel -->
   <?php
   if(isset($_POST['update-personnel'])) {
-    
     $personnel_id = $_POST['personnel_id']; 
-
     if(isset($_POST['first_name'])) {
         $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
     } else {
         $first_name = "";
     }
-
     if(isset($_POST['last_name'])) {
         $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
     } else {
         $last_name = "";
     }
-
     if(isset($_POST['title'])) {
         $title = mysqli_real_escape_string($conn, $_POST['title']);
     } else {
         $title = "";
     }
-
-    // Construct the UPDATE query
     $updateQuery = "UPDATE personnel SET first_name = NULLIF('$first_name', ''), last_name = NULLIF('$last_name', ''), title = NULLIF('$title', '') WHERE personnel_id = $personnel_id"; 
-
     if (mysqli_query($conn, $updateQuery)) {
         header('location: ../personnel/');
     } else {
         echo "Error: " . mysqli_error($conn);
     }
-
     mysqli_close($conn);
   }
 
@@ -125,7 +117,7 @@ if(isset($_POST['title'])) {
 </head>
 <body style="background-color: #e3e3e3;">
 
-
+  <!-- loading screen -->
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh;" id="spinner-group">
         <div class="spinner-grow" style="width: 3rem; height: 3rem; background-color: rgb(172, 202, 83);" role="status" id="spinner-item-1">
             <span class="visually-hidden">Loading...</span>
@@ -140,6 +132,7 @@ if(isset($_POST['title'])) {
             <span class="visually-hidden">Loading...</span>
           </div>
     </div>
+  <!-- end loading screen -->
     
     <?php include("../includes/sidebar.php"); ?>
 
@@ -213,7 +206,7 @@ if(isset($_POST['title'])) {
         <table class="table">
             <thead>
                 <tr>
-                <th scope="col">#</th>
+                <th scope="col">ID Number</th>
                 <th scope="col">Name</th>
                 <th scope="col">Title</th>
                 <th scope="col">Actions</th>
