@@ -259,7 +259,7 @@ session_start();
                       </table>
 
                       <br>
-                      <div class="d-flex justify-content-center align-bottom">
+                      <div class="mt-auto">
                         <?php
                           // Pagination links
                           $sql = "SELECT COUNT(*) as total FROM engagement";
