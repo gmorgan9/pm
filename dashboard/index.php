@@ -607,7 +607,8 @@ session_start();
                                 <p class="text-muted" style="margin-top: -15px;">
                                   <?php echo $client_name; ?><br>
                                   <?php echo $f_date; ?><br>
-                                  <?php echo $f_start_time . ' - ' . $f_end_time; ?>
+                                  <?php echo $f_start_time . ' - ' . $f_end_time; ?><br>
+                                  <a href="#" data-bs-toggle="modal" data-bs-target="#noteModal<?php echo $id; ?>" class="view">Add Meeting Note</a>
                                 </p>
                               </div>
                             </div>
