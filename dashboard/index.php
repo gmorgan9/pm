@@ -565,8 +565,8 @@ session_start();
                                           $status      = $row['status'];
                                           $date           = $row['date'];
                                           $f_date = date("M d, Y", strtotime($date));
-                                          $review_end           = $row['review_end'];
-                                          $f_review_end = date("M d, Y", strtotime($review_end));
+                                          $start_time           = $row['start_time'];
+                                          $f_start_time = date("H:M A", strtotime($start_time));
                                           $as_of_date           = $row['as_of_date'];
                                           $f_as_of_date = date("M d, Y", strtotime($as_of_date));
 
@@ -578,7 +578,7 @@ session_start();
                           <!-- begin timeline-time -->
                           <div class="timeline-time">
                              <span class="date"><?php echo $f_date; ?></span>
-                             <span class="time">04:20</span>
+                             <span class="time"><?php echo $f_start_time; ?></span>
                           </div>
                           <!-- end timeline-time -->
                           <!-- begin timeline-icon -->
