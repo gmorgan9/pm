@@ -93,7 +93,7 @@ if(isset($_POST['add-engagement'])){
     $insert = "INSERT INTO engagement (idno, client_name) VALUES ('$idno', '$client_name')";
 
     if (mysqli_query($conn, $insert)) {
-        header('location: ../all-engagements.php');
+        header('location: ../engagements.php');
     } else {
         echo "Error: " . mysqli_error($conn);
     }
