@@ -273,6 +273,7 @@ session_start();
 
 
     <script src="../assets/scripts/dropdown.js?v=5.1.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     
 
 
