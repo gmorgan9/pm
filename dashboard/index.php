@@ -65,15 +65,15 @@ session_start();
                       <h5 style="margin-bottom: 0;">
                         45
                       </h5>
-                      <p>
+                      <p class="text-muted">
                         Upcoming
                       </p>
                     </span>
                     <span class="2">
-                      <h5>
+                      <h5 style="margin-bottom: 0;">
                         54
                       </h5>
-                      <p>
+                      <p class="text-muted">
                         In Progress
                       </p>
                     </span>
