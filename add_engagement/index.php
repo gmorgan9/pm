@@ -87,21 +87,11 @@ if(isset($_POST['add-engagement'])){
           <form action="" method="POST">
 
 
-        <div class="">
-            <label>Client Name <span class="text-muted" style="font-size: 10px;">e.g "AARC-360"</span></label>
-            <input class="form-control" type="text" name="client_name">
-        </div>
-        <!-- <div class="col w-50">
-            <label>Short Title <span class="text-muted" style="font-size: 10px;">e.g "meatball-subs"</span></label>
-            <input class="form-control" type="text" name="short_title">
-        </div> -->
-
-
-        <div class="pt-3"></div>
-
-        <!-- Start type row -->
           <div class="row d-flex">
-
+            <div class="">
+                <label>Client Name <span class="text-muted" style="font-size: 10px;">e.g "AARC-360"</span></label>
+                <input class="form-control" type="text" name="client_name">
+            </div>
             <div class="col w-50">
               <label>Engagement Type</label>
               <select name="engagement_type" class="form-control">
@@ -114,7 +104,6 @@ if(isset($_POST['add-engagement'])){
                   <option value="6">SOC 3 Type 2</option>
               </select>
             </div>
-
             <div class="col w-50">
               <label>Status</label>
               <select name="status" class="form-control">
@@ -128,10 +117,12 @@ if(isset($_POST['add-engagement'])){
                   <option value="7">Completed</option>
               </select>
             </div>
-                      
-            
-          </div> 
-        <!-- end type row -->
+          </div>
+
+        <!-- <div class="col w-50">
+            <label>Short Title <span class="text-muted" style="font-size: 10px;">e.g "meatball-subs"</span></label>
+            <input class="form-control" type="text" name="short_title">
+        </div> -->
 
         <div class="pt-3"></div>
 
