@@ -570,7 +570,11 @@ session_start();
                           </div>
                           <div class="timeline-body">
                             <div class="timeline-header">
-                              <span class="title"><a href="javascript:;"><?php echo $title; ?></a></span>
+                              <?php 
+                              if ($date == $current_date && $start_time <= $current_time && $end_time >= $current_time) {
+                              ?>
+                              <span class="title"><a href="javascript:;"><?php echo $title; ?></a></span> <i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-primary"></i>
+                              <?php } ?>
                             </div>
                             <div class="timeline-content">
                               <?php 
