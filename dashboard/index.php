@@ -50,7 +50,7 @@ session_start();
 .timeline .timeline-time {
     position: absolute;
     left: 0;
-    width: 30%;
+    width: 18%;
     text-align: right;
     top: 30px
 }
@@ -572,7 +572,7 @@ session_start();
                     <ul class="timeline">
                        <li>
                           <!-- begin timeline-time -->
-                          <div class="timeline-time pe-2">
+                          <div class="timeline-time me-2">
                              <span class="date"><?php echo $f_date; ?></span>
                              <span class="time"><?php echo $f_start_time; ?></span>
                           </div>
