@@ -133,7 +133,7 @@ session_start();
                                        <p class="float-start fw-bold">Status</p> 
                                        <?php //if($cap['status'] == 'Applied'){ ?>
                                             <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-primary"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
-                                        <?php } //else if($cap['status'] == 'Interviewed') { ?>
+                                        <?php //} else if($cap['status'] == 'Interviewed') { ?>
                                             <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-info"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
                                         <?php //} else if($cap['status'] == 'Offered') { ?>
                                             <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-success"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
