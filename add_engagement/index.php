@@ -275,7 +275,7 @@ if(isset($_POST['add-engagement'])){
                   <?php 
                       foreach ($options as $option) {
                   ?>
-                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
+                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name'] . ' ' . $option['last_name']; ?></option>
                   <?php } ?>
               </select>
             </div>
@@ -294,7 +294,7 @@ if(isset($_POST['add-engagement'])){
                   <?php 
                       foreach ($options as $option) {
                   ?>
-                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
+                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name'] . ' ' . $option['last_name']; ?></option>
                   <?php } ?>
               </select>
             </div>
@@ -313,7 +313,7 @@ if(isset($_POST['add-engagement'])){
                   <?php 
                       foreach ($options as $option) {
                   ?>
-                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
+                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name'] . ' ' . $option['last_name']; ?></option>
                   <?php } ?>
               </select>
             </div>
@@ -332,7 +332,7 @@ if(isset($_POST['add-engagement'])){
                   <?php 
                       foreach ($options as $option) {
                   ?>
-                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
+                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name'] . ' ' . $option['last_name']; ?></option>
                   <?php } ?>
               </select>
             </div>
@@ -351,7 +351,7 @@ if(isset($_POST['add-engagement'])){
                   <?php 
                       foreach ($options as $option) {
                   ?>
-                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
+                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name'] . ' ' . $option['last_name']; ?></option>
                   <?php } ?>
               </select>
             </div>
