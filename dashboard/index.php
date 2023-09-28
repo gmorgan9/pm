@@ -121,11 +121,11 @@ session_start();
                                           $client_name      = $row['client_name'];
                                           $status      = $row['status'];
                                           $review_start           = $row['review_start'];
-                                          $f_review_start = date("F j, Y", strtotime($review_start));
+                                          $f_review_start = date("M d, Y", strtotime($review_start));
                                           $review_end           = $row['review_end'];
-                                          $f_review_end = date("M j, Y", strtotime($review_end));
+                                          $f_review_end = date("M d, Y", strtotime($review_end));
                                           $as_of_date           = $row['as_of_date'];
-                                          $f_as_of_date = date("F j, Y", strtotime($as_of_date));
+                                          $f_as_of_date = date("M d, Y", strtotime($as_of_date));
                           ?>
                           <tr>
                               <th scope="row"><?php echo $id; ?></th>
