@@ -284,10 +284,10 @@ session_start();
           <!-- start Meetings Card -->
             <div class="card" style="width: 35%; background-color: white !important; border: none; border-radius: 20px !important;">
               <div class="card-body">
-                <p class="card-text" style="font-size: 20px;">Meetings</p>
+                <p class="card-text" style="font-size: 28px;">Meetings</p>
 
                   <!-- stats -->
-                    <div class="d-flex" style="margin-top: 80px !important;">
+                    <div class="d-flex">
                       <span class="1 me-4">
                         <h5 style="margin-bottom: 0;">
                           14
@@ -315,7 +315,7 @@ session_start();
                     </div>
                   <!-- end stats -->
 
-                  
+
               </div>
             </div>
           <!-- end meetings card -->
