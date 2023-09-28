@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <?php
+date_default_timezone_set('America/Denver');
 
 require_once "../app/connection.php";
 require_once "../path.php";
