@@ -537,7 +537,7 @@ session_start();
 
 
                   <!-- timeline -->
-                  <div style="max-height: 650px; overflow: auto;">
+                  <div style="max-height: 630px; overflow: auto;">
                     <div class="container">
                       <ul class="timeline">
                         <?php
