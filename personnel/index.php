@@ -116,7 +116,7 @@ if(isset($_POST['title'])) {
             </ol>
           </nav>
 
-          <div class="float-end mb-3 me-1">
+          <div class="float-end mb-3 me-2">
             <button type="button" class="btn btn-secondary"><a href="#" data-bs-toggle="modal" data-bs-target="#newModal" class="view text-white text-decoration-none"><i class="bi bi-plus"></i> Add Personnel</a></button>
           </div>
 
