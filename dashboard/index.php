@@ -549,7 +549,7 @@ session_start();
                     <ul class="timeline">
                       <?php
                         $current_date = date('Y-m-d');
-                        $sql = "SELECT * FROM meetings WHERE date > $current_date";
+                        $sql = "SELECT * FROM meetings WHERE date >= '$current_date'";
                         $result = mysqli_query($conn, $sql);
                         if ($result) {
                           while ($row = mysqli_fetch_assoc($result)) {
