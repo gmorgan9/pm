@@ -21,55 +21,55 @@ session_start();
 <!-- end delete personnel -->
 
 <!-- add personnel -->
-<?php
-if(isset($_POST['add-personnel'])){
+  <?php
+  if(isset($_POST['add-personnel'])){
 
-  $idno = rand(10000, 99999);
+    $idno = rand(10000, 99999);
 
-  while (true) {
-      $select = "SELECT * FROM personnel WHERE idno = '$idno'";
-      $result = mysqli_query($conn, $select);
+    while (true) {
+        $select = "SELECT * FROM personnel WHERE idno = '$idno'";
+        $result = mysqli_query($conn, $select);
 
-      if (mysqli_num_rows($result) == 0) {
-          // ID doesn't exist, break out of the loop
-          break;
-      } else {
-          // ID exists, generate a new one
-          $idno = rand(10000, 99999);
-      }
-  }
+        if (mysqli_num_rows($result) == 0) {
+            // ID doesn't exist, break out of the loop
+            break;
+        } else {
+            // ID exists, generate a new one
+            $idno = rand(10000, 99999);
+        }
+    }
 
-  if(isset($_POST['first_name'])) {
-    $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
-} else {
-    $first_name = "";
-}
-
-if(isset($_POST['last_name'])) {
-    $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
-} else {
-    $last_name = "";
-}
-
-if(isset($_POST['title'])) {
-    $title = mysqli_real_escape_string($conn, $_POST['title']);
-} else {
-    $title = "";
-}
-
-
-  $insert = "INSERT INTO personnel (idno, first_name, last_name, title) VALUES ('$idno', NULLIF('$first_name',''), NULLIF('$last_name',''), NULLIF('$title',''))";
-
-
-  if (mysqli_query($conn, $insert)) {
-      header('location: ../personnel/');
+    if(isset($_POST['first_name'])) {
+      $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
   } else {
-      echo "Error: " . mysqli_error($conn);
+      $first_name = "";
   }
 
-  mysqli_close($conn);
-}
-?>
+  if(isset($_POST['last_name'])) {
+      $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
+  } else {
+      $last_name = "";
+  }
+
+  if(isset($_POST['title'])) {
+      $title = mysqli_real_escape_string($conn, $_POST['title']);
+  } else {
+      $title = "";
+  }
+
+
+    $insert = "INSERT INTO personnel (idno, first_name, last_name, title) VALUES ('$idno', NULLIF('$first_name',''), NULLIF('$last_name',''), NULLIF('$title',''))";
+
+
+    if (mysqli_query($conn, $insert)) {
+        header('location: ../personnel/');
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+
+    mysqli_close($conn);
+  }
+  ?>
 <!-- end add personnel -->
 
 <html lang="en">
@@ -219,10 +219,10 @@ if(isset($_POST['title'])) {
                                 <div class="modal-body">
 
                                 <?php
-                                            // $new = "SELECT * FROM personnel WHERE idno=$id";
-                                            // $new1 = mysqli_query($conn, $new);
-                                            // if($new1) {
-                                            //     while ($cap = mysqli_fetch_assoc($new1)) {       
+                                            $upersonnel = "SELECT * FROM personnel WHERE idno=$id";
+                                            $upersonnel1 = mysqli_query($conn, $upersonnel);
+                                            if($upersonnel1) {
+                                                while ($uper = mysqli_fetch_assoc($upersonnel1)) {       
                                         ?> 
 
                                     <form action="" method="POST">
@@ -253,7 +253,7 @@ if(isset($_POST['title'])) {
                                 
                                     
 
-                                    <?php //} } ?>
+                                    <?php } } ?>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
