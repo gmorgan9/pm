@@ -7,6 +7,18 @@ require_once "../path.php";
 session_start();
 
 ?>
+
+<?php
+
+if(isset($_GET['id'])) {
+  $id = $_GET['id'];
+
+  $sql = "DELETE FROM engagement WHERE appid=$id";
+  $result = mysqli_query($conn, $sql);
+}
+
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -138,7 +150,7 @@ session_start();
                     <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal<?php echo $id; ?>" class="update"><i class="bi bi-pencil-square" style="color:#005382;"></i></a>
                     <a href="update-app.php?updateid=<?php echo $id; ?>"><i class="bi bi-pencil-square" style="color:#005382;"></a></i> 
                     &nbsp; 
-                    <a href="open-app.php?appid=<?php echo $id; ?>" class="delete"><i class="bi bi-trash" style="color:#941515;"></i></a></td>
+                    <a href="/engagement/?id=<?php echo $id; ?>" class="delete"><i class="bi bi-trash" style="color:#941515;"></i></a></td>
                 </tr>
 
 
