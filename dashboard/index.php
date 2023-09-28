@@ -21,6 +21,13 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="../assets/scripts/timeout.js?v=3.0"></script>
+
+    <style>
+    /* Remove background color for the table */
+    .custom-table {
+        background-color: transparent !important; /* Set background color to transparent */
+    }
+</style>
 </head>
 <body style="background-color: #e3e3e3;" >
 
@@ -91,7 +98,7 @@ session_start();
                   <!-- end stats -->
 
                   <!-- table -->
-                      <table class="table table-hover table-bg" style="background-color: transparent !important;">
+                      <table class="table table-hover custom-table">
                         <thead style="background-color: transparent;">
                             <tr>
                             <th scope="col">ID Number</th>
