@@ -92,7 +92,7 @@ session_start();
 
                   <!-- table -->
                       <table class="table table-hover table-bg" style="background-color: transparent !important;">
-                        <thead>
+                        <thead style="background-color: transparent;">
                             <tr>
                             <th scope="col">ID Number</th>
                             <th scope="col">Client Name</th>
