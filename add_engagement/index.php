@@ -406,7 +406,7 @@ if(isset($_POST['add-engagement'])){
 
 
         <div class="alert alert-primary" role="alert">
-        <i class="bi bi-exclamation-square-fill"></i>&nbsp;&nbsp; <strong>For SOC 2 engagements:</strong> Please select the categories in scope.
+          <i class="bi bi-exclamation-diamond-fill"></i>&nbsp;&nbsp;<strong>For SOC 2 engagements:</strong> Please select the categories in scope.
         </div>
         <label>Categories in Scope</label>
         <div>
