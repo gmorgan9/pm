@@ -219,90 +219,39 @@ if(isset($_POST['title'])) {
                                 <div class="modal-body">
 
                                 <?php
-                                            $new = "SELECT * FROM personnel WHERE idno=$id";
-                                            $new1 = mysqli_query($conn, $new);
-                                            if($new1) {
-                                                while ($cap = mysqli_fetch_assoc($new1)) {       
-                                        ?> 
-                                    <div>
-                                        <h5 class="float-start">Engagement Details</h5>
-                                        <div class="float-end">
-                                            <?php if($cap['status'] == 1){ ?>
-                                              <span class="badge text-bg-primary">Internal Planning Call</span>
-                                            <?php } elseif($cap['status'] == 2) { ?>
-                                              <span class="badge text-bg-secondary">Client Planning Call</span>
-                                            <?php } elseif($cap['status'] == 3) { ?>
-                                              <span class="badge text-bg-danger">Fieldwork Calls</span>
-                                            <?php } elseif($cap['status'] == 4) { ?>
-                                              <span class="badge text-bg-warning">Fieldwork Documentation</span>
-                                            <?php } elseif($cap['status'] == 5) { ?>
-                                              <span class="badge text-bg-dark">Manager QA Review</span>
-                                            <?php } elseif($cap['status'] == 6) { ?>
-                                              <span class="badge text-bg-info">Executive QA Review</span>
-                                            <?php } elseif($cap['status'] == 7) { ?>
-                                              <span class="badge text-bg-success">Completed</span>
-                                            <?php } else {} ?>
-                                        </div>
-                                    </div>
+                                  $new = "SELECT * FROM personnel WHERE idno=$id";
+                                  $new1 = mysqli_query($conn, $new);
+                                  if($new1) {
+                                    while ($cap = mysqli_fetch_assoc($new1)) {       
+                                ?> 
 
-                                    <br>
-                                    
-                                    <hr>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Status</p> 
-                                       <?php //if($cap['status'] == 'Applied'){ ?>
-                                            <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-primary"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
-                                        <?php //} else if($cap['status'] == 'Interviewed') { ?>
-                                            <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-info"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
-                                        <?php //} else if($cap['status'] == 'Offered') { ?>
-                                            <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-success"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
-                                        <?php //} else if($cap['status'] == 'Rejected') { ?>
-                                            <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-danger"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
-                                        <?php //} ?>
-                                    </div>
-                                    <br>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Job Title</p> 
-                                       <p><span class="float-end"><?php //echo $cap['job_title']; ?></span></p>
-                                    </div>
-                                    <br>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Company</p> 
-                                       <p><span class="float-end"><?php //echo $cap['company']; ?></span></p>
-                                    </div>
-                                    <br>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Location</p>
-                                       <p><span class="float-end"><?php //echo $cap['location']; ?></span></p>
-                                    </div>
-                                    <br>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Application Link</p> 
-                                       <p><a target="_blank" href="<?php //echo $cap['app_link']; ?>" class="float-end">Link Here</a></p>
-                                    </div>
-                                    <br>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Job Type</p> 
-                                       <p><span class="float-end"><?php //echo $cap['job_type']; ?></span></p>
-                                    </div>
-                                    <br>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Base Pay</p> 
-                                       <p><span class="float-end"><?php //echo $cap['pay']; ?></span></p>
-                                    </div>
-                                    <br>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Bonus Pay</p> 
-                                       <p><span class="float-end"><?php //echo $cap['bonus_pay']; ?></span></p>
-                                    </div>
-                                    <br><br>
-                                    <div class="ms-3 me-3">
-                                       <p class="fw-bold">Notes</p> 
-                                       <p><span><?php //echo $cap['notes']; ?></span></p>
-                                    </div>
-                                    
+                                <form action="" method="POST">
+                                  <div class="">
+                                      <label>First Name</label>
+                                      <input class="form-control" type="text" name="first_name" value="<?php echo $cap['first_name']; ?>">
+                                  </div>
+                                  <div class="pt-3"></div>
+                                  <div class="">
+                                      <label>Last Name</label>
+                                      <input class="form-control" type="text" name="last_name">
+                                  </div>
+                                  <div class="pt-3"></div>
+                                  <div class="">
+                                    <label>Title</label>
+                                    <select name="title" class="form-control">
+                                        <option value="">Select one...</option>
+                                        <option value="Staff">Staff</option>
+                                        <option value="Senior">Senior</option>
+                                        <option value="Manager">Manager</option>
+                                        <option value="Executive Director">Executive Director</option>
+                                        <option value="Chief Executive Officer">Chief Executive Officer</option>
+                                    </select>
+                                  </div>
+                                  <div class="pt-3"></div>
+                                  <input type="submit" name="add-personnel" value="Submit" class="btn btn-secondary btn-block">
+                                </form>
 
-                                    <?php } } ?>
+                                <?php } } ?>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
