@@ -77,7 +77,7 @@ if(isset($_GET['engagement_id'])) {
                 <th scope="col">Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="table-group-divider">
                 <?php
                     // Pagination variables
                     $limit = 10; // Number of entries per page
