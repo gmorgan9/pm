@@ -10,8 +10,8 @@ session_start();
 
 <?php
 
-if(isset($_GET['id'])) {
-  $id = $_GET['id'];
+if(isset($_GET['engagement_id'])) {
+  $id = $_GET['engagement_id'];
 
   $sql = "DELETE FROM engagement WHERE appid=$id";
   $result = mysqli_query($conn, $sql);
@@ -88,6 +88,7 @@ if(isset($_GET['id'])) {
                         $num_rows = mysqli_num_rows($result);
                         if($num_rows > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
+                                $engagement_id    = $row['id'];
                                 $id               = $row['idno'];
                                 $status           = $row['status'];
                                 $client_name      = $row['client_name'];
@@ -150,7 +151,7 @@ if(isset($_GET['id'])) {
                     <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal<?php echo $id; ?>" class="update"><i class="bi bi-pencil-square" style="color:#005382;"></i></a>
                     <a href="update-app.php?updateid=<?php echo $id; ?>"><i class="bi bi-pencil-square" style="color:#005382;"></a></i> 
                     &nbsp; 
-                    <a href="/engagements/?id=<?php echo $id; ?>" class="delete"><i class="bi bi-trash" style="color:#941515;"></i></a></td>
+                    <a href="/engagements/?engagement_id=<?php echo $engagement_id; ?>" class="delete"><i class="bi bi-trash" style="color:#941515;"></i></a></td>
                 </tr>
 
 
