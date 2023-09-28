@@ -92,8 +92,7 @@ session_start();
                             while ($row = mysqli_fetch_assoc($result)) {
                                 $personnel_id    = $row['personnel_id'];
                                 $id              = $row['idno'];
-                                $first_name      = $row['first_name'];
-                                $last_name       = $row['last_name'];
+                                $name      = $row['first_name'] + ' ' + $row['last_name'];
                                 $title           = $row['title'];
                                 // $location       = $row['location'];
                                 // $created_at     = $row['created_at'];
@@ -104,7 +103,7 @@ session_start();
                 ?>
                 <tr>
                     <th scope="row"><?php echo $id; ?></th>
-                    <td><?php echo $first_name + ' ' + $last_name; ?></td>
+                    <td><?php echo $name; ?></td>
                     <td><?php echo $title; ?></td>
                     <td style="font-size: 20px;">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#viewModal<?php echo $id; ?>" class="view"><i class="bi bi-eye text-success"></i></a> 
