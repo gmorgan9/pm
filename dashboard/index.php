@@ -60,10 +60,13 @@ session_start();
                   <p class="card-text float-end" style="font-size: 20px;">September 28, 2023</p>
                 </div>
                 
-                <h5 class="card-title" style="font-size: 65px;">
-                  25
-                </h5>
-                <h6 class="card-subtitle mb-2 text-muted">2 Completed</h6>
+                <div class="mt-2">
+                  <h5 class="card-title" style="font-size: 65px;">
+                    25
+                  </h5>
+                  <h6 class="card-subtitle mb-2 text-muted">2 Completed</h6>
+                </div>
+                
               </div>
             </div>
 
