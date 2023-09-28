@@ -543,7 +543,7 @@ session_start();
                         <?php
                           $current_date = date('Y-m-d');
                           $current_time = date('H:i:s'); // Current time in "HH:MM:SS" format
-                          $sql = "SELECT * FROM meetings WHERE date >= '$current_date' AND (date > '$current_date' OR (date = '$current_date' AND start_time > '$current_time')) ORDER BY date ASC, start_time ASC LIMIT 4";
+                          $sql = "SELECT * FROM meetings WHERE date >= '$current_date' AND (date > '$current_date' OR (date = '$current_date' AND start_time < '$current_time')) ORDER BY date ASC, start_time ASC LIMIT 4";
                                                     
                           $result = mysqli_query($conn, $sql);
                           if ($result) {
