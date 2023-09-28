@@ -61,6 +61,7 @@ session_start();
 
           <div class="d-flex">
 
+          <!-- Projects Card -->
             <div class="card" style="width: 65%; background-color: white !important; border: none; border-radius: 20px !important;">
               <div class="card-body">
                   <p class="card-text float-start" style="font-size: 28px;">Projects</p>
@@ -276,8 +277,10 @@ session_start();
                 
               </div>
             </div>
+          <!-- end project card -->
 
-            <div class="card" style="width: 35%">
+          <!-- start Meetings Card -->
+            <div class="card" style="width: 65%; background-color: white !important; border: none; border-radius: 20px !important;">
               <div class="card-body">
                 <p class="card-text" style="font-size: 20px;">Projects</p>
                 <h5 class="card-title" style="font-size: 65px;">
@@ -286,6 +289,7 @@ session_start();
                 <h6 class="card-subtitle mb-2 text-muted">2 Completed</h6>
               </div>
             </div>
+          <!-- end meetings card -->
 
           </div>
 
