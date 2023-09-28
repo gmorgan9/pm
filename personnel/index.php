@@ -65,7 +65,7 @@ session_start();
           </nav>
 
           <div class="float-end">
-            <button type="button" class="btn btn-secondary"><a href="#" data-bs-toggle="modal" data-bs-target="#newModal" class="view text-white"><i class="bi bi-plus"></i> Add Personnel</a></button>
+            <button type="button" class="btn btn-secondary"><a href="#" data-bs-toggle="modal" data-bs-target="#newModal" class="view text-white text-decoration-none"><i class="bi bi-plus"></i> Add Personnel</a></button>
           </div>
           
 
