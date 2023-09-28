@@ -284,11 +284,38 @@ session_start();
           <!-- start Meetings Card -->
             <div class="card" style="width: 35%; background-color: white !important; border: none; border-radius: 20px !important;">
               <div class="card-body">
-                <p class="card-text" style="font-size: 20px;">Projects</p>
-                <h5 class="card-title" style="font-size: 65px;">
-                  25
-                </h5>
-                <h6 class="card-subtitle mb-2 text-muted">2 Completed</h6>
+                <p class="card-text" style="font-size: 20px;">Meetings</p>
+
+                  <!-- stats -->
+                    <div class="d-flex" style="margin-top: 80px !important;">
+                      <span class="1 me-4">
+                        <h5 style="margin-bottom: 0;">
+                          14
+                        </h5>
+                        <p class="text-muted">
+                          Upcoming
+                        </p>
+                      </span>
+                      <span class="2 me-4">
+                        <h5 style="margin-bottom: 0;">
+                          22
+                        </h5>
+                        <p class="text-muted">
+                          In Progress
+                        </p>
+                      </span>
+                      <span class="2 me-4">
+                        <h5 style="margin-bottom: 0;">
+                          36
+                        </h5>
+                        <p class="text-muted">
+                          Total Projects
+                        </p>
+                      </span>
+                    </div>
+                  <!-- end stats -->
+
+                  
               </div>
             </div>
           <!-- end meetings card -->
