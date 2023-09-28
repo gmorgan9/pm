@@ -108,7 +108,7 @@ session_start();
     display: block;
     position: absolute;
     border: 10px solid transparent;
-    border-right-color: #fff;
+    /* border-right-color: #fff; */
     left: -20px;
     top: 20px
 }
