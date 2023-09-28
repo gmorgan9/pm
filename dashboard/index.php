@@ -60,7 +60,7 @@ session_start();
                 
                   <div class="mt-5"></div>
 
-                  <div class="d-inline mt-5">
+                  <div class="d-flex mt-5">
                     <span class="1">
                       <h5>
                         45
