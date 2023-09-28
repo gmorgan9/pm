@@ -88,11 +88,11 @@ if(isset($_POST['add-engagement'])){
 
 
           <div class="row d-flex">
-            <div class="">
+            <div class="col w-50">
                 <label>Client Name <span class="text-muted" style="font-size: 10px;">e.g "AARC-360"</span></label>
                 <input class="form-control" type="text" name="client_name">
             </div>
-            <div class="col w-50">
+            <div class="col w-25">
               <label>Engagement Type</label>
               <select name="engagement_type" class="form-control">
                   <option value="0">Select one...</option>
@@ -104,7 +104,7 @@ if(isset($_POST['add-engagement'])){
                   <option value="6">SOC 3 Type 2</option>
               </select>
             </div>
-            <div class="col w-50">
+            <div class="col w-25">
               <label>Status</label>
               <select name="status" class="form-control">
                   <option value="0">Select one...</option>
