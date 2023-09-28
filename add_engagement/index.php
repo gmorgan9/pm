@@ -267,45 +267,6 @@ if(isset($_POST['add-engagement'])){
 
             
                       
-            <div class="col w-25">
-              <label>Staff 2</label>
-              <select style="" name="staff_2" class="form-control">
-                  <option value="none">Select one...</option>
-                  <?php
-                  $query ="SELECT * FROM team_members where title = 'Staff'";
-                  $result = $conn->query($query);
-                  if($result->num_rows> 0){
-                    $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
-                  }
-                  ?>
-                  <?php 
-                      foreach ($options as $option) {
-                  ?>
-                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
-                  <?php } ?>
-              </select>
-            </div>
-
-            <div class="col w-25">
-              <label>Staff 3</label>
-              <select name="staff_3" class="form-control">
-                  <option value="none">Select one...</option>
-                  <?php
-                  $query ="SELECT * FROM team_members where title = 'Staff'";
-                  $result = $conn->query($query);
-                  if($result->num_rows> 0){
-                    $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
-                  }
-                  ?>
-                  <?php 
-                      foreach ($options as $option) {
-                  ?>
-                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
-                  <?php } ?>
-              </select>
-            </div>
-          </div> 
-        <!-- end staff row -->
 
 
         <div class="pt-3"></div>
