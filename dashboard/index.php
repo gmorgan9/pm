@@ -556,9 +556,7 @@ session_start();
                           <?php
                             $current_date = date('Y-m-d');
                             $current_time = date('H:i:s');
-                            echo "Current Date: $current_date<br>";
-                            echo "Current Time: $current_time<br>";
-                            $sql = "SELECT * FROM meetings WHERE (date > '$current_date') OR (date = '$current_date' AND start_time >= '$current_time') ORDER BY date ASC, start_time ASC LIMIT 3";
+                            $sql = "SELECT * FROM meetings WHERE (date > '$current_date') OR (date = '$current_date' AND end_time >= '$current_time') ORDER BY date ASC, start_time ASC LIMIT 3";
 
                             
 
