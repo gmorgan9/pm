@@ -225,31 +225,7 @@ if(isset($_POST['title'])) {
                                                 while ($cap = mysqli_fetch_assoc($new1)) {       
                                         ?> 
 
-                                    <form action="" method="POST">
-                                      <div class="">
-                                          <label>First Name</label>
-                                          <input class="form-control" type="text" name="first_name">
-                                      </div>
-                                      <div class="pt-3"></div>
-                                      <div class="">
-                                          <label>Last Name</label>
-                                          <input class="form-control" type="text" name="last_name">
-                                      </div>
-                                      <div class="pt-3"></div>
-                                      <div class="">
-                                        <label>Title</label>
-                                        <select name="title" class="form-control">
-                                            <option value="">Select one...</option>
-                                            <option value="Staff">Staff</option>
-                                            <option value="Senior">Senior</option>
-                                            <option value="Manager">Manager</option>
-                                            <option value="Executive Director">Executive Director</option>
-                                            <option value="Chief Executive Officer">Chief Executive Officer</option>
-                                        </select>
-                                      </div>
-                                      <div class="pt-3"></div>
-                                      <input type="submit" name="add-personnel" value="Submit" class="btn btn-secondary btn-block">
-                                    </form>
+                                        
                                 
                                     <div class="ms-3 me-3">
                                        <p class="float-start fw-bold">Job Title</p> 
