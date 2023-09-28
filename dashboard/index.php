@@ -533,7 +533,7 @@ session_start();
                           $current_date = date('Y-m-d');
                           $current_time = date('H:i:s');
 
-                          $sql = "SELECT COUNT(*) as total FROM meetings WHERE date = '$current_date' AND start_time >= '$current_time'";
+                          $sql = "SELECT COUNT(*) as total FROM meetings WHERE date = '$current_date' AND end_time >= '$current_time'";
                           $result = mysqli_query($conn, $sql);
                           $row = mysqli_fetch_assoc($result);
 
