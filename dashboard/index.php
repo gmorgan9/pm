@@ -55,10 +55,8 @@ session_start();
 
             <div class="card" style="width: 65%;">
               <div class="card-body">
-                <div class=" mb-2">
                   <p class="card-text float-start" style="font-size: 20px;">Projects</p>
                   <p class="card-text float-end" style="font-size: 20px;">September 28, 2023</p>
-                </div>
                 
                   <h5 class="card-title mt-3" style="font-size: 65px;">
                     25
