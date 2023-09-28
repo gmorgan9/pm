@@ -61,20 +61,28 @@ session_start();
                   <div class="mt-5"></div>
 
                   <div class="d-flex" style="margin-top: 80px !important;">
-                    <span class="1 me-3">
+                    <span class="1 me-4">
                       <h5 style="margin-bottom: 0;">
-                        45
+                        14
                       </h5>
                       <p class="text-muted">
                         Upcoming
                       </p>
                     </span>
-                    <span class="2">
+                    <span class="2 me-4">
                       <h5 style="margin-bottom: 0;">
-                        54
+                        22
                       </h5>
                       <p class="text-muted">
                         In Progress
+                      </p>
+                    </span>
+                    <span class="2 me-4">
+                      <h5 style="margin-bottom: 0;">
+                        36
+                      </h5>
+                      <p class="text-muted">
+                        Total Projects
                       </p>
                     </span>
                   </div>
