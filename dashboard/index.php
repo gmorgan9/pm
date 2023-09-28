@@ -122,7 +122,8 @@ session_start();
                                           $review_start           = $row['review_start'];
                                           $review_end           = $row['review_end'];
                                           $as_of_date           = $row['as_of_date'];
-                                          $formatted_rs = $review_start->format('M d, Y');
+                                          $local_rs = $review_start->setTimezone(new DateTimeZone('America/Denver'));
+                                          $formatted_rs = $local_rs->format('M d, Y');
                           ?>
                           <tr>
                               <th scope="row"><?php echo $id; ?></th>
