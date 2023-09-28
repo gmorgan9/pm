@@ -253,7 +253,7 @@ if(isset($_POST['title'])) {
 
                 <!-- UPDATE Modal -->
                   <div class="modal fade" id="updateModal<?php echo $id; ?>" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-xl">
+                        <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="updateModalLabel">Update Engagement</h5>
@@ -269,7 +269,7 @@ if(isset($_POST['title'])) {
                                 ?> 
 
                                 <form action="" method="POST">
-                                  <input class="form-control" type="text" name="personnel_id" value="<?php echo $cap['personnel_id']; ?>">
+                                  <input class="form-control" type="hidden" name="personnel_id" value="<?php echo $cap['personnel_id']; ?>">
                                   <div class="">
                                       <label>First Name</label>
                                       <input class="form-control" type="text" name="first_name" value="<?php echo $cap['first_name']; ?>">
