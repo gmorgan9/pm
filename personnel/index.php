@@ -213,7 +213,7 @@ if(isset($_POST['title'])) {
                         <div class="modal-dialog modal-xl">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="updateModalLabel">Update Engagement</h5>
+                                    <h5 class="modal-title" id="updateModalLabel">Update Personnel</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -228,7 +228,7 @@ if(isset($_POST['title'])) {
                                     <form action="" method="POST">
                                       <div class="">
                                           <label>First Name</label>
-                                          <input class="form-control" type="text" name="first_name" value="<?php echo $cap['first_name']; ?>">
+                                          <input class="form-control" type="text" name="first_name" >
                                       </div>
                                       <div class="pt-3"></div>
                                       <div class="">
@@ -251,45 +251,6 @@ if(isset($_POST['title'])) {
                                       <input type="submit" name="add-personnel" value="Submit" class="btn btn-secondary btn-block">
                                     </form>
                                 
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Job Title</p> 
-                                       <p><span class="float-end"><?php //echo $cap['job_title']; ?></span></p>
-                                    </div>
-                                    <br>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Company</p> 
-                                       <p><span class="float-end"><?php //echo $cap['company']; ?></span></p>
-                                    </div>
-                                    <br>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Location</p>
-                                       <p><span class="float-end"><?php //echo $cap['location']; ?></span></p>
-                                    </div>
-                                    <br>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Application Link</p> 
-                                       <p><a target="_blank" href="<?php //echo $cap['app_link']; ?>" class="float-end">Link Here</a></p>
-                                    </div>
-                                    <br>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Job Type</p> 
-                                       <p><span class="float-end"><?php //echo $cap['job_type']; ?></span></p>
-                                    </div>
-                                    <br>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Base Pay</p> 
-                                       <p><span class="float-end"><?php //echo $cap['pay']; ?></span></p>
-                                    </div>
-                                    <br>
-                                    <div class="ms-3 me-3">
-                                       <p class="float-start fw-bold">Bonus Pay</p> 
-                                       <p><span class="float-end"><?php //echo $cap['bonus_pay']; ?></span></p>
-                                    </div>
-                                    <br><br>
-                                    <div class="ms-3 me-3">
-                                       <p class="fw-bold">Notes</p> 
-                                       <p><span><?php //echo $cap['notes']; ?></span></p>
-                                    </div>
                                     
 
                                     <?php } } ?>
