@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+
+<?php
+
+require_once "../app/connection.php";
+require_once "../path.php";
+session_start();
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
