@@ -579,12 +579,13 @@ session_start();
                 echo '</div>';
                 echo '<div class="timeline-content">';
                 
-                $sql = "SELECT * FROM engagement WHERE engagement_id= $eid";
-                $result = mysqli_query($conn, $sql);
+                // Use a different variable for the second query result
+                $sql2 = "SELECT * FROM engagement WHERE engagement_id= $eid";
+                $result2 = mysqli_query($conn, $sql2);
 
-                if ($result) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $client_name = $row['client_name'];
+                if ($result2) {
+                    while ($row2 = mysqli_fetch_assoc($result2)) {
+                        $client_name = $row2['client_name'];
                     }
                 }
 
