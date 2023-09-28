@@ -124,8 +124,8 @@ session_start();
 }
 
 .timeline-header {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e2e7eb;
+    /* padding-bottom: 10px; */
+    /* border-bottom: 1px solid #e2e7eb; */
     line-height: 30px
 }
 
