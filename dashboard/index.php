@@ -130,7 +130,28 @@ session_start();
                           <tr>
                               <th scope="row"><?php echo $id; ?></th>
                               <td><?php echo $client_name; ?></td>
-                              <td><?php echo $status; ?></td>
+                              <td>
+                              <?php
+                                if ($status == 1) {
+                                  echo "Internal Planning Call";
+                                } elseif($status == 2) {
+                                  echo "Client Planning Call";
+                                } elseif($status == 3) {
+                                  echo "Fieldwork Calls";
+                                } elseif($status == 4) {
+                                  echo "Fieldwork Documentation";
+                                } elseif($status == 5) {
+                                  echo "Manager QA Review";
+                                } elseif($status == 6) {
+                                  echo "Executive QA Review";
+                                } elseif($status == 7) {
+                                  echo "Completed";
+                                } else { ?>
+                                  <span class="badge text-bg-warning">Not Set</span>
+                                <?php
+                                }
+                                ?>
+                              </td>
                               <td>
                                 <?php 
                                 if (!empty($as_of_date)) {
