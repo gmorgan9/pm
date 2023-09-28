@@ -328,7 +328,7 @@ if(isset($_POST['add-engagement'])){
 
         <div class="col w-100">
           <label>Engagement Notes</label>
-          <textarea class="w-100" name="content" id="content"></textarea>
+          <textarea name="content" id="content"></textarea>
         </div>
         <br>
         <input type="submit" name="add" value="Submit" class="btn btn-light btn-block"> &nbsp;
