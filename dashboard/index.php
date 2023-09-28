@@ -705,15 +705,24 @@ session_start();
                                         <div class="modal-body">
 
                                         
+                                        <?php
+                                            $new = "SELECT * FROM meetings WHERE idno=$id";
+                                            $new1 = mysqli_query($conn, $new);
+                                            if($new1) {
+                                                while ($cap = mysqli_fetch_assoc($new1)) {       
+                                        ?> 
                                                     
                                         <form action="" method="POST">
                                           <input type="hidden" name="idno" value="<?php echo $id; ?>">
                                           <div class="col w-100">
                                             <label>Meeting Notes</label>
-                                            <textarea  name="notes" id="myeditor" class="form-control" rows="8" cols="50"></textarea>
+                                            <textarea  name="notes" id="myeditor" class="form-control" rows="8" cols="50"><?php echo $cap['notes']; ?></textarea>
                                           </div>
+                                          <br>
                                           <input type="submit" name="update-add-note" value="Submit" class="btn btn-secondary btn-block">
                                         </form>
+
+                                        <?php } } ?>
                                                     
                                                     
                                                     
