@@ -508,6 +508,24 @@ session_start();
 
                   <!-- stats -->
                     <div class="d-flex">
+                      <span class="2 me-4">
+                        <h5 style="margin-bottom: 0;">
+                        <?php
+                          $current_date = date('Y-m-d');
+                          $current_time = date('H:i:s');
+
+                          $sql = "SELECT COUNT(*) as total FROM meetings WHERE date = '$current_date' AND end_time >= '$current_time'";
+                          $result = mysqli_query($conn, $sql);
+                          $row = mysqli_fetch_assoc($result);
+
+                          // Display the total number of meetings with leading zeros if necessary
+                          echo str_pad($row['total'], 2, '0', STR_PAD_LEFT);
+                        ?>
+                        </h5>
+                        <p class="text-muted">
+                          Remaining Today
+                        </p>
+                      </span>
                       <span class="1 me-4">
                         <h5 style="margin-bottom: 0;">
                         <?php 
@@ -525,24 +543,6 @@ session_start();
                         </h5>
                         <p class="text-muted">
                           Upcoming
-                        </p>
-                      </span>
-                      <span class="2 me-4">
-                        <h5 style="margin-bottom: 0;">
-                        <?php
-                          $current_date = date('Y-m-d');
-                          $current_time = date('H:i:s');
-
-                          $sql = "SELECT COUNT(*) as total FROM meetings WHERE date = '$current_date' AND end_time >= '$current_time'";
-                          $result = mysqli_query($conn, $sql);
-                          $row = mysqli_fetch_assoc($result);
-
-                          // Display the total number of meetings with leading zeros if necessary
-                          echo str_pad($row['total'], 2, '0', STR_PAD_LEFT);
-                        ?>
-                        </h5>
-                        <p class="text-muted">
-                          Remaining Today
                         </p>
                       </span>
                     </div>
