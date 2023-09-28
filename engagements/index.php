@@ -137,7 +137,7 @@ session_start();
 
 
                 <!-- VIEW Modal -->
-                    <!-- <div class="modal fade" id="viewModal<?php //echo $id; ?>" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="viewModal<?php //echo $id; ?>" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -228,7 +228,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 <!-- end VIEW Modal -->
 
                 <?php
@@ -254,18 +254,6 @@ session_start();
                 }
                 echo '</ul>';
         ?>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
