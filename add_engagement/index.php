@@ -88,42 +88,39 @@ if(isset($_POST['add-engagement'])){
           <form action="" method="POST">
 
 
-          <div class="row d-flex">
-            <div class="col w-50">
-                <label>Client Name <span class="text-muted" style="font-size: 10px;">e.g "AARC-360"</span></label>
-                <input class="form-control" type="text" name="client_name">
+          <!-- start top -->
+            <div class="row d-flex">
+              <div class="col w-50">
+                  <label>Client Name <span class="text-muted" style="font-size: 10px;">e.g "AARC-360"</span></label>
+                  <input class="form-control" type="text" name="client_name">
+              </div>
+              <div class="col w-25">
+                <label>Engagement Type</label>
+                <select name="engagement_type" class="form-control">
+                    <option value="0">Select one...</option>
+                    <option value="1">SOC 1 Type 1</option>
+                    <option value="2">SOC 1 Type 2</option>
+                    <option value="3">SOC 2 Type 1</option>
+                    <option value="4">SOC 2 Type 2</option>
+                    <option value="5">SOC 3 Type 1</option>
+                    <option value="6">SOC 3 Type 2</option>
+                </select>
+              </div>
+              <div class="col w-25">
+                <label>Status</label>
+                <select name="status" class="form-control">
+                    <option value="0">Select one...</option>
+                    <option value="1">Internal Planning Call</option>
+                    <option value="2">Client Planning Call</option>
+                    <option value="3">Fieldwork Calls</option>
+                    <option value="4">Fieldwork Documentation</option>
+                    <option value="5">Manager QA Review</option>
+                    <option value="6">Executive QA Review</option>
+                    <option value="7">Completed</option>
+                </select>
+              </div>
             </div>
-            <div class="col w-25">
-              <label>Engagement Type</label>
-              <select name="engagement_type" class="form-control">
-                  <option value="0">Select one...</option>
-                  <option value="1">SOC 1 Type 1</option>
-                  <option value="2">SOC 1 Type 2</option>
-                  <option value="3">SOC 2 Type 1</option>
-                  <option value="4">SOC 2 Type 2</option>
-                  <option value="5">SOC 3 Type 1</option>
-                  <option value="6">SOC 3 Type 2</option>
-              </select>
-            </div>
-            <div class="col w-25">
-              <label>Status</label>
-              <select name="status" class="form-control">
-                  <option value="0">Select one...</option>
-                  <option value="1">Internal Planning Call</option>
-                  <option value="2">Client Planning Call</option>
-                  <option value="3">Fieldwork Calls</option>
-                  <option value="4">Fieldwork Documentation</option>
-                  <option value="5">Manager QA Review</option>
-                  <option value="6">Executive QA Review</option>
-                  <option value="7">Completed</option>
-              </select>
-            </div>
-          </div>
-
-        <!-- <div class="col w-50">
-            <label>Short Title <span class="text-muted" style="font-size: 10px;">e.g "meatball-subs"</span></label>
-            <input class="form-control" type="text" name="short_title">
-        </div> -->
+          <!-- end top -->
 
         <div class="pt-3"></div>
 
@@ -301,23 +298,14 @@ if(isset($_POST['add-engagement'])){
           </div>
         <!-- end engagement dates row -->
 
-
-            
-                      
-
-
         <div class="pt-3"></div>
 
-
-        <div class="row d-flex">
+        <!-- <div class="row d-flex">
           <div class="col w-100">
             <label>Engagement Notes</label>
             <textarea  name="myeditor" placeholder="Product Details" class="form-control" rows="8" cols="50"></textarea>
-            
-            
-            
           </div>
-        </div>
+        </div> -->
         <br>
         <input type="submit" name="add" value="Submit" class="btn btn-light btn-block"> &nbsp;
         <!-- <button class="btn btn-dark btn-block" onclick="window.history.go(-1); return false;">Go Back</button> -->
