@@ -138,7 +138,16 @@ if(isset($_POST['add-engagement'])){
         <!-- Start manager,senior row -->
           <div class="row d-flex">
 
-            <div class="col w-50">
+            
+          </div> 
+        <!-- end manager,senior row -->
+
+        <div class="pt-3"></div>
+
+        <!-- Start staff row -->
+          <div class="row d-flex">
+
+          <div class="col w-50">
               <label>Manager</label>
               <select name="manager" class="form-control">
                   <option value="none">Select one...</option>
@@ -175,13 +184,6 @@ if(isset($_POST['add-engagement'])){
                   <?php } ?>
               </select>
             </div>
-          </div> 
-        <!-- end manager,senior row -->
-
-        <div class="pt-3"></div>
-
-        <!-- Start staff row -->
-          <div class="row d-flex">
 
             <div class="col w-25">
               <label>Staff 1</label>
