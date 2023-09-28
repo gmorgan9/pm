@@ -315,6 +315,7 @@ if(isset($_POST['add-engagement'])){
           <div class="col w-100">
             <label>Engagement Notes</label>
             <textarea name="content" id="content"></textarea>
+            <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
           </div>
         </div>
         <br>
