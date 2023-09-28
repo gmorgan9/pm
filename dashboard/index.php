@@ -86,11 +86,11 @@ session_start();
     height: 20px;
     display: inline-block;
     border-radius: 20px;
-    background: #d9e0e7;
+    background: #2d353c;
     line-height: 10px;
     color: #fff;
     font-size: 14px;
-    border: 5px solid #2d353c;
+    /* border: 5px solid #2d353c; */
     transition: border-color .2s linear
 }
 
