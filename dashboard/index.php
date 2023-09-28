@@ -91,9 +91,7 @@ session_start();
                   <!-- end stats -->
 
                   <!-- table -->
-                    <div class="container-fluid main">
-
-                      <table class="table">
+                      <table class="table table-hover">
                         <thead>
                             <tr>
                             <th scope="col">ID Number</th>
@@ -265,7 +263,7 @@ session_start();
                               }
                               echo '</ul>';
                       ?>
-                    </div>
+                    
                   <!-- end table -->
 
                 
