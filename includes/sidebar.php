@@ -57,7 +57,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="sidebar-link" href="index.php?logout='1'" id="logout-link">
+                <a class="sidebar-link" href="<?php echo BASE_URL; ?>/index.php?logout='1'" id="logout-link">
                     <i class="bi bi-door"></i>&nbsp;&nbsp;&nbsp;Logout
                 </a>
             </li>            
