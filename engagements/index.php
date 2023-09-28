@@ -90,7 +90,25 @@ session_start();
                 <tr>
                     <th scope="row"><?php echo $id; ?></th>
                     <td><?php echo $client_name ? $client_name : '-'; ?></td>
-                    <td><?php echo $engagement_type ? $engagement_type : '-'; ?></td>
+                    <td>
+                        <?php
+                        if ($engagement_type == 1) {
+                            echo "SOC 1 Type 1";
+                        } elseif($engagement_type == 2) {
+                          echo "SOC 1 Type 2";
+                        } elseif($engagement_type == 3) {
+                          echo "SOC 2 Type 1";
+                        } elseif($engagement_type == 4) {
+                          echo "SOC 2 Type 2";
+                        } elseif($engagement_type == 5) {
+                          echo "SOC 3 Type 1";
+                        } elseif($engagement_type == 6) {
+                          echo "SOC 3 Type 2";
+                        } else {
+                            echo '-';
+                        }
+                        ?>
+                    </td>
                     <td><?php echo $status ? $status : '-'; ?></td>
                     <!-- <td><?php //echo $formatted_date ? $formatted_date : '-'; ?></td> -->
                     <!-- <td><?php //echo $status ? $status : '-'; ?></td> -->
