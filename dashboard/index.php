@@ -60,6 +60,17 @@ session_start();
                 
                   <div class="mt-5"></div>
 
+                  <div class="d-flex">
+                    <div class="1">
+                      <h5>
+                        45
+                      </h5>
+                      <p>
+                        In Progress
+                      </p>
+                    </div>
+                  </div>
+
                   <h5 class="card-title" style="font-size: 65px;">
                     25
                   </h5>
