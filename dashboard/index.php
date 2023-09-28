@@ -97,7 +97,7 @@ session_start();
 .timeline .timeline-body {
     margin-left: 20%;
     margin-right: 20%;
-    background: #fff;
+    /* background: #fff; */
     position: relative;
     padding: 20px 25px;
     border-radius: 6px
