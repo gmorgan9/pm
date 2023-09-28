@@ -413,15 +413,23 @@ if(isset($_POST['add-engagement'])){
           
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-            <label class="form-check-label" for="inlineCheckbox1">1</label>
+            <label class="form-check-label" for="inlineCheckbox1">Security</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-            <label class="form-check-label" for="inlineCheckbox2">2</label>
+            <label class="form-check-label" for="inlineCheckbox2">Availability</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-            <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+            <label class="form-check-label" for="inlineCheckbox3">Confidentiality</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option4">
+            <label class="form-check-label" for="inlineCheckbox3">Privacy</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option5">
+            <label class="form-check-label" for="inlineCheckbox3">Process Integrity</label>
           </div>
         </div>
 
