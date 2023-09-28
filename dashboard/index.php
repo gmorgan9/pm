@@ -572,7 +572,7 @@ session_start();
                     <ul class="timeline">
                        <li>
                           <!-- begin timeline-time -->
-                          <div class="timeline-time">
+                          <div class="timeline-time pe-2">
                              <span class="date"><?php echo $f_date; ?></span>
                              <span class="time"><?php echo $f_start_time; ?></span>
                           </div>
