@@ -614,6 +614,7 @@ session_start();
                                 if ($date == $current_date && $start_time <= $current_time && $end_time >= $current_time) {
                                 ?>
                                 <span class="title"><a href="#" data-bs-toggle="modal" data-bs-target="#viewModal<?php echo $id; ?>" class="view"><?php echo $title; ?></a></span> <i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-primary"></i>
+                                <a class="text-muted" href="#" data-bs-toggle="modal" data-bs-target="#noteModal<?php echo $id; ?>" class="view"><i class="bi bi-journal-text"></i></a>
                                 <?php } else { ?>
                                 <span class="title"><a href="#" data-bs-toggle="modal" data-bs-target="#viewModal<?php echo $id; ?>" class="view"><?php echo $title; ?></a></span>
                                 <?php } ?>
@@ -633,7 +634,6 @@ session_start();
                                   <?php echo $client_name; ?><br>
                                   <?php echo $f_date; ?><br>
                                   <?php echo $f_start_time . ' - ' . $f_end_time; ?><br>
-                                  <a class="text-muted" href="#" data-bs-toggle="modal" data-bs-target="#noteModal<?php echo $id; ?>" class="view">Add/Update Meeting Notes</a>
                                 </p>
                               </div>
                             </div>
