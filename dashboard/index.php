@@ -9,6 +9,31 @@ require_once "../app/functions.php";
 session_start();
 
 ?>
+
+<!-- update add note -->
+  <?php
+  if(isset($_POST['update-add-note'])) {
+    $idno = $_POST['idno']; 
+    if(isset($_POST['notes'])) {
+        $notes = mysqli_real_escape_string($conn, $_POST['notes']);
+    } else {
+        $notes = "";
+    }
+    
+    $updateQuery = "UPDATE meetings SET notes = NULLIF('$notes', '') WHERE idno = $idno"; 
+    if (mysqli_query($conn, $updateQuery)) {
+        header('location: ../dashboard/');
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+    mysqli_close($conn);
+  }
+
+  ?>
+<!-- end update add note -->
+
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -687,6 +712,7 @@ session_start();
                                             <label>Meeting Notes</label>
                                             <textarea  name="myeditor" placeholder="Product Details" class="form-control" rows="8" cols="50"></textarea>
                                           </div>
+                                          <input type="submit" name="update-add-note" value="Submit" class="btn btn-secondary btn-block">
                                         </form>
                                                     
                                                     
