@@ -8,6 +8,18 @@ session_start();
 
 ?>
 
+<!-- delete personnel -->
+  <?php 
+  if(isset($_GET['personnel_id'])) {
+    $id = $_GET['personnel_id'];
+
+    $sql = "DELETE FROM personnel WHERE personnel_id=$id";
+    $result = mysqli_query($conn, $sql);
+    header('location: ../personnel/');
+  }
+  ?>
+<!-- end delete personnel -->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -51,6 +63,297 @@ session_start();
               <li class="breadcrumb-item active" aria-current="page">Personnel</li>
             </ol>
           </nav>
+
+
+
+          <div class="container-fluid main">
+
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Client Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    // Pagination variables
+                    $limit = 10; // Number of entries per page
+                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                    $offset = ($page - 1) * $limit;
+                    
+                    $sql = "SELECT * FROM personnel ORDER BY created_at ASC LIMIT $limit OFFSET $offset";
+                    $result = mysqli_query($conn, $sql);
+                    if($result) {
+                        $num_rows = mysqli_num_rows($result);
+                        if($num_rows > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $personnel_id    = $row['personnel_id'];
+                                $id              = $row['idno'];
+                                $first_name      = $row['first_name'];
+                                $last_name       = $row['last_name'];
+                                $title           = $row['title'];
+                                // $location       = $row['location'];
+                                // $created_at     = $row['created_at'];
+                                // $created_at = $row['created_at'];
+                                // $utc_date_time = new DateTime($created_at, new DateTimeZone('UTC'));
+                                // $local_date_time = $utc_date_time->setTimezone(new DateTimeZone('America/Denver'));
+                                // $formatted_date = $local_date_time->format('M d, Y');
+                ?>
+                <tr>
+                    <th scope="row"><?php echo $id; ?></th>
+                    <td><?php echo $first_name + ' ' + $last_name; ?></td>
+                    <td><?php echo $title; ?></td>
+                    <td style="font-size: 20px;">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#viewModal<?php echo $id; ?>" class="view"><i class="bi bi-eye text-success"></i></a> 
+                    &nbsp; 
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal<?php echo $id; ?>" class="update"><i class="bi bi-pencil-square" style="color:#005382;"></i></a>
+                    <!-- <a href="update-app.php?updateid=<?php echo $id; ?>"><i class="bi bi-pencil-square" style="color:#005382;"></a></i>  -->
+                    &nbsp; 
+                    <a href="/engagements/?engagement_id=<?php echo $engagement_id; ?>" class="delete"><i class="bi bi-trash" style="color:#941515;"></i></a></td>
+                </tr>
+
+
+                <!-- VIEW Modal -->
+                    <div class="modal fade" id="viewModal<?php echo $id; ?>" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="viewModalLabel">View Engagement</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+
+                                <?php
+                                            $new = "SELECT * FROM personnel WHERE idno=$id";
+                                            $new1 = mysqli_query($conn, $new);
+                                            if($new1) {
+                                                while ($cap = mysqli_fetch_assoc($new1)) {       
+                                        ?> 
+                                    <div>
+                                        <h5 class="float-start">Engagement Details</h5>
+                                        <div class="float-end">
+                                            <?php if($cap['status'] == 1){ ?>
+                                              <span class="badge text-bg-primary">Internal Planning Call</span>
+                                            <?php } elseif($cap['status'] == 2) { ?>
+                                              <span class="badge text-bg-secondary">Client Planning Call</span>
+                                            <?php } elseif($cap['status'] == 3) { ?>
+                                              <span class="badge text-bg-danger">Fieldwork Calls</span>
+                                            <?php } elseif($cap['status'] == 4) { ?>
+                                              <span class="badge text-bg-warning">Fieldwork Documentation</span>
+                                            <?php } elseif($cap['status'] == 5) { ?>
+                                              <span class="badge text-bg-dark">Manager QA Review</span>
+                                            <?php } elseif($cap['status'] == 6) { ?>
+                                              <span class="badge text-bg-info">Executive QA Review</span>
+                                            <?php } elseif($cap['status'] == 7) { ?>
+                                              <span class="badge text-bg-success">Completed</span>
+                                            <?php } else {} ?>
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    
+                                    <hr>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Status</p> 
+                                       <?php //if($cap['status'] == 'Applied'){ ?>
+                                            <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-primary"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
+                                        <?php //} else if($cap['status'] == 'Interviewed') { ?>
+                                            <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-info"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
+                                        <?php //} else if($cap['status'] == 'Offered') { ?>
+                                            <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-success"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
+                                        <?php //} else if($cap['status'] == 'Rejected') { ?>
+                                            <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-danger"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
+                                        <?php //} ?>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Job Title</p> 
+                                       <p><span class="float-end"><?php //echo $cap['job_title']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Company</p> 
+                                       <p><span class="float-end"><?php //echo $cap['company']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Location</p>
+                                       <p><span class="float-end"><?php //echo $cap['location']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Application Link</p> 
+                                       <p><a target="_blank" href="<?php //echo $cap['app_link']; ?>" class="float-end">Link Here</a></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Job Type</p> 
+                                       <p><span class="float-end"><?php //echo $cap['job_type']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Base Pay</p> 
+                                       <p><span class="float-end"><?php //echo $cap['pay']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Bonus Pay</p> 
+                                       <p><span class="float-end"><?php //echo $cap['bonus_pay']; ?></span></p>
+                                    </div>
+                                    <br><br>
+                                    <div class="ms-3 me-3">
+                                       <p class="fw-bold">Notes</p> 
+                                       <p><span><?php //echo $cap['notes']; ?></span></p>
+                                    </div>
+                                    
+
+                                    <?php } } ?>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- end VIEW Modal -->
+
+                <!-- UPDATE Modal -->
+                  <div class="modal fade" id="updateModal<?php echo $id; ?>" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="updateModalLabel">Update Engagement</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+
+                                <?php
+                                            $new = "SELECT * FROM personnel WHERE idno=$id";
+                                            $new1 = mysqli_query($conn, $new);
+                                            if($new1) {
+                                                while ($cap = mysqli_fetch_assoc($new1)) {       
+                                        ?> 
+                                    <div>
+                                        <h5 class="float-start">Engagement Details</h5>
+                                        <div class="float-end">
+                                            <?php if($cap['status'] == 1){ ?>
+                                              <span class="badge text-bg-primary">Internal Planning Call</span>
+                                            <?php } elseif($cap['status'] == 2) { ?>
+                                              <span class="badge text-bg-secondary">Client Planning Call</span>
+                                            <?php } elseif($cap['status'] == 3) { ?>
+                                              <span class="badge text-bg-danger">Fieldwork Calls</span>
+                                            <?php } elseif($cap['status'] == 4) { ?>
+                                              <span class="badge text-bg-warning">Fieldwork Documentation</span>
+                                            <?php } elseif($cap['status'] == 5) { ?>
+                                              <span class="badge text-bg-dark">Manager QA Review</span>
+                                            <?php } elseif($cap['status'] == 6) { ?>
+                                              <span class="badge text-bg-info">Executive QA Review</span>
+                                            <?php } elseif($cap['status'] == 7) { ?>
+                                              <span class="badge text-bg-success">Completed</span>
+                                            <?php } else {} ?>
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    
+                                    <hr>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Status</p> 
+                                       <?php //if($cap['status'] == 'Applied'){ ?>
+                                            <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-primary"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
+                                        <?php //} else if($cap['status'] == 'Interviewed') { ?>
+                                            <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-info"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
+                                        <?php //} else if($cap['status'] == 'Offered') { ?>
+                                            <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-success"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
+                                        <?php //} else if($cap['status'] == 'Rejected') { ?>
+                                            <p><span class="float-end"><i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-danger"></i> &nbsp; <?php //echo $cap['status']; ?></span></p>
+                                        <?php //} ?>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Job Title</p> 
+                                       <p><span class="float-end"><?php //echo $cap['job_title']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Company</p> 
+                                       <p><span class="float-end"><?php //echo $cap['company']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Location</p>
+                                       <p><span class="float-end"><?php //echo $cap['location']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Application Link</p> 
+                                       <p><a target="_blank" href="<?php //echo $cap['app_link']; ?>" class="float-end">Link Here</a></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Job Type</p> 
+                                       <p><span class="float-end"><?php //echo $cap['job_type']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Base Pay</p> 
+                                       <p><span class="float-end"><?php //echo $cap['pay']; ?></span></p>
+                                    </div>
+                                    <br>
+                                    <div class="ms-3 me-3">
+                                       <p class="float-start fw-bold">Bonus Pay</p> 
+                                       <p><span class="float-end"><?php //echo $cap['bonus_pay']; ?></span></p>
+                                    </div>
+                                    <br><br>
+                                    <div class="ms-3 me-3">
+                                       <p class="fw-bold">Notes</p> 
+                                       <p><span><?php //echo $cap['notes']; ?></span></p>
+                                    </div>
+                                    
+
+                                    <?php } } ?>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- end UPDATE Modal -->
+
+                <?php
+                        }
+                    }
+                }
+                ?>
+            </tbody>
+        </table>
+
+        <br>
+        <?php
+            // Pagination links
+            $sql = "SELECT COUNT(*) as total FROM engagement";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($result);
+            $total_pages = ceil($row["total"] / $limit);
+
+                echo '<ul class="pagination justify-content-center">';
+                for ($i = 1; $i <= $total_pages; $i++) {
+                    $active = ($page == $i) ? "active" : "";
+                    echo "<li class='page-item {$active}'><a class='page-link' href='?page={$i}'>{$i}</a></li>";
+                }
+                echo '</ul>';
+        ?>
+
+
+
+          
+
+
 
     </div>
 
