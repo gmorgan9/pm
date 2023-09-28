@@ -75,8 +75,8 @@ if(isset($_POST['title'])) {
 <!-- update personnel -->
   <?php
   if(isset($_POST['update-personnel'])) {
-    // Assuming you have a variable containing the personnel ID to be updated, let's call it $personnelId
-    $personnelId = $_POST['personnel_id']; // Replace 'personnel_id' with the actual field name in your form
+    
+    $personnel_id = $_POST['personnel_id']; 
 
     if(isset($_POST['first_name'])) {
         $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
@@ -97,11 +97,7 @@ if(isset($_POST['title'])) {
     }
 
     // Construct the UPDATE query
-    $updateQuery = "UPDATE personnel SET 
-                    first_name = NULLIF('$first_name', ''),
-                    last_name = NULLIF('$last_name', ''),
-                    title = NULLIF('$title', '')
-                    WHERE id = $personnelId"; // Replace 'id' with the actual primary key field name in your personnel table
+    $updateQuery = "UPDATE personnel SET first_name = NULLIF('$first_name', ''), last_name = NULLIF('$last_name', ''), title = NULLIF('$title', '') WHERE personnel_id = $personnel_id"; 
 
     if (mysqli_query($conn, $updateQuery)) {
         header('location: ../personnel/');
