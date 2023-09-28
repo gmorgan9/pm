@@ -255,6 +255,7 @@ if(isset($_POST['add-engagement'])){
             <label>Review End Date</label>
             <input class="form-control" type="date" name="review_end">
           </div>
+          <p>Type 2 Engagement</p>
           <div class="col w-50 p-3" style="border-top: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">
             <label>Review "as of" Date</label>
             <input class="form-control" type="date" name="review_start">
