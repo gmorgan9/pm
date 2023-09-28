@@ -63,7 +63,7 @@ if(isset($_GET['engagement_id'])) {
             </ol>
           </nav>
 
-          <div class="d-inline">
+          <div class="d-inline mb-3">
             <h2 class="float-start ms-2">
               Engagements
             </h2>
