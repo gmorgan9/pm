@@ -608,7 +608,7 @@ session_start();
                                   <?php echo $client_name; ?><br>
                                   <?php echo $f_date; ?><br>
                                   <?php echo $f_start_time . ' - ' . $f_end_time; ?><br>
-                                  <a class="text-muted" href="#" data-bs-toggle="modal" data-bs-target="#noteModal<?php echo $id; ?>" class="view"><i class="bi bi-plus"></i> Meeting Note</a>
+                                  <a class="text-muted" href="#" data-bs-toggle="modal" data-bs-target="#noteModal<?php echo $id; ?>" class="view">Add Meeting Note</a>
                                 </p>
                               </div>
                             </div>
@@ -669,6 +669,38 @@ session_start();
                             </div>
                           <!-- end VIEW Modal -->
 
+                          <!-- VIEW Modal -->
+                          <div class="modal fade" id="noteModal<?php echo $id; ?>" tabindex="-1" aria-labelledby="noteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="noteModalLabel">Add Note to Meeting</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                        
+                                                    
+                                        <form action="" method="POST">
+                                          <input type="hidden" name="idno" value="<?php echo $id; ?>">
+                                          <div class="col w-100">
+                                            <label>Meeting Notes</label>
+                                            <textarea  name="myeditor" placeholder="Product Details" class="form-control" rows="8" cols="50"></textarea>
+                                          </div>
+                                        </form>
+                                                    
+                                                    
+                                                    
+                                        
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          <!-- end VIEW Modal -->
+
                           <?php } } ?>
                         </ul>
                       </div>
@@ -694,7 +726,12 @@ session_start();
 
 
     <script src="../assets/scripts/dropdown.js?v=5.1.1"></script>
-    
+    <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+    <script>
+    window.onload = function() {
+        CKEDITOR.replace('myeditor');
+    };
+</script>
 
 
     <script>
