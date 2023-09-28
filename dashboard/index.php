@@ -292,7 +292,7 @@ session_start();
                     <div class="d-flex">
                       <span class="1 me-4">
                         <h5 style="margin-bottom: 0;">
-                          14
+                          02
                         </h5>
                         <p class="text-muted">
                           Upcoming
@@ -300,20 +300,20 @@ session_start();
                       </span>
                       <span class="2 me-4">
                         <h5 style="margin-bottom: 0;">
-                          22
+                          3
                         </h5>
                         <p class="text-muted">
-                          In Progress
+                          Today
                         </p>
                       </span>
-                      <span class="2 me-4">
+                      <!-- <span class="2 me-4">
                         <h5 style="margin-bottom: 0;">
                           36
                         </h5>
                         <p class="text-muted">
                           Total Projects
                         </p>
-                      </span>
+                      </span> -->
                     </div>
                   <!-- end stats -->
 
