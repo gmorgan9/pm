@@ -116,62 +116,52 @@ if(isset($_POST['title'])) {
             </ol>
           </nav>
 
-          <div class="float-end mb-3">
+          <div class="float-end mb-3 me-1">
             <button type="button" class="btn btn-secondary"><a href="#" data-bs-toggle="modal" data-bs-target="#newModal" class="view text-white text-decoration-none"><i class="bi bi-plus"></i> Add Personnel</a></button>
           </div>
 
-          <!-- VIEW Modal -->
-          <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="newModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="viewModalLabel">Add Personnel</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-
-                                <form action="" method="POST">
-                                  <div class="">
-                                      <label>First Name</label>
-                                      <input class="form-control" type="text" name="first_name">
-                                  </div>
-
-                                  <div class="pt-3"></div>
-
-                                  <div class="">
-                                      <label>Last Name</label>
-                                      <input class="form-control" type="text" name="last_name">
-                                  </div>
-
-                                  <div class="pt-3"></div>
-
-                                  <div class="">
-                                    <label>Title</label>
-                                    <select name="title" class="form-control">
-                                        <option value="">Select one...</option>
-                                        <option value="Staff">Staff</option>
-                                        <option value="Senior">Senior</option>
-                                        <option value="Manager">Manager</option>
-                                        <option value="Executive Director">Executive Director</option>
-                                        <option value="Chief Executive Officer">Chief Executive Officer</option>
-                                    </select>
-                                  </div>
-
-                                  <div class="pt-3"></div>
-
-                                  <input type="submit" name="add-personnel" value="Submit" class="btn btn-secondary btn-block">
-                                </form>
-                                
-                                    
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                </div>
-                            </div>
+          <!-- add Modal -->
+            <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="newModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="viewModalLabel">Add Personnel</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                      <form action="" method="POST">
+                        <div class="">
+                            <label>First Name</label>
+                            <input class="form-control" type="text" name="first_name">
                         </div>
-                    </div>
-                <!-- end VIEW Modal -->
+                        <div class="pt-3"></div>
+                        <div class="">
+                            <label>Last Name</label>
+                            <input class="form-control" type="text" name="last_name">
+                        </div>
+                        <div class="pt-3"></div>
+                        <div class="">
+                          <label>Title</label>
+                          <select name="title" class="form-control">
+                              <option value="">Select one...</option>
+                              <option value="Staff">Staff</option>
+                              <option value="Senior">Senior</option>
+                              <option value="Manager">Manager</option>
+                              <option value="Executive Director">Executive Director</option>
+                              <option value="Chief Executive Officer">Chief Executive Officer</option>
+                          </select>
+                        </div>
+                        <div class="pt-3"></div>
+                        <input type="submit" name="add-personnel" value="Submit" class="btn btn-secondary btn-block">
+                      </form>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          <!-- end add Modal -->
 
 
 
