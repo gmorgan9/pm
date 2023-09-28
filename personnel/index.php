@@ -219,10 +219,10 @@ if(isset($_POST['title'])) {
                                 <div class="modal-body">
 
                                 <?php
-                                            $new = "SELECT * FROM personnel WHERE idno=$id";
-                                            $new1 = mysqli_query($conn, $new);
-                                            if($new1) {
-                                                while ($cap = mysqli_fetch_assoc($new1)) {       
+                                            // $new = "SELECT * FROM personnel WHERE idno=$id";
+                                            // $new1 = mysqli_query($conn, $new);
+                                            // if($new1) {
+                                            //     while ($cap = mysqli_fetch_assoc($new1)) {       
                                         ?> 
 
                                     <form action="" method="POST">
@@ -253,7 +253,7 @@ if(isset($_POST['title'])) {
                                 
                                     
 
-                                    <?php } } ?>
+                                    <?php //} } ?>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
