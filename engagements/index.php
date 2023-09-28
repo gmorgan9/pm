@@ -93,7 +93,7 @@ session_start();
                     <td>
                         <?php
                         if ($engagement_type == 1) {
-                            echo "SOC 1 Type 1";
+                          echo "SOC 1 Type 1";
                         } elseif($engagement_type == 2) {
                           echo "SOC 1 Type 2";
                         } elseif($engagement_type == 3) {
@@ -109,7 +109,27 @@ session_start();
                         }
                         ?>
                     </td>
-                    <td><?php echo $status ? $status : '-'; ?></td>
+                    <td>
+                        <?php
+                        if ($status == 1) {
+                          echo "Internal Planning Call";
+                        } elseif($status == 2) {
+                          echo "Client Planning Call";
+                        } elseif($status == 3) {
+                          echo "Fieldwork Calls";
+                        } elseif($status == 4) {
+                          echo "Fieldwork Documentation";
+                        } elseif($status == 5) {
+                          echo "Manager QA Review";
+                        } elseif($status == 6) {
+                          echo "Executive QA Review";
+                        } elseif($status == 7) {
+                          echo "Completed";
+                        } else {
+                            echo '-';
+                        }
+                        ?>
+                    </td>
                     <!-- <td><?php //echo $formatted_date ? $formatted_date : '-'; ?></td> -->
                     <!-- <td><?php //echo $status ? $status : '-'; ?></td> -->
                     <td style="font-size: 20px;"><a href="#" data-bs-toggle="modal" data-bs-target="#viewModal<?php echo $id; ?>" class="view"><i class="bi bi-eye text-success"></i></a> &nbsp; <a href="update-app.php?updateid=<?php echo $id; ?>"><i class="bi bi-pencil-square" style="color:#005382;"></a></i> &nbsp; <a href="open-app.php?appid=<?php echo $id; ?>" class="delete"><i class="bi bi-trash" style="color:#941515;"></i></a></td>
