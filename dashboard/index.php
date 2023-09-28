@@ -82,8 +82,8 @@ session_start();
 
 .timeline .timeline-icon a {
     text-decoration: none;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     display: inline-block;
     border-radius: 20px;
     background: #2d353c;
