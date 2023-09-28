@@ -541,8 +541,10 @@ session_start();
                     <div class="container">
                       <ul class="timeline">
                         <?php
-                          $current_datetime = date('Y-m-d H:i:s'); // Get the current date and time
-                          $sql = "SELECT * FROM meetings WHERE date >= '$current_date' AND CONCAT(date, ' ', start_time) >= '$current_datetime' ORDER BY date ASC, start_time ASC LIMIT 4";                          
+                          $current_date = date('Y-m-d');
+                          $current_time = date('H:i:s'); // Current time in "HH:MM:SS" format
+                          $sql = "SELECT * FROM meetings WHERE date >= '$current_date' AND (date > '$current_date' OR (date = '$current_date' AND start_time > '$current_time')) ORDER BY date ASC, start_time ASC LIMIT 4";
+                                                    
                           $result = mysqli_query($conn, $sql);
                           if ($result) {
                             while ($row = mysqli_fetch_assoc($result)) {
