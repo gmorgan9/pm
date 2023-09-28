@@ -398,15 +398,22 @@ if(isset($_POST['add-engagement'])){
             <p style="color: #e3e3e3;margin-bottom: 0px;">.</p>
               <label>Review End Date</label>
               <input class="form-control" type="date" name="review_end" value="">
-              <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                Default checkbox
-              </label>
-            </div>
             </div>
           </div>
         <!-- end review date row -->
+
+        <div class="pt-3"></div>
+
+
+          <div class="alert alert-primary" role="alert">
+            For SOC 2 engagements: Please select the categories in scope.
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Default checkbox
+            </label>
+          </div>
 
         <div class="pt-3"></div>
 
