@@ -47,50 +47,76 @@ if(isset($_POST['add-engagement'])){
     $CC_draft_date = mysqli_real_escape_string($conn, $_POST['CC_draft_date']);
     $final_report_date = mysqli_real_escape_string($conn, $_POST['final_report_date']);
 
-    // if (empty($client_name)) {
-    //   $client_name = "NULL";
-    // }
-    // if (empty($engagement_type)) {
-    //   $engagement_type = "NULL";
-    // }
-    // if (empty($status)) {
-    //   $status = "NULL";
-    // }
 
-    $fields = array(
-      "client_name",
-      "engagement_type",
-      "status",
-      "manager",
-      "senior",
-      "staff_1",
-      "staff_2",
-      "staff_3",
-      "review_start",
-      "review_end",
-      "as_of_date",
-      "evidence_due_date",
-      "scope_categories",
-      "IRL_delivery_date",
-      "IPC_date",
-      "CPC_date",
-      "fieldwork_call_start",
-      "fieldwork_doc_start",
-      "closing_meeting_date",
-      "draft_date",
-      "CC_draft_date",
-      "final_report_date"
-  );
-  
-  // Loop through each field and set to NULL if empty
-  foreach ($fields as $field) {
-      if (empty($_POST[$field])) {
-          $_POST[$field] = "NULL";
-      }
-  }
+    if (empty($client_name)) {
+      $client_name = "NULL";
+    }
+    if (empty($engagement_type)) {
+      $engagement_type = "NULL";
+    }
+    if (empty($status)) {
+      $status = "NULL";
+    }
+    if (empty($manager)) {
+      $manager = "NULL";
+    }
+    if (empty($senior)) {
+      $senior = "NULL";
+    }
+    if (empty($staff_1)) {
+      $staff_1 = "NULL";
+    }
+    if (empty($staff_2)) {
+      $staff_2 = "NULL";
+    }
+    if (empty($staff_3)) {
+      $staff_3 = "NULL";
+    }
+    if (empty($review_start)) {
+      $review_start = "NULL";
+    }
+    if (empty($review_end)) {
+      $review_end = "NULL";
+    }
+    if (empty($as_of_date)) {
+      $as_of_date = "NULL";
+    }
+    if (empty($evidence_due_date)) {
+      $evidence_due_date = "NULL";
+    }
+    if (empty($scope_categories)) {
+      $scope_categories = "NULL";
+    }
+    if (empty($IRL_delivery_date)) {
+      $IRL_delivery_date = "NULL";
+    }
+    if (empty($IPC_date)) {
+      $IPC_date = "NULL";
+    }
+    if (empty($CPC_date)) {
+      $CPC_date = "NULL";
+    }
+    if (empty($fieldwork_call_start)) {
+      $fieldwork_call_start = "NULL";
+    }
+    if (empty($fieldwork_doc_start)) {
+      $fieldwork_doc_start = "NULL";
+    }
+    if (empty($closing_meeting_date)) {
+      $closing_meeting_date = "NULL";
+    }
+    if (empty($draft_date)) {
+      $draft_date = "NULL";
+    }
+    if (empty($CC_draft_date)) {
+      $CC_draft_date = "NULL";
+    }
+    if (empty($final_report_date)) {
+      $final_report_date = "NULL";
+    }
 
 
-    $insert = "INSERT INTO engagement (idno, client_name) VALUES ('$idno', '$client_name')";
+    $insert = "INSERT INTO engagement (idno, client_name, engagement_type, status, manager, senior, staff_1, staff_2, staff_3, review_start, review_end, as_of_date, evidence_due_date, scope_categories, IRL_delivery_date, IPC_date, CPC_date, fieldwork_call_start, fieldwork_doc_start, closing_meeting_date, draft_date, CC_draft_date, final_report_date) VALUES ('$idno', '$client_name', '$engagement_type', '$status', '$manager', '$senior', '$staff_1', '$staff_2', '$staff_3', '$review_start', '$review_end', '$as_of_date', '$evidence_due_date', '$scope_categories', '$IRL_delivery_date', '$IPC_date', '$CPC_date', '$fieldwork_call_start', '$fieldwork_doc_start', '$closing_meeting_date', '$draft_date', '$CC_draft_date', '$final_report_date')";
 
     if (mysqli_query($conn, $insert)) {
         header('location: ../engagements/');
