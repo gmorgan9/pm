@@ -50,7 +50,7 @@ session_start();
 .timeline .timeline-time {
     position: absolute;
     left: 0;
-    width: 18%;
+    width: 20%;
     text-align: right;
     top: 30px
 }
