@@ -764,7 +764,7 @@ session_start();
     <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
     <script>
     $('#noteModal<?php echo $id; ?>').on('shown.bs.modal', function () {
-        CKEDITOR.replace('editor');
+        CKEDITOR.replace('editor<?php echo $id; ?>');
     });
 </script>
 
