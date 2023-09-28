@@ -242,6 +242,61 @@ if(isset($_POST['add-engagement'])){
           </div> 
         <!-- end staff row -->
 
+        <div class="pt-3"></div>
+
+        <!-- Start staff row -->
+          <div class="row d-flex">
+
+            <div class="col w-50">
+              <label>Review Start Date</label>
+              <input class="form-control" type="date" name="review_start">
+            </div>
+
+            <div class="col w-50">
+              <label>Review End Date</label>
+              <input class="form-control" type="date" name="review_end">
+            </div>
+                      
+            <div class="col w-25">
+              <label>Staff 2</label>
+              <select style="" name="staff_2" class="form-control">
+                  <option value="none">Select one...</option>
+                  <?php
+                  $query ="SELECT * FROM team_members where title = 'Staff'";
+                  $result = $conn->query($query);
+                  if($result->num_rows> 0){
+                    $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
+                  }
+                  ?>
+                  <?php 
+                      foreach ($options as $option) {
+                  ?>
+                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
+                  <?php } ?>
+              </select>
+            </div>
+
+            <div class="col w-25">
+              <label>Staff 3</label>
+              <select name="staff_3" class="form-control">
+                  <option value="none">Select one...</option>
+                  <?php
+                  $query ="SELECT * FROM team_members where title = 'Staff'";
+                  $result = $conn->query($query);
+                  if($result->num_rows> 0){
+                    $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
+                  }
+                  ?>
+                  <?php 
+                      foreach ($options as $option) {
+                  ?>
+                  <option value="<?php echo $option['idno']; ?>"><?php echo $option['first_name']; ?></option>
+                  <?php } ?>
+              </select>
+            </div>
+          </div> 
+        <!-- end staff row -->
+
 
         <div class="pt-3"></div>
         <div>
@@ -253,7 +308,7 @@ if(isset($_POST['add-engagement'])){
         <input type="hidden" name="author" value="<?php echo $firstname; ?>&nbsp;<?php echo $lastname; ?>">
         <br>
         <input type="submit" name="add" value="Submit" class="btn btn-light btn-block"> &nbsp;
-        <button class="btn btn-dark btn-block" onclick="window.history.go(-1); return false;">Go Back</button>
+        <!-- <button class="btn btn-dark btn-block" onclick="window.history.go(-1); return false;">Go Back</button> -->
     </form>
 
 
