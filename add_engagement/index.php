@@ -244,25 +244,44 @@ if(isset($_POST['add-engagement'])){
 
         <div class="pt-3"></div>
 
-        <!-- Start staff row -->
-        <div class="row d-flex">
-          <div class="col w-50 p-3" style="border-top: 1px solid #8c8c8c; border-left: 1px solid #8c8c8c; border-bottom: 1px solid #8c8c8c;">
-          <p>Type 1 Engagement</p>
-            <label>Review "as of" Date</label>
-            <input class="form-control" type="date" name="review_start">
+        <!-- Start review date row -->
+          <div class="row d-flex">
+            <div class="col w-50 p-3" style="border-top: 1px solid #8c8c8c; border-left: 1px solid #8c8c8c; border-bottom: 1px solid #8c8c8c;">
+            <p>Type 1 Engagement</p>
+              <label>Review "as of" Date</label>
+              <input class="form-control" type="date" name="review_start">
+            </div>
+            <div class="col w-50 p-3" style="border-top: 1px solid #8c8c8c; border-left: 1px solid #8c8c8c; border-bottom: 1px solid #8c8c8c;">
+            <p>Type 2 Engagement</p>
+              <label>Review Start Date</label>
+              <input class="form-control" type="date" name="review_start">
+            </div>
+            <div class="col w-50 p-3" style="border-top: 1px solid #8c8c8c; border-right: 1px solid #8c8c8c; border-bottom: 1px solid #8c8c8c;">
+            <p style="color: #e3e3e3;">.</p>
+              <label>Review End Date</label>
+              <input class="form-control" type="date" name="review_end">
+            </div>
           </div>
-          <div class="col w-50 p-3" style="border-top: 1px solid #8c8c8c; border-left: 1px solid #8c8c8c; border-bottom: 1px solid #8c8c8c;">
-          <p>Type 2 Engagement</p>
-            <label>Review Start Date</label>
-            <input class="form-control" type="date" name="review_start">
-          </div>
-          <div class="col w-50 p-3" style="border-top: 1px solid #8c8c8c; border-right: 1px solid #8c8c8c; border-bottom: 1px solid #8c8c8c;">
-          <p style="color: #e3e3e3;">.</p>
-            <label>Review End Date</label>
-            <input class="form-control" type="date" name="review_end">
-          </div>
-        </div>
+        <!-- end review date row -->
 
+        <div class="pt-3"></div>
+
+        <!-- Start review date row -->
+          <div class="row d-flex">
+            <div class="col w-50">
+              <label>Review "as of" Date</label>
+              <input class="form-control" type="date" name="review_start">
+            </div>
+            <div class="col w-50">
+              <label>Review Start Date</label>
+              <input class="form-control" type="date" name="review_start">
+            </div>
+            <div class="col w-50">
+              <label>Review End Date</label>
+              <input class="form-control" type="date" name="review_end">
+            </div>
+          </div>
+        <!-- end review date row -->
 
 
             
