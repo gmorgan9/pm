@@ -294,11 +294,11 @@ if(isset($_POST['add-engagement'])){
           </div>
 
           <div class="row d-flex">
-            <div class="col w-50">
+            <div class="col w-25">
               <label>Fieldwork Documentation Date</label>
               <input class="form-control" type="date" name="review_start">
             </div>
-            <div class="col w-50">
+            <div class="col w-25">
               <label>Closing Meeting Date</label>
               <input class="form-control" type="date" name="review_start">
             </div>
