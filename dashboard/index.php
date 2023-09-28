@@ -24,7 +24,7 @@ session_start();
 
     <style>
     /* Remove background color for the table */
-    .custom-table {
+    table.custom-table.table {
         background-color: transparent !important; /* Set background color to transparent */
     }
 </style>
