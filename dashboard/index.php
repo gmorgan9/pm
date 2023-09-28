@@ -91,7 +91,7 @@ session_start();
                   <!-- end stats -->
 
                   <!-- table -->
-                      <table class="table table-hover table-bg" style="border-radius: 15px !important;">
+                      <table class="table table-hover table-bg" style="background-color: transparent !important;">
                         <thead>
                             <tr>
                             <th scope="col">ID Number</th>
@@ -251,7 +251,7 @@ session_start();
                       <br>
                       <?php
                           // Pagination links
-                          $sql = "SELECT COUNT(*) as total FROM personnel";
+                          $sql = "SELECT COUNT(*) as total FROM engagement";
                           $result = mysqli_query($conn, $sql);
                           $row = mysqli_fetch_assoc($result);
                           $total_pages = ceil($row["total"] / $limit);
