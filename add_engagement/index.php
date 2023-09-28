@@ -266,7 +266,7 @@ if(isset($_POST['add-engagement'])){
               <select name="manager" class="form-control">
                   <option value="">Select one...</option>
                   <?php
-                  $query ="SELECT * FROM team_members where title = 'Manager'";
+                  $query ="SELECT * FROM personnel where title = 'Manager'";
                   $result = $conn->query($query);
                   if($result->num_rows> 0){
                     $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -285,7 +285,7 @@ if(isset($_POST['add-engagement'])){
               <select style="" name="senior" class="form-control">
                   <option value="">Select one...</option>
                   <?php
-                  $query ="SELECT * FROM team_members where title = 'Senior'";
+                  $query ="SELECT * FROM personnel where title = 'Senior'";
                   $result = $conn->query($query);
                   if($result->num_rows> 0){
                     $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -304,7 +304,7 @@ if(isset($_POST['add-engagement'])){
               <select name="staff_1" class="form-control">
                   <option value="">Select one...</option>
                   <?php
-                  $query ="SELECT * FROM team_members where title = 'Staff'";
+                  $query ="SELECT * FROM personnel where title = 'Staff'";
                   $result = $conn->query($query);
                   if($result->num_rows> 0){
                     $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -323,7 +323,7 @@ if(isset($_POST['add-engagement'])){
               <select style="" name="staff_2" class="form-control">
                   <option value="">Select one...</option>
                   <?php
-                  $query ="SELECT * FROM team_members where title = 'Staff'";
+                  $query ="SELECT * FROM personnel where title = 'Staff'";
                   $result = $conn->query($query);
                   if($result->num_rows> 0){
                     $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -342,7 +342,7 @@ if(isset($_POST['add-engagement'])){
               <select name="staff_3" class="form-control">
                   <option value="">Select one...</option>
                   <?php
-                  $query ="SELECT * FROM team_members where title = 'Staff'";
+                  $query ="SELECT * FROM personnel where title = 'Staff'";
                   $result = $conn->query($query);
                   if($result->num_rows> 0){
                     $options= mysqli_fetch_all($result, MYSQLI_ASSOC);
