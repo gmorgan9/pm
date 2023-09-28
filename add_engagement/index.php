@@ -52,7 +52,7 @@ if(isset($_POST['add-engagement'])){
       $client_name = null;
     }
     if (empty($engagement_type)) {
-      $engagement_type = null;
+      $engagement_type = 0;
     }
     if (empty($status)) {
       $status = null;
