@@ -122,6 +122,7 @@ session_start();
                                           $review_start           = $row['review_start'];
                                           $review_end           = $row['review_end'];
                                           $as_of_date           = $row['as_of_date'];
+                                          $formatted_rs = $review_start->format('M d, Y');
                           ?>
                           <tr>
                               <th scope="row"><?php echo $id; ?></th>
@@ -132,7 +133,7 @@ session_start();
                                 if (!empty($as_of_date)) {
                                     echo $as_of_date;
                                 } else {
-                                    echo $review_start . ' - ' . $review_end;
+                                    echo $formatted_rs . ' - ' . $review_end;
                                 } 
                                 ?>
                               </td>
