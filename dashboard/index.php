@@ -96,7 +96,7 @@ session_start();
 
 .timeline .timeline-body {
     margin-left: 23%;
-    margin-right: 17%;
+    margin-right: 20%;
     background: #fff;
     position: relative;
     padding: 20px 25px;
@@ -144,11 +144,6 @@ session_start();
 .timeline-header .title,
 .timeline-header .title a {
     color: #2d353c
-}
-
-.timeline img {
-    max-width: 100%;
-    display: block
 }
 
 .timeline-content {
