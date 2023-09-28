@@ -91,7 +91,7 @@ session_start();
                   <!-- end stats -->
 
                   <!-- table -->
-                      <table class="table table-hover">
+                      <table class="table table-hover" style="background-color: #e3e3e3;">
                         <thead>
                             <tr>
                             <th scope="col">ID Number</th>
