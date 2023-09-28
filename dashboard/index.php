@@ -124,8 +124,6 @@ session_start();
 }
 
 .timeline-header {
-    padding-bottom: -10px;
-    /* border-bottom: 1px solid #e2e7eb; */
     line-height: 30px
 }
 
@@ -566,8 +564,8 @@ session_start();
                               $f_date = date("M d, Y", strtotime($date));
                               $start_time           = $row['start_time'];
                               $f_start_time = date("h:i A", strtotime($start_time));
-                              $as_of_date           = $row['as_of_date'];
-                              $f_as_of_date = date("M d, Y", strtotime($as_of_date));
+                              $end_time           = $row['end_time'];
+                              $f_end_time = date("h:i A", strtotime($end_time));
                               $eid = $row['engagement_id'];
                     ?>
                   <div class="container">
@@ -605,8 +603,11 @@ session_start();
                              ?>
 
 
-                                <p>
-                                   Client: <?php echo $client_name; ?>
+                                <p class="text-muted">
+                                   <?php echo $client_name; ?>
+                                </p>
+                                <p class="text-muted">
+                                   <?php echo $f_start_time . ' - ' . $f_end_time ?>
                                 </p>
                              </div>
 
