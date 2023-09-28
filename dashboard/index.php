@@ -259,24 +259,21 @@ session_start();
                       </table>
 
                       <br>
-                      <div class="d-flex flex-column">
-    <?php
-    // Content of your card here
-
-    // Pagination links
-    $sql = "SELECT COUNT(*) as total FROM engagement";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    $total_pages = ceil($row["total"] / $limit);
-    echo '<ul class="pagination justify-content-center mt-auto align-self-end">';
-    for ($i = 1; $i <= $total_pages; $i++) {
-        $active = ($page == $i) ? "active" : "";
-        echo "<li class='page-item {$active}'><a class='page-link' href='?page={$i}'>{$i}</a></li>";
-    }
-    echo '</ul>';
-    ?>
-</div>
-
+                      <div class="card-footer d-flex justify-content-center mt-auto">
+        <?php
+        // Pagination links
+        $sql = "SELECT COUNT(*) as total FROM engagement";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        $total_pages = ceil($row["total"] / $limit);
+        echo '<ul class="pagination">';
+        for ($i = 1; $i <= $total_pages; $i++) {
+            $active = ($page == $i) ? "active" : "";
+            echo "<li class='page-item {$active}'><a class='page-link' href='?page={$i}'>{$i}</a></li>";
+        }
+        echo '</ul>';
+        ?>
+    </div>
                       
                     
                   <!-- end table -->
