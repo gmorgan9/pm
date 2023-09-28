@@ -293,7 +293,7 @@ if(isset($_POST['add-engagement'])){
             </div>
           </div>
 
-          <div class="row d-flex" style="max-width: 100%;">
+          <div class="row d-flex flex-wrap">
             <div class="col w-25">
               <label>Fieldwork Documentation Date</label>
               <input class="form-control" type="date" name="review_start">
