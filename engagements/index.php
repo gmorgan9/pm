@@ -4,6 +4,7 @@
 
 require_once "../app/connection.php";
 require_once "../path.php";
+require_once "../app/functions.php";
 session_start();
 
 ?>
