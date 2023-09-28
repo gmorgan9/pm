@@ -671,7 +671,7 @@ session_start();
 
                           <!-- VIEW Modal -->
                           <div class="modal fade" id="noteModal<?php echo $id; ?>" tabindex="-1" aria-labelledby="noteModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
+                                <div class="modal-dialog modal-xl">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="noteModalLabel">Add Note to Meeting</h5>
