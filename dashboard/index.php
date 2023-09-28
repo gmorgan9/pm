@@ -604,12 +604,8 @@ session_start();
 
 
                                 <p class="text-muted">
-                                   <?php echo $client_name; ?>
-                                </p>
-                                <p class="text-muted">
-                                   <?php echo $f_date; ?>
-                                </p>
-                                <p class="text-muted">
+                                   <?php echo $client_name; ?><br>
+                                   <?php echo $f_date; ?><br>
                                    <?php echo $f_start_time . ' - ' . $f_end_time; ?>
                                 </p>
                              </div>
