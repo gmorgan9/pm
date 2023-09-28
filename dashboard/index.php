@@ -624,7 +624,7 @@ session_start();
                                         <div class="modal-body">
 
                                         <?php
-                                          $new = "SELECT * FROM meeting WHERE idno=$id";
+                                          $new = "SELECT * FROM meetings WHERE idno=$id";
                                           $new1 = mysqli_query($conn, $new);
                                           if($new1) {
                                             while ($cap = mysqli_fetch_assoc($new1)) {       
