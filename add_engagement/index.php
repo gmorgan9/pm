@@ -272,7 +272,7 @@ if(isset($_POST['add-engagement'])){
                   <label>Review End Date</label>
                   <input class="form-control" type="date" name="review_end">
                 </div>
-                <div class="col w-50 align-middle" style="height: 100vh;">
+                <div class="col w-50 align-middle" style="height: 100%;">
                   
                     Only given a "as of date" because of a type 1 enagement.
                   
