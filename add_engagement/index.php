@@ -58,61 +58,61 @@ if(isset($_POST['add-engagement'])){
       $status = 0;
     }
     if (empty($manager)) {
-      $manager = null;
+      $manager = 0;
     }
     if (empty($senior)) {
-      $senior = null;
+      $senior = 0;
     }
     if (empty($staff_1)) {
-      $staff_1 = null;
+      $staff_1 = 0;
     }
     if (empty($staff_2)) {
-      $staff_2 = null;
+      $staff_2 = 0;
     }
     if (empty($staff_3)) {
-      $staff_3 = null;
+      $staff_3 = 0;
     }
     if (empty($review_start)) {
-      $review_start = null;
+      $review_start = 0;
     }
     if (empty($review_end)) {
-      $review_end = null;
+      $review_end = 0;
     }
     if (empty($as_of_date)) {
-      $as_of_date = null;
+      $as_of_date = NULL;
     }
     if (empty($evidence_due_date)) {
-      $evidence_due_date = null;
+      $evidence_due_date = 0;
     }
     if (empty($scope_categories)) {
-      $scope_categories = null;
+      $scope_categories = 0;
     }
     if (empty($IRL_delivery_date)) {
-      $IRL_delivery_date = null;
+      $IRL_delivery_date = 0;
     }
     if (empty($IPC_date)) {
-      $IPC_date = null;
+      $IPC_date = 0;
     }
     if (empty($CPC_date)) {
-      $CPC_date = null;
+      $CPC_date = 0;
     }
     if (empty($fieldwork_call_start)) {
-      $fieldwork_call_start = null;
+      $fieldwork_call_start = 0;
     }
     if (empty($fieldwork_doc_start)) {
-      $fieldwork_doc_start = null;
+      $fieldwork_doc_start = 0;
     }
     if (empty($closing_meeting_date)) {
-      $closing_meeting_date = null;
+      $closing_meeting_date = 0;
     }
     if (empty($draft_date)) {
-      $draft_date = null;
+      $draft_date = 0;
     }
     if (empty($CC_draft_date)) {
-      $CC_draft_date = null;
+      $CC_draft_date = 0;
     }
     if (empty($final_report_date)) {
-      $final_report_date = null;
+      $final_report_date = 0;
     }
 
 
