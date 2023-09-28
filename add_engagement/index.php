@@ -252,9 +252,6 @@ if(isset($_POST['add-engagement'])){
         <div class="pt-3"></div>
 
         <!-- Start enagement dates row -->
-          <h5>
-            Engagement Dates
-          </h5>
           <div class="row d-flex">
             <div class="col w-25">
               <label>IRL Delivery Date</label>
