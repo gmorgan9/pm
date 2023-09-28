@@ -300,7 +300,7 @@ session_start();
                       </span>
                       <span class="2 me-4">
                         <h5 style="margin-bottom: 0;">
-                          3
+                          03
                         </h5>
                         <p class="text-muted">
                           Today
