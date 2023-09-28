@@ -529,21 +529,20 @@ session_start();
                       </span>
                       <span class="2 me-4">
                         <h5 style="margin-bottom: 0;">
-                          <?php 
-                            $current_date = date('Y-m-d');
-                            $current_time = date('H:i:s');
-                            $sql = "SELECT COUNT(*) as total FROM meetings WHERE date = '$current_date'";
-                            $result = mysqli_query($conn, $sql);
-                            $row = mysqli_fetch_assoc($result);
-                            if ($row['total'] < 10) {
-                              echo '0' . $row["total"];
-                            } else {
-                              echo $row["total"];
-                            }
-                          ?>
+                        <?php
+                          $current_date = date('Y-m-d');
+                          $current_time = date('H:i:s');
+
+                          $sql = "SELECT COUNT(*) as total FROM meetings WHERE date = '$current_date' AND start_time >= '$current_time'";
+                          $result = mysqli_query($conn, $sql);
+                          $row = mysqli_fetch_assoc($result);
+
+                          // Display the total number of meetings with leading zeros if necessary
+                          echo str_pad($row['total'], 2, '0', STR_PAD_LEFT);
+                        ?>
                         </h5>
                         <p class="text-muted">
-                          Today
+                          Remaining Today
                         </p>
                       </span>
                     </div>
