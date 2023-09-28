@@ -61,7 +61,7 @@ session_start();
 
           <div class="d-flex">
 
-            <div class="card" style="width: 65%; background-color: white !important;">
+            <div class="card" style="width: 65%; background-color: white !important; border: none; border-radius: 20px !important;">
               <div class="card-body">
                   <p class="card-text float-start" style="font-size: 28px;">Projects</p>
                   <p class="card-text float-end" style="font-size: 20px;">September 28, 2023</p>
