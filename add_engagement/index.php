@@ -325,13 +325,8 @@ if(isset($_POST['add-engagement'])){
 
 
         <div class="pt-3"></div>
-        <div>
-            <label>Tags</label>
-            <input class="form-control" style="width: 99%;" type="text" name="tags">
-        </div>
-        <br>
-        <textarea name="content" id="content" style="width: 99%;"></textarea>
-        <input type="hidden" name="author" value="<?php echo $firstname; ?>&nbsp;<?php echo $lastname; ?>">
+
+        <textarea class="w-100" name="content" id="content"></textarea>
         <br>
         <input type="submit" name="add" value="Submit" class="btn btn-light btn-block"> &nbsp;
         <!-- <button class="btn btn-dark btn-block" onclick="window.history.go(-1); return false;">Go Back</button> -->
