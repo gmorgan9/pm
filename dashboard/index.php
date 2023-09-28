@@ -130,10 +130,11 @@ session_start();
                               <td>
                                 <?php 
                                 if (!empty($as_of_date)) {
-                                  echo $review_start . ' - ' . $review_end; 
+                                    echo $as_of_date;
                                 } else {
-                                  echo $as_of_date;
-                                } ?>
+                                    echo $review_start . ' - ' . $review_end;
+                                } 
+                                ?>
                               </td>
                               <td style="font-size: 20px;"> 
                               <a href="#" data-bs-toggle="modal" data-bs-target="#viewModal<?php echo $id; ?>" class="view"><i class="bi bi-eye text-success"></i></a> 
