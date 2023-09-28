@@ -15,6 +15,7 @@ if(isset($_GET['engagement_id'])) {
 
   $sql = "DELETE FROM engagement WHERE engagement_id=$id";
   $result = mysqli_query($conn, $sql);
+  header('location: ../engagements/');
 }
 
 ?>
