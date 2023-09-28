@@ -549,7 +549,7 @@ session_start();
                     <ul class="timeline">
                       <?php
                         $current_date = date('Y-m-d');
-                        $sql = "SELECT * FROM meetings WHERE date >= '$current_date'";
+                        $sql = "SELECT * FROM meetings WHERE date >= '$current_date' ORDER BY date ASC LIMIT 4";
                         $result = mysqli_query($conn, $sql);
                         if ($result) {
                           while ($row = mysqli_fetch_assoc($result)) {
@@ -567,7 +567,6 @@ session_start();
                               ?>
                       <li>
                         <div class="timeline-time me-3">
-                          <?php echo $current_date; ?>
                           <span class="date"><?php echo $f_date; ?></span>
                           <span class="time"><?php echo $f_start_time; ?></span>
                         </div>
