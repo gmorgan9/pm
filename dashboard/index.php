@@ -510,6 +510,15 @@ session_start();
                     <div class="d-flex">
                       <span class="1 me-4">
                         <h5 style="margin-bottom: 0;">
+                        <?php 
+
+                          $sql = "SELECT COUNT(*) as total FROM meetings";
+                          $result = mysqli_query($conn, $sql);
+                          $row = mysqli_fetch_assoc($result);
+                          echo $row["total"];
+
+
+                        ?>
                           02
                         </h5>
                         <p class="text-muted">
@@ -524,84 +533,75 @@ session_start();
                           Today
                         </p>
                       </span>
-                      <!-- <span class="2 me-4">
-                        <h5 style="margin-bottom: 0;">
-                          36
-                        </h5>
-                        <p class="text-muted">
-                          Total Projects
-                        </p>
-                      </span> -->
                     </div>
                   <!-- end stats -->
 
 
                   <!-- timeline -->
-                  <div style="max-height: 630px; overflow: auto;">
-                    <div class="container">
-                      <ul class="timeline">
-                        <?php
-                          $current_date = date('Y-m-d');
-                          $current_time = date('H:i:s'); // Current time in "HH:MM:SS" format
-                          $sql = "SELECT * FROM meetings WHERE date >= '$current_date' AND (date > '$current_date' OR (date = '$current_date' AND start_time < '$current_time')) ORDER BY date ASC, start_time ASC LIMIT 4";
-                                                    
-                          $result = mysqli_query($conn, $sql);
-                          if ($result) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $meeting_id    = $row['meeting_id'];
-                                $id            = $row['idno'];
-                                $title         = $row['title'];
-                                $status        = $row['status'];
-                                $date          = $row['date'];
-                                $f_date        = date("M d, Y", strtotime($date));
-                                $start_time    = $row['start_time'];
-                                $f_start_time  = date("h:i A", strtotime($start_time));
-                                $end_time      = $row['end_time'];
-                                $f_end_time    = date("h:i A", strtotime($end_time));
-                                $eid           = $row['engagement_id'];
+                    <div style="max-height: 630px; overflow: auto;">
+                      <div class="container">
+                        <ul class="timeline">
+                          <?php
+                            $current_date = date('Y-m-d');
+                            $current_time = date('H:i:s'); // Current time in "HH:MM:SS" format
+                            $sql = "SELECT * FROM meetings WHERE date >= '$current_date' AND (date > '$current_date' OR (date = '$current_date' AND start_time < '$current_time')) ORDER BY date ASC, start_time ASC LIMIT 4";
+
+                            $result = mysqli_query($conn, $sql);
+                            if ($result) {
+                              while ($row = mysqli_fetch_assoc($result)) {
+                                  $meeting_id    = $row['meeting_id'];
+                                  $id            = $row['idno'];
+                                  $title         = $row['title'];
+                                  $status        = $row['status'];
+                                  $date          = $row['date'];
+                                  $f_date        = date("M d, Y", strtotime($date));
+                                  $start_time    = $row['start_time'];
+                                  $f_start_time  = date("h:i A", strtotime($start_time));
+                                  $end_time      = $row['end_time'];
+                                  $f_end_time    = date("h:i A", strtotime($end_time));
+                                  $eid           = $row['engagement_id'];
+                                  ?>
+                          <li>
+                            <div class="timeline-time me-3">
+                              <span class="date"><?php echo $f_date; ?></span>
+                              <span class="time"><?php echo $f_start_time; ?></span>
+                            </div>
+                            <div class="timeline-icon">
+                              <a href="javascript:;">&nbsp;</a>
+                            </div>
+                            <div class="timeline-body">
+                              <div class="timeline-header">
+                                <?php 
+                                if ($date == $current_date && $start_time <= $current_time && $end_time >= $current_time) {
                                 ?>
-                        <li>
-                          <div class="timeline-time me-3">
-                            <span class="date"><?php echo $f_date; ?></span>
-                            <span class="time"><?php echo $f_start_time; ?></span>
-                          </div>
-                          <div class="timeline-icon">
-                            <a href="javascript:;">&nbsp;</a>
-                          </div>
-                          <div class="timeline-body">
-                            <div class="timeline-header">
-                              <?php 
-                              if ($date == $current_date && $start_time <= $current_time && $end_time >= $current_time) {
-                              ?>
-                              <span class="title"><a href="javascript:;"><?php echo $title; ?></a></span> <i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-primary"></i>
-                              <?php } else { ?>
-                              <span class="title"><a href="javascript:;"><?php echo $title; ?></a></span>
-                              <?php } ?>
+                                <span class="title"><a href="javascript:;"><?php echo $title; ?></a></span> <i style="font-size: 12px; margin-top: -5px;" class="bi bi-circle-fill text-primary"></i>
+                                <?php } else { ?>
+                                <span class="title"><a href="javascript:;"><?php echo $title; ?></a></span>
+                                <?php } ?>
+                              </div>
+                              <div class="timeline-content">
+                                <?php 
+                                  // Use a different variable for the second query result
+                                  $sql2 = "SELECT * FROM engagement WHERE engagement_id= $eid";
+                                  $result2 = mysqli_query($conn, $sql2);
+                                  if ($result2) {
+                                      while ($row2 = mysqli_fetch_assoc($result2)) {
+                                          $client_name = $row2['client_name'];
+                                      }
+                                  }
+                                ?>
+                                <p class="text-muted" style="margin-top: -15px;">
+                                  <?php echo $client_name; ?><br>
+                                  <?php echo $f_date; ?><br>
+                                  <?php echo $f_start_time . ' - ' . $f_end_time; ?>
+                                </p>
+                              </div>
                             </div>
-                            <div class="timeline-content">
-                              <?php 
-                                // Use a different variable for the second query result
-                                $sql2 = "SELECT * FROM engagement WHERE engagement_id= $eid";
-                                $result2 = mysqli_query($conn, $sql2);
-                                if ($result2) {
-                                    while ($row2 = mysqli_fetch_assoc($result2)) {
-                                        $client_name = $row2['client_name'];
-                                    }
-                                }
-                              ?>
-                              <p class="text-muted" style="margin-top: -15px;">
-                                <?php echo $client_name; ?><br>
-                                <?php echo $f_date; ?><br>
-                                <?php echo $f_start_time . ' - ' . $f_end_time; ?>
-                              </p>
-                            </div>
-                          </div>
-                        </li>
-                        <?php } } ?>
-                      </ul>
+                          </li>
+                          <?php } } ?>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-                    
                   <!-- end timeline -->
 
 
