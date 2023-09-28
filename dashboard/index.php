@@ -548,6 +548,7 @@ session_start();
                   <div class="container">
                     <ul class="timeline">
                       <?php
+                        $current_date = date();
                         $sql = "SELECT * FROM meetings";
                         $result = mysqli_query($conn, $sql);
                         if ($result) {
@@ -566,6 +567,7 @@ session_start();
                               ?>
                       <li>
                         <div class="timeline-time me-3">
+                          <?php echo $current_date; ?>
                           <span class="date"><?php echo $f_date; ?></span>
                           <span class="time"><?php echo $f_start_time; ?></span>
                         </div>
