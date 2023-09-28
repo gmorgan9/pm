@@ -36,7 +36,7 @@ session_start();
     top: 5px;
     bottom: 5px;
     width: 5px;
-    /* background: #2d353c; */
+    background: #2d353c;
     left: 20%;
     margin-left: -2.5px
 }
@@ -95,7 +95,7 @@ session_start();
 }
 
 .timeline .timeline-body {
-    margin-left: 20%;
+    margin-left: 21%;
     margin-right: 20%;
     /* background: #fff; */
     position: relative;
