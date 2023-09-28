@@ -566,7 +566,7 @@ session_start();
                                           $date           = $row['date'];
                                           $f_date = date("M d, Y", strtotime($date));
                                           $start_time           = $row['start_time'];
-                                          $f_start_time = date("H:M A", strtotime($start_time));
+                                          $f_start_time = date("h:i A", strtotime($start_time));
                                           $as_of_date           = $row['as_of_date'];
                                           $f_as_of_date = date("M d, Y", strtotime($as_of_date));
 
