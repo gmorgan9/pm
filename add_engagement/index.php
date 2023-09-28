@@ -233,7 +233,7 @@ if(isset($_POST['add-engagement'])){
               <div class="col w-25">
                 <label>Engagement Type</label>
                 <select name="engagement_type" class="form-control">
-                    <option value="0">Select one...</option>
+                    <option value="">Select one...</option>
                     <option value="1">SOC 1 Type 1</option>
                     <option value="2">SOC 1 Type 2</option>
                     <option value="3">SOC 2 Type 1</option>
@@ -245,7 +245,7 @@ if(isset($_POST['add-engagement'])){
               <div class="col w-25">
                 <label>Status</label>
                 <select name="status" class="form-control">
-                    <option value="0">Select one...</option>
+                    <option value="">Select one...</option>
                     <option value="1">Internal Planning Call</option>
                     <option value="2">Client Planning Call</option>
                     <option value="3">Fieldwork Calls</option>
