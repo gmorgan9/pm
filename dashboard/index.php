@@ -60,10 +60,18 @@ session_start();
                 
                   <div class="mt-5"></div>
 
-                  <div class="mt-5" style="">
+                  <div class="" style="margin-top: 80px !important;">
                     <span class="1">
                       <h5>
                         45
+                      </h5>
+                      <p>
+                        Upcoming
+                      </p>
+                    </span>
+                    <span class="2">
+                      <h5>
+                        54
                       </h5>
                       <p>
                         In Progress
