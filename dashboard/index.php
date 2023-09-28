@@ -583,12 +583,13 @@ session_start();
                           <!-- end timeline-time -->
                           <!-- begin timeline-icon -->
                           <div class="timeline-icon">
+                            <a href="javascript:;">&nbsp;</a>
                           </div>
                           <!-- end timeline-icon -->
                           <!-- begin timeline-body -->
                           <div class="timeline-body">
                              <div class="timeline-header">
-                                <span class="username"><a href="javascript:;">John Smith</a> <small></small></span>
+                                <span class="username"><a href="javascript:;"><?php echo $title; ?></a> <small></small></span>
                                 <span class="pull-right text-muted">18 Views</span>
                              </div>
                              <div class="timeline-content">
@@ -627,6 +628,7 @@ session_start();
                           <!-- end timeline-time -->
                           <!-- begin timeline-icon -->
                           <div class="timeline-icon">
+                            <a href="javascript:;">&nbsp;</a>
                           </div>
                           <!-- end timeline-icon -->
                           <!-- begin timeline-body -->
@@ -654,7 +656,7 @@ session_start();
                           <!-- end timeline-time -->
                           <!-- begin timeline-icon -->
                           <div class="timeline-icon">
-                          <a href="javascript:;">&nbsp;</a>
+                           <a href="javascript:;">&nbsp;</a>
                           </div>
                           <!-- end timeline-icon -->
                           <!-- begin timeline-body -->
