@@ -763,8 +763,8 @@ session_start();
     <script src="../assets/scripts/dropdown.js?v=5.1.1"></script>
     <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
     <script>
-    $('#noteModal<?php echo $id; ?>').on('shown.bs.modal', function () {
-        CKEDITOR.replace('editor<?php echo $id; ?>');
+    document.addEventListener("DOMContentLoaded", function () {
+        CKEDITOR.replace('editor');
     });
 </script>
 
