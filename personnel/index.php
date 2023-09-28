@@ -146,8 +146,15 @@ if(isset($_POST['title'])) {
                                   <div class="pt-3"></div>
 
                                   <div class="">
-                                      <label>Title <span class="text-muted" style="font-size: 10px;">e.g "Manager"</span></label>
-                                      <input class="form-control" type="text" name="title">
+                                    <label>Title</label>
+                                    <select name="title" class="form-control">
+                                        <option value="">Select one...</option>
+                                        <option value="Staff">Staff</option>
+                                        <option value="Senior">Senior</option>
+                                        <option value="Manager">Manager</option>
+                                        <option value="Executive Director">Executive Director</option>
+                                        <option value="Chief Executive Officer">Chief Executive Officer</option>
+                                    </select>
                                   </div>
 
                                   <div class="pt-3"></div>
