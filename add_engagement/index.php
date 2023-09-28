@@ -254,7 +254,7 @@ if(isset($_POST['add-engagement'])){
             </div>
           </nav>
           <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0" style="height: 45px;">
               <div class="row d-flex">
                 <div class="col w-50">
                   <label>Review End Date</label>
@@ -267,7 +267,7 @@ if(isset($_POST['add-engagement'])){
                 </div>
               </div>
             </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0" style="height: 45px;">
             <div class="row d-flex">
                 <div class="col w-50">
                   <label>Review Start Date</label>
