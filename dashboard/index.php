@@ -280,7 +280,7 @@ session_start();
           <div class="d-flex">
 
           <!-- Projects Card -->
-            <div class="card" style="width: 65%; height: 800px; background-color: white !important; border: none; border-radius: 20px !important;">
+            <div class="card" style="width: 65%; max-height: 800px; background-color: white !important; border: none; border-radius: 20px !important;">
               <div class="card-body">
                   <p class="card-text float-start" style="font-size: 28px;">Projects</p>
                   <p class="card-text float-end" style="font-size: 20px;"><?php $currentDate = date('F d, Y'); echo $currentDate; ?></p>
@@ -500,7 +500,7 @@ session_start();
           <!-- end project card -->
 
           <!-- start Meetings Card -->
-            <div class="card" style="width: 35%; background-color: white !important; border: none; border-radius: 20px !important;">
+            <div class="card" style="width: 35%; max-height: 800px; background-color: white !important; border: none; border-radius: 20px !important;">
               <div class="card-body">
                 <p class="card-text" style="font-size: 28px;">Meetings</p>
 
