@@ -271,23 +271,23 @@ if(isset($_POST['add-engagement'])){
           Engagement Dates
         </h5>
           <div class="row d-flex">
-            <div class="col w-50">
+            <div class="col w-25">
               <label>IRL Delivery Date</label>
               <input class="form-control" type="date" name="review_start">
             </div>
-            <div class="col w-50">
+            <div class="col w-25">
               <label>Evidence Due Date</label>
               <input class="form-control" type="date" name="review_start">
             </div>
-            <div class="col w-50">
+            <div class="col w-25">
               <label>Internal Planning Call</label>
               <input class="form-control" type="date" name="review_end">
             </div>
-            <div class="col w-50">
+            <div class="col w-25">
               <label>Client Planning Call</label>
               <input class="form-control" type="date" name="review_end">
             </div>
-            <div class="col w-50">
+            <div class="col w-25">
               <label>Fieldwork Call Date</label>
               <input class="form-control" type="date" name="review_end">
             </div>
@@ -302,15 +302,15 @@ if(isset($_POST['add-engagement'])){
               <label>Closing Meeting Date</label>
               <input class="form-control" type="date" name="review_start">
             </div>
-            <div class="col w-50">
+            <div class="col w-25">
               <label>Draft Date</label>
               <input class="form-control" type="date" name="review_end">
             </div>
-            <div class="col w-50">
+            <div class="col w-25">
               <label>Client Comment Date</label>
               <input class="form-control" type="date" name="review_end">
             </div>
-            <div class="col w-50">
+            <div class="col w-25">
               <label>Final Report Date</label>
               <input class="form-control" type="date" name="review_end">
             </div>
