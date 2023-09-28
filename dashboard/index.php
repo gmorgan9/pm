@@ -89,7 +89,7 @@ session_start();
     background: #2d353c;
     line-height: 10px;
     color: #fff;
-    font-size: 14px;
+    font-size: 10px;
     /* border: 5px solid #2d353c; */
     transition: border-color .2s linear
 }
