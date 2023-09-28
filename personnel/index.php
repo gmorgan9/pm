@@ -92,7 +92,7 @@ session_start();
                             while ($row = mysqli_fetch_assoc($result)) {
                                 $personnel_id    = $row['personnel_id'];
                                 $id              = $row['idno'];
-                                $name      = $row['first_name'] + ' ' + $row['last_name'];
+                                $name            = $row['first_name'] . ' ' . $row['last_name'];
                                 $title           = $row['title'];
                                 // $location       = $row['location'];
                                 // $created_at     = $row['created_at'];
