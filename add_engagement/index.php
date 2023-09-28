@@ -269,11 +269,11 @@ if(isset($_POST['add-engagement'])){
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0" style="height: 100px;">
             <div class="row d-flex">
-                <div class="col w-50">
+                <div class="col w-50 my-auto d-flex flex-column justify-content-center" style="height: 100px;">
                   <label>Review Start Date</label>
                   <input class="form-control" type="date" name="review_start">
                 </div>          
-                <div class="col w-50">
+                <div class="col w-50 my-auto d-flex flex-column justify-content-center" style="height: 100px;">
                   <label>Review End Date</label>
                   <input class="form-control" type="date" name="review_end">
                 </div>
