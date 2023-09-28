@@ -246,14 +246,17 @@ if(isset($_POST['add-engagement'])){
 
         <!-- Start staff row -->
         <div class="row d-flex">
-          <div class="col w-50">
-            <label>Review Start Date</label>
-            <input class="form-control" type="date" name="review_start">
+          <div class="soc2" style="border: 1px solid black;">
+            <div class="col w-50">
+              <label>Review Start Date</label>
+              <input class="form-control" type="date" name="review_start">
+            </div>
+            <div class="col w-50">
+              <label>Review End Date</label>
+              <input class="form-control" type="date" name="review_end">
+            </div>
           </div>
-          <div class="col w-50">
-            <label>Review End Date</label>
-            <input class="form-control" type="date" name="review_end">
-          </div>
+          
           <div class="col w-50">
             <label>Review "as of" Date</label>
             <input class="form-control" type="date" name="review_start">
