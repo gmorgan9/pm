@@ -72,6 +72,49 @@ if(isset($_POST['title'])) {
 ?>
 <!-- end add personnel -->
 
+<!-- update personnel -->
+  <?php
+  if(isset($_POST['update-personnel'])) {
+    // Assuming you have a variable containing the personnel ID to be updated, let's call it $personnelId
+    $personnelId = $_POST['personnel_id']; // Replace 'personnel_id' with the actual field name in your form
+
+    if(isset($_POST['first_name'])) {
+        $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
+    } else {
+        $first_name = "";
+    }
+
+    if(isset($_POST['last_name'])) {
+        $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
+    } else {
+        $last_name = "";
+    }
+
+    if(isset($_POST['title'])) {
+        $title = mysqli_real_escape_string($conn, $_POST['title']);
+    } else {
+        $title = "";
+    }
+
+    // Construct the UPDATE query
+    $updateQuery = "UPDATE personnel SET 
+                    first_name = NULLIF('$first_name', ''),
+                    last_name = NULLIF('$last_name', ''),
+                    title = NULLIF('$title', '')
+                    WHERE id = $personnelId"; // Replace 'id' with the actual primary key field name in your personnel table
+
+    if (mysqli_query($conn, $updateQuery)) {
+        header('location: ../personnel/');
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+
+    mysqli_close($conn);
+  }
+
+  ?>
+<!-- end update personnel -->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -226,6 +269,7 @@ if(isset($_POST['title'])) {
                                 ?> 
 
                                 <form action="" method="POST">
+                                  <input class="form-control" type="text" name="personnel_id" value="<?php echo $cap['personnel_id']; ?>">
                                   <div class="">
                                       <label>First Name</label>
                                       <input class="form-control" type="text" name="first_name" value="<?php echo $cap['first_name']; ?>">
@@ -248,7 +292,7 @@ if(isset($_POST['title'])) {
                                     </select>
                                   </div>
                                   <div class="pt-3"></div>
-                                  <input type="submit" name="add-personnel" value="Submit" class="btn btn-secondary btn-block">
+                                  <input type="submit" name="update-personnel" value="Update" class="btn btn-primary btn-block">
                                 </form>
 
                                 <?php } } ?>
