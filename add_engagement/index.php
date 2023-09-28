@@ -24,96 +24,119 @@ if(isset($_POST['add-engagement'])){
         }
     }
 
-    $client_name = mysqli_real_escape_string($conn, $_POST['client_name']);
-    $engagement_type = mysqli_real_escape_string($conn, $_POST['engagement_type']);
-    $status = mysqli_real_escape_string($conn, $_POST['status']);
-    $manager = mysqli_real_escape_string($conn, $_POST['manager']);
-    $senior = mysqli_real_escape_string($conn, $_POST['senior']);
-    $staff_1 = mysqli_real_escape_string($conn, $_POST['staff_1']);
-    $staff_2 = mysqli_real_escape_string($conn, $_POST['staff_2']);
-    $staff_3 = mysqli_real_escape_string($conn, $_POST['staff_3']);
-    $review_start = mysqli_real_escape_string($conn, $_POST['review_start']);
-    $review_end = mysqli_real_escape_string($conn, $_POST['review_end']);
-    $as_of_date = mysqli_real_escape_string($conn, $_POST['as_of_date']);
-    $evidence_due_date = mysqli_real_escape_string($conn, $_POST['evidence_due_date']);
-    $scope_categories = mysqli_real_escape_string($conn, $_POST['scope_categories']);
-    $IRL_delivery_date = mysqli_real_escape_string($conn, $_POST['IRL_delivery_date']);
-    $IPC_date = mysqli_real_escape_string($conn, $_POST['IPC_date']);
-    $CPC_date = mysqli_real_escape_string($conn, $_POST['CPC_date']);
-    $fieldwork_call_start = mysqli_real_escape_string($conn, $_POST['fieldwork_call_start']);
-    $fieldwork_doc_start = mysqli_real_escape_string($conn, $_POST['fieldwork_doc_start']);
-    $closing_meeting_date = mysqli_real_escape_string($conn, $_POST['closing_meeting_date']);
-    $draft_date = mysqli_real_escape_string($conn, $_POST['draft_date']);
-    $CC_draft_date = mysqli_real_escape_string($conn, $_POST['CC_draft_date']);
-    $final_report_date = mysqli_real_escape_string($conn, $_POST['final_report_date']);
+    // $client_name = mysqli_real_escape_string($conn, $_POST['client_name']);
+    // $engagement_type = mysqli_real_escape_string($conn, $_POST['engagement_type']);
+    // $status = mysqli_real_escape_string($conn, $_POST['status']);
+    // $manager = mysqli_real_escape_string($conn, $_POST['manager']);
+    // $senior = mysqli_real_escape_string($conn, $_POST['senior']);
+    // $staff_1 = mysqli_real_escape_string($conn, $_POST['staff_1']);
+    // $staff_2 = mysqli_real_escape_string($conn, $_POST['staff_2']);
+    // $staff_3 = mysqli_real_escape_string($conn, $_POST['staff_3']);
+    // $review_start = mysqli_real_escape_string($conn, $_POST['review_start']);
+    // $review_end = mysqli_real_escape_string($conn, $_POST['review_end']);
+    // $as_of_date = mysqli_real_escape_string($conn, $_POST['as_of_date']);
+    // $evidence_due_date = mysqli_real_escape_string($conn, $_POST['evidence_due_date']);
+    // $scope_categories = mysqli_real_escape_string($conn, $_POST['scope_categories']);
+    // $IRL_delivery_date = mysqli_real_escape_string($conn, $_POST['IRL_delivery_date']);
+    // $IPC_date = mysqli_real_escape_string($conn, $_POST['IPC_date']);
+    // $CPC_date = mysqli_real_escape_string($conn, $_POST['CPC_date']);
+    // $fieldwork_call_start = mysqli_real_escape_string($conn, $_POST['fieldwork_call_start']);
+    // $fieldwork_doc_start = mysqli_real_escape_string($conn, $_POST['fieldwork_doc_start']);
+    // $closing_meeting_date = mysqli_real_escape_string($conn, $_POST['closing_meeting_date']);
+    // $draft_date = mysqli_real_escape_string($conn, $_POST['draft_date']);
+    // $CC_draft_date = mysqli_real_escape_string($conn, $_POST['CC_draft_date']);
+    // $final_report_date = mysqli_real_escape_string($conn, $_POST['final_report_date']);
+
+    $client_name = empty($_POST['client_name']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['client_name']) . "'";
+$engagement_type = empty($_POST['engagement_type']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['engagement_type']) . "'";
+$status = empty($_POST['status']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['status']) . "'";
+$manager = empty($_POST['manager']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['manager']) . "'";
+$senior = empty($_POST['senior']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['senior']) . "'";
+$staff_1 = empty($_POST['staff_1']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['staff_1']) . "'";
+$staff_2 = empty($_POST['staff_2']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['staff_2']) . "'";
+$staff_3 = empty($_POST['staff_3']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['staff_3']) . "'";
+$review_start = empty($_POST['review_start']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['review_start']) . "'";
+$review_end = empty($_POST['review_end']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['review_end']) . "'";
+$as_of_date = empty($_POST['as_of_date']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['as_of_date']) . "'";
+$evidence_due_date = empty($_POST['evidence_due_date']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['evidence_due_date']) . "'";
+$scope_categories = empty($_POST['scope_categories']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['scope_categories']) . "'";
+$IRL_delivery_date = empty($_POST['IRL_delivery_date']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['IRL_delivery_date']) . "'";
+$IPC_date = empty($_POST['IPC_date']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['IPC_date']) . "'";
+$CPC_date = empty($_POST['CPC_date']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['CPC_date']) . "'";
+$fieldwork_call_start = empty($_POST['fieldwork_call_start']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['fieldwork_call_start']) . "'";
+$fieldwork_doc_start = empty($_POST['fieldwork_doc_start']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['fieldwork_doc_start']) . "'";
+$closing_meeting_date = empty($_POST['closing_meeting_date']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['closing_meeting_date']) . "'";
+$draft_date = empty($_POST['draft_date']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['draft_date']) . "'";
+$CC_draft_date = empty($_POST['CC_draft_date']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['CC_draft_date']) . "'";
+$final_report_date = empty($_POST['final_report_date']) ? "NULL" : "'" . mysqli_real_escape_string($conn, $_POST['final_report_date']) . "'";
 
 
-    if (empty($client_name)) {
-      $client_name = null;
-    }
-    if (empty($engagement_type)) {
-      $engagement_type = 0;
-    }
-    if (empty($status)) {
-      $status = 0;
-    }
-    if (empty($manager)) {
-      $manager = 0;
-    }
-    if (empty($senior)) {
-      $senior = 0;
-    }
-    if (empty($staff_1)) {
-      $staff_1 = 0;
-    }
-    if (empty($staff_2)) {
-      $staff_2 = 0;
-    }
-    if (empty($staff_3)) {
-      $staff_3 = 0;
-    }
-    if (empty($review_start)) {
-      $review_start = 0;
-    }
-    if (empty($review_end)) {
-      $review_end = 0;
-    }
-    if (empty($as_of_date)) {
-      $as_of_date = 0;
-    }
-    if (empty($evidence_due_date)) {
-      $evidence_due_date = 0;
-    }
-    if (empty($scope_categories)) {
-      $scope_categories = 0;
-    }
-    if (empty($IRL_delivery_date)) {
-      $IRL_delivery_date = 0;
-    }
-    if (empty($IPC_date)) {
-      $IPC_date = 0;
-    }
-    if (empty($CPC_date)) {
-      $CPC_date = 0;
-    }
-    if (empty($fieldwork_call_start)) {
-      $fieldwork_call_start = 0;
-    }
-    if (empty($fieldwork_doc_start)) {
-      $fieldwork_doc_start = 0;
-    }
-    if (empty($closing_meeting_date)) {
-      $closing_meeting_date = 0;
-    }
-    if (empty($draft_date)) {
-      $draft_date = 0;
-    }
-    if (empty($CC_draft_date)) {
-      $CC_draft_date = 0;
-    }
-    if (empty($final_report_date)) {
-      $final_report_date = 0;
-    }
+    // if (empty($client_name)) {
+    //   $client_name = null;
+    // }
+    // if (empty($engagement_type)) {
+    //   $engagement_type = 0;
+    // }
+    // if (empty($status)) {
+    //   $status = 0;
+    // }
+    // if (empty($manager)) {
+    //   $manager = 0;
+    // }
+    // if (empty($senior)) {
+    //   $senior = 0;
+    // }
+    // if (empty($staff_1)) {
+    //   $staff_1 = 0;
+    // }
+    // if (empty($staff_2)) {
+    //   $staff_2 = 0;
+    // }
+    // if (empty($staff_3)) {
+    //   $staff_3 = 0;
+    // }
+    // if (empty($review_start)) {
+    //   $review_start = 0;
+    // }
+    // if (empty($review_end)) {
+    //   $review_end = 0;
+    // }
+    // if (empty($as_of_date)) {
+    //   $as_of_date = 0;
+    // }
+    // if (empty($evidence_due_date)) {
+    //   $evidence_due_date = 0;
+    // }
+    // if (empty($scope_categories)) {
+    //   $scope_categories = 0;
+    // }
+    // if (empty($IRL_delivery_date)) {
+    //   $IRL_delivery_date = 0;
+    // }
+    // if (empty($IPC_date)) {
+    //   $IPC_date = 0;
+    // }
+    // if (empty($CPC_date)) {
+    //   $CPC_date = 0;
+    // }
+    // if (empty($fieldwork_call_start)) {
+    //   $fieldwork_call_start = 0;
+    // }
+    // if (empty($fieldwork_doc_start)) {
+    //   $fieldwork_doc_start = 0;
+    // }
+    // if (empty($closing_meeting_date)) {
+    //   $closing_meeting_date = 0;
+    // }
+    // if (empty($draft_date)) {
+    //   $draft_date = 0;
+    // }
+    // if (empty($CC_draft_date)) {
+    //   $CC_draft_date = 0;
+    // }
+    // if (empty($final_report_date)) {
+    //   $final_report_date = 0;
+    // }
 
 
     $insert = "INSERT INTO engagement (idno, client_name, engagement_type, status, manager, senior, staff_1, staff_2, staff_3, review_start, review_end, as_of_date, evidence_due_date, scope_categories, IRL_delivery_date, IPC_date, CPC_date, fieldwork_call_start, fieldwork_doc_start, closing_meeting_date, draft_date, CC_draft_date, final_report_date) VALUES ('$idno', '$client_name', '$engagement_type', '$status', '$manager', '$senior', '$staff_1', '$staff_2', '$staff_3', '$review_start', '$review_end', '$as_of_date', '$evidence_due_date', '$scope_categories', '$IRL_delivery_date', '$IPC_date', '$CPC_date', '$fieldwork_call_start', '$fieldwork_doc_start', '$closing_meeting_date', '$draft_date', '$CC_draft_date', '$final_report_date')";
