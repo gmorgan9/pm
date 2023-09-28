@@ -104,6 +104,12 @@ if(isset($_POST['add-engagement'])){
       $scope_categories = "";
   }
 
+  if(isset($_POST['scope_categories2'])) {
+    $scope_categories = mysqli_real_escape_string($conn, $_POST['scope_categories2']);
+  } else {
+    $scope_categories = "";
+  }
+
   if(isset($_POST['IRL_delivery_date'])) {
       $IRL_delivery_date = mysqli_real_escape_string($conn, $_POST['IRL_delivery_date']);
   } else {
@@ -409,6 +415,12 @@ if(isset($_POST['add-engagement'])){
               <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="scope_categories[]" value="Processing Integrity">
               <label class="form-check-label" for="inlineCheckbox3">Processing Integrity</label>
             </div>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Categories in Scope</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="scope_categories2" rows="3"></textarea>
           </div>
         <!-- end scope row -->
 
