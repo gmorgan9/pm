@@ -253,7 +253,7 @@ if(isset($_POST['add-engagement'])){
               <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Type 1</button>
             </div>
           </nav>
-          <div class="tab-content" id="nav-tabContent" style="background-color: light-gray;">
+          <div class="tab-content" id="nav-tabContent" style="background-color: ##9e9e9e;">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
               <div class="row d-flex">
                 <div class="col w-50 my-auto d-flex flex-column justify-content-center" style="height: 100px;">
