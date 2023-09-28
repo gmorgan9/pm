@@ -116,12 +116,15 @@ if(isset($_POST['title'])) {
             </ol>
           </nav>
 
-          <div class="float-end mb-3 me-2">
-            <h3>
+          <div class="d-flex">
+            <h2>
               Personnel
-            </h3>
-            <button type="button" class="btn btn-secondary"><a href="#" data-bs-toggle="modal" data-bs-target="#newModal" class="view text-white text-decoration-none"><i class="bi bi-plus"></i> Add Personnel</a></button>
+            </h2>
+            <div class="float-end mb-3 me-2">
+              <button type="button" class="btn btn-secondary"><a href="#" data-bs-toggle="modal" data-bs-target="#newModal" class="view text-white text-decoration-none"><i class="bi bi-plus"></i> Add Personnel</a></button>
+            </div>
           </div>
+          
 
           <!-- add Modal -->
             <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="newModalLabel" aria-hidden="true">
