@@ -65,7 +65,7 @@ session_start();
 
             <div class="card" style="width: 18rem;">
               <div class="card-body">
-                <p class="card-text" style="font-size: 20px;">Projects</p>
+                <p class="card-text" style="font-size: 20px;">Active Meetings</p>
                 <h5 class="card-title" style="font-size: 65px;">
                   25
                 </h5>
@@ -75,11 +75,10 @@ session_start();
 
             <div class="card" style="width: 18rem;">
               <div class="card-body">
-                <p class="card-text" style="font-size: 20px;">Projects</p>
+                <p class="card-text" style="font-size: 20px;">Personnel</p>
                 <h5 class="card-title" style="font-size: 65px;">
                   25
                 </h5>
-                <h6 class="card-subtitle mb-2 text-muted">2 Completed</h6>
               </div>
             </div>
 
