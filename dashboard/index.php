@@ -544,7 +544,11 @@ session_start();
 
 
 
-                  <?php
+                  
+                  <div class="container">
+                    <ul class="timeline">
+
+                    <?php
                     $sql = "SELECT * FROM meetings";
                     $result = mysqli_query($conn, $sql);
                       if($result) {
@@ -563,21 +567,15 @@ session_start();
                               $f_end_time = date("h:i A", strtotime($end_time));
                               $eid = $row['engagement_id'];
                     ?>
-                  <div class="container">
-                    <ul class="timeline">
+
                        <li>
-                          <!-- begin timeline-time -->
                           <div class="timeline-time me-3">
                              <span class="date"><?php echo $f_date; ?></span>
                              <span class="time"><?php echo $f_start_time; ?></span>
                           </div>
-                          <!-- end timeline-time -->
-                          <!-- begin timeline-icon -->
                           <div class="timeline-icon">
                             <a href="javascript:;">&nbsp;</a>
                           </div>
-                          <!-- end timeline-icon -->
-                          <!-- begin timeline-body -->
                           <div class="timeline-body">
                              <div class="timeline-header">
                                 <span class="title"><a href="javascript:;"><?php echo $title; ?></a></span>
@@ -597,7 +595,6 @@ session_start();
 
                              ?>
 
-
                                 <p class="text-muted" style="margin-top: -15px;">
                                    <?php echo $client_name; ?><br>
                                    <?php echo $f_date; ?><br>
@@ -606,18 +603,18 @@ session_start();
                              </div>
 
                           </div>
-                          <!-- end timeline-body -->
                        </li>
+                       <?php
+
+                                      }}}
+
+                  ?>
 
 
                     </ul>
                   </div>
 
-                  <?php
-
-                                      }}}
-
-                  ?>
+                  
 
 
 
