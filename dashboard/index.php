@@ -627,7 +627,13 @@ session_start();
                                           $new = "SELECT * FROM meetings WHERE idno=$id";
                                           $new1 = mysqli_query($conn, $new);
                                           if($new1) {
-                                            while ($cap = mysqli_fetch_assoc($new1)) {       
+                                            while ($cap = mysqli_fetch_assoc($new1)) { 
+                                              $date          = $cap['date']; 
+                                              $f_date        = date("M d, Y", strtotime($date));
+                                              $start_time    = $cap['start_time'];
+                                              $f_start_time  = date("h:i A", strtotime($start_time));
+                                              $end_time      = $cap['end_time'];
+                                              $f_end_time    = date("h:i A", strtotime($end_time));     
                                         ?> 
                                                     
                                             <div class="ms-3 me-3">
@@ -641,13 +647,13 @@ session_start();
                                             </div>
                                             <br>
                                             <div class="ms-3 me-3">
-                                               <p class="float-start fw-bold">Location</p>
-                                               <p><span class="float-end"><?php //echo $cap['location']; ?></span></p>
+                                               <p class="float-start fw-bold">Date</p>
+                                               <p><span class="float-end"><?php echo $f_date; ?></span></p>
                                             </div>
                                             <br>
                                             <div class="ms-3 me-3">
-                                               <p class="float-start fw-bold">Application Link</p> 
-                                               <p><a target="_blank" href="<?php //echo $cap['app_link']; ?>" class="float-end">Link Here</a></p>
+                                               <p class="float-start fw-bold">Meeting Time</p>
+                                               <p><span class="float-end"><?php echo $f_start_time . ' - ' . $f_end_time; ?></span></p>
                                             </div>
                                                     
                                                     
