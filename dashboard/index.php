@@ -61,14 +61,14 @@ session_start();
                   <div class="mt-5"></div>
 
                   <div class="d-inline mt-5">
-                    <div class="1">
+                    <span class="1">
                       <h5>
                         45
                       </h5>
                       <p>
                         In Progress
                       </p>
-                    </div>
+                    </span>
                   </div>
 
                   <h5 class="card-title" style="font-size: 65px;">
