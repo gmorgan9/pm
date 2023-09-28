@@ -314,7 +314,7 @@ if(isset($_POST['add-engagement'])){
         <div class="row d-flex">
           <div class="col w-100">
             <label>Engagement Notes</label>
-            <textarea  name="myeditor" placeholder="Product Details" class="form-control" rows="12" cols="50"></textarea>
+            <textarea  name="myeditor" placeholder="Product Details" class="form-control" rows="8" cols="50"></textarea>
             
             
             
