@@ -233,12 +233,12 @@ if(isset($_POST['title'])) {
                                   <div class="pt-3"></div>
                                   <div class="">
                                       <label>Last Name</label>
-                                      <input class="form-control" type="text" name="last_name">
+                                      <input class="form-control" type="text" name="last_name" value="<?php echo $cap['last_name']; ?>">
                                   </div>
                                   <div class="pt-3"></div>
                                   <div class="">
                                     <label>Title</label>
-                                    <select name="title" class="form-control">
+                                    <select name="title" class="form-control" value="<?php echo $cap['title']; ?>">
                                         <option value="">Select one...</option>
                                         <option value="Staff">Staff</option>
                                         <option value="Senior">Senior</option>
