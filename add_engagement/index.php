@@ -256,11 +256,11 @@ if(isset($_POST['add-engagement'])){
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
               <div class="row d-flex">
-                <div class="col w-50 d-flex align-items-center" style="height: 100px;">
+                <div class="col w-50 align-middle" style="height: 100px;">
                   <label>Review End Date</label>
                   <input class="form-control" type="date" name="review_end">
                 </div>
-                <div class="col w-50 d-flex align-items-center" style="height: 100px;">
+                <div class="col w-50 align-middle" style="height: 100px;">
                   <div class="alert alert-primary" role="alert">
                     Only given an "as of date" because of a type 1 engagement.
                   </div>
