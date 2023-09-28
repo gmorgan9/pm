@@ -636,8 +636,8 @@ session_start();
                                             </div>
                                             <br>
                                             <div class="ms-3 me-3">
-                                               <p class="float-start fw-bold">Company</p> 
-                                               <p><span class="float-end"><?php //echo $cap['company']; ?></span></p>
+                                               <p class="float-start fw-bold">Client Name</p> 
+                                               <p><span class="float-end"><?php echo $client_name; ?></span></p>
                                             </div>
                                             <br>
                                             <div class="ms-3 me-3">
