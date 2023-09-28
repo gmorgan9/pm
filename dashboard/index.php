@@ -115,15 +115,26 @@ session_start();
                                   $num_rows = mysqli_num_rows($result);
                                   if($num_rows > 0) {
                                       while ($row = mysqli_fetch_assoc($result)) {
-                                          $personnel_id    = $row['personnel_id'];
+                                          $engagement_id    = $row['engagement_id'];
                                           $id              = $row['idno'];
-                                          $name            = $row['first_name'] . ' ' . $row['last_name'];
-                                          $title           = $row['title'];
+                                          $client_name      = $row['client_name'];
+                                          $status      = $row['status'];
+                                          $review_start           = $row['review_start'];
+                                          $review_end           = $row['review_end'];
+                                          $as_of_date           = $row['as_of_date'];
                           ?>
                           <tr>
                               <th scope="row"><?php echo $id; ?></th>
-                              <td><?php echo $name; ?></td>
-                              <td><?php echo $title; ?></td>
+                              <td><?php echo $client_name; ?></td>
+                              <td><?php echo $status; ?></td>
+                              <td>
+                                <?php 
+                                if (!empty($as_of_date)) {
+                                  echo $review_start . ' - ' . $review_end; 
+                                } else {
+                                  echo $as_of_date;
+                                } ?>
+                              </td>
                               <td style="font-size: 20px;"> 
                               <a href="#" data-bs-toggle="modal" data-bs-target="#viewModal<?php echo $id; ?>" class="view"><i class="bi bi-eye text-success"></i></a> 
                           </tr>
