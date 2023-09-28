@@ -98,6 +98,8 @@ session_start();
                     </div>
                   <!-- end stats -->
 
+                  <div class="mt-3"></div>
+
                   <!-- table -->
                       <table class="table table-default table-hover" style="background-color: transparent;">
                         <thead>
