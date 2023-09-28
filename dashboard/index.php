@@ -172,8 +172,8 @@ session_start();
 
 .timeline-footer {
     background: #fff;
-    border-top: 1px solid #e2e7ec;
-    padding-top: 15px
+    /* border-top: 1px solid #e2e7ec; */
+    /* padding-top: 15px */
 }
 
 .timeline-footer a:not(.btn) {
@@ -588,7 +588,6 @@ session_start();
                           <div class="timeline-body">
                              <div class="timeline-header">
                                 <span class="title"><a href="javascript:;"><?php echo $title; ?></a></span>
-                                <span class="pull-right text-muted">18 Views</span>
                              </div>
                              <div class="timeline-content">
 
