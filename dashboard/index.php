@@ -716,7 +716,7 @@ session_start();
                                           <input type="hidden" name="idno" value="<?php echo $id; ?>">
                                           <div class="col w-100">
                                             <label>Meeting Notes</label>
-                                            <textarea  name="notes" id="editor" class="form-control" rows="8" cols="50"><?php echo $cap['notes']; ?></textarea>
+                                            <textarea name="notes" id="editor" class="form-control" rows="8" cols="50"><?php echo $cap['notes']; ?></textarea>
                                           </div>
                                           <br>
                                           <input type="submit" name="update-add-note" value="Submit" class="btn btn-secondary btn-block">
@@ -763,9 +763,9 @@ session_start();
     <script src="../assets/scripts/dropdown.js?v=5.1.1"></script>
     <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
     <script>
-    window.onload = function() {
+    $('#noteModal<?php echo $id; ?>').on('shown.bs.modal', function () {
         CKEDITOR.replace('editor');
-    };
+    });
 </script>
 
 
