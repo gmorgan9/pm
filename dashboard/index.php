@@ -511,7 +511,9 @@ session_start();
                       <span class="1 me-4">
                         <h5 style="margin-bottom: 0;">
                         <?php 
-                          $sql = "SELECT COUNT(*) as total FROM meetings";
+                          $current_date = date('Y-m-d');
+                          $current_time = date('H:i:s');
+                          $sql = "SELECT COUNT(*) as total FROM meetings WHERE (date > '$current_date') OR (date = '$current_date' AND end_time >= '$current_time')";
                           $result = mysqli_query($conn, $sql);
                           $row = mysqli_fetch_assoc($result);
                           if ($row['total'] < 10) {
