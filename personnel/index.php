@@ -64,12 +64,9 @@ session_start();
             </ol>
           </nav>
 
-          <div class="float-end">
+          <div class="float-end mb-3">
             <button type="button" class="btn btn-secondary"><a href="#" data-bs-toggle="modal" data-bs-target="#newModal" class="view text-white text-decoration-none"><i class="bi bi-plus"></i> Add Personnel</a></button>
           </div>
-          
-
-          <div class="mb-3"></div>
 
 
           <div class="container-fluid main">
