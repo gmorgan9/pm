@@ -95,7 +95,7 @@ session_start();
 }
 
 .timeline .timeline-body {
-    margin-left: 23%;
+    margin-left: 20%;
     margin-right: 20%;
     background: #fff;
     position: relative;
