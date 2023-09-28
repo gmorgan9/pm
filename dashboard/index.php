@@ -551,13 +551,33 @@ session_start();
 
 
 
+                  <?php
 
+                  $sql = "SELECT * FROM meetings";
+                              $result = mysqli_query($conn, $sql);
+                              if($result) {
+                                  $num_rows = mysqli_num_rows($result);
+                                  if($num_rows > 0) {
+                                      while ($row = mysqli_fetch_assoc($result)) {
+                                          $meeting_id    = $row['meeting_id'];
+                                          $id              = $row['idno'];
+                                          $title      = $row['title'];
+                                          $status      = $row['status'];
+                                          $date           = $row['date'];
+                                          $f_date = date("M d, Y", strtotime($date));
+                                          $review_end           = $row['review_end'];
+                                          $f_review_end = date("M d, Y", strtotime($review_end));
+                                          $as_of_date           = $row['as_of_date'];
+                                          $f_as_of_date = date("M d, Y", strtotime($as_of_date));
+
+
+                                          ?>
                   <div class="container">
                     <ul class="timeline">
                        <li>
                           <!-- begin timeline-time -->
                           <div class="timeline-time">
-                             <span class="date">today</span>
+                             <span class="date"><?php echo $date; ?></span>
                              <span class="time">04:20</span>
                           </div>
                           <!-- end timeline-time -->
@@ -674,6 +694,12 @@ session_start();
                        </li>
                     </ul>
                   </div>
+
+                  <?php
+
+                                      }}}
+
+                  ?>
 
 
 
