@@ -567,6 +567,7 @@ session_start();
                               ?>
                       <li>
                         <div class="timeline-time me-3">
+                          <?php echo $current_date; ?>
                           <span class="date"><?php echo $f_date; ?></span>
                           <span class="time"><?php echo $f_start_time; ?></span>
                         </div>
