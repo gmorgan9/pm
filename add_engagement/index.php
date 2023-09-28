@@ -326,9 +326,12 @@ if(isset($_POST['add-engagement'])){
 
         <div class="pt-3"></div>
 
-        <div class="col w-100">
-          <label>Engagement Notes</label>
-          <textarea name="content" id="content"></textarea>
+
+        <div class="row d-flex">
+          <div class="col w-100">
+            <label>Engagement Notes</label>
+            <textarea name="content" id="content"></textarea>
+          </div>
         </div>
         <br>
         <input type="submit" name="add" value="Submit" class="btn btn-light btn-block"> &nbsp;
