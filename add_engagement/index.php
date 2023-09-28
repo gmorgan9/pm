@@ -245,41 +245,20 @@ if(isset($_POST['add-engagement'])){
         <div class="pt-3"></div>
 
         <!-- Start staff row -->
-          <div class="row d-flex">
-
-          <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Type 2</button>
-              <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Type 1</button>
-            </div>
-          </nav>
-          <div class="tab-content" id="nav-tabContent" style="background-color: ##9e9e9e;">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-              <div class="row d-flex">
-                <div class="col w-50 my-auto d-flex flex-column justify-content-center" style="height: 100px;">
-                  <label>Review End Date</label>
-                  <input class="form-control" type="date" name="review_end">
-                </div>
-                <div class="col w-50 my-auto d-flex flex-column justify-content-center" style="height: 100px;">
-                  <div class="alert alert-primary" role="alert">
-                    Only given an "as of date" because of a type 1 engagement.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0" style="height: 100px;">
-            <div class="row d-flex">
-                <div class="col w-50 my-auto d-flex flex-column justify-content-center" style="height: 100px;">
-                  <label>Review Start Date</label>
-                  <input class="form-control" type="date" name="review_start">
-                </div>          
-                <div class="col w-50 my-auto d-flex flex-column justify-content-center" style="height: 100px;">
-                  <label>Review End Date</label>
-                  <input class="form-control" type="date" name="review_end">
-                </div>
-              </div>
-            </div>
+        <div class="row d-flex">
+          <div class="col w-50">
+            <label>Review Start Date</label>
+            <input class="form-control" type="date" name="review_start">
           </div>
+          <div class="col w-50">
+            <label>Review End Date</label>
+            <input class="form-control" type="date" name="review_end">
+          </div>
+          <div class="col w-50">
+            <label>Review "as of" Date</label>
+            <input class="form-control" type="date" name="review_start">
+          </div>
+        </div>
 
 
 
