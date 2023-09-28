@@ -47,7 +47,30 @@ if(isset($_POST['add-engagement'])){
     $CC_draft_date = mysqli_real_escape_string($conn, $_POST['CC_draft_date']);
     $final_report_date = mysqli_real_escape_string($conn, $_POST['final_report_date']);
 
-    $insert = "INSERT INTO engagement (idno, client_name, engagement_type, status, manager, senior, staff_1, staff_2, staff_3, review_start, review_end, as_of_date, evidence_due_date, scope_categories, IRL_delivery_date, IPC_date, CPC_date, fieldwork_call_start, fieldwork_doc_start, closing_meeting_date, draft_date, CC_draft_date, final_report_date) VALUES ('$idno', '$client_name', '$engagement_type', '$status', '$manager', '$senior', '$staff_1', '$staff_2', '$staff_3', '$review_start', '$review_end', '$as_of_date', '$evidence_due_date', '$scope_categories', '$IRL_delivery_date', '$IPC_date', '$CPC_date', '$fieldwork_call_start', '$fieldwork_doc_start', '$closing_meeting_date', '$draft_date', '$CC_draft_date', '$final_report_date')";
+    
+  $insert = "INSERT INTO engagement (idno, client_name, engagement_type, status, manager, senior, staff_1, staff_2, staff_3, review_start, review_end, as_of_date, evidence_due_date, scope_categories, IRL_delivery_date, IPC_date, CPC_date, fieldwork_call_start, fieldwork_doc_start, closing_meeting_date, draft_date, CC_draft_date, final_report_date) VALUES ('$idno', " . 
+            ($client_name != '' ? "'$client_name'" : 'NULL') . ", " .
+            ($engagement_type != '' ? "'$engagement_type'" : 'NULL') . ", " .
+            ($status != '' ? "'$status'" : 'NULL') . ", " .
+            ($manager != '' ? "'$manager'" : 'NULL') . ", " .
+            ($senior != '' ? "'$senior'" : 'NULL') . ", " .
+            ($staff_1 != '' ? "'$staff_1'" : 'NULL') . ", " .
+            ($staff_2 != '' ? "'$staff_2'" : 'NULL') . ", " .
+            ($staff_3 != '' ? "'$staff_3'" : 'NULL') . ", " .
+            ($review_start != '' ? "'$review_start'" : 'NULL') . ", " .
+            ($review_end != '' ? "'$review_end'" : 'NULL') . ", " .
+            ($as_of_date != '' ? "'$as_of_date'" : 'NULL') . ", " .
+            ($evidence_due_date != '' ? "'$evidence_due_date'" : 'NULL') . ", " .
+            ($scope_categories != '' ? "'$scope_categories'" : 'NULL') . ", " .
+            ($IRL_delivery_date != '' ? "'$IRL_delivery_date'" : 'NULL') . ", " .
+            ($IPC_date != '' ? "'$IPC_date'" : 'NULL') . ", " .
+            ($CPC_date != '' ? "'$CPC_date'" : 'NULL') . ", " .
+            ($fieldwork_call_start != '' ? "'$fieldwork_call_start'" : 'NULL') . ", " .
+            ($fieldwork_doc_start != '' ? "'$fieldwork_doc_start'" : 'NULL') . ", " .
+            ($closing_meeting_date != '' ? "'$closing_meeting_date'" : 'NULL') . ", " .
+            ($draft_date != '' ? "'$draft_date'" : 'NULL') . ", " .
+            ($CC_draft_date != '' ? "'$CC_draft_date'" : 'NULL') . ", " .
+            ($final_report_date != '' ? "'$final_report_date'" : 'NULL') . ")";
 
     if (mysqli_query($conn, $insert)) {
         header('location: ../all-engagements.php');
