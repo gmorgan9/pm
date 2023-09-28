@@ -100,11 +100,7 @@ if(isset($_POST['add-engagement'])){
   if(isset($_POST['scope_categories'])) {
     $selectedCategories = $_POST['scope_categories'];
     $scope_categories = implode(", ", $selectedCategories);
-  } else {
-      $scope_categories = "";
-  }
-
-  if(isset($_POST['scope_categories2'])) {
+  } elseif(isset($_POST['scope_categories2'])) {
     $scope_categories = mysqli_real_escape_string($conn, $_POST['scope_categories2']);
   } else {
     $scope_categories = "";
