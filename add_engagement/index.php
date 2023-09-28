@@ -24,51 +24,28 @@ if(isset($_POST['add-engagement'])){
         }
     }
 
-    // $client_name = mysqli_real_escape_string($conn, $_POST['client_name']);
-    // $engagement_type = mysqli_real_escape_string($conn, $_POST['engagement_type']);
-    // $status = mysqli_real_escape_string($conn, $_POST['status']);
-    // $manager = mysqli_real_escape_string($conn, $_POST['manager']);
-    // $senior = mysqli_real_escape_string($conn, $_POST['senior']);
-    // $staff_1 = mysqli_real_escape_string($conn, $_POST['staff_1']);
-    // $staff_2 = mysqli_real_escape_string($conn, $_POST['staff_2']);
-    // $staff_3 = mysqli_real_escape_string($conn, $_POST['staff_3']);
-    // $review_start = mysqli_real_escape_string($conn, $_POST['review_start']);
-    // $review_end = mysqli_real_escape_string($conn, $_POST['review_end']);
-    // $as_of_date = mysqli_real_escape_string($conn, $_POST['as_of_date']);
-    // $evidence_due_date = mysqli_real_escape_string($conn, $_POST['evidence_due_date']);
-    // $scope_categories = mysqli_real_escape_string($conn, $_POST['scope_categories']);
-    // $IRL_delivery_date = mysqli_real_escape_string($conn, $_POST['IRL_delivery_date']);
-    // $IPC_date = mysqli_real_escape_string($conn, $_POST['IPC_date']);
-    // $CPC_date = mysqli_real_escape_string($conn, $_POST['CPC_date']);
-    // $fieldwork_call_start = mysqli_real_escape_string($conn, $_POST['fieldwork_call_start']);
-    // $fieldwork_doc_start = mysqli_real_escape_string($conn, $_POST['fieldwork_doc_start']);
-    // $closing_meeting_date = mysqli_real_escape_string($conn, $_POST['closing_meeting_date']);
-    // $draft_date = mysqli_real_escape_string($conn, $_POST['draft_date']);
-    // $CC_draft_date = mysqli_real_escape_string($conn, $_POST['CC_draft_date']);
-    // $final_report_date = mysqli_real_escape_string($conn, $_POST['final_report_date']);
-
-    $client_name = empty($_POST['client_name']) ? null : mysqli_real_escape_string($conn, $_POST['client_name']);
-$engagement_type = empty($_POST['engagement_type']) ? null : mysqli_real_escape_string($conn, $_POST['engagement_type']);
-$status = empty($_POST['status']) ? null : mysqli_real_escape_string($conn, $_POST['status']);
-$manager = empty($_POST['manager']) ? null : mysqli_real_escape_string($conn, $_POST['manager']);
-$senior = empty($_POST['senior']) ? null : mysqli_real_escape_string($conn, $_POST['senior']);
-$staff_1 = empty($_POST['staff_1']) ? null : mysqli_real_escape_string($conn, $_POST['staff_1']);
-$staff_2 = empty($_POST['staff_2']) ? null : mysqli_real_escape_string($conn, $_POST['staff_2']);
-$staff_3 = empty($_POST['staff_3']) ? null : mysqli_real_escape_string($conn, $_POST['staff_3']);
-$review_start = empty($_POST['review_start']) ? null : mysqli_real_escape_string($conn, $_POST['review_start']);
-$review_end = empty($_POST['review_end']) ? null : mysqli_real_escape_string($conn, $_POST['review_end']);
-$as_of_date = empty($_POST['as_of_date']) ? null : mysqli_real_escape_string($conn, $_POST['as_of_date']);
-$evidence_due_date = empty($_POST['evidence_due_date']) ? null : mysqli_real_escape_string($conn, $_POST['evidence_due_date']);
-$scope_categories = empty($_POST['scope_categories']) ? null : mysqli_real_escape_string($conn, $_POST['scope_categories']);
-$IRL_delivery_date = empty($_POST['IRL_delivery_date']) ? null : mysqli_real_escape_string($conn, $_POST['IRL_delivery_date']);
-$IPC_date = empty($_POST['IPC_date']) ? null : mysqli_real_escape_string($conn, $_POST['IPC_date']);
-$CPC_date = empty($_POST['CPC_date']) ? null : mysqli_real_escape_string($conn, $_POST['CPC_date']);
-$fieldwork_call_start = empty($_POST['fieldwork_call_start']) ? null : mysqli_real_escape_string($conn, $_POST['fieldwork_call_start']);
-$fieldwork_doc_start = empty($_POST['fieldwork_doc_start']) ? null : mysqli_real_escape_string($conn, $_POST['fieldwork_doc_start']);
-$closing_meeting_date = empty($_POST['closing_meeting_date']) ? null : mysqli_real_escape_string($conn, $_POST['closing_meeting_date']);
-$draft_date = empty($_POST['draft_date']) ? null : mysqli_real_escape_string($conn, $_POST['draft_date']);
-$CC_draft_date = empty($_POST['CC_draft_date']) ? null : mysqli_real_escape_string($conn, $_POST['CC_draft_date']);
-$final_report_date = empty($_POST['final_report_date']) ? null : mysqli_real_escape_string($conn, $_POST['final_report_date']);
+    $client_name = mysqli_real_escape_string($conn, $_POST['client_name']);
+    $engagement_type = mysqli_real_escape_string($conn, $_POST['engagement_type']);
+    $status = mysqli_real_escape_string($conn, $_POST['status']);
+    $manager = mysqli_real_escape_string($conn, $_POST['manager']);
+    $senior = mysqli_real_escape_string($conn, $_POST['senior']);
+    $staff_1 = mysqli_real_escape_string($conn, $_POST['staff_1']);
+    $staff_2 = mysqli_real_escape_string($conn, $_POST['staff_2']);
+    $staff_3 = mysqli_real_escape_string($conn, $_POST['staff_3']);
+    $review_start = mysqli_real_escape_string($conn, $_POST['review_start']);
+    $review_end = mysqli_real_escape_string($conn, $_POST['review_end']);
+    $as_of_date = mysqli_real_escape_string($conn, $_POST['as_of_date']);
+    $evidence_due_date = mysqli_real_escape_string($conn, $_POST['evidence_due_date']);
+    $scope_categories = mysqli_real_escape_string($conn, $_POST['scope_categories']);
+    $IRL_delivery_date = mysqli_real_escape_string($conn, $_POST['IRL_delivery_date']);
+    $IPC_date = mysqli_real_escape_string($conn, $_POST['IPC_date']);
+    $CPC_date = mysqli_real_escape_string($conn, $_POST['CPC_date']);
+    $fieldwork_call_start = mysqli_real_escape_string($conn, $_POST['fieldwork_call_start']);
+    $fieldwork_doc_start = mysqli_real_escape_string($conn, $_POST['fieldwork_doc_start']);
+    $closing_meeting_date = mysqli_real_escape_string($conn, $_POST['closing_meeting_date']);
+    $draft_date = mysqli_real_escape_string($conn, $_POST['draft_date']);
+    $CC_draft_date = mysqli_real_escape_string($conn, $_POST['CC_draft_date']);
+    $final_report_date = mysqli_real_escape_string($conn, $_POST['final_report_date']);
 
 
     // if (empty($client_name)) {
@@ -139,7 +116,8 @@ $final_report_date = empty($_POST['final_report_date']) ? null : mysqli_real_esc
     // }
 
 
-    $insert = "INSERT INTO engagement (idno, client_name, engagement_type, status, manager, senior, staff_1, staff_2, staff_3, review_start, review_end, as_of_date, evidence_due_date, scope_categories, IRL_delivery_date, IPC_date, CPC_date, fieldwork_call_start, fieldwork_doc_start, closing_meeting_date, draft_date, CC_draft_date, final_report_date) VALUES ('$idno', '$client_name', '$engagement_type', '$status', '$manager', '$senior', '$staff_1', '$staff_2', '$staff_3', '$review_start', '$review_end', '$as_of_date', '$evidence_due_date', '$scope_categories', '$IRL_delivery_date', '$IPC_date', '$CPC_date', '$fieldwork_call_start', '$fieldwork_doc_start', '$closing_meeting_date', '$draft_date', '$CC_draft_date', '$final_report_date')";
+    $insert = "INSERT INTO engagement (idno, client_name, engagement_type, status, manager, senior, staff_1, staff_2, staff_3, review_start, review_end, as_of_date, evidence_due_date, scope_categories, IRL_delivery_date, IPC_date, CPC_date, fieldwork_call_start, fieldwork_doc_start, closing_meeting_date, draft_date, CC_draft_date, final_report_date) VALUES ('$idno', NULLIF('$client_name',''), NULLIF('$engagement_type',''), NULLIF('$status',''), NULLIF('$manager',''), NULLIF('$senior',''), NULLIF('$staff_1',''), NULLIF('$staff_2',''), NULLIF('$staff_3',''), NULLIF('$review_start',''), NULLIF('$review_end',''), NULLIF('$as_of_date',''), NULLIF('$evidence_due_date',''), NULLIF('$scope_categories',''), NULLIF('$IRL_delivery_date',''), NULLIF('$IPC_date',''), NULLIF('$CPC_date',''), NULLIF('$fieldwork_call_start',''), NULLIF('$fieldwork_doc_start',''), NULLIF('$closing_meeting_date',''), NULLIF('$draft_date',''), NULLIF('$CC_draft_date',''), NULLIF('$final_report_date',''))";
+
 
     if (mysqli_query($conn, $insert)) {
         header('location: ../engagements/');
