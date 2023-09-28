@@ -8,35 +8,56 @@ require_once "../path.php";
 session_start();
 
 if(isset($_POST['add-engagement'])){
-  $idno  = rand(10000, 99999); // figure how to not allow duplicates
-  $short_title = mysqli_real_escape_string($conn, $_POST['short_title']);
-  $title = mysqli_real_escape_string($conn, $_POST['title']);
-  $content = mysqli_real_escape_string($conn, $_POST['content']);
-  $author = mysqli_real_escape_string($conn, $_POST['author']);
-  $category = mysqli_real_escape_string($conn, $_POST['category']);
-  $tags = mysqli_real_escape_string($conn, $_POST['tags']);
-  $status = mysqli_real_escape_string($conn, $_POST['status']);
-  $author_idno = mysqli_real_escape_string($conn, $_POST['author_idno']);
-  $created_date = date("F j, Y");
-  $created_time = date("g:i a");
 
+    $idno = rand(10000, 99999);
 
+    while (true) {
+        $select = "SELECT * FROM engagement WHERE idno = '$idno'";
+        $result = mysqli_query($conn, $select);
 
-  $select = " SELECT * FROM recipes WHERE title = '$title'";
+        if (mysqli_num_rows($result) == 0) {
+            // ID doesn't exist, break out of the loop
+            break;
+        } else {
+            // ID exists, generate a new one
+            $idno = rand(10000, 99999);
+        }
+    }
 
-  $result = mysqli_query($conn, $select);
+    $client_name = mysqli_real_escape_string($conn, $_POST['client_name']);
+    $engagement_type = mysqli_real_escape_string($conn, $_POST['engagement_type']);
+    $status = mysqli_real_escape_string($conn, $_POST['status']);
+    $manager = mysqli_real_escape_string($conn, $_POST['manager']);
+    $senior = mysqli_real_escape_string($conn, $_POST['senior']);
+    $staff_1 = mysqli_real_escape_string($conn, $_POST['staff_1']);
+    $staff_2 = mysqli_real_escape_string($conn, $_POST['staff_2']);
+    $staff_3 = mysqli_real_escape_string($conn, $_POST['staff_3']);
+    $review_start = mysqli_real_escape_string($conn, $_POST['review_start']);
+    $review_end = mysqli_real_escape_string($conn, $_POST['review_end']);
+    $as_of_date = mysqli_real_escape_string($conn, $_POST['as_of_date']);
+    $evidence_due_date = mysqli_real_escape_string($conn, $_POST['evidence_due_date']);
+    $scope_categories = mysqli_real_escape_string($conn, $_POST['scope_categories']);
+    $IRL_delivery_date = mysqli_real_escape_string($conn, $_POST['IRL_delivery_date']);
+    $IPC_date = mysqli_real_escape_string($conn, $_POST['IPC_date']);
+    $CPC_date = mysqli_real_escape_string($conn, $_POST['CPC_date']);
+    $fieldwork_call_start = mysqli_real_escape_string($conn, $_POST['fieldwork_call_start']);
+    $fieldwork_doc_start = mysqli_real_escape_string($conn, $_POST['fieldwork_doc_start']);
+    $closing_meeting_date = mysqli_real_escape_string($conn, $_POST['closing_meeting_date']);
+    $draft_date = mysqli_real_escape_string($conn, $_POST['draft_date']);
+    $CC_draft_date = mysqli_real_escape_string($conn, $_POST['CC_draft_date']);
+    $final_report_date = mysqli_real_escape_string($conn, $_POST['final_report_date']);
 
-  if(mysqli_num_rows($result) > 0){
+    $insert = "INSERT INTO engagement (idno, client_name, engagement_type, status, manager, senior, staff_1, staff_2, staff_3, review_start, review_end, as_of_date, evidence_due_date, scope_categories, IRL_delivery_date, IPC_date, CPC_date, fieldwork_call_start, fieldwork_doc_start, closing_meeting_date, draft_date, CC_draft_date, final_report_date) VALUES ('$idno', '$client_name', '$engagement_type', '$status', '$manager', '$senior', '$staff_1', '$staff_2', '$staff_3', '$review_start', '$review_end', '$as_of_date', '$evidence_due_date', '$scope_categories', '$IRL_delivery_date', '$IPC_date', '$CPC_date', '$fieldwork_call_start', '$fieldwork_doc_start', '$closing_meeting_date', '$draft_date', '$CC_draft_date', '$final_report_date')";
 
-     $error[] = 'title already exist!';
+    if (mysqli_query($conn, $insert)) {
+        header('location: ../all-engagements.php');
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
 
-  }else {
-        $insert = "INSERT INTO recipes (idno, short_title, title, content, author, author_idno, category, tags, created_date, created_time) VALUES ('$idno', '$short_title', '$title','$content','$author','$author_idno','$category', '$tags', '$created_date', '$created_time')";
-        mysqli_query($conn, $insert);
-        header('location: all_recipes.php');
-     }
+    mysqli_close($conn);
+}
 
-};
 
 ?>
 
@@ -231,7 +252,7 @@ if(isset($_POST['add-engagement'])){
             <div class="col w-50 p-3" style="border-top: 1px solid #8c8c8c; border-left: 1px solid #8c8c8c; border-bottom: 1px solid #8c8c8c;">
             <p style="margin-bottom: 0px;">Type 1 Engagement</p>
               <label>Review "as of" Date</label>
-              <input class="form-control" type="date" name="review_start">
+              <input class="form-control" type="date" name="as_of_date">
             </div>
             <div class="col w-50 p-3" style="border-top: 1px solid #8c8c8c; border-left: 1px solid #8c8c8c; border-bottom: 1px solid #8c8c8c;">
             <p style="margin-bottom: 0px;">Type 2 Engagement</p>
@@ -252,23 +273,23 @@ if(isset($_POST['add-engagement'])){
           <div class="row d-flex">
             <div class="col w-25">
               <label>IRL Delivery Date</label>
-              <input class="form-control" type="date" name="review_start">
+              <input class="form-control" type="date" name="IRL_delivery_date">
             </div>
             <div class="col w-25">
               <label>Evidence Due Date</label>
-              <input class="form-control" type="date" name="review_start">
+              <input class="form-control" type="date" name="evidence_due_date">
             </div>
             <div class="col w-25">
               <label>Internal Planning Call</label>
-              <input class="form-control" type="date" name="review_end">
+              <input class="form-control" type="date" name="IPC_date">
             </div>
             <div class="col w-25">
               <label>Client Planning Call</label>
-              <input class="form-control" type="date" name="review_end">
+              <input class="form-control" type="date" name="CPC_date">
             </div>
             <div class="col w-25">
               <label>Fieldwork Call Date</label>
-              <input class="form-control" type="date" name="review_end">
+              <input class="form-control" type="date" name="fieldwork_call_start">
             </div>
           </div>
 
@@ -277,23 +298,23 @@ if(isset($_POST['add-engagement'])){
           <div class="row d-flex flex-wrap">
             <div class="col w-25">
               <label>Fieldwork Documentation Date</label>
-              <input class="form-control" type="date" name="review_start">
+              <input class="form-control" type="date" name="fieldwork_doc_start">
             </div>
             <div class="col w-25">
               <label>Closing Meeting Date</label>
-              <input class="form-control" type="date" name="review_start">
+              <input class="form-control" type="date" name="closing_meeting_date">
             </div>
             <div class="col w-25">
               <label>Draft Date</label>
-              <input class="form-control" type="date" name="review_end">
+              <input class="form-control" type="date" name="draft_date">
             </div>
             <div class="col w-25">
               <label>Client Comment Date</label>
-              <input class="form-control" type="date" name="review_end">
+              <input class="form-control" type="date" name="CC_draft_date">
             </div>
             <div class="col w-25">
               <label>Final Report Date</label>
-              <input class="form-control" type="date" name="review_end">
+              <input class="form-control" type="date" name="final_report_date">
             </div>
           </div>
         <!-- end engagement dates row -->
@@ -307,7 +328,7 @@ if(isset($_POST['add-engagement'])){
           </div>
         </div> -->
         <br>
-        <input type="submit" name="add" value="Submit" class="btn btn-light btn-block"> &nbsp;
+        <input type="submit" name="add-engagement" value="Submit" class="btn btn-light btn-block"> &nbsp;
         <!-- <button class="btn btn-dark btn-block" onclick="window.history.go(-1); return false;">Go Back</button> -->
     </form>
 
