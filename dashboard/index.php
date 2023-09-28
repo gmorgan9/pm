@@ -56,10 +56,10 @@ session_start();
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <p class="card-text">Projects</p>
-                <h5 class="card-title" style="font-size: 100px;">
+                <h5 class="card-title" style="font-size: 80px;">
                   25
                 </h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">2 Completed</h6>
+                <h6 class="card-subtitle mb-2 text-muted">2 Completed</h6>
               </div>
             </div>
 
