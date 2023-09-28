@@ -55,7 +55,7 @@ session_start();
 
             <div class="card" style="width: 18rem;">
               <div class="card-body">
-                <p class="card-text" style="font-size: 24px;">Projects</p>
+                <p class="card-text" style="font-size: 20px;">Projects</p>
                 <h5 class="card-title" style="font-size: 65px;">
                   25
                 </h5>
@@ -63,23 +63,23 @@ session_start();
               </div>
             </div>
 
-            <div class="card" style="width: 18rem; ">
+            <div class="card" style="width: 18rem;">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-text-body-secondary">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <p class="card-text" style="font-size: 20px;">Projects</p>
+                <h5 class="card-title" style="font-size: 65px;">
+                  25
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">2 Completed</h6>
               </div>
             </div>
 
             <div class="card" style="width: 18rem;">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <p class="card-text" style="font-size: 20px;">Projects</p>
+                <h5 class="card-title" style="font-size: 65px;">
+                  25
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">2 Completed</h6>
               </div>
             </div>
 
