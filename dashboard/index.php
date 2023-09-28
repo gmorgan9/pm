@@ -500,7 +500,7 @@ session_start();
           <!-- end project card -->
 
           <!-- start Meetings Card -->
-            <div class="card" style="width: 35%; max-height: 800px; background-color: white !important; border: none; border-radius: 20px !important;">
+            <div class="card" style="overflow: hidden; width: 35%; max-height: 800px; background-color: white !important; border: none; border-radius: 20px !important;">
               <div class="card-body">
                 <p class="card-text" style="font-size: 28px;">Meetings</p>
 
@@ -537,7 +537,7 @@ session_start();
 
 
                   <!-- timeline -->
-                    <div class="container" style="overflow: hidden;">
+                    <div class="container" style="">
                       <ul class="timeline">
                         <?php
                           $current_date = date('Y-m-d');
