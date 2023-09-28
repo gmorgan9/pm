@@ -256,13 +256,15 @@ if(isset($_POST['add-engagement'])){
           <div class="tab-content" id="nav-tabContent">
              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
 
-                <div class="col w-50">
-                  <label>Review Start Date</label>
-                  <input class="form-control" type="date" name="review_start">
-                </div>          
-                <div class="col w-50">
-                  <label>Review End Date</label>
-                  <input class="form-control" type="date" name="review_end">
+                <div class="row d-flex">
+                  <div class="col w-50">
+                    <label>Review Start Date</label>
+                    <input class="form-control" type="date" name="review_start">
+                  </div>          
+                  <div class="col w-50">
+                    <label>Review End Date</label>
+                    <input class="form-control" type="date" name="review_end">
+                  </div>
                 </div>
 
               </div>
