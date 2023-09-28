@@ -157,7 +157,6 @@ if(isset($_POST['add-engagement'])){
   }
 
 
-
     // $client_name = mysqli_real_escape_string($conn, $_POST['client_name']);
     // $engagement_type = mysqli_real_escape_string($conn, $_POST['engagement_type']);
     // $status = mysqli_real_escape_string($conn, $_POST['status']);
@@ -182,75 +181,7 @@ if(isset($_POST['add-engagement'])){
     // $final_report_date = mysqli_real_escape_string($conn, $_POST['final_report_date']);
 
 
-    // if (empty($client_name)) {
-    //   $client_name = null;
-    // }
-    // if (empty($engagement_type)) {
-    //   $engagement_type = 0;
-    // }
-    // if (empty($status)) {
-    //   $status = 0;
-    // }
-    // if (empty($manager)) {
-    //   $manager = 0;
-    // }
-    // if (empty($senior)) {
-    //   $senior = 0;
-    // }
-    // if (empty($staff_1)) {
-    //   $staff_1 = 0;
-    // }
-    // if (empty($staff_2)) {
-    //   $staff_2 = 0;
-    // }
-    // if (empty($staff_3)) {
-    //   $staff_3 = 0;
-    // }
-    // if (empty($review_start)) {
-    //   $review_start = 0;
-    // }
-    // if (empty($review_end)) {
-    //   $review_end = 0;
-    // }
-    // if (empty($as_of_date)) {
-    //   $as_of_date = 0;
-    // }
-    // if (empty($evidence_due_date)) {
-    //   $evidence_due_date = 0;
-    // }
-    // if (empty($scope_categories)) {
-    //   $scope_categories = 0;
-    // }
-    // if (empty($IRL_delivery_date)) {
-    //   $IRL_delivery_date = 0;
-    // }
-    // if (empty($IPC_date)) {
-    //   $IPC_date = 0;
-    // }
-    // if (empty($CPC_date)) {
-    //   $CPC_date = 0;
-    // }
-    // if (empty($fieldwork_call_start)) {
-    //   $fieldwork_call_start = 0;
-    // }
-    // if (empty($fieldwork_doc_start)) {
-    //   $fieldwork_doc_start = 0;
-    // }
-    // if (empty($closing_meeting_date)) {
-    //   $closing_meeting_date = 0;
-    // }
-    // if (empty($draft_date)) {
-    //   $draft_date = 0;
-    // }
-    // if (empty($CC_draft_date)) {
-    //   $CC_draft_date = 0;
-    // }
-    // if (empty($final_report_date)) {
-    //   $final_report_date = 0;
-    // }
-
-
-    $insert = "INSERT INTO engagement (idno, client_name, engagement_type, status, manager) VALUES ('$idno', NULLIF('$client_name',''), NULLIF('$engagement_type',''), NULLIF('$status',''), NULLIF('$manager',''))";
+    $insert = "INSERT INTO engagement (idno, client_name, engagement_type, status, manager, senior, staff_1, staff_2, staff_3, review_start, review_end, as_of_date, evidence_due_date, IRL_delivery_date, IPC_date, CPC_date, fieldwork_call_start, fieldwork_doc_start, closing_meeting_date, draft_date, CC_draft_date, final_report_date) VALUES ('$idno', NULLIF('$client_name',''), NULLIF('$engagement_type',''), NULLIF('$status',''), NULLIF('$manager',''), NULLIF('$senior',''), NULLIF('$staff_1',''), NULLIF('$staff_2',''), NULLIF('$staff_3',''), NULLIF('$review_start',''), NULLIF('$review_end',''), NULLIF('$as_of_date',''), NULLIF('$evidence_due_date',''), NULLIF('$IRL_delivery_date',''), NULLIF('$IPC_date',''), NULLIF('$CPC_date',''), NULLIF('$fieldwork_call_start',''), NULLIF('$fieldwork_doc_start',''), NULLIF('$closing_meeting_date',''), NULLIF('$draft_date',''), NULLIF('$CC_draft_date',''), NULLIF('$final_report_date',''))";
 
 
     if (mysqli_query($conn, $insert)) {
@@ -355,7 +286,7 @@ if(isset($_POST['add-engagement'])){
             <div class="col w-50">
               <label>Manager</label>
               <select name="manager" class="form-control">
-                  <option value="none">Select one...</option>
+                  <option value="">Select one...</option>
                   <?php
                   $query ="SELECT * FROM team_members where title = 'Manager'";
                   $result = $conn->query($query);
@@ -374,7 +305,7 @@ if(isset($_POST['add-engagement'])){
             <div class="col w-50">
               <label>Senior</label>
               <select style="" name="senior" class="form-control">
-                  <option value="none">Select one...</option>
+                  <option value="">Select one...</option>
                   <?php
                   $query ="SELECT * FROM team_members where title = 'Senior'";
                   $result = $conn->query($query);
@@ -393,7 +324,7 @@ if(isset($_POST['add-engagement'])){
             <div class="col w-25">
               <label>Staff 1</label>
               <select name="staff_1" class="form-control">
-                  <option value="none">Select one...</option>
+                  <option value="">Select one...</option>
                   <?php
                   $query ="SELECT * FROM team_members where title = 'Staff'";
                   $result = $conn->query($query);
@@ -412,7 +343,7 @@ if(isset($_POST['add-engagement'])){
             <div class="col w-25">
               <label>Staff 2</label>
               <select style="" name="staff_2" class="form-control">
-                  <option value="none">Select one...</option>
+                  <option value="">Select one...</option>
                   <?php
                   $query ="SELECT * FROM team_members where title = 'Staff'";
                   $result = $conn->query($query);
@@ -431,7 +362,7 @@ if(isset($_POST['add-engagement'])){
             <div class="col w-25">
               <label>Staff 3</label>
               <select name="staff_3" class="form-control">
-                  <option value="none">Select one...</option>
+                  <option value="">Select one...</option>
                   <?php
                   $query ="SELECT * FROM team_members where title = 'Staff'";
                   $result = $conn->query($query);
@@ -456,17 +387,17 @@ if(isset($_POST['add-engagement'])){
             <div class="col w-50 p-3" style="border-top: 1px solid #8c8c8c; border-left: 1px solid #8c8c8c; border-bottom: 1px solid #8c8c8c;">
             <p style="margin-bottom: 0px;">Type 1 Engagement</p>
               <label>Review "as of" Date</label>
-              <input class="form-control" type="date" name="as_of_date">
+              <input class="form-control" type="date" name="as_of_date" value="">
             </div>
             <div class="col w-50 p-3" style="border-top: 1px solid #8c8c8c; border-left: 1px solid #8c8c8c; border-bottom: 1px solid #8c8c8c;">
             <p style="margin-bottom: 0px;">Type 2 Engagement</p>
               <label>Review Start Date</label>
-              <input class="form-control" type="date" name="review_start">
+              <input class="form-control" type="date" name="review_start" value="">
             </div>
             <div class="col w-50 p-3" style="border-top: 1px solid #8c8c8c; border-right: 1px solid #8c8c8c; border-bottom: 1px solid #8c8c8c;">
             <p style="color: #e3e3e3;margin-bottom: 0px;">.</p>
               <label>Review End Date</label>
-              <input class="form-control" type="date" name="review_end">
+              <input class="form-control" type="date" name="review_end" value="">
             </div>
           </div>
         <!-- end review date row -->
@@ -477,23 +408,23 @@ if(isset($_POST['add-engagement'])){
           <div class="row d-flex">
             <div class="col w-25">
               <label>IRL Delivery Date</label>
-              <input class="form-control" type="date" name="IRL_delivery_date">
+              <input class="form-control" type="date" name="IRL_delivery_date" value="">
             </div>
             <div class="col w-25">
               <label>Evidence Due Date</label>
-              <input class="form-control" type="date" name="evidence_due_date">
+              <input class="form-control" type="date" name="evidence_due_date" value="">
             </div>
             <div class="col w-25">
               <label>Internal Planning Call</label>
-              <input class="form-control" type="date" name="IPC_date">
+              <input class="form-control" type="date" name="IPC_date" value="">
             </div>
             <div class="col w-25">
               <label>Client Planning Call</label>
-              <input class="form-control" type="date" name="CPC_date">
+              <input class="form-control" type="date" name="CPC_date" value="">
             </div>
             <div class="col w-25">
               <label>Fieldwork Call Date</label>
-              <input class="form-control" type="date" name="fieldwork_call_start">
+              <input class="form-control" type="date" name="fieldwork_call_start" value="">
             </div>
           </div>
 
@@ -502,23 +433,23 @@ if(isset($_POST['add-engagement'])){
           <div class="row d-flex flex-wrap">
             <div class="col w-25">
               <label>Fieldwork Documentation Date</label>
-              <input class="form-control" type="date" name="fieldwork_doc_start">
+              <input class="form-control" type="date" name="fieldwork_doc_start" value="">
             </div>
             <div class="col w-25">
               <label>Closing Meeting Date</label>
-              <input class="form-control" type="date" name="closing_meeting_date">
+              <input class="form-control" type="date" name="closing_meeting_date" value="">
             </div>
             <div class="col w-25">
               <label>Draft Date</label>
-              <input class="form-control" type="date" name="draft_date">
+              <input class="form-control" type="date" name="draft_date" value="">
             </div>
             <div class="col w-25">
               <label>Client Comment Date</label>
-              <input class="form-control" type="date" name="CC_draft_date">
+              <input class="form-control" type="date" name="CC_draft_date" value="">
             </div>
             <div class="col w-25">
               <label>Final Report Date</label>
-              <input class="form-control" type="date" name="final_report_date">
+              <input class="form-control" type="date" name="final_report_date" value="">
             </div>
           </div>
         <!-- end engagement dates row -->
