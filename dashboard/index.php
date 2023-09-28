@@ -764,7 +764,7 @@ session_start();
     <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
     <script>
     window.onload = function() {
-        CKEDITOR.replace('myeditor');
+        CKEDITOR.replace('editor');
     };
 </script>
 
