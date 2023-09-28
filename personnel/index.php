@@ -64,6 +64,11 @@ session_start();
             </ol>
           </nav>
 
+          <div class="float-end">
+            <button type="button" class="btn btn-secondary"><a href="#" data-bs-toggle="modal" data-bs-target="#viewModal<?php echo $id; ?>" class="view"><i class="bi bi-eye text-success"></i></a></button>
+          </div>
+          
+
 
 
           <div class="container-fluid main">
