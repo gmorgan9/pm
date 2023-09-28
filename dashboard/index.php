@@ -612,11 +612,63 @@ session_start();
                               </div>
                             </div>
                           </li>
+
+                          <!-- VIEW Modal -->
+                            <div class="modal fade" id="viewModal<?php echo $id; ?>" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="viewModalLabel">View Engagement</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                        <?php
+                                          $new = "SELECT * FROM meeting WHERE idno=$id";
+                                          $new1 = mysqli_query($conn, $new);
+                                          if($new1) {
+                                            while ($cap = mysqli_fetch_assoc($new1)) {       
+                                        ?> 
+                                                    
+                                            <div class="ms-3 me-3">
+                                               <p class="float-start fw-bold">Meeting Title</p> 
+                                               <p><span class="float-end"><?php echo $cap['title']; ?></span></p>
+                                            </div>
+                                            <br>
+                                            <div class="ms-3 me-3">
+                                               <p class="float-start fw-bold">Company</p> 
+                                               <p><span class="float-end"><?php //echo $cap['company']; ?></span></p>
+                                            </div>
+                                            <br>
+                                            <div class="ms-3 me-3">
+                                               <p class="float-start fw-bold">Location</p>
+                                               <p><span class="float-end"><?php //echo $cap['location']; ?></span></p>
+                                            </div>
+                                            <br>
+                                            <div class="ms-3 me-3">
+                                               <p class="float-start fw-bold">Application Link</p> 
+                                               <p><a target="_blank" href="<?php //echo $cap['app_link']; ?>" class="float-end">Link Here</a></p>
+                                            </div>
+                                                    
+                                                    
+                                                    
+                                            <?php } } ?>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          <!-- end VIEW Modal -->
+
                           <?php } } ?>
                         </ul>
                       </div>
                     </div>
                   <!-- end timeline -->
+
+
 
 
               </div>
