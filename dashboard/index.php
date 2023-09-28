@@ -548,7 +548,7 @@ session_start();
                   <div class="container">
                     <ul class="timeline">
                       <?php
-                        $current_date = date();
+                        $current_date = date('Y-m-d');
                         $sql = "SELECT * FROM meetings";
                         $result = mysqli_query($conn, $sql);
                         if ($result) {
