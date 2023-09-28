@@ -247,6 +247,7 @@ if(isset($_POST['add-engagement'])){
         <!-- Start staff row -->
         <div class="row d-flex">
           <div class="col w-50 p-3" style="border-top: 1px solid black; border-left: 1px solid black; border-bottom: 1px solid black;">
+          <p>Type 2 Engagement</p>
             <label>Review Start Date</label>
             <input class="form-control" type="date" name="review_start">
           </div>
