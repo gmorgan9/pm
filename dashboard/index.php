@@ -135,9 +135,11 @@ session_start();
                                 <?php 
                                 if (!empty($as_of_date)) {
                                     echo $f_as_of_date;
-                                } else {
+                                } elseif (!empty($review_start)) {
                                     echo $f_review_start . ' - ' . $f_review_end;
-                                } 
+                                } else {
+                                  echo '-';
+                                }
                                 ?>
                               </td>
                               <td style="font-size: 20px;"> 
