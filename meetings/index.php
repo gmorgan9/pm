@@ -63,8 +63,14 @@ session_start();
     $end_time = "";
   }
 
+  if(isset($_POST['engagement_id'])) {
+    $engagement_id = mysqli_real_escape_string($conn, $_POST['engagement_id']);
+  } else {
+    $engagement_id = "";
+  }
 
-    $insert = "INSERT INTO meetings (idno, title, date, start_time, end_time) VALUES ('$idno', NULLIF('$title',''), NULLIF('$date',''), NULLIF('$start_time',''), NULLIF('$end_time',''))";
+
+    $insert = "INSERT INTO meetings (idno, title, date, start_time, end_time, engagement_id) VALUES ('$idno', NULLIF('$title',''), NULLIF('$date',''), NULLIF('$start_time',''), NULLIF('$end_time',''), NULLIF('$engagement_id',''))";
 
 
     if (mysqli_query($conn, $insert)) {
