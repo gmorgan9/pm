@@ -729,7 +729,7 @@ session_start();
                                           <input type="hidden" name="idno" value="<?php echo $id; ?>">
                                           <div class="col w-100">
                                             <label>Meeting Notes</label>
-                                            <textarea name="notes" id="editor" class="form-control" rows="8" cols="50"><?php echo $cap['notes']; ?></textarea>
+                                            <textarea name="notes" id="editor<?php echo $id; ?>" class="form-control" rows="8" cols="50"><?php echo $cap['notes']; ?></textarea>
                                         </div>
                                           <br>
                                           <input type="submit" name="update-add-note" value="Submit" class="btn btn-secondary btn-block">
@@ -777,13 +777,10 @@ session_start();
     <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Get all elements with class 'editor' and initialize CKEditor for each one
-        var editorElements = document.querySelectorAll('.editor');
-        editorElements.forEach(function (element) {
-            CKEDITOR.replace(element);
-        });
+        CKEDITOR.replace('editor<?php echo $id; ?>'); // Use a unique ID for each modal, e.g., 'editor1', 'editor2', etc.
     });
 </script>
+
 
 
 
