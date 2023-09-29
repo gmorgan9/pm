@@ -775,11 +775,16 @@ session_start();
 
     <script src="../assets/scripts/dropdown.js?v=5.1.1"></script>
     <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
-    <script>
+<script>
     document.addEventListener("DOMContentLoaded", function () {
-        CKEDITOR.replace('editor');
+        // Get all elements with class 'editor' and initialize CKEditor for each one
+        var editorElements = document.querySelectorAll('.editor');
+        editorElements.forEach(function (element) {
+            CKEDITOR.replace(element);
+        });
     });
 </script>
+
 
 
     <script>
