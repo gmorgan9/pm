@@ -730,7 +730,7 @@ session_start();
                                           <input type="hidden" name="idno" value="<?php echo $id; ?>">
                                           <div class="col w-100">
                                             <label>Meeting Notes</label>
-                                            <textarea name="notes" id="editor" class="form-control" rows="8" cols="50"><?php echo $cap['notes']; ?></textarea>
+                                            <textarea name="notes" id="editor<?php echo $id; ?>" class="form-control" rows="8" cols="50"><?php echo $cap['notes']; ?></textarea>
                                         </div>
                                           <br>
                                           <input type="submit" name="update-add-note" value="Submit" class="btn btn-secondary btn-block">
@@ -738,7 +738,7 @@ session_start();
 
                                         <script>
                                             $('#noteModal<?php echo $id; ?>').on('shown.bs.modal', function () {
-                                                CKEDITOR.replace('editor'); // 'editor' is the ID of the textarea element
+                                                CKEDITOR.replace('editor<?php echo $id; ?>'); // 'editor' is the ID of the textarea element
                                             });
                                         </script>
 
