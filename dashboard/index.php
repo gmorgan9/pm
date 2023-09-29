@@ -685,7 +685,7 @@ session_start();
 
                                             <br>
                                             <hr>
-                                            <div class="ms-3"  style="max-height: 300px; overflow-y: auto;">
+                                            <div class="ms-3"  style="max-height: 500px; overflow-y: auto;">
                                                <p class="fw-bold">Notes</p>
                                                <p><span class=""><?php echo $notes; ?></span></p>
                                             </div>
