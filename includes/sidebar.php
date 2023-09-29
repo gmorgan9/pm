@@ -31,20 +31,10 @@
                     <li><a class="nav-link" href="../add_engagement/">Add Engagement</a></li>
                 </ul>
             </li>
-            <li class="nav-item has-submenu soc-1">
-                <a class="sidebar-link d-flex justify-content-between" href="#">
-                    <div>
-                        <i class="bi bi-calendar-week"></i>&nbsp;&nbsp;&nbsp;Meetings
-                    </div>
-                    <div class="right">
-                        <i class="bi bi-plus icon-plus"></i>
-                        <i class="bi bi-dash icon-dash d-none"></i>
-                    </div>
+            <li class="nav-item">
+                <a class="sidebar-link" href="../meetings/">
+                    <i class="bi bi-calendar-week"></i>&nbsp;&nbsp;&nbsp;Meetings
                 </a>
-                <ul class="submenu collapse">
-                    <li><a class="nav-link" href="../meetings/">All Meetings</a></li>
-                    <li><a class="nav-link" href="../add_meeting/">Add Meeting</a></li>
-                </ul>
             </li>
             <li class="nav-item">
                 <a class="sidebar-link" href="../personnel/">
