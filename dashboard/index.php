@@ -641,7 +641,7 @@ session_start();
 
                           <!-- VIEW Modal -->
                             <div class="modal fade" id="viewModal<?php echo $id; ?>" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                                <div class="modal-dialog modal-lg ">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="viewModalLabel">View Engagement</h5>
@@ -685,7 +685,7 @@ session_start();
 
                                             <br>
                                             <hr>
-                                            <div class="ms-3">
+                                            <div class="ms-3"  style="max-height: 300px; overflow-y: auto;">
                                                <p class="fw-bold">Notes</p>
                                                <p><span class=""><?php echo $notes; ?></span></p>
                                             </div>
