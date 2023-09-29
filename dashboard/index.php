@@ -684,7 +684,7 @@ session_start();
                                             </div>
 
                                             <br>
-                                            <div class="ms-3 me-3">
+                                            <div class="">
                                                <p class="fw-bold">Notes</p> <br>
                                                <p><span class=""><?php echo $notes; ?></span></p>
                                             </div>
