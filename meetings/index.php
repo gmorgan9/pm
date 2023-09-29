@@ -339,7 +339,7 @@ session_start();
         <br>
         <?php
             // Pagination links
-            $sql = "SELECT COUNT(*) as total FROM personnel";
+            $sql = "SELECT COUNT(*) as total FROM meetings";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
             $total_pages = ceil($row["total"] / $limit);
