@@ -685,7 +685,6 @@ session_start();
 
                                             <br>
                                             <hr>
-                                            <br>
                                             <div class="ms-3">
                                                <p class="fw-bold">Notes</p>
                                                <p><span class=""><?php echo $notes; ?></span></p>
