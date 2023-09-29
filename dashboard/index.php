@@ -686,8 +686,12 @@ session_start();
                                             <br>
                                             <hr>
                                             <div class="ms-3"  style="max-height: 500px; overflow-y: auto;">
-                                               <p class="fw-bold">Notes</p>
-                                               <p><span class=""><?php echo $notes; ?></span></p>
+                                                <p class="fw-bold">Notes</p>
+                                                <?php if(isempty($notes)) { ?>
+                                                  <p><span class="">No notes recoreded!</span></p>
+                                                <?php } else { ?>
+                                                  <p><span class=""><?php echo $notes; ?></span></p>
+                                                <?php } ?>
                                             </div>
                                                     
                                                     
