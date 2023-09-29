@@ -51,20 +51,20 @@ session_start();
       $date = "";
   }
 
-  if(isset($_POST['start_date'])) {
-      $start_date = mysqli_real_escape_string($conn, $_POST['start_date']);
+  if(isset($_POST['start_time'])) {
+      $start_time = mysqli_real_escape_string($conn, $_POST['start_time']);
   } else {
-      $start_date = "";
+      $start_time = "";
   }
 
-  if(isset($_POST['end_date'])) {
-    $end_date = mysqli_real_escape_string($conn, $_POST['end_date']);
+  if(isset($_POST['end_time'])) {
+    $end_time = mysqli_real_escape_string($conn, $_POST['end_time']);
   } else {
-    $end_date = "";
+    $end_time = "";
   }
 
 
-    $insert = "INSERT INTO meetings (idno, first_name, last_name, title, end_date) VALUES ('$idno', NULLIF('$title',''), NULLIF('$date',''), NULLIF('$start_date',''), NULLIF('$end_date',''))";
+    $insert = "INSERT INTO meetings (idno, title, date, start_time, end_time) VALUES ('$idno', NULLIF('$title',''), NULLIF('$date',''), NULLIF('$start_time',''), NULLIF('$end_time',''))";
 
 
     if (mysqli_query($conn, $insert)) {
