@@ -251,11 +251,16 @@ session_start();
                                 $title           = $row['title'];
                                 $date           = $row['date'];
                                 $f_date        = date("M d, Y", strtotime($date));
+                                $start_time    = $row['start_time'];
+                                $f_start_time  = date("h:i A", strtotime($start_time));
+                                $end_time      = $row['end_time'];
+                                $f_end_time    = date("h:i A", strtotime($end_time));
                 ?>
                 <tr>
                     <th scope="row"><?php echo $id; ?></th>
                     <td><?php echo $title; ?></td>
                     <td><?php echo $f_date; ?></td>
+                    <td><?php echo $f_start_time . ' - ' . $f_end_time; ?></td>
                     <td style="font-size: 20px;"> 
                     <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal<?php echo $id; ?>" class="update"><i class="bi bi-pencil-square" style="color:#005382;"></i></a>
                     &nbsp; 
