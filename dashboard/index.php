@@ -683,7 +683,9 @@ session_start();
                                                <p><span class="float-end"><?php echo $f_start_time . ' - ' . $f_end_time; ?></span></p>
                                             </div>
 
-                                            <br><br>
+                                            <br>
+                                            <hr>
+                                            <br>
                                             <div class="ms-3">
                                                <p class="fw-bold">Notes</p>
                                                <p><span class=""><?php echo $notes; ?></span></p>
