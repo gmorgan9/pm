@@ -211,7 +211,7 @@ session_start();
                           </select>
                         </div>
                         <div class="pt-3"></div>
-                        <input type="submit" name="add-meetings" value="Submit" class="btn btn-secondary btn-block">
+                        <input type="submit" name="add-meeting" value="Submit" class="btn btn-secondary btn-block">
                       </form>
                       </div>
                       <div class="modal-footer">
