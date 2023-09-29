@@ -194,7 +194,7 @@ session_start();
                         <div class="pt-3"></div>
                         <div class="">
                           <label>Title</label>
-                          <select name="title" class="form-control">
+                          <select name="engagement_id" class="form-control">
                               <option value="">Select one...</option>
                               <?php
                               $query ="SELECT * FROM engagement";
