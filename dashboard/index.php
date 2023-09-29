@@ -617,6 +617,7 @@ session_start();
                                 <a class="text-muted" href="#" data-bs-toggle="modal" data-bs-target="#noteModal<?php echo $id; ?>" class="view"><i class="bi bi-journal-text"></i></a>
                                 <?php } else { ?>
                                 <span class="title"><a href="#" data-bs-toggle="modal" data-bs-target="#viewModal<?php echo $id; ?>" class="view"><?php echo $title; ?></a></span>
+                                <a class="text-muted" href="#" data-bs-toggle="modal" data-bs-target="#noteModal<?php echo $id; ?>" class="view"><i class="bi bi-journal-text"></i></a>
                                 <?php } ?>
                               </div>
                               <div class="timeline-content">
