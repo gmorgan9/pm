@@ -230,6 +230,7 @@ session_start();
                 <th scope="col">ID Number</th>
                 <th scope="col">Title</th>
                 <th scope="col">Date</th>
+                <th scope="col">Time</th>
                 <th scope="col">Actions</th>
                 </tr>
             </thead>
