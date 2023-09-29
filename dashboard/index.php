@@ -46,6 +46,7 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="../assets/scripts/timeout.js?v=3.0"></script>
+    <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
 
     <style>
     .timeline {
@@ -735,6 +736,12 @@ session_start();
                                           <input type="submit" name="update-add-note" value="Submit" class="btn btn-secondary btn-block">
                                         </form>
 
+                                        <script>
+                                            $('#noteModal<?php echo $id; ?>').on('shown.bs.modal', function () {
+                                                CKEDITOR.replace('editor'); // 'editor' is the ID of the textarea element
+                                            });
+                                        </script>
+
                                         <?php } } ?>
                                                     
                                                     
@@ -774,12 +781,8 @@ session_start();
 
 
     <script src="../assets/scripts/dropdown.js?v=5.1.1"></script>
-    <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
-<script>
-    $('#noteModal<?php echo $id; ?>').on('shown.bs.modal', function () {
-        CKEDITOR.replace('editor'); // 'editor' is the ID of the textarea element
-    });
-</script>
+    
+
 
 
 
