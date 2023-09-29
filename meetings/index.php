@@ -22,12 +22,12 @@ session_start();
 
 <!-- add personnel -->
   <?php
-  if(isset($_POST['add-personnel'])){
+  if(isset($_POST['add-meeting'])){
 
     $idno = rand(10000, 99999);
 
     while (true) {
-        $select = "SELECT * FROM personnel WHERE idno = '$idno'";
+        $select = "SELECT * FROM meetings WHERE idno = '$idno'";
         $result = mysqli_query($conn, $select);
 
         if (mysqli_num_rows($result) == 0) {
@@ -39,30 +39,36 @@ session_start();
         }
     }
 
-    if(isset($_POST['first_name'])) {
-      $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
-  } else {
-      $first_name = "";
-  }
-
-  if(isset($_POST['last_name'])) {
-      $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
-  } else {
-      $last_name = "";
-  }
-
-  if(isset($_POST['title'])) {
+    if(isset($_POST['title'])) {
       $title = mysqli_real_escape_string($conn, $_POST['title']);
   } else {
       $title = "";
   }
 
+  if(isset($_POST['date'])) {
+      $date = mysqli_real_escape_string($conn, $_POST['date']);
+  } else {
+      $date = "";
+  }
 
-    $insert = "INSERT INTO personnel (idno, first_name, last_name, title) VALUES ('$idno', NULLIF('$first_name',''), NULLIF('$last_name',''), NULLIF('$title',''))";
+  if(isset($_POST['start_date'])) {
+      $start_date = mysqli_real_escape_string($conn, $_POST['start_date']);
+  } else {
+      $start_date = "";
+  }
+
+  if(isset($_POST['end_date'])) {
+    $end_date = mysqli_real_escape_string($conn, $_POST['end_date']);
+  } else {
+    $end_date = "";
+  }
+
+
+    $insert = "INSERT INTO meetings (idno, first_name, last_name, title, end_date) VALUES ('$idno', NULLIF('$title',''), NULLIF('$date',''), NULLIF('$start_date',''), NULLIF('$end_date',''))";
 
 
     if (mysqli_query($conn, $insert)) {
-        header('location: ../personnel/');
+        header('location: ../meetings/');
     } else {
         echo "Error: " . mysqli_error($conn);
     }
@@ -205,7 +211,7 @@ session_start();
                           </select>
                         </div>
                         <div class="pt-3"></div>
-                        <input type="submit" name="add-personnel" value="Submit" class="btn btn-secondary btn-block">
+                        <input type="submit" name="add-meetings" value="Submit" class="btn btn-secondary btn-block">
                       </form>
                       </div>
                       <div class="modal-footer">
@@ -222,8 +228,8 @@ session_start();
             <thead>
                 <tr>
                 <th scope="col">ID Number</th>
-                <th scope="col">Name</th>
                 <th scope="col">Title</th>
+                <th scope="col">Date</th>
                 <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -234,21 +240,22 @@ session_start();
                     $page = isset($_GET['page']) ? $_GET['page'] : 1;
                     $offset = ($page - 1) * $limit;
                     
-                    $sql = "SELECT * FROM personnel ORDER BY created_at ASC LIMIT $limit OFFSET $offset";
+                    $sql = "SELECT * FROM meetings ORDER BY date ASC, start_time ASC LIMIT $limit OFFSET $offset";
                     $result = mysqli_query($conn, $sql);
                     if($result) {
                         $num_rows = mysqli_num_rows($result);
                         if($num_rows > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
-                                $personnel_id    = $row['personnel_id'];
+                                $meeting_id    = $row['meeting_id'];
                                 $id              = $row['idno'];
-                                $name            = $row['first_name'] . ' ' . $row['last_name'];
                                 $title           = $row['title'];
+                                $date           = $row['date'];
+                                $f_date        = date("M d, Y", strtotime($date));
                 ?>
                 <tr>
                     <th scope="row"><?php echo $id; ?></th>
-                    <td><?php echo $name; ?></td>
                     <td><?php echo $title; ?></td>
+                    <td><?php echo $f_date; ?></td>
                     <td style="font-size: 20px;"> 
                     <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal<?php echo $id; ?>" class="update"><i class="bi bi-pencil-square" style="color:#005382;"></i></a>
                     &nbsp; 
