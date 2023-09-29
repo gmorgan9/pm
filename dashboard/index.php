@@ -659,7 +659,8 @@ session_start();
                                               $start_time    = $cap['start_time'];
                                               $f_start_time  = date("h:i A", strtotime($start_time));
                                               $end_time      = $cap['end_time'];
-                                              $f_end_time    = date("h:i A", strtotime($end_time));     
+                                              $f_end_time    = date("h:i A", strtotime($end_time));   
+                                              $notes  = $cap['notes'];  
                                         ?> 
                                                     
                                             <div class="ms-3 me-3">
@@ -681,6 +682,11 @@ session_start();
                                                <p class="float-start fw-bold">Meeting Time</p>
                                                <p><span class="float-end"><?php echo $f_start_time . ' - ' . $f_end_time; ?></span></p>
                                             </div>
+
+                                            <div class="ms-3 me-3">
+                                               <p class="float-start fw-bold">Notes</p>
+                                               <p><span class="float-end"><?php echo $notes; ?></span></p>
+                                            </div>
                                                     
                                                     
                                                     
@@ -694,8 +700,8 @@ session_start();
                             </div>
                           <!-- end VIEW Modal -->
 
-                          <!-- VIEW Modal -->
-                          <div class="modal fade" id="noteModal<?php echo $id; ?>" tabindex="-1" aria-labelledby="noteModalLabel" aria-hidden="true">
+                          <!-- NOTE Modal -->
+                            <div class="modal fade" id="noteModal<?php echo $id; ?>" tabindex="-1" aria-labelledby="noteModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-xl">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -734,7 +740,7 @@ session_start();
                                     </div>
                                 </div>
                             </div>
-                          <!-- end VIEW Modal -->
+                          <!-- end NOTE Modal -->
 
                           <?php } } ?>
                         </ul>
